@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Import Custom SB Admin 2 Variables (Overrides Default Bootstrap Variables)
+@import "variables.scss";
+
+// Import Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Import Custom SB Admin 2 Mixins and Components
+@import "mixins.scss";
+@import "global.scss";
+@import "utilities.scss";
+
+// Custom Components
+@import "dropdowns.scss";
+@import "navs.scss";
+@import "buttons.scss";
+@import "cards.scss";
+@import "charts.scss";
+@import "login.scss";
+@import "error.scss";
+@import "footer.scss";
+
+// Import Custom SB Admin
+.form-label{
+    font-weight: 600;
+    color: $primary;
+    font-size: 15px;
+}
+
+input[type="radio"]{
+    width: 17px;
+    height: 17px;
+}
+
+input[type="checkbox"]{
+    width: 17px;
+    height: 17px;
+}
+
+.form-control{
+    height: auto !important;
+}
+
+.radioptions{
+    padding-top: 6.7px !important;
+    padding-bottom: 2px !important;
+}
+
+.requiredata{
+    color: #B80000;
+    font-size: 16px;
+}
+
+.form-check{
+
+    .form-check-input{
+        cursor: pointer;
+    }
+
+    .form-check-label{
+        cursor: pointer;
+    }
+
+}
+
+.infotoltip{
+    position: relative;
+    cursor: pointer;
+    display: inherit;
+    width: 16px !important;
+    height: 16px !important;
+    
+    &:before {
+        content: "";
+        position: absolute;
+        top: 1px;
+        left: 0px;
+        width: 21px;
+        height: 21px;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDYiIGhlaWdodD0iNDYiIGZpbGw9IiNiODAwMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBkPSJNMTIgMTAuNzVhLjc1Ljc1IDAgMCAxIC43NS43NXY1YS43NS43NSAwIDAgMS0xLjUgMHYtNWEuNzUuNzUgMCAwIDEgLjc1LS43NVoiPjwvcGF0aD4KICA8cGF0aCBkPSJNMTIgOWExIDEgMCAxIDAgMC0yIDEgMSAwIDAgMCAwIDJaIj48L3BhdGg+CiAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMy4yNSAxMmE4Ljc1IDguNzUgMCAxIDEgMTcuNSAwIDguNzUgOC43NSAwIDAgMS0xNy41IDBaTTEyIDQuNzVhNy4yNSA3LjI1IDAgMSAwIDAgMTQuNSA3LjI1IDcuMjUgMCAwIDAgMC0xNC41WiIgY2xpcC1ydWxlPSJldmVub2RkIj48L3BhdGg+Cjwvc3ZnPg==);
+        background-size: contain;
+    }
+}

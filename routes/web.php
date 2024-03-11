@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\RepeccaController;
+use App\Http\Controllers\SedeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    if (auth()->check()) {
+        return redirect()->route('home');
+    } else {
+        return view('auth.login');
+    }
+});
+
+//routes for user login
+Route::group(['middleware' => ['auth', 'ensureStatusActive']], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::resource('/users', UserController::class)->names('users');
+    Route::resource('/roles', RoleController::class)->names('roles');
+    Route::resource('/sedes', SedeController::class)->names('sedes');
+
+    Route::resource('/repecca', RepeccaController::class)->names('repecca');
+
+});
+
+Auth::routes();
