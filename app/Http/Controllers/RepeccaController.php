@@ -66,9 +66,6 @@ class RepeccaController extends Controller
     public function store(Request $request)
     {
 
-        //log request
-        Log::info($request);
-
         //insert data into database
         $repecca = new Repecca;
         $repecca->user_id = auth()->user()->id;

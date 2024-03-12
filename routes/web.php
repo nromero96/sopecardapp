@@ -18,6 +18,13 @@ use App\Http\Controllers\RoleController;
 |
 */
 
+//Ejecutar migración
+Route::get('/ejecutar-migraciones', function () {
+    \Artisan::call('migrate', ['--seed' => true]);
+    return 'Migraciones ejecutadas con éxito y semilla insertada.';
+});
+
+
 Route::get('/', function () {
     if (auth()->check()) {
         return redirect()->route('home');
@@ -28,6 +35,29 @@ Route::get('/', function () {
 
 //routes for user login
 Route::group(['middleware' => ['auth', 'ensureStatusActive']], function () {
+    
+    Route::get('/crear-enlace', function () {
+        Artisan::call('storage:link');
+        return "Enlace simbólico creado con éxito.";
+    });
+    
+    
+    Route::get('/clear-cache', function () {
+        try {
+            // Limpiar la caché
+            Artisan::call('cache:clear');
+    
+            // Limpiar la caché de configuración
+            Artisan::call('config:cache');
+    
+            // Mensaje de éxito
+            return 'Cache cleared successfully.';
+        } catch (\Exception $e) {
+            // Manejo de errores
+            return 'Error clearing cache: ' . $e->getMessage();
+        }
+    });
+    
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::resource('/users', UserController::class)->names('users');
