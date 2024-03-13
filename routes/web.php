@@ -18,12 +18,11 @@ use App\Http\Controllers\RoleController;
 |
 */
 
-//Ejecutar migración
-Route::get('/ejecutar-migraciones', function () {
-    \Artisan::call('migrate', ['--seed' => true]);
-    return 'Migraciones ejecutadas con éxito y semilla insertada.';
+ //Ejecutar migración
+ Route::get('/ejecutar-migraciones', function () {
+    Artisan::call('migrate');
+    return 'Migraciones ejecutadas con éxito.';
 });
-
 
 Route::get('/', function () {
     if (auth()->check()) {
