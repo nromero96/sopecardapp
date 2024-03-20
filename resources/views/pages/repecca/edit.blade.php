@@ -7,12 +7,14 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Registrar Repecca</h1>
+        <h1 class="h3 mb-0 text-gray-800">Editar Repecca</h1>
     </div>
 
     <!-- Form -->
-    <form action="{{ route('repecca.store') }}" method="POST">
+    <form action="{{ route('repecca.update', $repecca->id) }}" method="POST">
         @csrf
+        @method('PUT')
+
         <!-- Información Responsable -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -22,19 +24,19 @@
                 <div class="row">
                     <div class="col-md-6 mb-2">
                         <label for="responsable" class="form-label mb-0">Responsable <small class="requiredata">*</small></label>
-                        <input type="text" name="responsable" class="form-control" id="responsable" value="@if(Auth::user()->trato != ''){{ Auth::user()->trato.' ' }}@endif{{ Auth::user()->name }} {{ Auth::user()->lastname }}" readonly>
+                        <input type="text" name="responsable" class="form-control" id="responsable" value="@if($repecca->trato != ''){{ $repecca->trato.' ' }}@endif{{ $repecca->name }} {{ $repecca->lastname }}" readonly>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="tipo_seguro" class="form-label mb-0">Tipo de seguro <small class="requiredata">*</small></label>
                         <select name="tipo_seguro" id="tipo_seguro" class="form-control" required>
-                            <option value="">Seleccionar...</option>
-                            <option value="EsSalud">EsSalud</option>
-                            <option value="MINSA">MINSA</option>
-                            <option value="Privada">Privada</option>
-                            <option value="Fuerzas armadas / policiales">Fuerzas armadas / policiales</option>
-                            <option value="Otros">Otros</option>
+                            <option value="" @if($repecca->tipo_seguro == '') selected @endif>Seleccionar...</option>
+                            <option value="EsSalud" @if($repecca->tipo_seguro == 'EsSalud') selected @endif>EsSalud</option>
+                            <option value="MINSA" @if($repecca->tipo_seguro == 'MINSA') selected @endif>MINSA</option>
+                            <option value="Privada" @if($repecca->tipo_seguro == 'Privada') selected @endif>Privada</option>
+                            <option value="Fuerzas armadas / policiales" @if($repecca->tipo_seguro == 'Fuerzas armadas / policiales') selected @endif>Fuerzas armadas / policiales</option>
+                            <option value="Otros" @if($repecca->tipo_seguro == 'Otros') selected @endif>Otros</option>
                         </select>
-                        <input type="text" name="tipo_seguro_otro" class="form-control mt-2 d-none" id="tipo_seguro_otro" placeholder="Especificar otro seguro">
+                        <input type="text" name="tipo_seguro_otro" class="form-control mt-2 @if($repecca->tipo_seguro != 'Otros') d-none @endif" id="tipo_seguro_otro" placeholder="Especificar otro seguro">
                     </div>
                 </div>
             </div>
@@ -49,59 +51,59 @@
                 <div class="row">
                     <div class="col-md-6 mb-2">
                         <label for="fecha_ultima_atencion" class="form-label mb-0">Fecha de ultima atención por cardiología <small class="requiredata">*</small></label>
-                        <input type="date" name="fecha_ultima_atencion" class="form-control" id="fecha_ultima_atencion" required>
+                        <input type="date" name="fecha_ultima_atencion" class="form-control" id="fecha_ultima_atencion" value="{{ $repecca->fecha_ultima_atencion }}" required>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="numero_historia_clinica" class="form-label mb-0">Número de historia clínica <small class="requiredata">*</small></label>
-                        <input type="text" name="numero_historia_clinica" class="form-control" id="numero_historia_clinica" required>
+                        <input type="text" name="numero_historia_clinica" class="form-control" id="numero_historia_clinica" value="{{ $repecca->numero_historia_clinica }}" required>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="sexo" class="form-label mb-0">Sexo </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sexo" id="sexo1" value="Masculino" >
+                                <input class="form-check-input" type="radio" name="sexo" id="sexo1" value="Masculino" @if($repecca->sexo == 'Masculino') checked @endif>
                                 <label class="form-check-label" for="sexo1">Masculino</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sexo" id="sexo2" value="Femenino" >
+                                <input class="form-check-input" type="radio" name="sexo" id="sexo2" value="Femenino" @if($repecca->sexo == 'Femenino') checked @endif>
                                 <label class="form-check-label" for="sexo2">Femenino</label>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="edad" class="form-label mb-0">Edad (años) </label>
-                        <input type="number" name="edad" class="form-control" id="edad" >
+                        <input type="number" name="edad" class="form-control" id="edad" value="{{ $repecca->edad }}" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="estado_civil" class="form-label mb-0">Estado civil </label>
                         <select name="estado_civil" id="estado_civil" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Soltero">Soltero</option>
-                            <option value="Casado/conviviente">Casado/conviviente</option>
-                            <option value="Viudo">Viudo</option>
-                            <option value="Divorciado">Divorciado</option>
+                            <option value="" @if($repecca->estado_civil == '') selected @endif>Seleccionar...</option>
+                            <option value="Soltero" @if($repecca->estado_civil == 'Soltero') selected @endif>Soltero</option>
+                            <option value="Casado/conviviente" @if($repecca->estado_civil == 'Casado/conviviente') selected @endif>Casado/conviviente</option>
+                            <option value="Viudo" @if($repecca->estado_civil == 'Viudo') selected @endif>Viudo</option>
+                            <option value="Divorciado" @if($repecca->estado_civil == 'Divorciado') selected @endif>Divorciado</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="grado_instruccion" class="form-label mb-0">Grado de instrucción </label>
                         <select name="grado_instruccion" id="grado_instruccion" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Analfabeto">Analfabeto</option>
-                            <option value="Primaria">Primaria</option>
-                            <option value="Secundaria">Secundaria</option>
-                            <option value="Superior">Superior</option>
-                            <option value="Universitaria">Universitaria</option>
+                            <option value="" @if($repecca->grado_instruccion == '') selected @endif>Seleccionar...</option>
+                            <option value="Analfabeto" @if($repecca->grado_instruccion == 'Analfabeto') selected @endif>Analfabeto</option>
+                            <option value="Primaria" @if($repecca->grado_instruccion == 'Primaria') selected @endif>Primaria</option>
+                            <option value="Secundaria" @if($repecca->grado_instruccion == 'Secundaria') selected @endif>Secundaria</option>
+                            <option value="Superior" @if($repecca->grado_instruccion == 'Superior') selected @endif>Superior</option>
+                            <option value="Universitaria" @if($repecca->grado_instruccion == 'Universitaria') selected @endif>Universitaria</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="actividad_laboral" class="form-label mb-0">Actividad laboral </label>
                         <select name="actividad_laboral" id="actividad_laboral" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Desempleado">Desempleado</option>
-                            <option value="Empleado tiempo parcial">Empleado tiempo parcial</option>
-                            <option value="Empleado tiempo completo">Empleado tiempo completo</option>
-                            <option value="Jubilado">Jubilado</option>
-                            <option value="Independiente">Independiente</option>
+                            <option value="" @if($repecca->actividad_laboral == '') selected @endif>Seleccionar...</option>
+                            <option value="Desempleado" @if($repecca->actividad_laboral == 'Desempleado') selected @endif>Desempleado</option>
+                            <option value="Empleado tiempo parcial" @if($repecca->actividad_laboral == 'Empleado tiempo parcial') selected @endif>Empleado tiempo parcial</option>
+                            <option value="Empleado tiempo completo" @if($repecca->actividad_laboral == 'Empleado tiempo completo') selected @endif>Empleado tiempo completo</option>
+                            <option value="Jubilado" @if($repecca->actividad_laboral == 'Jubilado') selected @endif>Jubilado</option>
+                            <option value="Independiente" @if($repecca->actividad_laboral == 'Independiente') selected @endif>Independiente</option>
                         </select>
                     </div>
                     <div class="col-md-12 mb-2">
@@ -831,7 +833,7 @@
                 <div class="row">
                     <div class="col-md-12 mb-2 mb-sm-0 text-right">
                         <a href="{{ route('repecca.index') }}" class="btn btn-outline-primary mb-2 mb-sm-0">Cancelar</a>
-                        <button type="submit" class="btn btn-primary mb-2 mb-sm-0">Guardar</button>
+                        <button type="submit" class="btn btn-primary mb-2 mb-sm-0">Actualizar</button>
                     </div>
                 </div>
             </div>

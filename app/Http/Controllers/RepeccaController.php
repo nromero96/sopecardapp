@@ -84,8 +84,16 @@ class RepeccaController extends Controller
         $repecca->abortos = $request->input('abortos');
         $repecca->numero_hijos_vivos = $request->input('numero_hijos_vivos');
         $repecca->diagnostico_especifico = $request->input('diagnostico_especifico');
+        $repecca->diagnostico_especifico_ano = $request->input('diagnostico_especifico_ano');
         $repecca->transicion_cardiologia = $request->input('transicion_cardiologia');
-        $repecca->sindrome_genetico_asociado = implode(", ", $request->input('sindrome_genetico_asociado'));
+
+        $sindrome_genetico_asociado = $request->input('sindrome_genetico_asociado');
+        if(!empty($sindrome_genetico_asociado)) {
+            $repecca->sindrome_genetico_asociado = implode(", ", $request->input('sindrome_genetico_asociado'));
+        }else{
+            $repecca->sindrome_genetico_asociado = '';
+        }
+
         $repecca->sindrome_genetico_asociado_otro = $request->input('sindrome_genetico_asociado_otro');
         $repecca->severidad = $request->input('severidad');
         $repecca->clasificacion_anatomica_funcional = $request->input('clasificacion_anatomica_funcional');
@@ -96,29 +104,97 @@ class RepeccaController extends Controller
         $repecca->saturacion_oxigeno = $request->input('saturacion_oxigeno');
         $repecca->peso = $request->input('peso');
         $repecca->talla = $request->input('talla');
-        $repecca->manejo_recibido = implode(", ", $request->input('manejo_recibido'));
+
+        $manejo_recibido = $request->input('manejo_recibido');
+        if(!empty($manejo_recibido)) {
+            $repecca->manejo_recibido = implode(", ", $request->input('manejo_recibido'));
+        }else{
+            $repecca->manejo_recibido = '';
+        }
+
         $repecca->manejo_recibido_otro = $request->input('manejo_recibido_otro');
-        $repecca->protesis_valvulares = implode(", ", $request->input('protesis_valvulares'));
-        $repecca->ubicacion_protesis_valvulares_aortica = implode(", ", $request->input('ubicacion_protesis_valvulares_aortica'));
-        $repecca->ubicacion_protesis_valvulares_mitral = implode(", ", $request->input('ubicacion_protesis_valvulares_mitral'));
-        $repecca->ubicacion_protesis_valvulares_pulmonar = implode(", ", $request->input('ubicacion_protesis_valvulares_pulmonar'));
-        $repecca->ubicacion_protesis_valvulares_tricuspide = implode(", ", $request->input('ubicacion_protesis_valvulares_tricuspide'));
+        
+        $protesis_valvulares = $request->input('protesis_valvulares');
+        if(!empty($protesis_valvulares)){
+            $repecca->protesis_valvulares = implode(", ", $request->input('protesis_valvulares'));
+        }else{
+            $repecca->protesis_valvulares = '';
+        }
+
+        $ubicacion_protesis_valvulares_aortica = $request->input('ubicacion_protesis_valvulares_aortica');
+        if(!empty($ubicacion_protesis_valvulares_aortica)){
+            $repecca->ubicacion_protesis_valvulares_aortica = implode(", ", $request->input('ubicacion_protesis_valvulares_aortica'));
+        }else{
+            $repecca->ubicacion_protesis_valvulares_aortica = '';
+        }
+
+        $ubicacion_protesis_valvulares_mitral = $request->input('ubicacion_protesis_valvulares_mitral');
+        if(!empty($ubicacion_protesis_valvulares_mitral)){
+            $repecca->ubicacion_protesis_valvulares_mitral = implode(", ", $request->input('ubicacion_protesis_valvulares_mitral'));
+        }else{
+            $repecca->ubicacion_protesis_valvulares_mitral = '';
+        }
+
+        $ubicacion_protesis_valvulares_pulmonar = $request->input('ubicacion_protesis_valvulares_pulmonar');
+        if(!empty($ubicacion_protesis_valvulares_pulmonar)){
+            $repecca->ubicacion_protesis_valvulares_pulmonar = implode(", ", $request->input('ubicacion_protesis_valvulares_pulmonar'));
+        }else{
+            $repecca->ubicacion_protesis_valvulares_pulmonar = '';
+        }
+
+        $ubicacion_protesis_valvulares_tricuspide = $request->input('ubicacion_protesis_valvulares_tricuspide');
+        if(!empty($ubicacion_protesis_valvulares_tricuspide)){
+            $repecca->ubicacion_protesis_valvulares_tricuspide = implode(", ", $request->input('ubicacion_protesis_valvulares_tricuspide'));
+        }else{
+            $repecca->ubicacion_protesis_valvulares_tricuspide = '';
+        }
+
         $repecca->procedimiento_electrofisiologico = $request->input('procedimiento_electrofisiologico');
         $repecca->marcapasos = $request->input('marcapasos');
-        $repecca->aortoplastia = implode(", ", $request->input('aortoplastia'));
+        
+        $aortoplastia = $request->input('aortoplastia');
+        if(!empty($aortoplastia)){
+            $repecca->aortoplastia = implode(", ", $request->input('aortoplastia'));
+        }else{
+            $repecca->aortoplastia = '';
+        }
+
         $repecca->stent_fistulas = $request->input('stent_fistulas');
         $repecca->cirugia_cardiaca = $request->input('cirugia_cardiaca');
+        $repecca->cirugia_cardiaca_ano = $request->input('cirugia_cardiaca_ano');
         $repecca->ventriculo_sistemico = $request->input('ventriculo_sistemico');
         $repecca->fraccion_eyeccion = $request->input('fraccion_eyeccion');
         $repecca->funcion_sistolica = $request->input('funcion_sistolica');
-        $repecca->tratamiento_medico = implode(", ", $request->input('tratamiento_medico'));
+        
+        $tratamiento_medico = $request->input('tratamiento_medico');
+        if(!empty($tratamiento_medico)){
+            $repecca->tratamiento_medico = implode(", ", $request->input('tratamiento_medico'));
+        }else{
+            $repecca->tratamiento_medico = '';
+        }
+
         $repecca->tratamiento_medico_otro = $request->input('tratamiento_medico_otro');
-        $repecca->arritmias = implode(", ", $request->input('arritmias'));
+        
+        $arritmias = $request->input('arritmias');
+        if(!empty($arritmias)){
+            $repecca->arritmias = implode(", ", $request->input('arritmias'));
+        }else{
+            $repecca->arritmias = '';
+        }
+
         $repecca->arritmias_otro = $request->input('arritmias_otro');
-        $repecca->comorbilidades = implode(", ", $request->input('comorbilidades'));
+        
+        $comorbilidades = $request->input('comorbilidades');
+        if(!empty($comorbilidades)){
+            $repecca->comorbilidades = implode(", ", $request->input('comorbilidades'));
+        }else{
+            $repecca->comorbilidades = '';
+        }
+
         $repecca->comorbilidades_otro = $request->input('comorbilidades_otro');
         $repecca->enfermedad_renal = $request->input('enfermedad_renal');
         $repecca->complicaciones = $request->input('complicaciones');
+        $repecca->complicaciones_ano = $request->input('complicaciones_ano');
         $repecca->uso_dispositivos = $request->input('uso_dispositivos');
         $repecca->creatinina_serica = $request->input('creatinina_serica');
         $repecca->acido_urico_serico = $request->input('acido_urico_serico');
@@ -160,7 +236,18 @@ class RepeccaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'category_name' => 'repecca',
+            'page_name' => 'repecca_create',
+        ];
+
+        //join users table to get user (trato, name, lastname) as responsable
+        $repecca = Repecca::join('users', 'repeccas.user_id', '=', 'users.id')
+            ->select('repeccas.*', 'users.trato', 'users.name', 'users.lastname')
+            ->where('repeccas.id', $id)
+            ->first();
+
+        return view('pages.repecca.edit')->with($data)->with('repecca', $repecca);
     }
 
     /**

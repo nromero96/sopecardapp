@@ -52,11 +52,14 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+            @can('users.index', 'sedes.index')
             <!-- Heading -->
             <div class="sidebar-heading">
                 Admin
             </div>
+            @endcan
 
+            @can('users.index')
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item {{ ($category_name === 'users') ? 'active' : '' }}">
                 <a class="nav-link {{ ($category_name === 'users') ? '' : 'collapsed' }}" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -73,7 +76,9 @@
                     </div>
                 </div>
             </li>
+            @endcan
 
+            @can('sedes.index')
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item {{ ($category_name === 'sedes') ? 'active' : '' }}">
                 <a class="nav-link {{ ($category_name === 'sedes') ? '' : 'collapsed' }}" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -90,6 +95,7 @@
                     </div>
                 </div>
             </li>
+            @endcan
 
             <!-- Divider -->
             <hr class="sidebar-divider">
