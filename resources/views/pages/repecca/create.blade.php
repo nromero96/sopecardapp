@@ -302,27 +302,27 @@
                                     <tbody>
                                         <tr>
                                             <td>Funcional: A</td>
-                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="I, simple"></td>
-                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="II, moderada"></td>
-                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="III, compleja"></td>
+                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="Funcional: A - Anatómica: I, simple"></td>
+                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="Funcional: A - Anatómica: II, moderada"></td>
+                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="Funcional: A - Anatómica: III, compleja"></td>
                                         </tr>
                                         <tr>
                                             <td>Funcional: B</td>
-                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="I, simple"></td>
-                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="II, moderada"></td>
-                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="III, compleja"></td>
+                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="Funcional: B - Anatómica: I, simple"></td>
+                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="Funcional: B - Anatómica: II, moderada"></td>
+                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="Funcional: B - Anatómica: III, compleja"></td>
                                         </tr>
                                         <tr>
                                             <td>Funcional: C</td>
-                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="I, simple"></td>
-                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="II, moderada"></td>
-                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="III, compleja"></td>
+                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="Funcional: C - Anatómica: I, simple"></td>
+                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="Funcional: C - Anatómica: II, moderada"></td>
+                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="Funcional: C - Anatómica: III, compleja"></td>
                                         </tr>
                                         <tr>
                                             <td>Funcional: D</td>
-                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="I, simple"></td>
-                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="II, moderada"></td>
-                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="III, compleja"></td>
+                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="Funcional: D - Anatómica: I, simple"></td>
+                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="Funcional: D - Anatómica: II, moderada"></td>
+                                            <td><input type="radio" name="clasificacion_anatomica_funcional" value="Funcional: D - Anatómica: III, compleja"></td>
                                         </tr>
                                     </tbody>
                                 </table>

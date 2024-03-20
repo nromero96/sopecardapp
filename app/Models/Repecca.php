@@ -65,6 +65,7 @@ class Repecca extends Model
         'complicaciones',
         'complicaciones_ano',
         'uso_dispositivos',
+        'uso_dispositivos_otro',
         'creatinina_serica',
         'acido_urico_serico',
         'glucosa_serica',

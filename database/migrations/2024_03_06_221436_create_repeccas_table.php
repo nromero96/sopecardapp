@@ -70,6 +70,7 @@ class CreateRepeccasTable extends Migration
             $table->string('complicaciones')->nullable();
             $table->string('complicaciones_ano')->nullable();
             $table->string('uso_dispositivos')->nullable();
+            $table->string('uso_dispositivos_otro')->nullable();
             $table->string('creatinina_serica')->nullable();
             $table->string('acido_urico_serico')->nullable();
             $table->string('glucosa_serica')->nullable();
