@@ -85,8 +85,24 @@ class RepeccaController extends Controller
         $repecca->partos_pretermino = $request->input('partos_pretermino');
         $repecca->abortos = $request->input('abortos');
         $repecca->numero_hijos_vivos = $request->input('numero_hijos_vivos');
-        $repecca->diagnostico_especifico = $request->input('diagnostico_especifico');
-        $repecca->diagnostico_especifico_ano = $request->input('diagnostico_especifico_ano');
+
+        $diagnosticosEspecificos = $request->input('diagnostico_especifico');
+        if (!empty($diagnosticosEspecificos)) {
+            $diagnosticosEspecificosArray = [];
+            foreach ($diagnosticosEspecificos as $diagnostico) {
+                $diagnosticoEspecifico = [
+                        'diagnostico' => $diagnostico['diagnostico'],
+                        'ano' => $diagnostico['ano']
+                ];
+                $diagnosticosEspecificosArray[] = $diagnosticoEspecifico;
+                
+            }
+            // Convertir a JSON antes de guardar en la base de datos
+            $repecca->diagnostico_especifico = json_encode($diagnosticosEspecificosArray);
+        } else {
+            $repecca->diagnostico_especifico = null;
+        }
+        
         $repecca->transicion_cardiologia = $request->input('transicion_cardiologia');
 
         $sindrome_genetico_asociado = $request->input('sindrome_genetico_asociado');
@@ -162,8 +178,23 @@ class RepeccaController extends Controller
         }
 
         $repecca->stent_fistulas = $request->input('stent_fistulas');
-        $repecca->cirugia_cardiaca = $request->input('cirugia_cardiaca');
-        $repecca->cirugia_cardiaca_ano = $request->input('cirugia_cardiaca_ano');
+        
+        $cirugiasCardiacas = $request->input('cirugia_cardiaca');
+        if (!empty($cirugiasCardiacas)) {
+            $cirugiasCardiacasArray = [];
+            foreach ($cirugiasCardiacas as $cirugia) {
+                $cirugiaCardiaca = [
+                    'cirugia' => $cirugia['cirugia'],
+                    'ano' => $cirugia['ano']
+                ];
+                $cirugiasCardiacasArray[] = $cirugiaCardiaca;
+            }
+            // Convertir a JSON antes de guardar en la base de datos
+            $repecca->cirugia_cardiaca = json_encode($cirugiasCardiacasArray);
+        } else {
+            $repecca->cirugia_cardiaca = null;
+        }
+        
         $repecca->ventriculo_sistemico = $request->input('ventriculo_sistemico');
         $repecca->fraccion_eyeccion = $request->input('fraccion_eyeccion');
         $repecca->funcion_sistolica = $request->input('funcion_sistolica');
@@ -195,8 +226,24 @@ class RepeccaController extends Controller
 
         $repecca->comorbilidades_otro = $request->input('comorbilidades_otro');
         $repecca->enfermedad_renal = $request->input('enfermedad_renal');
-        $repecca->complicaciones = $request->input('complicaciones');
-        $repecca->complicaciones_ano = $request->input('complicaciones_ano');
+        
+        $complicaciones = $request->input('complicaciones');
+        if (!empty($complicaciones)) {
+            $complicacionesArray = [];
+            foreach ($complicaciones as $complicacion) {
+                $complicacionItem = [
+                    'complicacion' => $complicacion['complicacion'],
+                    'ano' => $complicacion['ano']
+                ];
+                $complicacionesArray[] = $complicacionItem;
+                
+            }
+            // Convertir a JSON antes de guardar en la base de datos
+            $repecca->complicaciones = json_encode($complicacionesArray);
+        } else {
+            $repecca->complicaciones = null;
+        }
+
         $repecca->uso_dispositivos = $request->input('uso_dispositivos');
         $repecca->uso_dispositivos_otro = $request->input('uso_dispositivos_otro');
         $repecca->creatinina_serica = $request->input('creatinina_serica');
@@ -290,8 +337,24 @@ class RepeccaController extends Controller
         $repecca->partos_pretermino = $request->input('partos_pretermino');
         $repecca->abortos = $request->input('abortos');
         $repecca->numero_hijos_vivos = $request->input('numero_hijos_vivos');
-        $repecca->diagnostico_especifico = $request->input('diagnostico_especifico');
-        $repecca->diagnostico_especifico_ano = $request->input('diagnostico_especifico_ano');
+        
+        $diagnosticosEspecificos = $request->input('diagnostico_especifico');
+        if (!empty($diagnosticosEspecificos)) {
+            $diagnosticosEspecificosArray = [];
+            foreach ($diagnosticosEspecificos as $diagnostico) {
+                $diagnosticoEspecifico = [
+                    'diagnostico' => $diagnostico['diagnostico'],
+                    'ano' => $diagnostico['ano']
+                ];
+                $diagnosticosEspecificosArray[] = $diagnosticoEspecifico;
+                
+            }
+            // Convertir a JSON antes de guardar en la base de datos
+            $repecca->diagnostico_especifico = json_encode($diagnosticosEspecificosArray);
+        } else {
+            $repecca->diagnostico_especifico = null;
+        }
+        
         $repecca->transicion_cardiologia = $request->input('transicion_cardiologia');
 
         $sindrome_genetico_asociado = $request->input('sindrome_genetico_asociado');
@@ -367,8 +430,23 @@ class RepeccaController extends Controller
         }
 
         $repecca->stent_fistulas = $request->input('stent_fistulas');
-        $repecca->cirugia_cardiaca = $request->input('cirugia_cardiaca');
-        $repecca->cirugia_cardiaca_ano = $request->input('cirugia_cardiaca_ano');
+        
+        $cirugiasCardiacas = $request->input('cirugia_cardiaca');
+        if (!empty($cirugiasCardiacas)) {
+            $cirugiasCardiacasArray = [];
+            foreach ($cirugiasCardiacas as $cirugia) {
+                $cirugiaCardiaca = [
+                    'cirugia' => $cirugia['cirugia'],
+                    'ano' => $cirugia['ano']
+                ];
+                $cirugiasCardiacasArray[] = $cirugiaCardiaca;
+            }
+            // Convertir a JSON antes de guardar en la base de datos
+            $repecca->cirugia_cardiaca = json_encode($cirugiasCardiacasArray);
+        } else {
+            $repecca->cirugia_cardiaca = null;
+        }
+        
         $repecca->ventriculo_sistemico = $request->input('ventriculo_sistemico');
         $repecca->fraccion_eyeccion = $request->input('fraccion_eyeccion');
         $repecca->funcion_sistolica = $request->input('funcion_sistolica');
@@ -400,8 +478,24 @@ class RepeccaController extends Controller
 
         $repecca->comorbilidades_otro = $request->input('comorbilidades_otro');
         $repecca->enfermedad_renal = $request->input('enfermedad_renal');
-        $repecca->complicaciones = $request->input('complicaciones');
-        $repecca->complicaciones_ano = $request->input('complicaciones_ano');
+
+        $complicaciones = $request->input('complicaciones');
+        if (!empty($complicaciones)) {
+            $complicacionesArray = [];
+            foreach ($complicaciones as $complicacion) {
+                $complicacionItem = [
+                    'complicacion' => $complicacion['complicacion'],
+                    'ano' => $complicacion['ano']
+                ];
+                $complicacionesArray[] = $complicacionItem;
+                
+            }
+            // Convertir a JSON antes de guardar en la base de datos
+            $repecca->complicaciones = json_encode($complicacionesArray);
+        } else {
+            $repecca->complicaciones = null;
+        }
+
         $repecca->uso_dispositivos = $request->input('uso_dispositivos');
         $repecca->uso_dispositivos_otro = $request->input('uso_dispositivos_otro');
         $repecca->creatinina_serica = $request->input('creatinina_serica');

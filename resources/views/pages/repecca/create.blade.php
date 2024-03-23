@@ -112,6 +112,7 @@
                                     <thead>
                                         <tr>
                                             <th></th>
+                                            <th>0</th>
                                             <th>1</th>
                                             <th>2</th>
                                             <th>3</th>
@@ -127,6 +128,7 @@
                                     <tbody>
                                         <tr>
                                             <td>Número de gestas</td>
+                                            <td><input type="radio" name="numero_gestas" value="0"></td>
                                             <td><input type="radio" name="numero_gestas" value="1"></td>
                                             <td><input type="radio" name="numero_gestas" value="2"></td>
                                             <td><input type="radio" name="numero_gestas" value="3"></td>
@@ -140,6 +142,7 @@
                                         </tr>
                                         <tr>
                                             <td>Partos a termino</td>
+                                            <td><input type="radio" name="partos_a_termino" value="0"></td>
                                             <td><input type="radio" name="partos_a_termino" value="1"></td>
                                             <td><input type="radio" name="partos_a_termino" value="2"></td>
                                             <td><input type="radio" name="partos_a_termino" value="3"></td>
@@ -153,6 +156,7 @@
                                         </tr>
                                         <tr>
                                             <td>Partos pretermino</td>
+                                            <td><input type="radio" name="partos_pretermino" value="0"></td>
                                             <td><input type="radio" name="partos_pretermino" value="1"></td>
                                             <td><input type="radio" name="partos_pretermino" value="2"></td>
                                             <td><input type="radio" name="partos_pretermino" value="3"></td>
@@ -166,6 +170,7 @@
                                         </tr>
                                         <tr>
                                             <td>Abortos</td>
+                                            <td><input type="radio" name="abortos" value="0"></td>
                                             <td><input type="radio" name="abortos" value="1"></td>
                                             <td><input type="radio" name="abortos" value="2"></td>
                                             <td><input type="radio" name="abortos" value="3"></td>
@@ -179,6 +184,7 @@
                                         </tr>
                                         <tr>
                                             <td>Número de hijos vivos</td>
+                                            <td><input type="radio" name="numero_hijos_vivos" value="0"></td>
                                             <td><input type="radio" name="numero_hijos_vivos" value="1"></td>
                                             <td><input type="radio" name="numero_hijos_vivos" value="2"></td>
                                             <td><input type="radio" name="numero_hijos_vivos" value="3"></td>
@@ -208,14 +214,27 @@
                 <div class="row">
                     <div class="col-md-6 mb-2">
                         <label for="diagnostico_especifico" class="form-label mb-0">Diagnóstico específico y año de diagnóstico <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Colocar todos los diagnósticos de cardiopatías congénitas. Ejm: Coartación de aorta - 2014."></span></label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <input type="text" name="diagnostico_especifico" class="form-control rounded-left" id="diagnostico_especifico" placeholder="Diagnóstico" style="border-radius: 0px;">
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="number" name="diagnostico_especifico_ano" class="form-control rounded-right" id="diagnostico_especifico_ano" placeholder="Año" style="border-radius: 0px;">
+                        <div id="diagnostico_especifico_container">
+                            <div class="diagnostico_especifico_row row align-items-center">
+                                <div class="col-8 col-md-8 pr-0">
+                                    <input type="text" name="diagnostico_especifico[0][diagnostico]" class="form-control rounded-left" placeholder="Diagnóstico" style="border-radius: 0px;">
+                                </div>
+                                <div class="col-3 col-md-3 pl-0">
+                                    <input type="number" name="diagnostico_especifico[0][ano]" class="form-control rounded-right" placeholder="Año" style="border-radius: 0px;">
+                                </div>
+                                <div class="col-1 col-md-1 pl-0">
+                                    <a href="javascript:void(0);" class="btn btn-outline-danger btn-sm rounded disabled remove_diagnostico_especifico" title="Eliminar diagnóstico"><i class="fas fa-trash"></i></a>
+                                </div>
                             </div>
                         </div>
+                        <a href="javascript:void(0);" class="btn btn-primary btn-sm mt-2" id="add_diagnostico_especifico">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                            Agregar diagnóstico
+                        </a>
 
                     </div>
                     <div class="col-md-6 mb-2">
@@ -381,11 +400,11 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="peso" class="form-label mb-0">Peso actual del participante (Kg) </label>
-                        <input type="number" name="peso" class="form-control" id="peso" >
+                        <input type="number" name="peso" class="form-control" id="peso" step="0.01" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="talla" class="form-label mb-0">Talla actual del participante (m) </label>
-                        <input type="number" name="talla" class="form-control" id="talla" >
+                        <input type="number" name="talla" class="form-control" id="talla" step="0.01">
                     </div>
                 </div>
             </div>
@@ -528,7 +547,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="paciente" class="form-label mb-0 d-block">Stent en fístulas o tracto de salida del ventrículo derecho (TSVD) </label>
+                        <label for="stent_fistulas1" class="form-label mb-0 d-block">Stent en fístulas o tracto de salida del ventrículo derecho (TSVD) </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="stent_fistulas" id="stent_fistulas1" value="No">
@@ -542,17 +561,31 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="cirugia_cardiaca" class="form-label mb-0">Cirugía cardiaca y año de procedimiento <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Ejm: Fístula sistémico-pulmonar - 2010 / banding pulmonar  - 2010  / Cierre de defecto septal con parche  - 2010  / ligadura de PCA - 2010  / Corrección de TdF  - 2010  / Glenn  - 2010  / Fontan  - 2010  / Mustard o Senning  - 2010  / Jatene  - 2010  / Rastelli  - 2010  / otras - 2010  )"></span></label>
-                        <div class="row">
-                            <div class="col-9 col-md-9 pr-0">
-                                <input type="text" name="cirugia_cardiaca" class="form-control" id="cirugia_cardiaca" placeholder="Indicar cirugía" style="border-radius: 0px;">
-                            </div>
-                            <div class="col-3 col-md-3 pl-0">
-                                <input type="number" name="cirugia_cardiaca_ano" class="form-control rounded-right" id="cirugia_cardiaca_ano" placeholder="Año" style="border-radius: 0px;">
+
+                        <div id="cirugia_cardiaca_container">
+                            <div class="cirugia_cardiaca_row row align-items-center">
+                                <div class="col-8 col-md-8 pr-0">
+                                    <input type="text" name="cirugia_cardiaca[0][cirugia]" class="form-control rounded-left" placeholder="Cirugía" style="border-radius: 0px;">
+                                </div>
+                                <div class="col-3 col-md-3 pl-0">
+                                    <input type="number" name="cirugia_cardiaca[0][ano]" class="form-control rounded-right" placeholder="Año" style="border-radius: 0px;">
+                                </div>
+                                <div class="col-1 col-md-1 pl-0">
+                                    <a href="javascript:void(0);" class="btn btn-outline-danger btn-sm rounded disabled remove_cirugia_cardiaca" title="Eliminar cirugía"><i class="fas fa-trash"></i></a>
+                                </div>
                             </div>
                         </div>
+                        <a href="javascript:void(0);" class="btn btn-primary btn-sm mt-2" id="add_cirugia_cardiaca">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                            Agregar cirugía
+                        </a>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="paciente" class="form-label mb-0 d-block">Ventrículo sistémico </label>
+                        <label for="ventriculo_sistemico1" class="form-label mb-0 d-block">Ventrículo sistémico </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="ventriculo_sistemico" id="ventriculo_sistemico1" value="Derecho">
@@ -590,7 +623,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 mb-2">
-                        <label for="paciente" class="form-label mb-0">Tratamiento médico actual<span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Puede marcar más de una respuesta"></span></label>
+                        <label for="tratamiento_medico1" class="form-label mb-0">Tratamiento médico actual<span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Puede marcar más de una respuesta"></span></label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline d-block">
                                 <input class="form-check-input" type="checkbox" name="tratamiento_medico[]" id="tratamiento_medico1" value="Ninguno">
@@ -690,7 +723,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 mb-2">
-                        <label for="paciente" class="form-label mb-0">Comorbilidades<span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Puede marcar más de una respuesta"></span></label>
+                        <label for="comorbilidades1" class="form-label mb-0">Comorbilidades<span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Puede marcar más de una respuesta"></span></label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline d-block">
                                 <input class="form-check-input" type="checkbox" name="comorbilidades[]" id="comorbilidades1" value="Ninguna">
@@ -732,19 +765,32 @@
                         </select>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="paciente" class="form-label mb-0">Complicaciones y tiempo de primera ocurrencia tras diagnóstico<span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Puede completar para más de una complicación. Ejm. 1. Ninguna / 2. ICC - 2010 / 3. Endocarditis - 2010 / 4. Trombosis venosa - 2010 / 5. Cardioembolia - 2010 / 6. Infarto de miocardio - 2010 / 7. stroke isquemico - 2010 / 8. cardiopatia isquémica - 2010 / 9. detallar otros - año"></span></label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <input type="text" name="complicaciones" class="form-control" id="complicaciones" placeholder="Indicar complicación" style="border-radius: 0px;">
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="number" name="complicaciones_ano" class="form-control rounded-right" id="complicaciones_ano" placeholder="Año" style="border-radius: 0px;">
+                        <label for="complicaciones" class="form-label mb-0">Complicaciones y tiempo de primera ocurrencia tras diagnóstico<span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Puede completar para más de una complicación. Ejm. 1. Ninguna / 2. ICC - 2010 / 3. Endocarditis - 2010 / 4. Trombosis venosa - 2010 / 5. Cardioembolia - 2010 / 6. Infarto de miocardio - 2010 / 7. stroke isquemico - 2010 / 8. cardiopatia isquémica - 2010 / 9. detallar otros - año"></span></label>
+                        <div id="complicaciones_container">
+                            <div class="complicaciones_row row align-items-center">
+                                <div class="col-8 col-md-8 pr-0">
+                                    <input type="text" name="complicaciones[0][complicacion]" class="form-control rounded-left" placeholder="Complicación" style="border-radius: 0px;">
+                                </div>
+                                <div class="col-3 col-md-3 pl-0">
+                                    <input type="number" name="complicaciones[0][ano]" class="form-control rounded-right" placeholder="Año" style="border-radius: 0px;">
+                                </div>
+                                <div class="col-1 col-md-1 pl-0">
+                                    <a href="javascript:void(0);" class="btn btn-outline-danger btn-sm rounded disabled remove_complicaciones" title="Eliminar complicaciones"><i class="fas fa-trash"></i></a>
+                                </div>
                             </div>
                         </div>
+                        <a href="javascript:void(0);" class="btn btn-primary btn-sm mt-2" id="add_complicaciones">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                            Agregar complicaciones
+                        </a>
 
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="paciente" class="form-label mb-0">Uso de dispositivos de asistencia</label>
+                        <label for="uso_dispositivos" class="form-label mb-0">Uso de dispositivos de asistencia</label>
                         <select name="uso_dispositivos" id="uso_dispositivos" class="form-control">
                             <option value="">Seleccionar...</option>
                             <option value="Ninguna">Ninguna</option>
@@ -953,6 +999,173 @@
         });
 
 
+        
+
+    });
+
+
+
+    // Inicialización del contador de campos de diagnóstico específico
+    let cc_contador = 0;
+
+    // Función para agregar más campos de Diagnóstico específico dinámicamente
+    document.getElementById('add_diagnostico_especifico').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+        const container = document.getElementById('diagnostico_especifico_container');
+        const nuevaFila = document.createElement('div');
+        nuevaFila.classList.add('diagnostico_especifico_row', 'row', 'align-items-center', 'mt-2');
+        cc_contador++; // Incrementar el contador antes de crear la nueva fila
+        nuevaFila.innerHTML = `
+            <div class="col-8 col-md-8 pr-0">
+                <input type="text" name="diagnostico_especifico[${cc_contador}][diagnostico]" class="form-control rounded-left" placeholder="Diagnóstico" style="border-radius: 0;">
+            </div>
+            <div class="col-3 col-md-3 pl-0">
+                <input type="number" name="diagnostico_especifico[${cc_contador}][ano]" class="form-control rounded-right" placeholder="Año" style="border-radius: 0;">
+            </div>
+            <div class="col-1 col-md-1 pl-0">
+                <a href="javascript:void(0);" class="btn btn-outline-danger btn-sm rounded remove_diagnostico_especifico" title="Eliminar diagnóstico" style="display: none;"><i class="fas fa-trash"></i></a>
+            </div>
+        `;
+        container.appendChild(nuevaFila);
+        
+        // Ocultar todos los botones "Eliminar diagnóstico" excepto el último
+        document.querySelectorAll('.remove_diagnostico_especifico').forEach(btn => btn.style.display = 'none');
+        nuevaFila.querySelector('.remove_diagnostico_especifico').style.display = 'block';
+
+        // Agregar evento de clic a todos los botones "Eliminar diagnóstico"
+        document.querySelectorAll('.remove_diagnostico_especifico').forEach(btn => {
+            btn.addEventListener('click', cc_eliminarFila);
+        });
+    });
+
+    // Función para eliminar la fila de diagnóstico específico
+    function cc_eliminarFila(event) {
+        event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+        const fila = event.target.closest('.diagnostico_especifico_row');
+        fila.remove();
+        cc_contador--; // Reducir el contador al eliminar una fila
+        
+        // Mostrar el botón "Eliminar diagnóstico" en el último row
+        const rows = document.querySelectorAll('.diagnostico_especifico_row');
+        if (rows.length > 0) {
+            rows[rows.length - 1].querySelector('.remove_diagnostico_especifico').style.display = 'block';
+        }
+        
+        console.log('Fila eliminada');
+    }
+
+    // Agregar evento de clic a los botones "Eliminar diagnóstico" existentes
+    document.querySelectorAll('.remove_diagnostico_especifico').forEach(btn => {
+        btn.addEventListener('click', cc_eliminarFila);
+    });
+
+    // Inicialización del contador de campos de cirugía cardiaca
+    let cc_contador_cirugia = 0;
+
+    // Función para agregar más campos de Cirugía cardiaca dinámicamente
+    document.getElementById('add_cirugia_cardiaca').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+        const container = document.getElementById('cirugia_cardiaca_container');
+        const nuevaFila = document.createElement('div');
+        nuevaFila.classList.add('cirugia_cardiaca_row', 'row', 'align-items-center', 'mt-2');
+        cc_contador_cirugia++; // Incrementar el contador antes de crear la nueva fila
+        nuevaFila.innerHTML = `
+            <div class="col-8 col-md-8 pr-0">
+                <input type="text" name="cirugia_cardiaca[${cc_contador_cirugia}][cirugia]" class="form-control rounded-left" placeholder="Cirugía" style="border-radius: 0;">
+            </div>
+            <div class="col-3 col-md-3 pl-0">
+                <input type="number" name="cirugia_cardiaca[${cc_contador_cirugia}][ano]" class="form-control rounded-right" placeholder="Año" style="border-radius: 0;">
+            </div>
+            <div class="col-1 col-md-1 pl-0">
+                <a href="javascript:void(0);" class="btn btn-outline-danger btn-sm rounded remove_cirugia_cardiaca" title="Eliminar cirugía" style="display: none;"><i class="fas fa-trash"></i></a>
+            </div>
+        `;
+        container.appendChild(nuevaFila);
+        
+        // Ocultar todos los botones "Eliminar cirugía" excepto el último
+        document.querySelectorAll('.remove_cirugia_cardiaca').forEach(btn => btn.style.display = 'none');
+        nuevaFila.querySelector('.remove_cirugia_cardiaca').style.display = 'block';
+
+        // Agregar evento de clic a todos los botones "Eliminar cirugía"
+        document.querySelectorAll('.remove_cirugia_cardiaca').forEach(btn => {
+            btn.addEventListener('click', cc_eliminarFilaCirugia);
+        });
+    });
+
+    // Función para eliminar la fila de cirugía cardiaca
+    function cc_eliminarFilaCirugia(event) {
+        event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+        const fila = event.target.closest('.cirugia_cardiaca_row');
+        fila.remove();
+        cc_contador_cirugia--; // Reducir el contador al eliminar una fila
+        
+        // Mostrar el botón "Eliminar cirugía" en el último row
+        const rows = document.querySelectorAll('.cirugia_cardiaca_row');
+        if (rows.length > 0) {
+            rows[rows.length - 1].querySelector('.remove_cirugia_cardiaca').style.display = 'block';
+        }
+        
+        console.log('Fila eliminada');
+    }
+
+    // Agregar evento de clic a los botones "Eliminar cirugía" existentes
+    document.querySelectorAll('.remove_cirugia_cardiaca').forEach(btn => {
+        btn.addEventListener('click', cc_eliminarFilaCirugia);
+    });
+
+
+    // Inicialización del contador de campos de Complicaciones y tiempo de primera ocurrencia tras diagnóstico
+    let cc_contador_complicaciones = 0;
+
+    // Función para agregar más campos de Complicaciones y tiempo de primera ocurrencia tras diagnóstico dinámicamente
+    document.getElementById('add_complicaciones').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+        const container = document.getElementById('complicaciones_container');
+        const nuevaFila = document.createElement('div');
+        nuevaFila.classList.add('complicaciones_row', 'row', 'align-items-center', 'mt-2');
+        cc_contador_complicaciones++; // Incrementar el contador antes de crear la nueva fila
+        nuevaFila.innerHTML = `
+            <div class="col-8 col-md-8 pr-0">
+                <input type="text" name="complicaciones[${cc_contador_complicaciones}][complicacion]" class="form-control rounded-left" placeholder="Complicaciones" style="border-radius: 0;">
+            </div>
+            <div class="col-3 col-md-3 pl-0">
+                <input type="number" name="complicaciones[${cc_contador_complicaciones}][ano]" class="form-control rounded-right" placeholder="Año" style="border-radius: 0;">
+            </div>
+            <div class="col-1 col-md-1 pl-0">
+                <a href="javascript:void(0);" class="btn btn-outline-danger btn-sm rounded remove_complicaciones" title="Eliminar complicaciones" style="display: none;"><i class="fas fa-trash"></i></a>
+            </div>
+        `;
+        container.appendChild(nuevaFila);
+        
+        // Ocultar todos los botones "Eliminar complicaciones" excepto el último
+        document.querySelectorAll('.remove_complicaciones').forEach(btn => btn.style.display = 'none');
+        nuevaFila.querySelector('.remove_complicaciones').style.display = 'block';
+
+        // Agregar evento de clic a todos los botones "Eliminar complicaciones"
+        document.querySelectorAll('.remove_complicaciones').forEach(btn => {
+            btn.addEventListener('click', cc_eliminarFilaComplicaciones);
+        });
+    });
+
+    // Función para eliminar la fila de Complicaciones y tiempo de primera ocurrencia tras diagnóstico
+    function cc_eliminarFilaComplicaciones(event) {
+        event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+        const fila = event.target.closest('.complicaciones_row');
+        fila.remove();
+        cc_contador_complicaciones--; // Reducir el contador al eliminar una fila
+        
+        // Mostrar el botón "Eliminar complicaciones" en el último row
+        const rows = document.querySelectorAll('.complicaciones_row');
+        if (rows.length > 0) {
+            rows[rows.length - 1].querySelector('.remove_complicaciones').style.display = 'block';
+        }
+        
+        console.log('Fila eliminada');
+    }
+
+    // Agregar evento de clic a los botones "Eliminar complicaciones" existentes
+    document.querySelectorAll('.remove_complicaciones').forEach(btn => {
+        btn.addEventListener('click', cc_eliminarFilaComplicaciones);
     });
 
 </script>

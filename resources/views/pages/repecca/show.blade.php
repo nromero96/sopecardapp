@@ -84,6 +84,7 @@
                                     <thead>
                                         <tr>
                                             <th></th>
+                                            <th>0</th>
                                             <th>1</th>
                                             <th>2</th>
                                             <th>3</th>
@@ -99,6 +100,7 @@
                                     <tbody>
                                         <tr>
                                             <td>Número de gestas</td>
+                                            <td><input type="radio" name="numero_gestas" value="0" @if($repecca->numero_gestas == '0') checked @endif></td>
                                             <td><input type="radio" name="numero_gestas" value="1" @if($repecca->numero_gestas == '1') checked @endif></td>
                                             <td><input type="radio" name="numero_gestas" value="2" @if($repecca->numero_gestas == '2') checked @endif></td>
                                             <td><input type="radio" name="numero_gestas" value="3" @if($repecca->numero_gestas == '3') checked @endif></td>
@@ -112,6 +114,7 @@
                                         </tr>
                                         <tr>
                                             <td>Partos a termino</td>
+                                            <td><input type="radio" name="partos_a_termino" value="0" @if($repecca->partos_a_termino == '0') checked @endif></td>
                                             <td><input type="radio" name="partos_a_termino" value="1" @if($repecca->partos_a_termino == '1') checked @endif></td>
                                             <td><input type="radio" name="partos_a_termino" value="2" @if($repecca->partos_a_termino == '2') checked @endif></td>
                                             <td><input type="radio" name="partos_a_termino" value="3" @if($repecca->partos_a_termino == '3') checked @endif></td>
@@ -125,6 +128,7 @@
                                         </tr>
                                         <tr>
                                             <td>Partos pretermino</td>
+                                            <td><input type="radio" name="partos_pretermino" value="0" @if($repecca->partos_pretermino == '0') checked @endif></td>
                                             <td><input type="radio" name="partos_pretermino" value="1" @if($repecca->partos_pretermino == '1') checked @endif></td>
                                             <td><input type="radio" name="partos_pretermino" value="2" @if($repecca->partos_pretermino == '2') checked @endif></td>
                                             <td><input type="radio" name="partos_pretermino" value="3" @if($repecca->partos_pretermino == '3') checked @endif></td>
@@ -138,6 +142,7 @@
                                         </tr>
                                         <tr>
                                             <td>Abortos</td>
+                                            <td><input type="radio" name="abortos" value="0" @if($repecca->abortos == '0') checked @endif></td>
                                             <td><input type="radio" name="abortos" value="1" @if($repecca->abortos == '1') checked @endif></td>
                                             <td><input type="radio" name="abortos" value="2" @if($repecca->abortos == '2') checked @endif></td>
                                             <td><input type="radio" name="abortos" value="3" @if($repecca->abortos == '3') checked @endif></td>
@@ -151,6 +156,7 @@
                                         </tr>
                                         <tr>
                                             <td>Número de hijos vivos</td>
+                                            <td><input type="radio" name="numero_hijos_vivos" value="0" @if($repecca->numero_hijos_vivos == '0') checked @endif></td>
                                             <td><input type="radio" name="numero_hijos_vivos" value="1" @if($repecca->numero_hijos_vivos == '1') checked @endif></td>
                                             <td><input type="radio" name="numero_hijos_vivos" value="2" @if($repecca->numero_hijos_vivos == '2') checked @endif></td>
                                             <td><input type="radio" name="numero_hijos_vivos" value="3" @if($repecca->numero_hijos_vivos == '3') checked @endif></td>
@@ -180,14 +186,17 @@
                 <div class="row">
                     <div class="col-md-6 mb-2">
                         <label for="diagnostico_especifico" class="form-label mb-0">Diagnóstico específico y año de diagnóstico</label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <p class="form-control rounded-left" style="border-radius: 0px;">{{ $repecca->diagnostico_especifico }}&nbsp;</p>
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <p class="form-control rounded-right" style="border-radius: 0px;">{{ $repecca->ano_diagnostico }}&nbsp;</p>
-                            </div>
-                        </div>
+                        @php
+                            $diagnostico_especificos = json_decode($repecca->diagnostico_especifico, true);
+                        @endphp
+                        <p class="form-control">
+                            @foreach ($diagnostico_especificos as $index => $diagnostico_especifico)
+                                {{ $diagnostico_especifico['diagnostico'] }} - {{ $diagnostico_especifico['ano'] }}
+                                @if ($index < count($diagnostico_especificos) - 1)
+                                    <br>
+                                @endif
+                            @endforeach
+                        </p>
 
                     </div>
                     <div class="col-md-6 mb-2">
@@ -483,7 +492,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="paciente" class="form-label mb-0 d-block">Stent en fístulas o tracto de salida del ventrículo derecho (TSVD) </label>
+                        <label class="form-label mb-0 d-block">Stent en fístulas o tracto de salida del ventrículo derecho (TSVD) </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="stent_fistulas" id="stent_fistulas1" value="No" @if($repecca->stent_fistulas == 'No') checked @endif>
@@ -497,17 +506,21 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="cirugia_cardiaca" class="form-label mb-0">Cirugía cardiaca y año de procedimiento</label>
-                        <div class="row">
-                            <div class="col-9 col-md-9 pr-0">
-                                <input type="text" name="cirugia_cardiaca" class="form-control" id="cirugia_cardiaca" placeholder="Indicar cirugía" style="border-radius: 0px;" value="{{ $repecca->cirugia_cardiaca }}">
-                            </div>
-                            <div class="col-3 col-md-3 pl-0">
-                                <input type="number" name="cirugia_cardiaca_ano" class="form-control rounded-right" id="cirugia_cardiaca_ano" placeholder="Año" style="border-radius: 0px;" value="{{ $repecca->cirugia_cardiaca_ano }}">
-                            </div>
-                        </div>
+                        @php
+                            $cirugia_cardiacas = json_decode($repecca->cirugia_cardiaca, true);
+                        @endphp
+
+                        <p class="form-control">
+                            @foreach ($cirugia_cardiacas as $index => $cirugia_cardiaca)
+                                {{ $cirugia_cardiaca['cirugia'] }} - {{ $cirugia_cardiaca['ano'] }}
+                                @if ($index < count($cirugia_cardiacas) - 1)
+                                    <br>
+                                @endif
+                            @endforeach
+                        </p>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="paciente" class="form-label mb-0 d-block">Ventrículo sistémico </label>
+                        <label class="form-label mb-0 d-block">Ventrículo sistémico </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="ventriculo_sistemico" id="ventriculo_sistemico1" value="Derecho" @if($repecca->ventriculo_sistemico == 'Derecho') checked @endif>
@@ -545,7 +558,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 mb-2">
-                        <label for="paciente" class="form-label mb-0">Tratamiento médico actual</label>
+                        <label class="form-label mb-0">Tratamiento médico actual</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline d-block">
                                 <input class="form-check-input" type="checkbox" name="tratamiento_medico[]" id="tratamiento_medico1" value="Ninguno" @if(strpos($repecca->tratamiento_medico, 'Ninguno') !== false) checked @endif>
@@ -645,7 +658,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 mb-2">
-                        <label for="paciente" class="form-label mb-0">Comorbilidades</label>
+                        <label class="form-label mb-0">Comorbilidades</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline d-block">
                                 <input class="form-check-input" type="checkbox" name="comorbilidades[]" id="comorbilidades1" value="Ninguna" @if(strpos($repecca->comorbilidades, 'Ninguna') !== false) checked @endif>
@@ -679,18 +692,21 @@
                         <p class="form-control">{{ $repecca->enfermedad_renal }}&nbsp;</p>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="paciente" class="form-label mb-0">Complicaciones y tiempo de primera ocurrencia tras diagnóstico</label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <p class="form-control rounded-left" style="border-radius: 0px;">{{ $repecca->complicaciones }}&nbsp;</p>
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <p class="form-control rounded-right" style="border-radius: 0px;">{{ $repecca->complicaciones_ano }}&nbsp;</p>
-                            </div>
-                        </div>
+                        <label for="complicaciones" class="form-label mb-0">Complicaciones y tiempo de primera ocurrencia tras diagnóstico</label>
+                        @php
+                            $complicaciones = json_decode($repecca->complicaciones, true);
+                        @endphp
+                        <p class="form-control">
+                            @foreach ($complicaciones as $index => $complicacion)
+                                {{ $complicacion['complicacion'] }} - {{ $complicacion['ano'] }}
+                                @if ($index < count($complicaciones) - 1)
+                                    <br>
+                                @endif
+                            @endforeach
+                        </p>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="paciente" class="form-label mb-0">Uso de dispositivos de asistencia</label>
+                        <label class="form-label mb-0">Uso de dispositivos de asistencia</label>
                         <p class="form-control">{{ $repecca->uso_dispositivos }} @if($repecca->uso_dispositivos == 'Otro') - {{ $repecca->uso_dispositivos_otro }} @endif &nbsp;</p>
                     </div>
                 </div>

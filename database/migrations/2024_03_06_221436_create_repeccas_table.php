@@ -30,8 +30,7 @@ class CreateRepeccasTable extends Migration
             $table->string('partos_pretermino',2)->nullable();
             $table->string('abortos',2)->nullable();
             $table->string('numero_hijos_vivos',2)->nullable();
-            $table->string('diagnostico_especifico')->nullable();
-            $table->string('diagnostico_especifico_ano')->nullable();
+            $table->json('diagnostico_especifico')->nullable();
             $table->string('transicion_cardiologia')->nullable();
             $table->string('sindrome_genetico_asociado')->nullable();
             $table->string('sindrome_genetico_asociado_otro')->nullable();
@@ -55,8 +54,7 @@ class CreateRepeccasTable extends Migration
             $table->string('marcapasos')->nullable();
             $table->string('aortoplastia')->nullable();
             $table->string('stent_fistulas')->nullable();
-            $table->string('cirugia_cardiaca')->nullable();
-            $table->string('cirugia_cardiaca_ano')->nullable();
+            $table->json('cirugia_cardiaca')->nullable();
             $table->string('ventriculo_sistemico')->nullable();
             $table->string('fraccion_eyeccion')->nullable();
             $table->string('funcion_sistolica')->nullable();
@@ -67,8 +65,7 @@ class CreateRepeccasTable extends Migration
             $table->string('comorbilidades')->nullable();
             $table->string('comorbilidades_otro')->nullable();
             $table->string('enfermedad_renal')->nullable();
-            $table->string('complicaciones')->nullable();
-            $table->string('complicaciones_ano')->nullable();
+            $table->json('complicaciones')->nullable();
             $table->string('uso_dispositivos')->nullable();
             $table->string('uso_dispositivos_otro')->nullable();
             $table->string('creatinina_serica')->nullable();
