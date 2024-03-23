@@ -24,7 +24,7 @@ class RepeccaController extends Controller
         ];
 
         //if auth user is admin, show all repeccas
-        if (auth()->user()->role == 'admin') {
+        if (\Auth::user()->hasRole('admin')) {
             //join users table to get user (trato, name, lastname) as responsable
             $repeccas = Repecca::join('users', 'repeccas.user_id', '=', 'users.id')
                 ->select('repeccas.*', 'users.trato', 'users.name', 'users.lastname')
