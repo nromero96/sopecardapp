@@ -105,19 +105,25 @@
                 Registros
             </div>
 
+            @can('repecca.index')
             <!-- Nav Item - Tables -->
             <li class="nav-item {{ ($page_name === 'repecca_index' || $page_name === 'repecca_create' ) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('repecca.index') }}">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>REPECCA</span></a>
+                    <span>REPECCA</span>
+                </a>
             </li>
+            @endcan
 
+            @can('renaval.index')
             <!-- Nav Item - Charts -->
-            <li class="nav-item {{ ($page_name === 'renaval_index') ? 'active' : '' }}">
-                <a class="nav-link" href="#">
+            <li class="nav-item {{ ($page_name === 'renaval_index' || $page_name === 'renaval_create') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('renaval.index') }}">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>RENAVAL</span></a>
+                    <span>RENAVAL</span>
+                </a>
             </li>
+            @endcan
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

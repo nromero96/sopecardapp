@@ -528,12 +528,24 @@ class RepeccaController extends Controller
      */
     public function destroy($id)
     {
-        //update status to 'Eliminado'
-        $repecca = Repecca::find($id);
-        $repecca->status = 'Eliminado';
-        $repecca->save();
+        //get user logged id
+        $user_id = auth()->user()->id;
 
-        //return redirect to repecca index con mensaje
-        return redirect('/repecca')->with('success', 'REPECCA #'.$id.' eliminado exitosamente.');
+        //get user_id in repecca by id
+        $repecca = Repecca::find($id);
+        $repecca_user_id = $repecca->user_id;
+
+        if ($user_id != $repecca_user_id) {
+            return redirect('/repecca')->with('error', 'No puedes eliminar REPECCA de otro usuario.');
+        } else {
+            //update status to 'Eliminado'
+            $repecca = Repecca::find($id);
+            $repecca->status = 'Eliminado';
+            $repecca->save();
+
+            //return redirect to repecca index con mensaje
+            return redirect('/repecca')->with('success', 'REPECCA #'.$id.' eliminado exitosamente.');
+        }
+
     }
 }

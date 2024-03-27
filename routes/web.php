@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\RepeccaController;
+use App\Http\Controllers\RenavalController;
 use App\Http\Controllers\SedeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -64,7 +66,7 @@ Route::group(['middleware' => ['auth', 'ensureStatusActive']], function () {
     Route::resource('/sedes', SedeController::class)->names('sedes');
 
     Route::resource('/repecca', RepeccaController::class)->names('repecca');
-
+    Route::resource('/renaval', RenavalController::class)->names('renaval');
 });
 
 Auth::routes();
