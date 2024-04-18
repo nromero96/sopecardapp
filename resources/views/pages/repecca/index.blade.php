@@ -87,11 +87,16 @@
                                     $total += $item->estado_civil ? 1 : 0;
                                     $total += $item->grado_instruccion ? 1 : 0;
                                     $total += $item->actividad_laboral ? 1 : 0;
-                                    $total += $item->numero_gestas ? 1 : 0;
-                                    $total += $item->partos_a_termino ? 1 : 0;
-                                    $total += $item->partos_pretermino ? 1 : 0;
-                                    $total += $item->abortos ? 1 : 0;
-                                    $total += $item->numero_hijos_vivos ? 1 : 0;
+                                    if($item->sexo=='Femenino'){
+                                        $total += $item->numero_gestas ? 1 : 0;
+                                        $total += $item->partos_a_termino ? 1 : 0;
+                                        $total += $item->partos_pretermino ? 1 : 0;
+                                        $total += $item->abortos ? 1 : 0;
+                                        $total += $item->numero_hijos_vivos ? 1 : 0;
+                                    }else{
+                                        $total += 5;
+                                    }
+                                    
                                     $total += $item->diagnostico_especifico ? 1 : 0;
                                     $total += $item->transicion_cardiologia ? 1 : 0;
                                     $total += $item->sindrome_genetico_asociado ? 1 : 0;

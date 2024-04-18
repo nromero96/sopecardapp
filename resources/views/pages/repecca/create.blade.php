@@ -89,8 +89,8 @@
                             <option value="Analfabeto">Analfabeto</option>
                             <option value="Primaria">Primaria</option>
                             <option value="Secundaria">Secundaria</option>
-                            <option value="Superior">Superior</option>
-                            <option value="Universitaria">Universitaria</option>
+                            <option value="Superior Técnico">Superior Técnico</option>
+                            <option value="Superior Universitaria">Universitaria</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-2">

@@ -92,8 +92,8 @@
                                 <option value="Analfabeto" @if($repecca->grado_instruccion == 'Analfabeto') selected @endif>Analfabeto</option>
                                 <option value="Primaria" @if($repecca->grado_instruccion == 'Primaria') selected @endif>Primaria</option>
                                 <option value="Secundaria" @if($repecca->grado_instruccion == 'Secundaria') selected @endif>Secundaria</option>
-                                <option value="Superior" @if($repecca->grado_instruccion == 'Superior') selected @endif>Superior</option>
-                                <option value="Universitaria" @if($repecca->grado_instruccion == 'Universitaria') selected @endif>Universitaria</option>
+                                <option value="Superior Técnico" @if($repecca->grado_instruccion == 'Superior Técnico') selected @endif>Superior Técnico</option>
+                                <option value="Superior Universitaria" @if($repecca->grado_instruccion == 'Superior Universitaria') selected @endif>Superior Universitaria</option>
                             </select>
                         </div>
                         <div class="col-md-6 mb-2">
