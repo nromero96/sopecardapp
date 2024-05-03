@@ -7,7 +7,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Registrar Repecca</h1>
+        <h1 class="h3 mb-0 text-gray-800">Registrar Renaval</h1>
     </div>
 
     <!-- Form -->
@@ -39,6 +39,10 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <label for="documento_identidad" class="form-label mb-0">Documento de identidad (DNI) <small class="requiredata">*</small></label>
+                        <input type="text" name="documento_identidad" class="form-control" id="documento_identidad">
+                    </div>
                     <div class="col-md-6 mb-2">
                         <label for="departamento" class="form-label mb-0">Departamento <small class="requiredata">*</small></label>
                         <input type="text" name="departamento" class="form-control" id="departamento">
@@ -437,9 +441,104 @@
                         <label for="tiempo_hemipresion" class="form-label mb-0">Tiempo de hemipresión </label>
                         <input type="number" name="tiempo_hemipresion" class="form-control" id="tiempo_hemipresion">
                     </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="diametro_vena_contracta" class="form-label mb-0">Diámetro de la vena contracta </label>
+                        <input type="text" name="diametro_vena_contracta" class="form-control" id="diametro_vena_contracta">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="morfo_aortica" class="form-label mb-0">Diagnóstico de hipertrofia miocárdica </label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="hipertrofia" id="hipertrofiasi" value="Sí" >
+                                <label class="form-check-label" for="hipertrofiasi">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="hipertrofia" id="hipertrofiano" value="No" >
+                                <label class="form-check-label" for="hipertrofiano">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="tipo_hipertrofia1" class="form-label mb-0">Tipo de hipertrofia miocárdica </label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tipo_hipertrofia" id="tipo_hipertrofia1" value="Eccéntrica" >
+                                <label class="form-check-label" for="tipo_hipertrofia1">Eccéntrica</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tipo_hipertrofia" id="tipo_hipertrofia2" value="Concéntrica" >
+                                <label class="form-check-label" for="tipo_hipertrofia2">Concéntrica</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="volumen_ai" class="form-label mb-0">Volumen de la aurícula izquierda </label>
+                        <input type="text" name="volumen_ai" class="form-control" id="volumen_ai">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="htp" class="form-label mb-0">Diagnóstico de hipertensión pulmonar </label>
+                        <input type="text" name="htp" class="form-control" id="htp">
+                    </div>
 
+                    <div class="col-md-6 mb-2">
+                        <label for="htpsi" class="form-label mb-0">Diagnóstico de hipertensión pulmonar </label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="htp" id="htpsi" value="Sí" >
+                                <label class="form-check-label" for="htpsi">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="htp" id="htpno" value="No" >
+                                <label class="form-check-label" for="htpno">No</label>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="col-md-6 mb-2">
+                        <label for="htp_severidad1" class="form-label mb-0">Severidad de hipertensión pulmonar </label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="htp_severidad" id="htp_severidad1" value="Leve" >
+                                <label class="form-check-label" for="htp_severidad1">Leve</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="htp_severidad" id="htp_severidad2" value="Moderada" >
+                                <label class="form-check-label" for="htp_severidad2">Moderada</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="htp_severidad" id="htp_severidad3" value="Severa" >
+                                <label class="form-check-label" for="htp_severidad3">Severa</label>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="col-md-6 mb-2">
+                        <label for="tapse_20si" class="form-label mb-0">TAPSE mayor a 20 </label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tapse_20" id="tapse_20si" value="Sí" >
+                                <label class="form-check-label" for="tapse_20si">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tapse_20" id="tapse_20no" value="No" >
+                                <label class="form-check-label" for="tapse_20no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="fraccion_de_acortamientosi" class="form-label mb-0">Fracción de acortamiento <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Colocar si el valor de la fracción de acortamiento es más de 35."></span></label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="fraccion_de_acortamiento" id="fraccion_de_acortamientosi" value="Sí" >
+                                <label class="form-check-label" for="fraccion_de_acortamientosi">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tapse_20" id="fraccion_de_acortamientono" value="No" >
+                                <label class="form-check-label" for="fraccion_de_acortamientono">No</label>
+                            </div>
+                        </div>
+                    </div>
 
 
 
