@@ -82,3 +82,17 @@ input[type="checkbox"]{
         background-size: contain;
     }
 }
+
+//si no tiene la clase collapsed
+.active-accordion{
+    background-color: rgb(27 43 109 / 30%);
+}
+
+.active-accordion .btn-link{
+    color: #1B2B6D;
+    font-weight: 700;
+}
+
+.active-accordion .btn-link:focus{
+    box-shadow: none;
+}
