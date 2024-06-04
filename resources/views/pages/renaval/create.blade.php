@@ -123,6 +123,17 @@
                             <option value="Superior técnico completa">Superior técnico completa</option>
                         </select>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Datos Clínicos -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Datos Clínicos</h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-md-6 mb-2">
                         <label for="pas_diagnostico" class="form-label mb-0">Presión arterial sistólica (mmHg)</label>
                         <input type="text" name="pas_diagnostico" class="form-control" id="pas_diagnostico" >
@@ -139,17 +150,6 @@
                         <label for="talla" class="form-label mb-0">Talla actual (m) </label>
                         <input type="number" name="talla" class="form-control" id="talla" step="0.01">
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Datos Clínicos -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Datos Clínicos</h6>
-            </div>
-            <div class="card-body">
-                <div class="row">
                     <div class="col-md-6 mb-2">
                         <label for="circunferencia_abdominal" class="form-label mb-0">Circunferencia abdominal (cm) </label>
                         <input type="number" name="circunferencia_abdominal" class="form-control" id="circunferencia_abdominal">
