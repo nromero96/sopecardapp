@@ -56,7 +56,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Responsable</th>
-                            <th>N° historia clínica</th>
+                            <th>Doc. de identidad</th>
                             <th>Sexo</th>
                             <th>Edad</th>
                             <th>Datos</th>
@@ -70,10 +70,9 @@
                         <tr></tr>
                             <td>{{ $item->id }}</td>
                             <td>@if($item->trato != ''){{ $item->trato.' ' }}@endif{{ $item->name }} {{ $item->lastname }}</td>
-                            <td>{{ $item->numero_historia_clinica }}</td>
+                            <td>{{ $item->documento_identidad }}</td>
                             <td>{{ $item->sexo }}</td>
                             <td>{{ $item->edad }}</td>
-
                             <td>
 
                                 @php

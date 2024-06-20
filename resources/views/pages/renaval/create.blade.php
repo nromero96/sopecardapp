@@ -11,7 +11,7 @@
     </div>
 
     <!-- Form -->
-    <form action="{{ route('repecca.store') }}" method="POST">
+    <form action="{{ route('renaval.store') }}" method="POST">
         @csrf
         <!-- Información Responsable -->
         <div class="card shadow mb-4">
@@ -25,8 +25,8 @@
                         <input type="text" name="responsable" class="form-control" id="responsable" value="@if(Auth::user()->trato != ''){{ Auth::user()->trato.' ' }}@endif{{ Auth::user()->name }} {{ Auth::user()->lastname }}" readonly>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="centro" class="form-label mb-0">Centro de salud <small class="requiredata">*</small></label>
-                        <input type="text" name="centro" class="form-control" id="centro">
+                        <label for="centro_salud" class="form-label mb-0">Centro de salud <small class="requiredata">*</small></label>
+                        <input type="text" name="centro_salud" class="form-control" id="centro_salud" required>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-2">
                         <label for="documento_identidad" class="form-label mb-0">Documento de identidad (DNI) <small class="requiredata">*</small></label>
-                        <input type="text" name="documento_identidad" class="form-control" id="documento_identidad">
+                        <input type="number" name="documento_identidad" class="form-control" id="documento_identidad" required>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="modalidad_ingreso" class="form-label mb-0">Modalidad de ingreso <small class="requiredata">*</small></label>
@@ -135,12 +135,16 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 mb-2">
+                        <label for="compli_enfermedad" class="form-label mb-0">Complicaciones de la enfermedad</label>
+                        <input type="text" name="compli_enfermedad" class="form-control" id="compli_enfermedad" >
+                    </div>
+                    <div class="col-md-6 mb-2">
                         <label for="pas_diagnostico" class="form-label mb-0">Presión arterial sistólica (mmHg)</label>
-                        <input type="text" name="pas_diagnostico" class="form-control" id="pas_diagnostico" >
+                        <input type="number" name="pas_diagnostico" class="form-control" id="pas_diagnostico" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="pad_diagnostico" class="form-label mb-0">Presión arterial diastólica (mmHg)</label>
-                        <input type="text" name="pad_diagnostico" class="form-control" id="pad_diagnostico" >
+                        <input type="number" name="pad_diagnostico" class="form-control" id="pad_diagnostico" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="peso" class="form-label mb-0">Peso actual (Kg) </label>
@@ -220,15 +224,12 @@
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="metodo_diagnostico_valvulopatia" class="form-label mb-0">Método diagnóstico de la valvulopatía <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Colocar método diagnóstico de la valvulopatía y la fecha. Ejm: Metodo... - 17/03/2014."></span></label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <input type="text" name="metodo_diagnostico_valvulopatia" class="form-control rounded-left" style="border-radius: 0px;">
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="fecha_diagnostico_valvulopatia" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
+                        <label for="metodo_diagnostico_valvulopatia" class="form-label mb-0">Método diagnóstico de la valvulopatía</label>
+                        <input type="text" name="metodo_diagnostico_valvulopatia" class="form-control rounded-left" id="metodo_diagnostico_valvulopatia">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="fecha_diagnostico_valvulopatia" class="form-label mb-0">Fecha de diagnostico <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Colocar método diagnóstico de la valvulopatía y la fecha. Ejm: Metodo... - 17/03/2014."></span></label>
+                        <input type="date" name="fecha_diagnostico_valvulopatia" class="form-control rounded-right" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="fevi_al_diagnostico" class="form-label mb-0">Fracción de eyección de ventrículo izquierdo al diagnóstico (%) </label>
@@ -317,7 +318,7 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="cha2ds2vasc" class="form-label mb-0">CHA2DS2-VASc </label>
-                        <input type="number" name="cha2ds2vasc" class="form-control" id="cha2ds2vasc">
+                        <input type="text" name="cha2ds2vasc" class="form-control" id="cha2ds2vasc">
                     </div>
                     <div class="col-md-12 mb-2">
                         <label for="diagnostico1" class="form-label mb-0 d-block">Diagnóstico de síntomas específicos </label>
@@ -357,32 +358,8 @@
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="grado_soplo" class="form-label mb-0">Grado de severidad del soplo </label>
-                        <input type="number" name="grado_soplo" class="form-control" id="grado_soplo">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="nyha" class="form-label mb-0">Clasificación New York Heart Association </label>
-                        <input type="number" name="nyha" class="form-control" id="nyha">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="area_valvular" class="form-label mb-0">Área valvular</label>
-                        <input type="number" name="area_valvular" class="form-control" id="area_valvular">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="velo_maxima" class="form-label mb-0">Velocidad máxima (en estenosis aórtica e insuficiencia tricuspídea) </label>
-                        <input type="number" name="velo_maxima" class="form-control" id="velo_maxima">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="itv" class="form-label mb-0">Colocar el valor del ITV</label>
-                        <input type="number" name="itv" class="form-control" id="itv">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="vol_sis_expuls" class="form-label mb-0">Colocar el valor del volumen sistólico de expulsión</label>
-                        <input type="number" name="vol_sis_expuls" class="form-control" id="vol_sis_expuls">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="otra_valvula" class="form-label mb-0">Otra válvula afectada <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="En caso de haber otra válvula afectada, colocar el nombre de la válvula"></span></label>
-                        <input type="text" name="otra_valvula" class="form-control" id="otra_valvula">
+                        <label for="clasif_nyha" class="form-label mb-0">Clasificación New York Heart Association </label>
+                        <input type="text" name="clasif_nyha" class="form-control" id="clasif_nyha">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="enf_coronaria1" class="form-label mb-0">Diagnóstico de enfermedad coronaria </label>
@@ -397,665 +374,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="seguimiento_gradiente_media" class="form-label mb-0">Seguimiento de gradiente media <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Colocar el valor del gradiente medio y la fecha. Ejm: 20 - 17/03/2014."></span></label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <input type="text" name="seguimiento_gradiente_media" class="form-control rounded-left" style="border-radius: 0px;">
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="seguimiento_gradiente_media_fecha" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="orificio_regurgitante_efectivo" class="form-label mb-0">Orificio regurgitante efectivo (cm2) </label>
-                        <input type="number" name="orificio_regurgitante_efectivo" class="form-control" id="orificio_regurgitante_efectivo">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="pisa" class="form-label mb-0">Colocar el valor de PISA</label>
-                        <input type="number" name="pisa" class="form-control" id="pisa">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="morfo_aortica" class="form-label mb-0">Morfología de la válvula aórtica </label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="morfo_aortica" id="morfo_aortica1" value="Bicúspide" >
-                                <label class="form-check-label" for="morfo_aortica1">Bicúspide</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="morfo_aortica" id="morfo_aortica2" value="Tricúspide" >
-                                <label class="form-check-label" for="morfo_aortica2">Tricúspide</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="dilat_ao" class="form-label mb-0">Dilatación de la aorta al diagnóstico </label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dilat_ao" id="dilat_ao1" value="Dilatada" >
-                                <label class="form-check-label" for="dilat_ao1">Dilatada</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dilat_ao" id="dilat_ao2" value="No dilatada" >
-                                <label class="form-check-label" for="dilat_ao2">No dilatada</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dilat_ao" id="dilat_ao3" value="Aneurismática" >
-                                <label class="form-check-label" for="dilat_ao3">Aneurismática</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="gradiente_media" class="form-label mb-0">Gradiente media </label>
-                        <input type="number" name="gradiente_media" class="form-control" id="gradiente_media">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="diametro_vena_contracta" class="form-label mb-0">Diámetro de la vena contracta </label>
-                        <input type="text" name="diametro_vena_contracta" class="form-control" id="diametro_vena_contracta">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="morfo_aortica" class="form-label mb-0">Diagnóstico de hipertrofia miocárdica </label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="hipertrofia" id="hipertrofiasi" value="Sí" >
-                                <label class="form-check-label" for="hipertrofiasi">Si</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="hipertrofia" id="hipertrofiano" value="No" >
-                                <label class="form-check-label" for="hipertrofiano">No</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="remod_ventri_izq1" class="form-label mb-0">Remodelamiento de ventrículo Izquierdo </label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="remod_ventri_izq" id="remod_ventri_izq1" value="Normal" >
-                                <label class="form-check-label" for="remod_ventri_izq1">Normal</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="remod_ventri_izq" id="remod_ventri_izq2" value="Concéntrica" >
-                                <label class="form-check-label" for="remod_ventri_izq2">Concéntrica</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="remod_ventri_izq" id="remod_ventri_izq3" value="Eccéntrica" >
-                                <label class="form-check-label" for="remod_ventri_izq3">Eccéntrica</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="volumen_ai" class="form-label mb-0">Volumen de la aurícula izquierda </label>
-                        <input type="text" name="volumen_ai" class="form-control" id="volumen_ai">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="htpcat1" class="form-label mb-0">Diagnóstico de hipertensión pulmonar categoría </label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="htpcat" id="htpcat1" value="Ecocardiografía" >
-                                <label class="form-check-label" for="htpcat1">Ecocardiografía</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="htpcat" id="htpcat2" value="Cateterismo derecho" >
-                                <label class="form-check-label" for="htpcat2">Cateterismo derecho</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="htpsi" class="form-label mb-0">Diagnóstico de hipertensión pulmonar </label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="htp" id="htpsi" value="Sí" >
-                                <label class="form-check-label" for="htpsi">Si</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="htp" id="htpno" value="No" >
-                                <label class="form-check-label" for="htpno">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="htp_severidad1" class="form-label mb-0">Severidad de hipertensión pulmonar </label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="htp_severidad" id="htp_severidad1" value="Leve" >
-                                <label class="form-check-label" for="htp_severidad1">Leve</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="htp_severidad" id="htp_severidad2" value="Moderada" >
-                                <label class="form-check-label" for="htp_severidad2">Moderada</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="htp_severidad" id="htp_severidad3" value="Severa" >
-                                <label class="form-check-label" for="htp_severidad3">Severa</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="tapse_20si" class="form-label mb-0">TAPSE mayor a 20 </label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="tapse_20" id="tapse_20si" value="Sí" >
-                                <label class="form-check-label" for="tapse_20si">Si</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="tapse_20" id="tapse_20no" value="No" >
-                                <label class="form-check-label" for="tapse_20no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="fraccion_de_acortamiento" class="form-label mb-0">Fracción de acortamiento <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Colocar si el valor de la fracción de acortamiento es más de 35."></span></label>
-                        <input type="number" name="fraccion_de_acortamiento" class="form-control" id="fraccion_de_acortamiento">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="fevi_seguimiento" class="form-label mb-0">Fracción de eyección ventricular izquierda <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Colocar el valor (solo números, no colocar el %) del FEVI y Fecha (DD/MM/AA) de medición del FEVI."></span></label>
-                        <div id="fevi_seguimiento_container">
-                            <div class="fevi_seguimiento_row row align-items-center">
-                                <div class="col-7 col-md-7 pr-0">
-                                    <input type="number" name="fevi_seguimiento[0][valor]" class="form-control rounded-left" placeholder="Valor en %" style="border-radius: 0px;">
-                                </div>
-                                <div class="col-4 col-md-4 pl-0">
-                                    <input type="date" name="fevi_seguimiento[0][fecha]" class="form-control rounded-right" placeholder="Fecha" style="border-radius: 0px;">
-                                </div>
-                                <div class="col-1 col-md-1 pl-0">
-                                    <a href="javascript:void(0);" class="btn btn-outline-danger btn-sm rounded disabled remove_fevi_seguimiento" title="Eliminar diagnóstico"><i class="fas fa-trash"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="javascript:void(0);" class="btn btn-primary btn-sm mt-2" id="add_fevi_seguimiento">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
-                            </svg>
-                            Agregar FEVI
-                        </a>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="fevi_reducidasi" class="form-label mb-0">Diagnóstico de la fracción de eyección ventricular menor a 40% <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="¿La FEVI se redujo menor o igual al 40% durante el seguimiento.? y la fecha DD-MM-YYYY."></span></label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <div class="form-control rounded-left radioptions" style="border-radius: 0px;">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="fevi_reducida" id="fevi_reducidasi" value="Sí" >
-                                        <label class="form-check-label" for="fevi_reducidasi">Si</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="fevi_reducida" id="fevi_reducidano" value="No" >
-                                        <label class="form-check-label" for="fevi_reducidano">No</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="fecha_fevi_reducida" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="diametro_ventricular_izquierda_al_final_de_la_diastole" class="form-label mb-0">Diámetro ventricular izquierdo al final de la diástole (mm) <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Colocar el valor del diámetro ventricular izquierdo al final de la diástole (solo el número) detectado durante el seguimiento y la fecha."></span></label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <input type="number" name="diametro_ventricular_izquierda_al_final_de_la_diastole" class="form-control rounded-left" style="border-radius: 0px;" placeholder="Diámetro en mm">
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="fecha_diametro_ventricular_izquierda_al_final_de_la_diastole" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="diametro_ventricular_izquierda_al_final_de_la_sistole" class="form-label mb-0">Diámetro ventricular izquierdo al final de la sístole (mm) <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Colocar el valor del diámetro ventricular izquierdo al final de la sístole (solo el número) detectado durante el seguimiento y la fecha."></span></label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <input type="number" name="diametro_ventricular_izquierda_al_final_de_la_sistole" class="form-control rounded-left" style="border-radius: 0px;" placeholder="Diámetro en mm">
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="fecha_diametro_ventricular_izquierda_al_final_de_la_sistole" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>
         </div>
 
-        <!-- Datos ecocardiográficos-->
+        <!-- Datos Ecocardiográficos -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Datos ecocardiográficos</h6>
             </div>
-
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6 mb-2">
-                        <label for="complicaciones_inmediatas" class="form-label mb-0">Complicaciones inmediatas o tardías </label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="complicaciones_inmediatas_tardias" id="complicaciones_inmediatas" value="Inmediatas" >
-                                <label class="form-check-label" for="complicaciones_inmediatas">Inmediatas</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="complicaciones_inmediatas_tardias" id="complicaciones_tardias" value="Tardías" >
-                                <label class="form-check-label" for="complicaciones_tardias">Tardías</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="complicaciones_protesis" class="form-label mb-0">Complicaciones de la prótesis </label>
-                        <select name="complicaciones_protesis" class="form-control" id="complicaciones_protesis">
-                            <option value="">Seleccionar...</option>
-                            <option value="Leeks paravalvulares">Leeks paravalvulares</option>
-                            <option value="Mismatch">Mismatch</option>
-                            <option value="Trombosis">Trombosis</option>
-                            <option value="Pannus">Pannus</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="complicación_falla_cardiacasi" class="form-label mb-0">Falla cardiaca como complicación de la valvulopatía </label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <div class="form-control rounded-left radioptions" style="border-radius: 0px;">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicación_falla_cardiaca" id="complicación_falla_cardiacasi" value="Sí" >
-                                        <label class="form-check-label" for="complicación_falla_cardiacasi">Si</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicación_falla_cardiaca" id="complicación_falla_cardiacano" value="No" >
-                                        <label class="form-check-label" for="complicación_falla_cardiacano">No</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="fecha_complicación_falla_cardiaca" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="complicacion_strokesi" class="form-label mb-0">Stroke como complicación de la valvulopatía </label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <div class="form-control rounded-left radioptions" style="border-radius: 0px;">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_stroke" id="complicacion_strokesi" value="Sí" >
-                                        <label class="form-check-label" for="complicacion_strokesi">Si</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_stroke" id="complicacion_strokeno" value="No" >
-                                        <label class="form-check-label" for="complicacion_strokeno">No</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="fecha_complicacion_stroke" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="complicacion_endocarditissi" class="form-label mb-0">Endocarditis como complicación de la valvulopatía </label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <div class="form-control rounded-left radioptions" style="border-radius: 0px;">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_endocarditis" id="complicacion_endocarditissi" value="Sí" >
-                                        <label class="form-check-label" for="complicacion_endocarditissi">Si</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_endocarditis" id="complicacion_endocarditisno" value="No" >
-                                        <label class="form-check-label" for="complicacion_endocarditisno">No</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="fecha_complicacion_endocarditis" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="complicacion_sangradosi" class="form-label mb-0">Sangrado como complicación de la valvulopatía </label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <div class="form-control rounded-left radioptions" style="border-radius: 0px;">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_sangrado" id="complicacion_sangradosi" value="Sí" >
-                                        <label class="form-check-label" for="complicacion_sangradosi">Si</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_sangrado" id="complicacion_sangradono" value="No" >
-                                        <label class="form-check-label" for="complicacion_sangradono">No</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="fecha_complicacion_sangrado" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="complicacion_tromboembolismosi" class="form-label mb-0">Tromboembolismo como complicación de la valvulopatía </label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <div class="form-control rounded-left radioptions" style="border-radius: 0px;">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_tromboembolismo" id="complicacion_tromboembolismosi" value="Sí" >
-                                        <label class="form-check-label" for="complicacion_tromboembolismosi">Si</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_tromboembolismo" id="complicacion_tromboembolismono" value="No" >
-                                        <label class="form-check-label" for="complicacion_tromboembolismono">No</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="fecha_complicacion_tromboembolismo" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-6 mb-2">
-                        <label for="complicacion_fibrilacion_auricularsi" class="form-label mb-0">Fibrilación auricular como complicación de la valvulopatía </label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <div class="form-control rounded-left radioptions" style="border-radius: 0px;">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_fibrilacion_auricular" id="complicacion_fibrilacion_auricularsi" value="Sí" >
-                                        <label class="form-check-label" for="complicacion_fibrilacion_auricularsi">Si</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_fibrilacion_auricular" id="complicacion_fibrilacion_auricularno" value="No" >
-                                        <label class="form-check-label" for="complicacion_fibrilacion_auricularno">No</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="fecha_complicacion_fibrilacion_auricular" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="complicacion_otros_hallazgos_ecgsi" class="form-label mb-0">Otros hallazgos en el electrocardiograma como complicaciones de la valvulopatía </label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <div class="form-control rounded-left radioptions" style="border-radius: 0px;">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_otros_hallazgos_ecg" id="complicacion_otros_hallazgos_ecgsi" value="Sí" >
-                                        <label class="form-check-label" for="complicacion_tromboembolismosi">Si</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_otros_hallazgos_ecg" id="complicacion_otros_hallazgos_ecgno" value="No" >
-                                        <label class="form-check-label" for="complicacion_tromboembolismono">No</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="fecha_complicacion_otros_hallazgos_ecg" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="complicacion_trombo_auricularsi" class="form-label mb-0">Trombo auricular como complicación de la valvulopatía </label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <div class="form-control rounded-left radioptions" style="border-radius: 0px;">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_trombo_auricular" id="complicacion_trombo_auricularsi" value="Sí" >
-                                        <label class="form-check-label" for="complicacion_trombo_auricularsi">Si</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_trombo_auricular" id="complicacion_trombo_auricularno" value="No" >
-                                        <label class="form-check-label" for="complicacion_trombo_auricularno">No</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="fecha_complicacion_trombo_auricular" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="complicacion_muerte_generalsi" class="form-label mb-0">Muerte de causa general (causas no cardiovasculares) </label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <div class="form-control rounded-left radioptions" style="border-radius: 0px;">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_muerte_general" id="complicacion_muerte_generalsi" value="Sí" >
-                                        <label class="form-check-label" for="complicacion_muerte_generalsi">Si</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_muerte_general" id="complicacion_muerte_generalno" value="No" >
-                                        <label class="form-check-label" for="complicacion_muerte_generalno">No</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="fecha_complicacion_muerte_general" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="complicacion_muerte_cardiovascularsi" class="form-label mb-0">Muerte de causa cardiovascular (causas cardiovasculares)</label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <div class="form-control rounded-left radioptions" style="border-radius: 0px;">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_muerte_cardiovascular" id="complicacion_muerte_cardiovascularsi" value="Sí" >
-                                        <label class="form-check-label" for="complicacion_muerte_cardiovascularsi">Si</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_muerte_cardiovascular" id="complicacion_muerte_cardiovascularno" value="No" >
-                                        <label class="form-check-label" for="complicacion_muerte_cardiovascularno">No</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="fecha_complicacion_muerte_cardiovascular" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="complicacion_hospitalizacion_cardiovascularsi" class="form-label mb-0">Hospitalización de causa cardiovascular </label>
-                        <div class="row">
-                            <div class="col-8 col-md-8 pr-0">
-                                <div class="form-control rounded-left radioptions" style="border-radius: 0px;">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_hospitalizacion_cardiovascular" id="complicacion_hospitalizacion_cardiovascularsi" value="Sí" >
-                                        <label class="form-check-label" for="complicacion_hospitalizacion_cardiovascularsi">Si</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="complicacion_hospitalizacion_cardiovascular" id="complicacion_hospitalizacion_cardiovascularno" value="No" >
-                                        <label class="form-check-label" for="complicacion_hospitalizacion_cardiovascularno">No</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-4 pl-0">
-                                <input type="date" name="fecha_complicacion_hospitalizacion_cardiovascular" class="form-control rounded-right" style="border-radius: 0px;padding: 5px 10px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="ava_planimetria" class="form-label mb-0">AVA por planimetría para estenosis aórtica</label>
-                        <input type="text" name="ava_planimetria" class="form-control" id="ava_planimetria">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="modalidad_diagnostico_estenosis_aortica1" class="form-label mb-0">Modalidad de diagnóstico en estenosis aórtica</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="modalidad_diagnostico_estenosis_aortica" id="modalidad_diagnostico_estenosis_aortica1" value="Ecocardiografía" >
-                                <label class="form-check-label" for="modalidad_diagnostico_estenosis_aortica1">Ecocardiografía</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="modalidad_diagnostico_estenosis_aortica" id="modalidad_diagnostico_estenosis_aortica2" value="ETE" >
-                                <label class="form-check-label" for="modalidad_diagnostico_estenosis_aortica2">ETE</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="vena_contracta" class="form-label mb-0">Vena contracta (agregar que es para insuficiencia aórtica, insuficiencia tricuspídea, insuficiencia mitral, insuficiencia pulmonar)</label>
-                        <input type="text" name="vena_contracta" class="form-control" id="vena_contracta">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="avm_planimetria" class="form-label mb-0">AVM por planimetría para estenosis mitral</label>
-                        <input type="text" name="avm_planimetria" class="form-control" id="avm_planimetria">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="vc" class="form-label mb-0">VC (estenosis pulmonar, insuficiencia aórtica e insuficiencia mitral)</label>
-                        <input type="text" name="vc" class="form-control" id="vc">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="clasificacion_carpentier" class="form-label mb-0">Clasificación carpentier para insuficiencia aórtica, insuficiencia mitral  e insuficiencia tricuspídea (categorías: IA, IB, IC, ID, II, III)</label>
-                        <input type="text" name="clasificacion_carpentier" class="form-control" id="clasificacion_carpentier">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="volumen_regurgitante" class="form-label mb-0">Volumen regurgitante para insuficiencia aórtica e insuficiencia mitral</label>
-                        <input type="text" name="volumen_regurgitante" class="form-control" id="volumen_regurgitante">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="compromiso_ventriculo_derecho" class="form-label mb-0">Compromiso de ventrículo derecho</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="compromiso_ventriculo_derecho" id="compromiso_ventriculo_derecho1" value="Sí" >
-                                <label class="form-check-label" for="compromiso_ventriculo_derecho1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="compromiso_ventriculo_derecho" id="compromiso_ventriculo_derecho2" value="No" >
-                                <label class="form-check-label" for="compromiso_ventriculo_derecho2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="velocidad_onda_s" class="form-label mb-0">Velocidad de onda S</label>
-                        <input type="text" name="velocidad_onda_s" class="form-control" id="velocidad_onda_s">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="morfologia_valvula_insuficiencia_tricuspidea" class="form-label mb-0">Morfología para insuficiencia tricuspídea</label>
-                        <input type="text" name="morfologia_valvula_insuficiencia_tricuspidea" class="form-control" id="morfologia_valvula_insuficiencia_tricuspidea">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="numero_velos_insuficiencia_tricuspidea" class="form-label mb-0">Número de velos para insuficiencia tricuspídea</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="numero_velos_insuficiencia_tricuspidea" id="numero_velos_insuficiencia_tricuspidea1" value="2" >
-                                <label class="form-check-label" for="numero_velos_insuficiencia_tricuspidea1">2</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="numero_velos_insuficiencia_tricuspidea" id="numero_velos_insuficiencia_tricuspidea2" value="3" >
-                                <label class="form-check-label" for="numero_velos_insuficiencia_tricuspidea2">3</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="numero_velos_insuficiencia_tricuspidea" id="numero_velos_insuficiencia_tricuspidea3" value="4" >
-                                <label class="form-check-label" for="numero_velos_insuficiencia_tricuspidea3">4</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="numero_velos_insuficiencia_tricuspidea" id="numero_velos_insuficiencia_tricuspidea4" value="Otros" >
-                                <label class="form-check-label" for="numero_velos_insuficiencia_tricuspidea4">Otros</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="psap_estimada_cateterismo" class="form-label mb-0">PSAP estimada por cateterismo cardiaco derecho</label>
-                        <input type="text" name="psap_estimada_cateterismo" class="form-control" id="psap_estimada_cateterismo">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="psap_estimada" class="form-label mb-0">PSAP estimada</label>
-                        <input type="text" name="psap_estimada" class="form-control" id="psap_estimada">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="resistencia_pulmonar" class="form-label mb-0">Resistencia pulmonar</label>
-                        <input type="text" name="resistencia_pulmonar" class="form-control" id="resistencia_pulmonar">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="volumen_auricula_izquierda" class="form-label mb-0">Volumen de aurícula izquierda en cm3</label>
-                        <input type="text" name="volumen_auricula_izquierda" class="form-control" id="volumen_auricula_izquierda">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="area_auricula_derecha" class="form-label mb-0">Área de aurícula derecha en cm2</label>
-                        <input type="text" name="area_auricula_derecha" class="form-control" id="area_auricula_derecha">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="remodelamiento_ventriculo_izquierdo" class="form-label mb-0">Remodelamiento de ventrículo izquierdo</label>
-                        <select name="remodelamiento_ventriculo_izquierdo" class="form-control" id="remodelamiento_ventriculo_izquierdo">
-                            <option value="">Seleccionar...</option>
-                            <option value="Normal">Normal</option>
-                            <option value="Concéntrico">Concéntrico</option>
-                            <option value="Excéntrico">Excéntrico</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="fraccion_eyeccion_simpson" class="form-label mb-0">Fracción de eyección por Simpson</label>
-                        <input type="text" name="fraccion_eyeccion_simpson" class="form-control" id="fraccion_eyeccion_simpson">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="situacion_ventriculo_derecho" class="form-label mb-0">Situación de ventrículo derecho</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="situacion_ventriculo_derecho" id="situacion_ventriculo_derecho1" value="Normal" >
-                                <label class="form-check-label" for="situacion_ventriculo_derecho1">Normal</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="situacion_ventriculo_derecho" id="situacion_ventriculo_derecho2" value="Dilatado" >
-                                <label class="form-check-label" for="situacion_ventriculo_derecho2">Dilatado</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="valor_tapse" class="form-label mb-0">Valor del TAPSE</label>
-                        <input type="text" name="valor_tapse" class="form-control" id="valor_tapse">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="senos_raiz_aorta_ascendente" class="form-label mb-0">Senos de raíz de aorta ascendente</label>
-                        <input type="text" name="senos_raiz_aorta_ascendente" class="form-control" id="senos_raiz_aorta_ascendente">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="volumen_regurgitante_tricuspidea" class="form-label mb-0">Volumen regurgitante para insuficiencia tricuspídea</label>
-                        <input type="text" name="volumen_regurgitante_tricuspidea" class="form-control" id="volumen_regurgitante_tricuspidea">
-                    </div>
-
-                </div>
-
                 <!-- Accordion -->
-                <div class="accordion" id="accordionExample">
+                <div class="accordion accordion_de" id="accordionDatosEco">
                     <div class="card">
                       <div class="card-header active-accordion" id="headingOne">
                         <h2 class="mb-0">
@@ -1065,51 +396,69 @@
                         </h2>
                       </div>
                   
-                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionDatosEco">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 mb-2">
-                                    <label for="morfologia_valvula_estenosis_aortica" class="form-label mb-0">Morfología de válvula en estenosis aórtica</label>
-                                    <select name="morfologia_valvula_estenosis_aortica" class="form-control" id="morfologia_valvula_estenosis_aortica">
+                                    <label for="ea_morfologia_valvula_estenosis_aortica" class="form-label mb-0">Morfología de válvula en estenosis aórtica</label>
+                                    <select name="ea_morfologia_valvula_estenosis_aortica" class="form-control" id="ea_morfologia_valvula_estenosis_aortica">
                                         <option value="">Seleccionar...</option>
                                         <option value="Unicúspide">Unicúspide</option>
                                         <option value="Bicúspide">Bicúspide</option>
                                         <option value="Tricúspide">Tricúspide</option>
                                         <option value="Otro">Otro</option>
                                     </select>
+                                    <input type="text" name="morfologia_valvula_estenosis_aortica_otro" class="form-control mt-2" id="morfologia_valvula_estenosis_aortica_otro" placeholder="Especificar otra morfología...">
                                 </div>
                                 <div class="col-md-6 mb-2">
-                                    <label for="velocidad_maxima" class="form-label mb-0">Velocidad máxima (Estenosis tricuspidea, insuficiencia tricuspidea, estenosis pulmonar)</label>
-                                    <input type="text" name="velocidad_maxima" class="form-control" id="velocidad_maxima">
+                                    <label for="ea_velocidad_maxima" class="form-label mb-0">Velocidad máxima (m/s)</label>
+                                    <input type="number" name="ea_velocidad_maxima" class="form-control" id="ea_velocidad_maxima">
                                 </div>
                                 <div class="col-md-6 mb-2">
-                                    <label for="area_valvular_mitral" class="form-label mb-0">Área valvular mitral</label>
-                                    <input type="text" name="area_valvular_mitral" class="form-control" id="area_valvular_mitral">
+                                    <label for="ea_area_valvular" class="form-label mb-0">Área valvular (cm2)</label>
+                                    <input type="number" name="ea_area_valvular" class="form-control" id="ea_area_valvular">
                                 </div>
                                 <div class="col-md-6 mb-2">
-                                    <label for="severidad_valvulopatia" class="form-label mb-0">Severidad de valvulopatía</label>
+                                    <label for="ea_gradiente_media" class="form-label mb-0">Gradiente media (mmhg)</label>
+                                    <input type="number" name="ea_gradiente_media" class="form-control" id="ea_gradiente_media">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label for="ea_calculo_area_valvular1" class="form-label mb-0">Calculo del área valvular</label>
                                     <div class="form-control radioptions">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="severidad_valvulopatia" id="severidad_valvulopatia1" value="Leve" >
-                                            <label class="form-check-label" for="severidad_valvulopatia1">Leve</label>
+                                            <input class="form-check-input" type="radio" name="ea_calculo_area_valvular" id="ea_calculo_area_valvular1" value="Planimetría" >
+                                            <label class="form-check-label" for="ea_calculo_area_valvular1">Planimetría</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="severidad_valvulopatia" id="severidad_valvulopatia2" value="Moderada" >
-                                            <label class="form-check-label" for="severidad_valvulopatia2">Moderada</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="severidad_valvulopatia" id="severidad_valvulopatia3" value="Severa" >
-                                            <label class="form-check-label" for="severidad_valvulopatia3">Severa</label>
+                                            <input class="form-check-input" type="radio" name="ea_calculo_area_valvular" id="ea_calculo_area_valvular2" value="Ecuación de continuidad" >
+                                            <label class="form-check-label" for="ea_calculo_area_valvular2">Ecuación de continuidad</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-2">
-                                    <label for="etiologia" class="form-label mb-0">Etiología</label>
-                                    <input type="text" name="etiologia" class="form-control" id="etiologia">
+                                    <label for="ea_severidad_valvulopatia1" class="form-label mb-0">Severidad de valvulopatía</label>
+                                    <div class="form-control radioptions">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="ea_severidad_valvulopatia" id="ea_severidad_valvulopatia1" value="Leve" >
+                                            <label class="form-check-label" for="ea_severidad_valvulopatia1">Leve</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="ea_severidad_valvulopatia" id="ea_severidad_valvulopatia2" value="Moderada" >
+                                            <label class="form-check-label" for="ea_severidad_valvulopatia2">Moderada</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="ea_severidad_valvulopatia" id="ea_severidad_valvulopatia3" value="Severa" >
+                                            <label class="form-check-label" for="ea_severidad_valvulopatia3">Severa</label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-6 mb-2">
-                                    <label for="volumen_sistolico_eyeccion" class="form-label mb-0">Volumen sistólico de eyección para estenosis aórtica</label>
-                                    <input type="text" name="volumen_sistolico_eyeccion" class="form-control" id="volumen_sistolico_eyeccion">
+                                    <label for="ea_etiologia" class="form-label mb-0">Etiología</label>
+                                    <input type="text" name="ea_etiologia" class="form-control" id="ea_etiologia">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label for="ea_volumen_sistolico_eyeccion" class="form-label mb-0">Volumen sistólico de eyección (ml)</label>
+                                    <input type="number" name="ea_volumen_sistolico_eyeccion" class="form-control" id="ea_volumen_sistolico_eyeccion">
                                 </div>
 
                             </div>
@@ -1124,28 +473,48 @@
                           </button>
                         </h2>
                       </div>
-                      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionDatosEco">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 mb-2">
-                                    <label for="jet" class="form-label mb-0">JET para insuficiencia aórtica, insuficiencia tricuspídea, insuficiencia mitral (central o excéntrica)</label>
-                                    <input type="text" name="jet" class="form-control" id="jet">
+                                    <label for="ia_jet" class="form-label mb-0">JET</label>
+                                    <div class="form-control radioptions">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="ia_jet" id="ia_jet1" value="Central" >
+                                            <label class="form-check-label" for="ia_jet1">Central</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="ia_jet" id="jia_jet2" value="Excéntrica" >
+                                            <label class="form-check-label" for="ia_jet2">Excéntrica</label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-6 mb-2">
-                                    <label for="ore" class="form-label mb-0">ORE para insuficiencia aórtica e insuficiencia mitral</label>
-                                    <input type="text" name="ore" class="form-control" id="ore">
+                                    <label for="ia_vena_contracta" class="form-label mb-0">Vena contracta (cm)</label>
+                                    <input type="number" name="ia_vena_contracta" class="form-control" id="ia_vena_contracta">
                                 </div>
                                 <div class="col-md-6 mb-2">
-                                    <label for="severidad_insuficiencia_tricuspidea" class="form-label mb-0">Severidad de insuficiencia tricuspídea</label>
-                                    <select name="severidad_insuficiencia_tricuspidea" class="form-control" id="severidad_insuficiencia_tricuspidea">
+                                    <label for="ia_ore" class="form-label mb-0">ORE (cm2)</label>
+                                    <input type="number" name="ia_ore" class="form-control" id="ia_ore">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label for="ia_vol_regurgitante_orificio" class="form-label mb-0">Volumen regurgitante del orificio (ml)</label>
+                                    <input type="number" name="ia_vol_regurgitante_orificio" class="form-control" id="ia_vol_regurgitante_orificio">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label for="ia_etiologia" class="form-label mb-0">Etiología</label>
+                                    <input type="text" name="ia_etiologia" class="form-control" id="ia_etiologia">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label for="ia_severidad" class="form-label mb-0">Severidad</label>
+                                    <select name="ia_severidad" class="form-control" id="ia_severidad">
                                         <option value="">Seleccionar...</option>
                                         <option value="Leve">Leve</option>
                                         <option value="Moderada">Moderada</option>
                                         <option value="Severa">Severa</option>
-                                        <option value="Masiva">Masiva</option>
-                                        <option value="Torrencial">Torrencial</option>
                                     </select>
                                 </div>
+                                
 
                             </div>
                         </div>
@@ -1159,21 +528,39 @@
                           </button>
                         </h2>
                       </div>
-                      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionDatosEco">
                         <div class="card-body">
                           <div class="row">
                             <div class="col-md-6 mb-2">
-                                <label for="score_wilkins" class="form-label mb-0">Score de Wilkins para estenosis mitral</label>
-                                <input type="text" name="score_wilkins" class="form-control" id="score_wilkins">
+                                <label for="em_score_wilkins" class="form-label mb-0">Score de Wilkins</label>
+                                <input type="text" name="em_score_wilkins" class="form-control" id="em_score_wilkins">
                             </div>
                             <div class="col-md-6 mb-2">
-                                <label for="gradiente_media" class="form-label mb-0">Gradiente media (Estenosis tricuspidea, estenosis pulmonar)</label>
-                                <input type="text" name="gradiente_media" class="form-control" id="gradiente_media">
+                                <label for="em_gradiente_media" class="form-label mb-0">Gradiente media (mmhg)</label>
+                                <input type="text" name="em_gradiente_media" class="form-control" id="em_gradiente_media">
                             </div>
                             <div class="col-md-6 mb-2">
-                                <label for="tiempo_hemipresion" class="form-label mb-0">Tiempo de hemipresión (Para estenosis mitral)</label>
-                                <input type="number" name="tiempo_hemipresion" class="form-control" id="tiempo_hemipresion">
+                                <label for="em_tiempo_hemipresion" class="form-label mb-0">Tiempo de hemipresión (cm)</label>
+                                <input type="number" name="em_tiempo_hemipresion" class="form-control" id="em_tiempo_hemipresion">
                             </div>
+                            <div class="col-md-6 mb-2">
+                                <label for="em_area_val_mitral" class="form-label mb-0">Área valvular mitral (cm2)</label>
+                                <input type="number" name="em_area_val_mitral" class="form-control" id="em_area_val_mitral">
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label for="em_etiologia" class="form-label mb-0">Etiología</label>
+                                <input type="text" name="em_etiologia" class="form-control" id="em_etiologia">
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label for="em_severidad" class="form-label mb-0">Severidad</label>
+                                <select name="em_severidad" class="form-control" id="em_severidad">
+                                    <option value="">Seleccionar...</option>
+                                    <option value="Leve">Leve</option>
+                                    <option value="Moderada">Moderada</option>
+                                    <option value="Severa">Severa</option>
+                                </select>
+                            </div>
+                            
                           </div>
                         </div>
                       </div>
@@ -1187,9 +574,61 @@
                                 </button>
                             </h2>
                         </div>
-                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionDatosEco">
                             <div class="card-body">
-                                Contenido INSUFICIENCIA MITRAL
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label for="im_jet1" class="form-label mb-0">JET</label>
+                                        <div class="form-control radioptions">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="im_jet" id="im_jet1" value="Central">
+                                                <label class="form-check-label" for="im_jet1">Central</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="im_jet" id="im_jet2" value="Excéntrica">
+                                                <label class="form-check-label" for="im_jet2">Excéntrica</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="im_vena_contracta" class="form-label mb-0">Vena contracta (cm)</label>
+                                        <input type="number" name="im_vena_contracta" class="form-control" id="im_vena_contracta">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="im_ore" class="form-label mb-0">ORE (cm2)</label>
+                                        <input type="number" name="im_ore" class="form-control" id="im_ore">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="im_volumen_regurgitante" class="form-label mb-0">Volumen regurgitante (ml)</label>
+                                        <input type="number" name="im_volumen_regurgitante" class="form-control" id="im_volumen_regurgitante">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="im_etiologia" class="form-label mb-0">Etiología</label>
+                                        <input type="text" name="im_etiologia" class="form-control" id="im_etiologia">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="im_severidad" class="form-label mb-0">Severidad</label>
+                                        <select name="im_severidad" class="form-control" id="im_severidad">
+                                            <option value="">Seleccionar...</option>
+                                            <option value="Leve">Leve</option>
+                                            <option value="Moderada">Moderada</option>
+                                            <option value="Severa">Severa</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-2">
+                                        <label for="im_carpentier" class="form-label mb-0">Carpentier</label>
+                                        <input type="text" name="im_carpentier" class="form-control" id="im_carpentier">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="im_anillo" class="form-label mb-0">Anillo (cm)</label>
+                                        <input type="number" name="im_anillo" class="form-control" id="im_anillo">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="im_metodo_eval_anillo" class="form-label mb-0">Método de la evaluación del anillo</label>
+                                        <input type="text" name="im_metodo_eval_anillo" class="form-control" id="im_metodo_eval_anillo">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1202,9 +641,35 @@
                                 </button>
                             </h2>
                         </div>
-                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionDatosEco">
                             <div class="card-body">
-                                Contenido ESTENOSIS TRICUSPIDEA
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label for="et_velocidad_maxima" class="form-label mb-0">Velocidad máxima (m/s)</label>
+                                        <input type="number" name="et_velocidad_maxima" class="form-control" id="et_velocidad_maxima">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="et_gradiente_media" class="form-label mb-0">Gradiente media (mmhg)</label>
+                                        <input type="number" name="et_gradiente_media" class="form-control" id="et_gradiente_media">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="et_area_valvular" class="form-label mb-0">Área valvular (cm2)</label>
+                                        <input type="number" name="et_area_valvular" class="form-control" id="et_area_valvular">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="et_etiologia" class="form-label mb-0">Etiología</label>
+                                        <input type="text" name="et_etiologia" class="form-control" id="et_etiologia">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="et_severidad" class="form-label mb-0">Severidad</label>
+                                        <select name="et_severidad" class="form-control" id="et_severidad">
+                                            <option value="">Seleccionar...</option>
+                                            <option value="Leve">Leve</option>
+                                            <option value="Moderada">Moderada</option>
+                                            <option value="Severa">Severa</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1217,9 +682,71 @@
                                 </button>
                             </h2>
                         </div>
-                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionDatosEco">
                             <div class="card-body">
-                                Contenido INSUFICIENCIA TRICUSPIDEA
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label for="it_numero_velos" class="form-label mb-0">Número de velos</label>
+                                        <input type="number" name="it_numero_velos" class="form-control" id="it_numero_velos">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="it_jet1" class="form-label mb-0">JET</label>
+                                        <div class="form-control radioptions">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="it_jet" id="it_jet1" value="Central">
+                                                <label class="form-check-label" for="it_jet1">Central</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="it_jet" id="it_jet2" value="Excéntrica">
+                                                <label class="form-check-label" for="it_jet2">Excéntrica</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="it_vena_contracta" class="form-label mb-0">Vena contracta (cm)</label>
+                                        <input type="number" name="it_vena_contracta" class="form-control" id="it_vena_contracta">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="it_ore" class="form-label mb-0">ORE (cm2)</label>
+                                        <input type="number" name="it_ore" class="form-control" id="it_ore">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="it_velocidad_maxima" class="form-label mb-0">Velocidad Máxima (m/s)</label>
+                                        <input type="number" name="it_velocidad_maxima" class="form-control" id="it_velocidad_maxima">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="it_gradiente_maxima" class="form-label mb-0">Gradiente Máxima (mmhg)</label>
+                                        <input type="number" name="it_gradiente_maxima" class="form-control" id="it_gradiente_maxima">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="it_volumen_regurgitante" class="form-label mb-0">Volumen regurgitante (ml)</label>
+                                        <input type="number" name="it_volumen_regurgitante" class="form-control" id="it_volumen_regurgitante">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="it_severidad" class="form-label mb-0">Severidad</label>
+                                        <select name="it_severidad" class="form-control" id="it_severidad">
+                                            <option value="">Seleccionar...</option>
+                                            <option value="Leve">Leve</option>
+                                            <option value="Moderada">Moderada</option>
+                                            <option value="Severa">Severa</option>
+                                            <option value="Masiva">Masiva</option>
+                                            <option value="Torrencial">Torrencial</option>
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="it_psap_estimada" class="form-label mb-0">PSAP estimada (mmhg)</label>
+                                        <input type="number" name="it_psap_estimada" class="form-control" id="it_psap_estimada">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="it_anillo" class="form-label mb-0">Anillo (cm)</label>
+                                        <input type="number" name="it_anillo" class="form-control" id="it_anillo">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="it_metodo_eval_anillo" class="form-label mb-0">Método de la evaluación del anillo</label>
+                                        <input type="text" name="it_metodo_eval_anillo" class="form-control" id="it_metodo_eval_anillo">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1232,9 +759,35 @@
                                 </button>
                             </h2>
                         </div>
-                        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionDatosEco">
                             <div class="card-body">
-                                Contenido ESTENOSIS PULMONAR
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ep_velocidad_maxima" class="form-label mb-0">Velocidad máxima (m/s)</label>
+                                        <input type="number" name="ep_velocidad_maxima" class="form-control" id="ep_velocidad_maxima">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ep_gradiente_media" class="form-label mb-0">Gradiente media (mmhg)</label>
+                                        <input type="number" name="ep_gradiente_media" class="form-control" id="ep_gradiente_media">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ep_area_valvular" class="form-label mb-0">Área valvular (cm2)</label>
+                                        <input type="number" name="ep_area_valvular" class="form-control" id="ep_area_valvular">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ep_etiologia" class="form-label mb-0">Etiología</label>
+                                        <input type="text" name="ep_etiologia" class="form-control" id="ep_etiologia">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ep_severidad" class="form-label mb-0">Severidad</label>
+                                        <select name="ep_severidad" class="form-control" id="ep_severidad">
+                                            <option value="">Seleccionar...</option>
+                                            <option value="Leve">Leve</option>
+                                            <option value="Moderada">Moderada</option>
+                                            <option value="Severa">Severa</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1247,63 +800,390 @@
                                 </button>
                             </h2>
                         </div>
-                        <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+                        <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionDatosEco">
                             <div class="card-body">
-                                Contenido INSUIFICENCIA PULMONAR
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ip_vena_contracta" class="form-label mb-0">Vena contracta (cm)</label>
+                                        <input type="number" name="ip_vena_contracta" class="form-control" id="ip_vena_contracta">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ip_etiologia" class="form-label mb-0">Etiología</label>
+                                        <input type="text" name="ip_etiologia" class="form-control" id="ip_etiologia">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ip_severidad" class="form-label mb-0">Severidad</label>
+                                        <select name="ip_severidad" class="form-control" id="ip_severidad">
+                                            <option value="">Seleccionar...</option>
+                                            <option value="Leve">Leve</option>
+                                            <option value="Moderada">Moderada</option>
+                                            <option value="Severa">Severa</option>
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ip_anillo" class="form-label mb-0">Anillo (cm)</label>
+                                        <input type="number" name="ip_anillo" class="form-control" id="ip_anillo">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ip_metodo_eval_anillo" class="form-label mb-0">Método de la evaluación del anillo</label>
+                                        <input type="text" name="ip_metodo_eval_anillo" class="form-control" id="ip_metodo_eval_anillo">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-
-                  </div>
-
-            </div>
-        </div>
-
-        <!-- Datos Cateterismo cardiaco-->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Datos Cateterismo cardiaco</h6>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6 mb-2">
-                        <label for="lesion_cateterismo_cardiaco" class="form-label mb-0">Lesión por cateterismo cardiaco izquierdo </label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="lesion_cateterismo_cardiaco_izquierdo" id="lesion_cateterismo_cardiaco1" value="Sí" >
-                                <label class="form-check-label" for="lesion_cateterismo_cardiaco1">Si</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="lesion_cateterismo_cardiaco_izquierdo" id="lesion_cateterismo_cardiaco2" value="No" >
-                                <label class="form-check-label" for="lesion_cateterismo_cardiaco2">No</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="lugar_lesion_cateterismo_cardiaco_izquierdo" class="form-label mb-0">Lugar de lesión por cateterismo cardiaco izquierdo</label>
-                        <select name="lugar_lesion_cateterismo_cardiaco_izquierdo" class="form-control" id="lugar_lesion_cateterismo_cardiaco_izquierdo">
-                            <option value="">Seleccionar...</option>
-                            <option value="CD">CD</option>
-                            <option value="TCI">TCI</option>
-                            <option value="ADA">ADA</option>
-                            <option value="CV">CV</option>
-                            <option value="Diagonal">Diagonal</option>
-                            <option value="Margina">Margina</option>
-                            <option value="Descendente">Descendente</option>
-                            <option value="Posterior">Posterior</option>
-                        </select>
                     </div>
 
                 </div>
-
             </div>
         </div>
 
-        <!-- Datos Tratamiento Valvular-->
+        <!--Otros Datos ecocardiográficos cateterismo-->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Datos Tratamiento Valvular</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Otro datos ecocardiográficos y cateterismo</h6>
+            </div>
+
+            <div class="card-body">
+
+                <div class="row mb-1">
+                    <div class="col-md-6 mb-2">
+                        <label for="volumen_auricula_izquierda" class="form-label mb-0">Volumen de la aurícula izquierda/Área de superficie corporal (ml/m2)</label>
+                        <input type="number" name="volumen_auricula_izquierda" class="form-control" id="volumen_auricula_izquierda">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="area_auricula_derecha" class="form-label mb-0">Área de la aurícula derecha (cm2)</label>
+                        <input type="number" name="area_auricula_derecha" class="form-control" id="area_auricula_derecha">
+                    </div>
+                </div>
+
+                <!-- Accordion -->
+                <div class="accordion accordion_od" id="accordionOtroDatos">
+                    <div class="card">
+                        <div class="card-header active-accordion" id="od_headingOne">
+                            <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#od_collapseOne" aria-expanded="true" aria-controls="od_collapseOne">
+                                1.- VENTRÍCULO IZQUIERDO
+                            </button>
+                            </h2>
+                        </div>
+                
+                        <div id="od_collapseOne" class="collapse show" aria-labelledby="od_headingOne" data-parent="#accordionDatosEco">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label for="vi_diametro_telesistolico" class="form-label mb-0">Diámetro telesistólico (cm)</label>
+                                        <input type="number" name="vi_diametro_telesistolico" class="form-control" id="vi_diametro_telesistolico">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="vi_volumen_telediastolico" class="form-label mb-0">Volumen telediastólico (ml)</label>
+                                        <input type="number" name="vi_volumen_telediastolico" class="form-control" id="vi_volumen_telediastolico">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="vi_volumen_telesistolico" class="form-label mb-0">Volumen telesistólico (ml)</label>
+                                        <input type="number" name="vi_volumen_telesistolico" class="form-control" id="vi_volumen_telesistolico">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="vi_masa" class="form-label mb-0">Masa (gramos/m2)</label>
+                                        <input type="number" name="vi_masa" class="form-control" id="vi_masa">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="vi_remodelamiento" class="form-label mb-0">Remodelamiento</label>
+                                        <select name="vi_remodelamiento" class="form-control" id="vi_remodelamiento">
+                                            <option value="">Seleccionar...</option>
+                                            <option value="Normal">Normal</option>
+                                            <option value="Remodelamiento concéntrico">Remodelamiento concéntrico</option>
+                                            <option value="Hipertrofia concéntrica">Hipertrofia concéntrica</option>
+                                            <option value="Hipertrofia excéntrica">Hipertrofia excéntrica</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="vi_fraccion_eyeccion_simpson" class="form-label mb-0">Fracción de eyección por Simpson (%)</label>
+                                        <input type="number" name="vi_fraccion_eyeccion_simpson" class="form-control" id="vi_fraccion_eyeccion_simpson">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="od_headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#od_collapseTwo" aria-expanded="false" aria-controls="od_collapseTwo">
+                                    2.- VENTRÍCULO DERECHO
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="od_collapseTwo" class="collapse" aria-labelledby="od_headingTwo" data-parent="#accordionDatosEco">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label for="vd_base" class="form-label mb-0">Base (cm)</label>
+                                        <input type="number" name="vd_base" class="form-control" id="vd_base">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="vd_porcion_media" class="form-label mb-0">Porción media (cm)</label>
+                                        <input type="number" name="vd_porcion_media" class="form-control" id="vd_porcion_media">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="vd_longitud" class="form-label mb-0">Longitud (cm)</label>
+                                        <input type="number" name="vd_longitud" class="form-control" id="vd_longitud">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="vd_dilatado1" class="form-label mb-0">Dilatado</label>
+                                        <div class="form-control radioptions">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="vd_dilatado" id="vd_dilatado1" value="Sí">
+                                                <label class="form-check-label" for="vd_dilatado1">Sí</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="vd_dilatado" id="vd_dilatado2" value="No">
+                                                <label class="form-check-label" for="vd_dilatado2">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="vd_tapse" class="form-label mb-0">TAPSE (cm)</label>
+                                        <input type="number" name="vd_tapse" class="form-control" id="vd_tapse">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="vd_fraccion_acortamiento" class="form-label mb-0">Fracción de acortamiento (%)</label>
+                                        <input type="number" name="vd_fraccion_acortamiento" class="form-control" id="vd_fraccion_acortamiento">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="od_headingThree">
+                            <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#od_collapseThree" aria-expanded="false" aria-controls="od_collapseThree">
+                                3.- RAÍZ DE AORTA
+                            </button>
+                            </h2>
+                        </div>
+                        <div id="od_collapseThree" class="collapse" aria-labelledby="od_headingThree" data-parent="#accordionDatosEco">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label for="rda_union" class="form-label mb-0">Unión (cm)</label>
+                                        <input type="number" name="rda_union" class="form-control" id="rda_union">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="rda_senos" class="form-label mb-0">Senos (cm)</label>
+                                        <input type="number" name="rda_senos" class="form-control" id="rda_senos">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="rda_anillo" class="form-label mb-0">Anillo (cm)</label>
+                                        <input type="number" name="rda_anillo" class="form-control" id="rda_anillo">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="rda_aorta_ascendente" class="form-label mb-0">Aorta ascendente (cm)</label>
+                                        <input type="number" name="rda_aorta_ascendente" class="form-control" id="rda_aorta_ascendente">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="od_headingFour">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#od_collapseFour" aria-expanded="false" aria-controls="od_collapseFour">
+                                    4.- CATETERISMO CARDIACO IZQUIERDA
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="od_collapseFour" class="collapse" aria-labelledby="od_headingFour" data-parent="#accordionDatosEco">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label for="cci_fecha" class="form-label mb-0">Fecha</label>
+                                        <input type="date" name="cci_fecha" class="form-control" id="cci_fecha">
+                                    </div>
+                                    <div class="col-md-12 mb-2">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="dataTable" width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Lesión</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>CD</td>
+                                                        <td>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="lesion_cd" id="lesion_cd1" value="Sí">
+                                                                <label class="form-check-label" for="lesion_cd1">Sí</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="lesion_cd" id="lesion_cd2" value="No">
+                                                                <label class="form-check-label" for="lesion_cd2">No</label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TCI</td>
+                                                        <td>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="lesion_tci" id="lesion_tci1" value="Sí">
+                                                                <label class="form-check-label" for="lesion_tci1">Sí</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="lesion_tci" id="lesion_tci2" value="No">
+                                                                <label class="form-check-label" for="lesion_tci2">No</label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>ADA</td>
+                                                        <td>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="lesion_ada" id="lesion_ada1" value="Sí">
+                                                                <label class="form-check-label" for="lesion_ada1">Sí</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="lesion_ada" id="lesion_ada2" value="No">
+                                                                <label class="form-check-label" for="lesion_ada2">No</label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>CX</td>
+                                                        <td>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="lesion_cx" id="lesion_cx1" value="Sí">
+                                                                <label class="form-check-label" for="lesion_cx1">Sí</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="lesion_cx" id="lesion_cx2" value="No">
+                                                                <label class="form-check-label" for="lesion_cx2">No</label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+        
+                                                    <tr>
+                                                        <td>DIAGONAL</td>
+                                                        <td>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="lesion_diagonal" id="lesion_diagonal1" value="Sí">
+                                                                <label class="form-check-label" for="lesion_diagonal1">Sí</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="lesion_diagonal" id="lesion_diagonal2" value="No">
+                                                                <label class="form-check-label" for="lesion_diagonal2">No</label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>MARGINAL</td>
+                                                        <td>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="lesion_marginal" id="lesion_marginal1" value="Sí">
+                                                                <label class="form-check-label" for="lesion_marginal1">Sí</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="lesion_marginal" id="lesion_marginal2" value="No">
+                                                                <label class="form-check-label" for="lesion_marginal2">No</label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>DESCENDENTE POSTERIOR</td>
+                                                        <td>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="lesion_descen_posterior" id="lesion_descen_posterior1" value="Sí">
+                                                                <label class="form-check-label" for="lesion_descen_posterior1">Sí</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="lesion_descen_posterior" id="lesion_descen_posterior2" value="No">
+                                                                <label class="form-check-label" for="lesion_descen_posterior2">No</label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="od_headingFive">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#od_collapseFive" aria-expanded="false" aria-controls="od_collapseFive">
+                                    5.- CATETERISMO CARDIACO DERECHO
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="od_collapseFive" class="collapse" aria-labelledby="od_headingFive" data-parent="#accordionDatosEco">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ccd_fecha" class="form-label mb-0">Fecha</label>
+                                        <input type="date" name="ccd_fecha" class="form-control" id="ccd_fecha">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ccd_presartesis_pulmonar" class="form-label mb-0">Presión Arterial Sistólica Pulmonar</label>
+                                        <input type="number" name="ccd_presartesis_pulmonar" class="form-control" id="ccd_presartesis_pulmonar">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ccd_psap_cardercho" class="form-label mb-0">PSAP estimada por cateterismo cardiaco derecho (mmhg )</label>
+                                        <input type="number" name="ccd_psap_cardercho" class="form-control" id="ccd_psap_cardercho">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ccd_resis_pulmonar" class="form-label mb-0">Resistencia pulmonar (Wood)</label>
+                                        <input type="text" name="ccd_resis_pulmonar" class="form-control" id="ccd_resis_pulmonar">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ccd_presart_medpulmunar" class="form-label mb-0">Presión arterial media pulmonar (mmhg)</label>
+                                        <input type="number" name="ccd_presart_medpulmunar" class="form-control" id="ccd_presart_medpulmunar">
+                                    </div>
+        
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ccd_hiper_pulmonar1" class="form-label mb-0">Hipertensión Pulmonar</label>
+                                        <div class="form-control radioptions">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="ccd_hiper_pulmonar" id="ccd_hiper_pulmonar1" value="No">
+                                                <label class="form-check-label" for="ccd_hiper_pulmonar1">No</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="ccd_hiper_pulmonar" id="ccd_hiper_pulmonar2" value="Sí">
+                                                <label class="form-check-label" for="ccd_hiper_pulmonar2">Sí</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ccd_diag_hipertension" class="form-label mb-0">Método diagnóstico de hipertensión pulmonar <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="Si es que fue diagnosticada"></span></label>
+                                        <input type="text" name="ccd_diag_hipertension" class="form-control" id="ccd_diag_hipertension">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ccd_diam_vi_diastole" class="form-label mb-0">Diámetro ventricular izquierdo al final de la diástole (mm)</label>
+                                        <input type="number" name="ccd_diam_vi_diastole" class="form-control" id="ccd_diam_vi_diastole">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ccd_diam_vi_sistole" class="form-label mb-0">Diámetro ventricular izquierdo al final de la sístole (mm)</label>
+                                        <input type="number" name="ccd_diam_vi_sistole" class="form-control" id="ccd_diam_vi_sistole">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Interverción y pronóstico -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Interverción y pronóstico</h6>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -1312,58 +1192,98 @@
                         <label for="fecha_intervencion" class="form-label mb-0">Fecha de intervención</label>
                         <input type="date" name="fecha_intervencion" class="form-control" id="fecha_intervencion">
                     </div>
+
                     <div class="col-md-6 mb-2">
-                        <label for="valvulas_tratadas" class="form-label mb-0">Válvulas tratadas</label>
+                        <label for="valvulas_tratadas" class="form-label mb-0">Valvulas tratadas</label>
                         <input type="text" name="valvulas_tratadas" class="form-control" id="valvulas_tratadas">
                     </div>
+
                     <div class="col-md-6 mb-2">
-                        <label for="manejo_quirurgico" class="form-label mb-0">Manejo quirúrgico</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="manejo_quirurgico" id="manejo_quirurgico1" value="Reparación" >
-                                <label class="form-check-label" for="manejo_quirurgico1">Reparación</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="manejo_quirurgico" id="manejo_quirurgico2" value="Dispositivo" >
-                                <label class="form-check-label" for="manejo_quirurgico2">Dispositivo</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="manejo_quirurgico" id="manejo_quirurgico3" value="Prótesis" >
-                                <label class="form-check-label" for="manejo_quirurgico3">Prótesis</label>
+                        <label for="tratamiento" class="form-label mb-0">Tratamiento </label>
+                        <select name="tratamiento" class="form-control" id="tratamiento">
+                            <option value="">Seleccionar...</option>
+                            <option value="Quirúrgica">Quirúrgica</option>
+                            <option value="Intervencionismo">Intervencionismo</option>
+                            <option value="Solo farmacológico">Solo farmacológico</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <div id="dv_quirurgica" class="d-none">
+                            <div class="row">
+                                <div class="col-md-12 mb-2">
+                                    <label for="reparacion1" class="form-label mb-0">Reparación </label>
+                                    <div class="form-control radioptions">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="reparacion" id="reparacion1" value="Sí" >
+                                            <label class="form-check-label" for="reparacion1">Sí</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="reparacion" id="reparacion2" value="No" >
+                                            <label class="form-check-label" for="reparacion2">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-2">
+                                    <label for="valvula_reparada" class="form-label mb-0">Válvula reparada</label>
+                                    <input type="text" name="valvula_reparada" class="form-control" id="valvula_reparada">
+                                </div>
+                                <div class="col-md-12 mb-2">
+                                    <label for="dispositivos1" class="form-label mb-0">Dispositivos </label>
+                                    <div class="form-control radioptions">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="dispositivos" id="dispositivos1" value="Sí" >
+                                            <label class="form-check-label" for="dispositivos1">Sí</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="dispositivos" id="dispositivos2" value="No" >
+                                            <label class="form-check-label" for="dispositivos2">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-2">
+                                    <label for="valvula_trat_dispositivo" class="form-label mb-0">Válvula tratada con dispositivo</label>
+                                    <input type="text" name="valvula_trat_dispositivo" class="form-control" id="valvula_trat_dispositivo">
+                                </div>
+                                <div class="col-md-12 mb-2">
+                                    <label for="protesis1" class="form-label mb-0">Protesis </label>
+                                    <div class="form-control radioptions">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="protesis" id="protesis1" value="Biológica" >
+                                            <label class="form-check-label" for="protesis1">Biológica</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="protesis" id="protesis2" value="Mecanica" >
+                                            <label class="form-check-label" for="protesis2">Mecanica</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="protesis" id="protesis3" value="No" >
+                                            <label class="form-check-label" for="protesis3">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-2">
+                                    <label for="valvula_tratada_protesis" class="form-label mb-0">Válvula tratada con prótesis</label>
+                                    <input type="text" name="valvula_tratada_protesis" class="form-control" id="valvula_tratada_protesis">
+                                </div>
+                                <div class="col-md-12 mb-2">
+                                    <label for="otros_procedquirurgicos" class="form-label mb-0">Otros procedimientos quirurgicos</label>
+                                    <input type="text" name="otros_procedquirurgicos" class="form-control" id="otros_procedquirurgicos">
+                                </div>
                             </div>
                         </div>
 
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="protesis" class="form-label mb-0">Prótesis</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="protesis" id="protesis1" value="Biologica" >
-                                <label class="form-check-label" for="protesis1">Biologica</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="protesis" id="protesis2" value="Mecanica" >
-                                <label class="form-check-label" for="protesis2">Mecanica</label>
+                        <div id="dv_intervencionismo" class="d-none">
+                            <div class="row">
+                                <div class="col-md-12 mb-2">
+                                    <label for="interv_tipodispusado" class="form-label mb-0">Tipo de dispositivo usado</label>
+                                    <input type="text" name="interv_tipodispusado" class="form-control" id="interv_tipodispusado">
+                                </div>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="tipo_dispositivo_intervencionismo" class="form-label mb-0">Tipo de dispositivo en intervencionismo</label>
-                        <input type="text" name="tipo_dispositivo_intervencionismo" class="form-control" id="tipo_dispositivo_intervencionismo">
+                        
                     </div>
 
-                </div>
-            </div>
-        </div>
-
-        <!-- Otros -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Otros</h6>
-            </div>
-            <div class="card-body">
-                <div class="row">
                     <div class="col-md-12 mb-2">
                         <div class="form-control">
                             <div class="table-responsive">
@@ -1371,14 +1291,14 @@
                                     <thead>
                                         <tr>
                                             <th style="border-top: none;">
-                                                <label for="ubicacion_protesis_valvulares" class="form-label mb-0 d-block">Medicación</label>
+                                                <label for="listmedicacion" class="form-label mb-0 d-block">Medicación</label>
                                             </th>
                                             <th style="border-top: none;" class="text-center">
                                                
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="listmedicacion">
                                         <tr>
                                             <td>Administración de inhibidores de enzima convertidora de angiotensina</td>
                                             <td class="text-center">
@@ -1509,110 +1429,131 @@
                                                 </div>
                                             </td>
                                         </tr>
-
+                                        <tr>
+                                            <td>Otros medicamentos</td>
+                                            <td class="text-center">
+                                                <input type="text" name="medicacion_otro" class="form-control" id="medicacion_otro" placeholder="Especificar">
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="manejo_reemplazo_valvularsi" class="form-label">Reemplazo valvular</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="manejo_reemplazo_valvular" id="manejo_reemplazo_valvularsi" value="Sí" >
-                                <label class="form-check-label" for="manejo_reemplazo_valvularsi">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="manejo_reemplazo_valvular" id="manejo_reemplazo_valvularno" value="No" >
-                                <label class="form-check-label" for="manejo_reemplazo_valvularno">No</label>
-                            </div>
-                        </div>
+
+                    <div class="col-md-12 mb-4 mt-3">
+                        <h5 class="m-0 font-weight-bold text-primary border-bottom">Complicaciones de la intervención</h5>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="medicacion_clopidogrelsi" class="form-label mb-0">Administración de clopidrogel</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="medicacion_clopidogrel" id="medicacion_clopidogrelsi" value="Sí" >
-                                <label class="form-check-label" for="medicacion_clopidogrelsi">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="medicacion_clopidogrel" id="medicacion_clopidogrelno" value="No" >
-                                <label class="form-check-label" for="medicacion_clopidogrelno">No</label>
-                            </div>
-                        </div>
+                        <label for="inmediatas" class="form-label mb-0">Inmediatas (<24 HORAS)</label>
+                        <input type="text" name="inmediatas" class="form-control" id="inmediatas">
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="manejo_qx_intervencionismo_estenosis1" class="form-label mb-0">Para las estenosis, manejo quirúrgico o intervencionismo</label>
+                        <label for="tardias" class="form-label mb-0">Tardías (24 HORAS A 1 SEMANA)</label>
+                        <input type="text" name="tardias" class="form-control" id="tardias">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="muerte_general1" class="form-label mb-0">Muerte general </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="manejo_qx_intervencionismo_estenosis" id="manejo_qx_intervencionismo_estenosis1" value="Quirúrgico" >
-                                <label class="form-check-label" for="manejo_qx_intervencionismo_estenosis1">Quirúrgico</label>
+                                <input class="form-check-input" type="radio" name="muerte_general" id="muerte_general1" value="Sí">
+                                <label class="form-check-label" for="muerte_general1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="manejo_qx_intervencionismo_estenosis" id="manejo_qx_intervencionismo_estenosis2" value="Intervencionismo" >
-                                <label class="form-check-label" for="manejo_qx_intervencionismo_estenosis2">Intervencionismo </label>
+                                <input class="form-check-input" type="radio" name="muerte_general" id="muerte_general2" value="No">
+                                <label class="form-check-label" for="muerte_general2">No</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-2">
-                        <label for="manejo_qx_estenosis1" class="form-label mb-0">Para las estenosis, tipo de manejo quirúrgico: reemplazo quirúrgico o manejo hemodinámico</label>
+                        <label for="muerte_cardiovascular1" class="form-label mb-0">Muerte cardiovascular </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="manejo_qx_estenosis" id="manejo_qx_estenosis1" value="Reemplazo quirúrgico" >
-                                <label class="form-check-label" for="manejo_qx_estenosis1">Reemplazo quirúrgico </label>
+                                <input class="form-check-input" type="radio" name="muerte_cardiovascular" id="muerte_cardiovascular1" value="Sí">
+                                <label class="form-check-label" for="muerte_cardiovascular1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="manejo_qx_estenosis" id="manejo_qx_estenosis2" value="Hemodinámico" >
-                                <label class="form-check-label" for="manejo_qx_estenosis2">Hemodinámico </label>
+                                <input class="form-check-input" type="radio" name="muerte_cardiovascular" id="muerte_cardiovascular2" value="No">
+                                <label class="form-check-label" for="muerte_cardiovascular2">No</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-2">
-                        <label for="tavisi" class="form-label mb-0">Implantación de la válvula aórtica transcatéter</label>
+                        <label for="fechademuerte" class="form-label mb-0">Fecha de muerte</label>
+                        <input type="date" name="fechademuerte" class="form-control" id="fechademuerte">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="hospitalizacion1" class="form-label mb-0">Hospitalización </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="tavi" id="tavisi" value="Sí" >
-                                <label class="form-check-label" for="tavisi">Sí </label>
+                                <input class="form-check-input" type="radio" name="hospitalizacion" id="hospitalizacion1" value="Sí">
+                                <label class="form-check-label" for="hospitalizacion1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="tavi" id="tavino" value="No" >
-                                <label class="form-check-label" for="tavino">No </label>
+                                <input class="form-check-input" type="radio" name="hospitalizacion" id="hospitalizacion2" value="No">
+                                <label class="form-check-label" for="hospitalizacion2">No</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-2">
-                        <label for="manejo_plastia_reemplazo_insuficiencia1" class="form-label mb-0">Para las insuficiencias, manejo tipo plastia o reemplazo valvular (Aplica para las insuficiencias)</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="manejo_plastia_reemplazo_insuficiencia" id="manejo_plastia_reemplazo_insuficiencia1" value="Plastia" >
-                                <label class="form-check-label" for="manejo_plastia_reemplazo_insuficiencia1">Plastia </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="manejo_plastia_reemplazo_insuficiencia" id="manejo_plastia_reemplazo_insuficiencia2" value="Reemplazo" >
-                                <label class="form-check-label" for="manejo_plastia_reemplazo_insuficiencia2">Reemplazo </label>
-                            </div>
-                        </div>
+                        <label for="tiempo_hospitalizacion" class="form-label mb-0">Tiempo de hospitalización (días)</label>
+                        <input type="number" name="tiempo_hospitalizacion" class="form-control" id="tiempo_hospitalizacion">
                     </div>
+
                     <div class="col-md-6 mb-2">
-                        <label for="manejo_reemplazo_insuficiencia1" class="form-label mb-0">Para las insuficiencias, tipo de reemplazo valvular: mecánico o biológico (Aplica para las insuficiencias)</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="manejo_reemplazo_insuficiencia" id="manejo_reemplazo_insuficiencia1" value="Plastia" >
-                                <label class="form-check-label" for="manejo_reemplazo_insuficiencia1">Mecánica </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="manejo_reemplazo_insuficiencia" id="manejo_reemplazo_insuficiencia2" value="Reemplazo" >
-                                <label class="form-check-label" for="manejo_reemplazo_insuficiencia2">Biológica  </label>
-                            </div>
-                        </div>
+                        <label for="fecha_hospitalizacion" class="form-label mb-0">Fecha de hospitalización</label>
+                        <input type="date" name="fecha_hospitalizacion" class="form-control" id="fecha_hospitalizacion">
                     </div>
 
                 </div>
+
             </div>
         </div>
+
+        <!-- Datos Cateterismo cardiaco-->
+        {{-- <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Datos Cateterismo cardiaco</h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <label for="lesion_cateterismo_cardiaco" class="form-label mb-0">Lesión por cateterismo cardiaco izquierdo </label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="lesion_cateterismo_cardiaco_izquierdo" id="lesion_cateterismo_cardiaco1" value="Sí" >
+                                <label class="form-check-label" for="lesion_cateterismo_cardiaco1">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="lesion_cateterismo_cardiaco_izquierdo" id="lesion_cateterismo_cardiaco2" value="No" >
+                                <label class="form-check-label" for="lesion_cateterismo_cardiaco2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="lugar_lesion_cateterismo_cardiaco_izquierdo" class="form-label mb-0">Lugar de lesión por cateterismo cardiaco izquierdo</label>
+                        <select name="lugar_lesion_cateterismo_cardiaco_izquierdo" class="form-control" id="lugar_lesion_cateterismo_cardiaco_izquierdo">
+                            <option value="">Seleccionar...</option>
+                            <option value="CD">CD</option>
+                            <option value="TCI">TCI</option>
+                            <option value="ADA">ADA</option>
+                            <option value="CV">CV</option>
+                            <option value="Diagonal">Diagonal</option>
+                            <option value="Margina">Margina</option>
+                            <option value="Descendente">Descendente</option>
+                            <option value="Posterior">Posterior</option>
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+        </div> --}}
 
         <!-- boton cancel y Submit -->
         <div class="card shadow mb-4">
@@ -1645,7 +1586,7 @@
 
 
         // Obtiene todos los botones del acordeón
-        var accordionButtons = document.querySelectorAll('.accordion .card-header button');
+        var accordionButtons = document.querySelectorAll('.accordion_de .card-header button');
 
         // Agrega un evento 'click' a cada botón
         accordionButtons.forEach(function (button) {
@@ -1660,63 +1601,51 @@
             });
         });
 
-    });
+        // Obtiene todos los botones del acordeón otros datos
+        var od_accordionButtons = document.querySelectorAll('.accordion_od .card-header button');
 
+        // Agrega un evento 'click' a cada botón
+        od_accordionButtons.forEach(function (od_button) {
+            od_button.addEventListener('click', function () {
+                // Remueve la clase 'active-accordion' de todos los encabezados de tarjetas
+                od_accordionButtons.forEach(function (od_btn) {
+                    od_btn.closest('.card-header').classList.remove('active-accordion');
+                });
 
-
-    // Inicialización del contador de campos de diagnóstico específico
-    let cc_contador = 0;
-
-    // Función para agregar más campos de Diagnóstico específico dinámicamente
-    document.getElementById('add_fevi_seguimiento').addEventListener('click', function(event) {
-        event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
-        const container = document.getElementById('fevi_seguimiento_container');
-        const nuevaFila = document.createElement('div');
-        nuevaFila.classList.add('fevi_seguimiento_row', 'row', 'align-items-center', 'mt-2');
-        cc_contador++; // Incrementar el contador antes de crear la nueva fila
-        nuevaFila.innerHTML = `
-            <div class="col-7 col-md-7 pr-0">
-                <input type="number" name="fevi_seguimiento[${cc_contador}][valor]" class="form-control rounded-left" placeholder="Valor en %" style="border-radius: 0;">
-            </div>
-            <div class="col-4 col-md-4 pl-0">
-                <input type="date" name="fevi_seguimiento[${cc_contador}][fecha]" class="form-control rounded-right" placeholder="Fecha" style="border-radius: 0;">
-            </div>
-            <div class="col-1 col-md-1 pl-0">
-                <a href="javascript:void(0);" class="btn btn-outline-danger btn-sm rounded remove_fevi_seguimiento" title="Eliminar FEVI" style="display: none;"><i class="fas fa-trash"></i></a>
-            </div>
-        `;
-        container.appendChild(nuevaFila);
-        
-        // Ocultar todos los botones "Eliminar diagnóstico" excepto el último
-        document.querySelectorAll('.remove_fevi_seguimiento').forEach(btn => btn.style.display = 'none');
-        nuevaFila.querySelector('.remove_fevi_seguimiento').style.display = 'block';
-
-        // Agregar evento de clic a todos los botones "Eliminar diagnóstico"
-        document.querySelectorAll('.remove_fevi_seguimiento').forEach(btn => {
-            btn.addEventListener('click', cc_eliminarFila);
+                // Agrega la clase 'active-accordion' solo al encabezado de la tarjeta que se está expandiendo
+                od_button.closest('.card-header').classList.add('active-accordion');
+            });
         });
+
     });
 
-    // Función para eliminar la fila de diagnóstico específico
-    function cc_eliminarFila(event) {
-        event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
-        const fila = event.target.closest('.fevi_seguimiento_row');
-        fila.remove();
-        cc_contador--; // Reducir el contador al eliminar una fila
-        
-        // Mostrar el botón "Eliminar diagnóstico" en el último row
-        const rows = document.querySelectorAll('.fevi_seguimiento_row');
-        if (rows.length > 0) {
-            rows[rows.length - 1].querySelector('.remove_fevi_seguimiento').style.display = 'block';
+    //if chage id tratamiento 
+    document.getElementById('tratamiento').addEventListener('change', function() {
+        var tratamiento = document.getElementById('tratamiento').value;
+
+        //reset inputs and radio the divs 'dv_quirurgica' and 'dv_intervencionismo'
+        document.getElementById('dv_quirurgica').querySelectorAll('input').forEach(function(input) {
+            if (input.type == 'radio') {
+                input.checked = false;
+            } else {
+                input.value = '';
+            }
+        });
+
+        if (tratamiento == 'Quirúrgica') {
+            document.getElementById('dv_quirurgica').classList.remove('d-none');
+            document.getElementById('dv_intervencionismo').classList.add('d-none');
+
+        } else if (tratamiento == 'Intervencionismo') {
+            document.getElementById('dv_intervencionismo').classList.remove('d-none');
+            document.getElementById('dv_quirurgica').classList.add('d-none');
+        } else {
+            document.getElementById('dv_quirurgica').classList.add('d-none');
+            document.getElementById('dv_intervencionismo').classList.add('d-none');
         }
-        
-        console.log('Fila eliminada');
-    }
-
-    // Agregar evento de clic a los botones "Eliminar diagnóstico" existentes
-    document.querySelectorAll('.remove_fevi_seguimiento').forEach(btn => {
-        btn.addEventListener('click', cc_eliminarFila);
     });
+
+
 
 
 
