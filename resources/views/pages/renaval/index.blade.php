@@ -44,7 +44,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Responsable</th>
-                            <th>N° historia clínica</th>
+                            <th>N° documento</th>
                             <th>Sexo</th>
                             <th>Edad</th>
                             <th>Datos</th>
