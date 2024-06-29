@@ -122,6 +122,7 @@ class CreateRenavalsTable extends Migration
             $table->integer('rda_anillo')->nullable();
             $table->integer('rda_aorta_ascendente')->nullable();
             $table->date('cci_fecha',5)->nullable();
+            $table->date('cci_severidad',20)->nullable();
             $table->string('lesion_cd',2)->nullable();
             $table->string('lesion_tci',2)->nullable();
             $table->string('lesion_ada',2)->nullable();
@@ -136,6 +137,7 @@ class CreateRenavalsTable extends Migration
             $table->integer('ccd_presart_medpulmunar')->nullable();
             $table->string('ccd_hiper_pulmonar',2)->nullable();
             $table->string('ccd_diag_hipertension',100)->nullable();
+            $table->string('ccd_presion_capilar_pulmonar',150)->nullable();
             $table->integer('ccd_diam_vi_diastole')->nullable();
             $table->integer('ccd_diam_vi_sistole')->nullable();
             $table->date('fecha_intervencion')->nullable();

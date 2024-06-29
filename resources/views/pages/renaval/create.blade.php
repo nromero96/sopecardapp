@@ -1002,6 +1002,16 @@
                                         <label for="cci_fecha" class="form-label mb-0">Fecha</label>
                                         <input type="date" name="cci_fecha" class="form-control" id="cci_fecha">
                                     </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="cci_severidad" class="form-label mb-0">Severidad</label>
+                                        <select name="cci_severidad" class="form-control" id="cci_severidad">
+                                            <option value="">Seleccionar...</option>
+                                            <option value="Leve">Leve</option>
+                                            <option value="Moderada">Moderada</option>
+                                            <option value="Severa">Severa</option>
+                                            
+                                        </select>
+                                    </div>
                                     <div class="col-md-12 mb-2">
                                         <div class="table-responsive">
                                             <table class="table table-bordered" id="dataTable" width="100%">
@@ -1162,6 +1172,10 @@
                                     <div class="col-md-6 mb-2">
                                         <label for="ccd_diag_hipertension" class="form-label mb-0">Método diagnóstico de hipertensión pulmonar <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="Si es que fue diagnosticada"></span></label>
                                         <input type="text" name="ccd_diag_hipertension" class="form-control" id="ccd_diag_hipertension">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ccd_presion_capilar_pulmonar" class="form-label mb-0">Presión capilar pulmonar</label>
+                                        <input type="text" name="ccd_presion_capilar_pulmonar" class="form-control" id="ccd_presion_capilar_pulmonar">
                                     </div>
                                     <div class="col-md-6 mb-2">
                                         <label for="ccd_diam_vi_diastole" class="form-label mb-0">Diámetro ventricular izquierdo al final de la diástole (mm)</label>

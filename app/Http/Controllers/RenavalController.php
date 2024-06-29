@@ -205,6 +205,7 @@ class RenavalController extends Controller
         $renaval->rda_anillo = $request->rda_anillo;
         $renaval->rda_aorta_ascendente = $request->rda_aorta_ascendente;
         $renaval->cci_fecha = $request->cci_fecha;
+        $renaval->cci_severidad = $request->cci_severidad;
         $renaval->lesion_cd = $request->lesion_cd;
         $renaval->lesion_tci = $request->lesion_tci;
         $renaval->lesion_ada = $request->lesion_ada;
@@ -219,6 +220,7 @@ class RenavalController extends Controller
         $renaval->ccd_presart_medpulmunar = $request->ccd_presart_medpulmunar;
         $renaval->ccd_hiper_pulmonar = $request->ccd_hiper_pulmonar;
         $renaval->ccd_diag_hipertension = $request->ccd_diag_hipertension;
+        $renaval->ccd_presion_capilar_pulmonar = $request->ccd_presion_capilar_pulmonar;
         $renaval->ccd_diam_vi_diastole = $request->ccd_diam_vi_diastole;
         $renaval->ccd_diam_vi_sistole = $request->ccd_diam_vi_sistole;
         $renaval->fecha_intervencion = $request->fecha_intervencion;

@@ -96,3 +96,8 @@ input[type="checkbox"]{
 .active-accordion .btn-link:focus{
     box-shadow: none;
 }
+
+//input type date
+input[type="date"]{
+    padding: 0.3rem 0.75rem;
+}
