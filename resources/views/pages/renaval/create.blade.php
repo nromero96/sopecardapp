@@ -485,7 +485,7 @@
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="ia_jet" id="jia_jet2" value="Excéntrica" >
-                                            <label class="form-check-label" for="ia_jet2">Excéntrica</label>
+                                            <label class="form-check-label" for="jia_jet2">Excéntrica</label>
                                         </div>
                                     </div>
                                 </div>
@@ -751,6 +751,10 @@
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="it_tipoetiologia" id="it_tipoetiologia2" value="Secundaria">
                                                 <label class="form-check-label" for="it_tipoetiologia2">Secundaria</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="it_tipoetiologia" id="it_tipoetiologia3" value="Por dispositivo">
+                                                <label class="form-check-label" for="it_tipoetiologia3">Por dispositivo</label>
                                             </div>
                                         </div>
                                     </div>
