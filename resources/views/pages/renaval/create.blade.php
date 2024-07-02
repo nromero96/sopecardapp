@@ -603,8 +603,30 @@
                                         <input type="number" name="im_volumen_regurgitante" class="form-control" id="im_volumen_regurgitante">
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <label for="im_etiologia" class="form-label mb-0">Etiología</label>
-                                        <input type="text" name="im_etiologia" class="form-control" id="im_etiologia">
+                                        <label for="im_tipoetiologia1" class="form-label mb-0">Tipo de etiología</label>
+                                        <div class="form-control radioptions">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="im_tipoetiologia" id="im_tipoetiologia1" value="Primaria">
+                                                <label class="form-check-label" for="im_tipoetiologia1">Primaria</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="im_tipoetiologia" id="im_tipoetiologia2" value="Secundaria">
+                                                <label class="form-check-label" for="im_tipoetiologia2">Secundaria</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-2 d-none" id="dvim_tipoetiologia_secund">
+                                        <label for="im_tipoetiologia_secund1" class="form-label mb-0">Etiología secundaria</label>
+                                        <div class="form-control radioptions">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="im_tipoetiologia_secund" id="im_tipoetiologia_secund1" value="Atrial">
+                                                <label class="form-check-label" for="im_tipoetiologia_secund1">Atrial</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="im_tipoetiologia_secund" id="im_tipoetiologia_secund2" value="Ventricular">
+                                                <label class="form-check-label" for="im_tipoetiologia_secund2">Ventricular</label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-md-6 mb-2">
                                         <label for="im_severidad" class="form-label mb-0">Severidad</label>
@@ -718,6 +740,34 @@
                                         <label for="it_gradiente_maxima" class="form-label mb-0">Gradiente Máxima (mmhg)</label>
                                         <input type="number" name="it_gradiente_maxima" class="form-control" id="it_gradiente_maxima">
                                     </div>
+
+                                    <div class="col-md-6 mb-2">
+                                        <label for="it_tipoetiologia1" class="form-label mb-0">Tipo de etiología</label>
+                                        <div class="form-control radioptions">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="it_tipoetiologia" id="it_tipoetiologia1" value="Primaria">
+                                                <label class="form-check-label" for="it_tipoetiologia1">Primaria</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="it_tipoetiologia" id="it_tipoetiologia2" value="Secundaria">
+                                                <label class="form-check-label" for="it_tipoetiologia2">Secundaria</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-2 d-none" id="dvit_tipoetiologia_secund">
+                                        <label for="it_tipoetiologia_secund1" class="form-label mb-0">Etiología secundaria</label>
+                                        <div class="form-control radioptions">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="it_tipoetiologia_secund" id="it_tipoetiologia_secund1" value="Atrial">
+                                                <label class="form-check-label" for="it_tipoetiologia_secund1">Atrial</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="it_tipoetiologia_secund" id="it_tipoetiologia_secund2" value="Ventricular">
+                                                <label class="form-check-label" for="it_tipoetiologia_secund2">Ventricular</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="col-md-6 mb-2">
                                         <label for="it_volumen_regurgitante" class="form-label mb-0">Volumen regurgitante (ml)</label>
                                         <input type="number" name="it_volumen_regurgitante" class="form-control" id="it_volumen_regurgitante">
@@ -1660,8 +1710,30 @@
     });
 
 
+    //if chage radio im_tipoetiologia
+    var im_tipoetiologia = document.getElementsByName('im_tipoetiologia');
+    
+    im_tipoetiologia.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            if (radio.value == 'Secundaria') {
+                document.getElementById('dvim_tipoetiologia_secund').classList.remove('d-none');
+            } else {
+                document.getElementById('dvim_tipoetiologia_secund').classList.add('d-none');
+            }
+        });
+    });
 
-
+    var it_tipoetiologia = document.getElementsByName('it_tipoetiologia');
+    
+    it_tipoetiologia.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            if (radio.value == 'Secundaria') {
+                document.getElementById('dvit_tipoetiologia_secund').classList.remove('d-none');
+            } else {
+                document.getElementById('dvit_tipoetiologia_secund').classList.add('d-none');
+            }
+        });
+    });
 
 </script>
 @endsection

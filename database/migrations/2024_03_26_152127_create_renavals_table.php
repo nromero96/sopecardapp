@@ -72,7 +72,8 @@ class CreateRenavalsTable extends Migration
             $table->string('im_vena_contracta',10)->nullable();
             $table->string('im_ore',10)->nullable();
             $table->string('im_volumen_regurgitante',10)->nullable();
-            $table->string('im_etiologia')->nullable();
+            $table->string('im_tipoetiologia',20)->nullable();
+            $table->string('im_tipoetiologia_secund',20)->nullable();
             $table->string('im_severidad',20)->nullable();
             $table->string('im_carpentier')->nullable();
             $table->string('im_anillo',10)->nullable();
@@ -88,6 +89,8 @@ class CreateRenavalsTable extends Migration
             $table->string('it_ore',10)->nullable();
             $table->string('it_velocidad_maxima',10)->nullable();
             $table->string('it_gradiente_maxima',10)->nullable();
+            $table->string('it_tipoetiologia',20)->nullable();
+            $table->string('it_tipoetiologia_secund',20)->nullable();
             $table->string('it_volumen_regurgitante',10)->nullable();
             $table->string('it_severidad',20)->nullable();
             $table->string('it_psap_estimada',10)->nullable();

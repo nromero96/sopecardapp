@@ -155,7 +155,8 @@ class RenavalController extends Controller
         $renaval->im_vena_contracta = $request->im_vena_contracta;
         $renaval->im_ore = $request->im_ore;
         $renaval->im_volumen_regurgitante = $request->im_volumen_regurgitante;
-        $renaval->im_etiologia = $request->im_etiologia;
+        $renaval->im_tipoetiologia = $request->im_tipoetiologia;
+        $renaval->im_tipoetiologia_secund = $request->im_tipoetiologia_secund;
         $renaval->im_severidad = $request->im_severidad;
         $renaval->im_carpentier = $request->im_carpentier;
         $renaval->im_anillo = $request->im_anillo;
@@ -171,6 +172,8 @@ class RenavalController extends Controller
         $renaval->it_ore = $request->it_ore;
         $renaval->it_velocidad_maxima = $request->it_velocidad_maxima;
         $renaval->it_gradiente_maxima = $request->it_gradiente_maxima;
+        $renaval->it_tipoetiologia = $request->it_tipoetiologia;
+        $renaval->it_tipoetiologia_secund = $request->it_tipoetiologia_secund;
         $renaval->it_volumen_regurgitante = $request->it_volumen_regurgitante;
         $renaval->it_severidad = $request->it_severidad;
         $renaval->it_psap_estimada = $request->it_psap_estimada;
