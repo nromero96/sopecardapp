@@ -125,6 +125,15 @@
             </li>
             @endcan
 
+            @can('renima.index')
+            <li class="nav-item {{ ($page_name === 'renima_index' || $page_name === 'renima_create') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('renima.index') }}">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>RENIMA</span>
+                </a>
+            </li>
+            @endcan
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

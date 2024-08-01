@@ -7,6 +7,7 @@ use App\Http\Controllers\RenavalController;
 use App\Http\Controllers\SedeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\RenimaController;
 
 
 /*
@@ -67,6 +68,7 @@ Route::group(['middleware' => ['auth', 'ensureStatusActive']], function () {
 
     Route::resource('/repecca', RepeccaController::class)->names('repecca');
     Route::resource('/renaval', RenavalController::class)->names('renaval');
+    Route::resource('/renima', RenimaController::class)->names('renima');
 });
 
 Auth::routes();
