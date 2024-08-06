@@ -44,17 +44,12 @@
                         <input type="number" name="documento_identidad" class="form-control" id="documento_identidad" required>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="modalidad_ingreso" class="form-label mb-0">Modalidad de ingreso <small class="requiredata">*</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="modalidad_ingreso" id="modalidad_ingreso1" value="Emergencia" >
-                                <label class="form-check-label" for="modalidad_ingreso1">Emergencia</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="modalidad_ingreso" id="modalidad_ingreso2" value="Ambulatorio" >
-                                <label class="form-check-label" for="modalidad_ingreso2">Ambulatorio</label>
-                            </div>
-                        </div>
+                        <label for="" class="form-label mb-0">Celular de contacto <small class="requiredata">*</small></label>
+                        <input type="number" name="" class="form-control" id="" required>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Centro de médico <small class="requiredata">*</small></label>
+                        <input type="number" name="" class="form-control" id="" required>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="departamento" class="form-label mb-0">Departamento <small class="requiredata">*</small></label>
@@ -69,8 +64,16 @@
                         <input type="text" name="ciudad" class="form-control" id="ciudad">
                     </div>
                     <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Ditrito <small class="requiredata">*</small></label>
+                        <input type="text" name="" class="form-control" id="">
+                    </div>
+                    <div class="col-md-6 mb-2">
                         <label for="edad" class="form-label mb-0">Edad (años) </label>
                         <input type="number" name="edad" class="form-control" id="edad" >
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Fecha de nacimiento </label>
+                        <input type="date" name="" class="form-control" id="" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="sexo" class="form-label mb-0">Sexo </label>
@@ -109,6 +112,10 @@
                         </select>
                     </div>
                     <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Tipo de seguro </label>
+                        <input type="text" name="" class="form-control" id="" >
+                    </div>
+                    <div class="col-md-6 mb-2">
                         <label for="grado_instruccion" class="form-label mb-0">Grado de instrucción </label>
                         <select name="grado_instruccion" id="grado_instruccion" class="form-control" >
                             <option value="">Seleccionar...</option>
@@ -135,10 +142,6 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 mb-2">
-                        <label for="compli_enfermedad" class="form-label mb-0">Complicaciones de la enfermedad</label>
-                        <input type="text" name="compli_enfermedad" class="form-control" id="compli_enfermedad" >
-                    </div>
-                    <div class="col-md-6 mb-2">
                         <label for="pas_diagnostico" class="form-label mb-0">Presión arterial sistólica (mmHg)</label>
                         <input type="number" name="pas_diagnostico" class="form-control" id="pas_diagnostico" >
                     </div>
@@ -157,6 +160,10 @@
                     <div class="col-md-6 mb-2">
                         <label for="circunferencia_abdominal" class="form-label mb-0">Circunferencia abdominal (cm) </label>
                         <input type="number" name="circunferencia_abdominal" class="form-control" id="circunferencia_abdominal">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Saturación de oxígeno (%) </label>
+                        <input type="number" name="" class="form-control" id="">
                     </div>
                     <div class="col-md-12 mb-2">
                         <label for="antecedentes1" class="form-label mb-0 d-block">Antecedentes </label>
@@ -221,156 +228,183 @@
                                 <input class="form-check-input" type="checkbox" name="antecedentes[]" id="antecedentes15" value="Ataque isquémico transitorio">
                                 <label class="form-check-label" for="antecedentes15">Ataque isquémico transitorio</label>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="metodo_diagnostico_valvulopatia" class="form-label mb-0">Método diagnóstico de la valvulopatía</label>
-                        <input type="text" name="metodo_diagnostico_valvulopatia" class="form-control rounded-left" id="metodo_diagnostico_valvulopatia">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="fecha_diagnostico_valvulopatia" class="form-label mb-0">Fecha de diagnostico <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="Colocar método diagnóstico de la valvulopatía y la fecha. Ejm: Metodo... - 17/03/2014."></span></label>
-                        <input type="date" name="fecha_diagnostico_valvulopatia" class="form-control rounded-right" >
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="fevi_al_diagnostico" class="form-label mb-0">Fracción de eyección de ventrículo izquierdo al diagnóstico (%) </label>
-                        <input type="number" name="fevi_al_diagnostico" class="form-control" id="fevi_al_diagnostico">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="diagnostico_estenosis1" class="form-label mb-0 d-block">Diagnóstico de estenosis </label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline d-line">
-                                <input class="form-check-input" type="checkbox" name="diagnostico_estenosis[]" id="diagnostico_estenosis1" value="Mitral">
-                                <label class="form-check-label" for="diagnostico_estenosis1">Mitral</label>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="antecedentes[]" id="antecedentes16" value="Fibrilación auricular">
+                                <label class="form-check-label" for="antecedentes16">Fibrilación auricular</label>
                             </div>
-                            <div class="form-check form-check-inline d-line">
-                                <input class="form-check-input" type="checkbox" name="diagnostico_estenosis[]" id="diagnostico_estenosis2" value="Aórtica">
-                                <label class="form-check-label" for="diagnostico_estenosis2">Aórtica</label>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="antecedentes[]" id="antecedentes17" value="ICP previo">
+                                <label class="form-check-label" for="antecedentes17">ICP previo</label>
                             </div>
-                            <div class="form-check form-check-inline d-line">
-                                <input class="form-check-input" type="checkbox" name="diagnostico_estenosis[]" id="diagnostico_estenosis3" value="Tricúspidea">
-                                <label class="form-check-label" for="diagnostico_estenosis3">Tricúspidea</label>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="antecedentes[]" id="antecedentes18" value="CABG previo">
+                                <label class="form-check-label" for="antecedentes18">CABG previo</label>
                             </div>
-                            <div class="form-check form-check-inline d-line">
-                                <input class="form-check-input" type="checkbox" name="diagnostico_estenosis[]" id="diagnostico_estenosis4" value="Pulmonar">
-                                <label class="form-check-label" for="diagnostico_estenosis4">Pulmonar</label>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="antecedentes[]" id="antecedentes19" value="Enfermedad renal crónica">
+                                <label class="form-check-label" for="antecedentes19">Enfermedad renal crónica</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="antecedentes[]" id="antecedentes20" value="COVID-19">
+                                <label class="form-check-label" for="antecedentes20">COVID-19</label>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="diagnostico_insuficiencia1" class="form-label mb-0 d-block">Diagnóstico de insuficiencia </label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline d-line">
-                                <input class="form-check-input" type="checkbox" name="diagnostico_insuficiencia[]" id="diagnostico_insuficiencia1" value="Mitral">
-                                <label class="form-check-label" for="diagnostico_insuficiencia1">Mitral</label>
-                            </div>
-                            <div class="form-check form-check-inline d-line">
-                                <input class="form-check-input" type="checkbox" name="diagnostico_insuficiencia[]" id="diagnostico_insuficiencia2" value="Aórtica">
-                                <label class="form-check-label" for="diagnostico_insuficiencia2">Aórtica</label>
-                            </div>
-                            <div class="form-check form-check-inline d-line">
-                                <input class="form-check-input" type="checkbox" name="diagnostico_insuficiencia[]" id="diagnostico_insuficiencia3" value="Tricúspidea">
-                                <label class="form-check-label" for="diagnostico_insuficiencia3">Tricúspidea</label>
-                            </div>
-                            <div class="form-check form-check-inline d-line">
-                                <input class="form-check-input" type="checkbox" name="diagnostico_insuficiencia[]" id="diagnostico_insuficiencia4" value="Pulmonar">
-                                <label class="form-check-label" for="diagnostico_insuficiencia4">Pulmonar</label>
-                            </div>
-                        </div>
+                        <label for="" class="form-label mb-0">Paquete/año de cigarrillos </label>
+                        <input type="text" name="" class="form-control" id="">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Fecha de inicio de síntomas </label>
+                        <input type="date" name="" class="form-control" id="">
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="enfermedad_valvular_multiple1" class="form-label mb-0">Diagnóstico de enfermedad valvular múltiple </label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="enfermedad_valvular_multiple" id="enfermedad_valvular_multiple1" value="No" >
-                                <label class="form-check-label" for="enfermedad_valvular_multiple1">No</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="enfermedad_valvular_multiple" id="enfermedad_valvular_multiple2" value="Sí" >
-                                <label class="form-check-label" for="enfermedad_valvular_multiple2">Sí</label>
-                            </div>
-                        </div>
+                        <label for="" class="form-label mb-0">Hora de inicio de síntomas </label>
+                        <input type="time" name="" class="form-control" id="">
                     </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Fecha de ingreso </label>
+                        <input type="date" name="" class="form-control" id="">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Hora de ingreso </label>
+                        <input type="time" name="" class="form-control" id="">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Fecha de primer contacto médico </label>
+                        <input type="date" name="" class="form-control" id="">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Hora de primer contacto médico </label>
+                        <input type="time" name="" class="form-control" id="">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Tiempo desde el inicio de síntomas al primer contacto médico (minutos) </label>
+                        <input type="number" name="" class="form-control" id="">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Centro del primer contacto médico </label>
+                        <input type="text" name="" class="form-control" id="">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Fecha de ECG </label>
+                        <input type="date" name="" class="form-control" id="">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Hora de ECG </label>
+                        <input type="time" name="" class="form-control" id="">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Tiempo desde el primer contacto médico hasta el ECG (minutos) </label>
+                        <input type="number" name="" class="form-control" id="">
+                    </div>
+
                     <div class="col-md-12 mb-2">
-                        <label for="etiologias1" class="form-label mb-0 d-block">Etiología de la valvulopatía </label>
+                        <label for="manifestacionesclinicas1" class="form-label mb-0 d-block">Manifestaciones clínicas </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="etiologias[]" id="etiologias1" value="Etiología Degenerativa">
-                                <label class="form-check-label" for="etiologias1">Etiología Degenerativa</label>
+                                <input class="form-check-input" type="checkbox" name="manifestacionesclinicas[]" id="manifestacionesclinicas1" value="Dolor torácico">
+                                <label class="form-check-label" for="manifestacionesclinicas1">Dolor torácico</label>
                             </div>
                             <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="etiologias[]" id="etiologias2" value="Etiología Reumática">
-                                <label class="form-check-label" for="etiologias2">Etiología Reumática</label>
+                                <input class="form-check-input" type="checkbox" name="manifestacionesclinicas[]" id="manifestacionesclinicas2" value="Disnea">
+                                <label class="form-check-label" for="manifestacionesclinicas2">Disnea</label>
                             </div>
                             <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="etiologias[]" id="etiologias3" value="Etiología Congénita">
-                                <label class="form-check-label" for="etiologias3">Etiología Congénita</label>
+                                <input class="form-check-input" type="checkbox" name="manifestacionesclinicas[]" id="manifestacionesclinicas3" value="Angina">
+                                <label class="form-check-label" for="manifestacionesclinicas3">Angina</label>
                             </div>
                             <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="etiologias[]" id="etiologias4" value="Etiología Isquémica">
-                                <label class="form-check-label" for="etiologias4">Etiología Isquémica</label>
+                                <input class="form-check-input" type="checkbox" name="manifestacionesclinicas[]" id="manifestacionesclinicas4" value="Palpitaciones">
+                                <label class="form-check-label" for="manifestacionesclinicas4">Palpitaciones</label>
                             </div>
                             <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="etiologias[]" id="etiologias5" value="Otros etiología">
-                                <label class="form-check-label" for="etiologias5">Otros etiologías:</label>
-                                <input type="text" name="etiologias_otro" class="form-control mb-2" id="etiologias_otro" placeholder="Especificar otra etiología...">
+                                <input class="form-check-input" type="checkbox" name="manifestacionesclinicas[]" id="manifestacionesclinicas5" value="Síncope">
+                                <label class="form-check-label" for="manifestacionesclinicas5">Síncope</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="manifestacionesclinicas[]" id="manifestacionesclinicas6" value="Mareo">
+                                <label class="form-check-label" for="manifestacionesclinicas6">Mareo</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="manifestacionesclinicas[]" id="manifestacionesclinicas7" value="Fatiga">
+                                <label class="form-check-label" for="manifestacionesclinicas7">Fatiga</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="manifestacionesclinicas[]" id="manifestacionesclinicas8" value="Soplo">
+                                <label class="form-check-label" for="manifestacionesclinicas8">Soplo</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="manifestacionesclinicas[]" id="manifestacionesclinicas9" value="Ruido S3">
+                                <label class="form-check-label" for="manifestacionesclinicas9">Ruido S3</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="manifestacionesclinicas[]" id="manifestacionesclinicas10" value="Ruido S4">
+                                <label class="form-check-label" for="manifestacionesclinicas10">Ruido S4</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="manifestacionesclinicas[]" id="manifestacionesclinicas11" value="Ingurgitación yugular">
+                                <label class="form-check-label" for="manifestacionesclinicas11">Ingurgitación yugular</label>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6 mb-2">
-                        <label for="cha2ds2vasc" class="form-label mb-0">CHA2DS2-VASc </label>
-                        <input type="text" name="cha2ds2vasc" class="form-control" id="cha2ds2vasc">
-                    </div>
-                    <div class="col-md-12 mb-2">
-                        <label for="diagnostico1" class="form-label mb-0 d-block">Diagnóstico de síntomas específicos </label>
+                        <label for="clasificacion_kk1" class="form-label mb-0">Clasificación Killip Kimball</label>
                         <div class="form-control radioptions">
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="diagnostico[]" id="diagnostico1" value="Diagnóstico de disnea">
-                                <label class="form-check-label" for="diagnostico1">Diagnóstico de disnea</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="clasificacion_kk" id="clasificacion_kk1" value="1" >
+                                <label class="form-check-label" for="clasificacion_kk1">1</label>
                             </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="diagnostico[]" id="diagnostico2" value="Diagnóstico de angina">
-                                <label class="form-check-label" for="diagnostico2">Diagnóstico de angina</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="clasificacion_kk" id="clasificacion_kk2" value="2" >
+                                <label class="form-check-label" for="clasificacion_kk2">2</label>
                             </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="diagnostico[]" id="diagnostico3" value="Diagnóstico de palpitaciones">
-                                <label class="form-check-label" for="diagnostico3">Diagnóstico de palpitaciones</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="clasificacion_kk" id="clasificacion_kk3" value="3" >
+                                <label class="form-check-label" for="clasificacion_kk3">3</label>
                             </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="diagnostico[]" id="diagnostico4" value="Diagnóstico de síncope">
-                                <label class="form-check-label" for="diagnostico4">Diagnóstico de síncope</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="diagnostico[]" id="diagnostico5" value="Diagnóstico de edema">
-                                <label class="form-check-label" for="diagnostico5">Diagnóstico de edema</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="diagnostico[]" id="diagnostico6" value="Diagnóstico de mareo">
-                                <label class="form-check-label" for="diagnostico6">Diagnóstico de mareo</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="diagnostico[]" id="diagnostico7" value="Diagnóstico de fatiga">
-                                <label class="form-check-label" for="diagnostico7">Diagnóstico de fatiga</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="diagnostico[]" id="diagnostico8" value="Diagnóstico de soplo">
-                                <label class="form-check-label" for="diagnostico8">Diagnóstico de soplo</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="clasificacion_kk" id="clasificacion_kk4" value="4" >
+                                <label class="form-check-label" for="clasificacion_kk4">4</label>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6 mb-2">
-                        <label for="clasif_nyha" class="form-label mb-0">Clasificación New York Heart Association </label>
-                        <input type="text" name="clasif_nyha" class="form-control" id="clasif_nyha">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="enf_coronaria1" class="form-label mb-0">Diagnóstico de enfermedad coronaria </label>
+                        <label for="diagnostico_ima1" class="form-label mb-0">Diagnóstico</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="enf_coronaria" id="enf_coronaria1" value="No" >
-                                <label class="form-check-label" for="enf_coronaria1">No</label>
+                                <input class="form-check-input" type="radio" name="diagnostico_ima" id="diagnostico_ima1" value="IMAST elevado" >
+                                <label class="form-check-label" for="diagnostico_ima1">IMAST elevado</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="enf_coronaria" id="enf_coronaria2" value="Sí" >
-                                <label class="form-check-label" for="enf_coronaria2">Sí</label>
+                                <input class="form-check-input" type="radio" name="diagnostico_ima" id="diagnostico_ima2" value="IMA sin elevación del ST" >
+                                <label class="form-check-label" for="diagnostico_ima2">IMA sin elevación del ST</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="riesgo_imanostelevado1" class="form-label mb-0">Riesgo en IMA no ST elevado</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="riesgo_imanostelevado" id="riesgo_imanostelevado1" value="No alto riesgo" >
+                                <label class="form-check-label" for="riesgo_imanostelevado1">No alto riesgo</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="riesgo_imanostelevado" id="riesgo_imanostelevado2" value="Alto riesgo" >
+                                <label class="form-check-label" for="riesgo_imanostelevado2">Alto riesgo</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="riesgo_imanostelevado" id="riesgo_imanostelevado3" value="Muy alto riesgo" >
+                                <label class="form-check-label" for="riesgo_imanostelevado3">Muy alto riesgo</label>
                             </div>
                         </div>
                     </div>
@@ -382,1246 +416,1086 @@
         <!-- Datos Ecocardiográficos -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Datos ecocardiográficos</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Datos del manejo de intervención</h6>
             </div>
             <div class="card-body">
-                <!-- Accordion -->
-                <div class="accordion accordion_de" id="accordionDatosEco">
-                    <div class="card">
-                      <div class="card-header active-accordion" id="headingOne">
-                        <h2 class="mb-0">
-                          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            1.- ESTENOSIS AORTICA
-                          </button>
-                        </h2>
-                      </div>
-                  
-                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionDatosEco">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6 mb-2">
-                                    <label for="ea_morfologia_valvula_estenosis_aortica" class="form-label mb-0">Morfología de válvula en estenosis aórtica</label>
-                                    <select name="ea_morfologia_valvula_estenosis_aortica" class="form-control" id="ea_morfologia_valvula_estenosis_aortica">
-                                        <option value="">Seleccionar...</option>
-                                        <option value="Unicúspide">Unicúspide</option>
-                                        <option value="Bicúspide">Bicúspide</option>
-                                        <option value="Tricúspide">Tricúspide</option>
-                                        <option value="Otro">Otro</option>
-                                    </select>
-                                    <input type="text" name="morfologia_valvula_estenosis_aortica_otro" class="form-control mt-2" id="morfologia_valvula_estenosis_aortica_otro" placeholder="Especificar otra morfología...">
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label for="ea_velocidad_maxima" class="form-label mb-0">Velocidad máxima (m/s)</label>
-                                    <input type="number" name="ea_velocidad_maxima" class="form-control" id="ea_velocidad_maxima">
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label for="ea_area_valvular" class="form-label mb-0">Área valvular (cm2)</label>
-                                    <input type="number" name="ea_area_valvular" class="form-control" id="ea_area_valvular">
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label for="ea_gradiente_media" class="form-label mb-0">Gradiente media (mmhg)</label>
-                                    <input type="number" name="ea_gradiente_media" class="form-control" id="ea_gradiente_media">
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label for="ea_calculo_area_valvular1" class="form-label mb-0">Calculo del área valvular</label>
-                                    <div class="form-control radioptions">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="ea_calculo_area_valvular" id="ea_calculo_area_valvular1" value="Planimetría" >
-                                            <label class="form-check-label" for="ea_calculo_area_valvular1">Planimetría</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="ea_calculo_area_valvular" id="ea_calculo_area_valvular2" value="Ecuación de continuidad" >
-                                            <label class="form-check-label" for="ea_calculo_area_valvular2">Ecuación de continuidad</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label for="ea_severidad_valvulopatia1" class="form-label mb-0">Severidad de valvulopatía</label>
-                                    <div class="form-control radioptions">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="ea_severidad_valvulopatia" id="ea_severidad_valvulopatia1" value="Leve" >
-                                            <label class="form-check-label" for="ea_severidad_valvulopatia1">Leve</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="ea_severidad_valvulopatia" id="ea_severidad_valvulopatia2" value="Moderada" >
-                                            <label class="form-check-label" for="ea_severidad_valvulopatia2">Moderada</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="ea_severidad_valvulopatia" id="ea_severidad_valvulopatia3" value="Severa" >
-                                            <label class="form-check-label" for="ea_severidad_valvulopatia3">Severa</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label for="ea_etiologia" class="form-label mb-0">Etiología</label>
-                                    <input type="text" name="ea_etiologia" class="form-control" id="ea_etiologia">
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label for="ea_volumen_sistolico_eyeccion" class="form-label mb-0">Volumen sistólico de eyección (ml)</label>
-                                    <input type="number" name="ea_volumen_sistolico_eyeccion" class="form-control" id="ea_volumen_sistolico_eyeccion">
-                                </div>
-
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card">
-                      <div class="card-header" id="headingTwo">
-                        <h2 class="mb-0">
-                          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            2.- INSUFICIENCIA AORTICA
-                          </button>
-                        </h2>
-                      </div>
-                      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionDatosEco">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6 mb-2">
-                                    <label for="ia_jet" class="form-label mb-0">JET</label>
-                                    <div class="form-control radioptions">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="ia_jet" id="ia_jet1" value="Central" >
-                                            <label class="form-check-label" for="ia_jet1">Central</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="ia_jet" id="jia_jet2" value="Excéntrica" >
-                                            <label class="form-check-label" for="jia_jet2">Excéntrica</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label for="ia_vena_contracta" class="form-label mb-0">Vena contracta (cm)</label>
-                                    <input type="number" name="ia_vena_contracta" class="form-control" id="ia_vena_contracta">
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label for="ia_ore" class="form-label mb-0">ORE (cm2)</label>
-                                    <input type="number" name="ia_ore" class="form-control" id="ia_ore">
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label for="ia_vol_regurgitante_orificio" class="form-label mb-0">Volumen regurgitante del orificio (ml)</label>
-                                    <input type="number" name="ia_vol_regurgitante_orificio" class="form-control" id="ia_vol_regurgitante_orificio">
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label for="ia_etiologia" class="form-label mb-0">Etiología</label>
-                                    <input type="text" name="ia_etiologia" class="form-control" id="ia_etiologia">
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label for="ia_severidad" class="form-label mb-0">Severidad</label>
-                                    <select name="ia_severidad" class="form-control" id="ia_severidad">
-                                        <option value="">Seleccionar...</option>
-                                        <option value="Leve">Leve</option>
-                                        <option value="Moderada">Moderada</option>
-                                        <option value="Severa">Severa</option>
-                                    </select>
-                                </div>
-                                
-
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card">
-                      <div class="card-header" id="headingThree">
-                        <h2 class="mb-0">
-                          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            3.- ESTENOSIS MITRAL
-                          </button>
-                        </h2>
-                      </div>
-                      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionDatosEco">
-                        <div class="card-body">
-                          <div class="row">
-                            <div class="col-md-6 mb-2">
-                                <label for="em_score_wilkins" class="form-label mb-0">Score de Wilkins</label>
-                                <input type="text" name="em_score_wilkins" class="form-control" id="em_score_wilkins">
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <label for="em_gradiente_media" class="form-label mb-0">Gradiente media (mmhg)</label>
-                                <input type="text" name="em_gradiente_media" class="form-control" id="em_gradiente_media">
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <label for="em_tiempo_hemipresion" class="form-label mb-0">Tiempo de hemipresión (cm)</label>
-                                <input type="number" name="em_tiempo_hemipresion" class="form-control" id="em_tiempo_hemipresion">
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <label for="em_area_val_mitral" class="form-label mb-0">Área valvular mitral (cm2)</label>
-                                <input type="number" name="em_area_val_mitral" class="form-control" id="em_area_val_mitral">
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <label for="em_etiologia" class="form-label mb-0">Etiología</label>
-                                <input type="text" name="em_etiologia" class="form-control" id="em_etiologia">
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <label for="em_severidad" class="form-label mb-0">Severidad</label>
-                                <select name="em_severidad" class="form-control" id="em_severidad">
-                                    <option value="">Seleccionar...</option>
-                                    <option value="Leve">Leve</option>
-                                    <option value="Moderada">Moderada</option>
-                                    <option value="Severa">Severa</option>
-                                </select>
-                            </div>
-                            
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header" id="headingFour">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    4.- INSUFICIENCIA MITRAL
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionDatosEco">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 mb-2">
-                                        <label for="im_jet1" class="form-label mb-0">JET</label>
-                                        <div class="form-control radioptions">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="im_jet" id="im_jet1" value="Central">
-                                                <label class="form-check-label" for="im_jet1">Central</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="im_jet" id="im_jet2" value="Excéntrica">
-                                                <label class="form-check-label" for="im_jet2">Excéntrica</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="im_vena_contracta" class="form-label mb-0">Vena contracta (cm)</label>
-                                        <input type="number" name="im_vena_contracta" class="form-control" id="im_vena_contracta">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="im_ore" class="form-label mb-0">ORE (cm2)</label>
-                                        <input type="number" name="im_ore" class="form-control" id="im_ore">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="im_volumen_regurgitante" class="form-label mb-0">Volumen regurgitante (ml)</label>
-                                        <input type="number" name="im_volumen_regurgitante" class="form-control" id="im_volumen_regurgitante">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="im_tipoetiologia1" class="form-label mb-0">Tipo de etiología</label>
-                                        <div class="form-control radioptions">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="im_tipoetiologia" id="im_tipoetiologia1" value="Primaria">
-                                                <label class="form-check-label" for="im_tipoetiologia1">Primaria</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="im_tipoetiologia" id="im_tipoetiologia2" value="Secundaria">
-                                                <label class="form-check-label" for="im_tipoetiologia2">Secundaria</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-2 d-none" id="dvim_tipoetiologia_secund">
-                                        <label for="im_tipoetiologia_secund1" class="form-label mb-0">Etiología secundaria</label>
-                                        <div class="form-control radioptions">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="im_tipoetiologia_secund" id="im_tipoetiologia_secund1" value="Atrial">
-                                                <label class="form-check-label" for="im_tipoetiologia_secund1">Atrial</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="im_tipoetiologia_secund" id="im_tipoetiologia_secund2" value="Ventricular">
-                                                <label class="form-check-label" for="im_tipoetiologia_secund2">Ventricular</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="im_severidad" class="form-label mb-0">Severidad</label>
-                                        <select name="im_severidad" class="form-control" id="im_severidad">
-                                            <option value="">Seleccionar...</option>
-                                            <option value="Leve">Leve</option>
-                                            <option value="Moderada">Moderada</option>
-                                            <option value="Severa">Severa</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="col-md-6 mb-2">
-                                        <label for="im_carpentier" class="form-label mb-0">Carpentier</label>
-                                        <input type="text" name="im_carpentier" class="form-control" id="im_carpentier">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="im_anillo" class="form-label mb-0">Anillo (cm)</label>
-                                        <input type="number" name="im_anillo" class="form-control" id="im_anillo">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="im_metodo_eval_anillo" class="form-label mb-0">Método de la evaluación del anillo</label>
-                                        <input type="text" name="im_metodo_eval_anillo" class="form-control" id="im_metodo_eval_anillo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header" id="headingFive">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                5.- ESTENOSIS TRICUSPIDEA
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionDatosEco">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 mb-2">
-                                        <label for="et_velocidad_maxima" class="form-label mb-0">Velocidad máxima (m/s)</label>
-                                        <input type="number" name="et_velocidad_maxima" class="form-control" id="et_velocidad_maxima">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="et_gradiente_media" class="form-label mb-0">Gradiente media (mmhg)</label>
-                                        <input type="number" name="et_gradiente_media" class="form-control" id="et_gradiente_media">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="et_area_valvular" class="form-label mb-0">Área valvular (cm2)</label>
-                                        <input type="number" name="et_area_valvular" class="form-control" id="et_area_valvular">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="et_etiologia" class="form-label mb-0">Etiología</label>
-                                        <input type="text" name="et_etiologia" class="form-control" id="et_etiologia">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="et_severidad" class="form-label mb-0">Severidad</label>
-                                        <select name="et_severidad" class="form-control" id="et_severidad">
-                                            <option value="">Seleccionar...</option>
-                                            <option value="Leve">Leve</option>
-                                            <option value="Moderada">Moderada</option>
-                                            <option value="Severa">Severa</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header" id="headingSix">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                6.- INSUFICIENCIA TRICUSPIDEA
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionDatosEco">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 mb-2">
-                                        <label for="it_numero_velos" class="form-label mb-0">Número de velos</label>
-                                        <input type="number" name="it_numero_velos" class="form-control" id="it_numero_velos">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="it_jet1" class="form-label mb-0">JET</label>
-                                        <div class="form-control radioptions">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="it_jet" id="it_jet1" value="Central">
-                                                <label class="form-check-label" for="it_jet1">Central</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="it_jet" id="it_jet2" value="Excéntrica">
-                                                <label class="form-check-label" for="it_jet2">Excéntrica</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="it_vena_contracta" class="form-label mb-0">Vena contracta (cm)</label>
-                                        <input type="number" name="it_vena_contracta" class="form-control" id="it_vena_contracta">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="it_ore" class="form-label mb-0">ORE (cm2)</label>
-                                        <input type="number" name="it_ore" class="form-control" id="it_ore">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="it_velocidad_maxima" class="form-label mb-0">Velocidad Máxima (m/s)</label>
-                                        <input type="number" name="it_velocidad_maxima" class="form-control" id="it_velocidad_maxima">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="it_gradiente_maxima" class="form-label mb-0">Gradiente Máxima (mmhg)</label>
-                                        <input type="number" name="it_gradiente_maxima" class="form-control" id="it_gradiente_maxima">
-                                    </div>
-
-                                    <div class="col-md-6 mb-2">
-                                        <label for="it_tipoetiologia1" class="form-label mb-0">Tipo de etiología</label>
-                                        <div class="form-control radioptions">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="it_tipoetiologia" id="it_tipoetiologia1" value="Primaria">
-                                                <label class="form-check-label" for="it_tipoetiologia1">Primaria</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="it_tipoetiologia" id="it_tipoetiologia2" value="Secundaria">
-                                                <label class="form-check-label" for="it_tipoetiologia2">Secundaria</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="it_tipoetiologia" id="it_tipoetiologia3" value="Por dispositivo">
-                                                <label class="form-check-label" for="it_tipoetiologia3">Por dispositivo</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-2 d-none" id="dvit_tipoetiologia_secund">
-                                        <label for="it_tipoetiologia_secund1" class="form-label mb-0">Etiología secundaria</label>
-                                        <div class="form-control radioptions">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="it_tipoetiologia_secund" id="it_tipoetiologia_secund1" value="Atrial">
-                                                <label class="form-check-label" for="it_tipoetiologia_secund1">Atrial</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="it_tipoetiologia_secund" id="it_tipoetiologia_secund2" value="Ventricular">
-                                                <label class="form-check-label" for="it_tipoetiologia_secund2">Ventricular</label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 mb-2">
-                                        <label for="it_volumen_regurgitante" class="form-label mb-0">Volumen regurgitante (ml)</label>
-                                        <input type="number" name="it_volumen_regurgitante" class="form-control" id="it_volumen_regurgitante">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="it_severidad" class="form-label mb-0">Severidad</label>
-                                        <select name="it_severidad" class="form-control" id="it_severidad">
-                                            <option value="">Seleccionar...</option>
-                                            <option value="Leve">Leve</option>
-                                            <option value="Moderada">Moderada</option>
-                                            <option value="Severa">Severa</option>
-                                            <option value="Masiva">Masiva</option>
-                                            <option value="Torrencial">Torrencial</option>
-                                            
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="it_psap_estimada" class="form-label mb-0">PSAP estimada (mmhg)</label>
-                                        <input type="number" name="it_psap_estimada" class="form-control" id="it_psap_estimada">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="it_anillo" class="form-label mb-0">Anillo (cm)</label>
-                                        <input type="number" name="it_anillo" class="form-control" id="it_anillo">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="it_metodo_eval_anillo" class="form-label mb-0">Método de la evaluación del anillo</label>
-                                        <input type="text" name="it_metodo_eval_anillo" class="form-control" id="it_metodo_eval_anillo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header" id="headingSeven">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                7.- ESTENOSIS PULMONAR
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionDatosEco">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ep_velocidad_maxima" class="form-label mb-0">Velocidad máxima (m/s)</label>
-                                        <input type="number" name="ep_velocidad_maxima" class="form-control" id="ep_velocidad_maxima">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ep_gradiente_media" class="form-label mb-0">Gradiente media (mmhg)</label>
-                                        <input type="number" name="ep_gradiente_media" class="form-control" id="ep_gradiente_media">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ep_area_valvular" class="form-label mb-0">Área valvular (cm2)</label>
-                                        <input type="number" name="ep_area_valvular" class="form-control" id="ep_area_valvular">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ep_etiologia" class="form-label mb-0">Etiología</label>
-                                        <input type="text" name="ep_etiologia" class="form-control" id="ep_etiologia">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ep_severidad" class="form-label mb-0">Severidad</label>
-                                        <select name="ep_severidad" class="form-control" id="ep_severidad">
-                                            <option value="">Seleccionar...</option>
-                                            <option value="Leve">Leve</option>
-                                            <option value="Moderada">Moderada</option>
-                                            <option value="Severa">Severa</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header" id="headingEight">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                                8.- INSUIFICENCIA PULMONAR
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionDatosEco">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ip_vena_contracta" class="form-label mb-0">Vena contracta (cm)</label>
-                                        <input type="number" name="ip_vena_contracta" class="form-control" id="ip_vena_contracta">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ip_etiologia" class="form-label mb-0">Etiología</label>
-                                        <input type="text" name="ip_etiologia" class="form-control" id="ip_etiologia">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ip_severidad" class="form-label mb-0">Severidad</label>
-                                        <select name="ip_severidad" class="form-control" id="ip_severidad">
-                                            <option value="">Seleccionar...</option>
-                                            <option value="Leve">Leve</option>
-                                            <option value="Moderada">Moderada</option>
-                                            <option value="Severa">Severa</option>
-                                            
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ip_anillo" class="form-label mb-0">Anillo (cm)</label>
-                                        <input type="number" name="ip_anillo" class="form-control" id="ip_anillo">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ip_metodo_eval_anillo" class="form-label mb-0">Método de la evaluación del anillo</label>
-                                        <input type="text" name="ip_metodo_eval_anillo" class="form-control" id="ip_metodo_eval_anillo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!--Otros Datos ecocardiográficos cateterismo-->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Otro datos ecocardiográficos y cateterismo</h6>
-            </div>
-
-            <div class="card-body">
-
                 <div class="row mb-1">
-                    <div class="col-md-6 mb-2">
-                        <label for="volumen_auricula_izquierda" class="form-label mb-0">Volumen de la aurícula izquierda/Área de superficie corporal (ml/m2)</label>
-                        <input type="number" name="volumen_auricula_izquierda" class="form-control" id="volumen_auricula_izquierda">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="area_auricula_derecha" class="form-label mb-0">Área de la aurícula derecha (cm2)</label>
-                        <input type="number" name="area_auricula_derecha" class="form-control" id="area_auricula_derecha">
-                    </div>
-                </div>
-
-                <!-- Accordion -->
-                <div class="accordion accordion_od" id="accordionOtroDatos">
-                    <div class="card">
-                        <div class="card-header active-accordion" id="od_headingOne">
-                            <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#od_collapseOne" aria-expanded="true" aria-controls="od_collapseOne">
-                                1.- VENTRÍCULO IZQUIERDO
-                            </button>
-                            </h2>
-                        </div>
-                
-                        <div id="od_collapseOne" class="collapse show" aria-labelledby="od_headingOne" data-parent="#accordionDatosEco">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 mb-2">
-                                        <label for="vi_diametro_telesistolico" class="form-label mb-0">Diámetro telesistólico (cm)</label>
-                                        <input type="number" name="vi_diametro_telesistolico" class="form-control" id="vi_diametro_telesistolico">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="vi_volumen_telediastolico" class="form-label mb-0">Volumen telediastólico (ml)</label>
-                                        <input type="number" name="vi_volumen_telediastolico" class="form-control" id="vi_volumen_telediastolico">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="vi_volumen_telesistolico" class="form-label mb-0">Volumen telesistólico (ml)</label>
-                                        <input type="number" name="vi_volumen_telesistolico" class="form-control" id="vi_volumen_telesistolico">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="vi_masa" class="form-label mb-0">Masa (gramos/m2)</label>
-                                        <input type="number" name="vi_masa" class="form-control" id="vi_masa">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="vi_remodelamiento" class="form-label mb-0">Remodelamiento</label>
-                                        <select name="vi_remodelamiento" class="form-control" id="vi_remodelamiento">
-                                            <option value="">Seleccionar...</option>
-                                            <option value="Normal">Normal</option>
-                                            <option value="Remodelamiento concéntrico">Remodelamiento concéntrico</option>
-                                            <option value="Hipertrofia concéntrica">Hipertrofia concéntrica</option>
-                                            <option value="Hipertrofia excéntrica">Hipertrofia excéntrica</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="vi_fraccion_eyeccion_simpson" class="form-label mb-0">Fracción de eyección por Simpson (%)</label>
-                                        <input type="number" name="vi_fraccion_eyeccion_simpson" class="form-control" id="vi_fraccion_eyeccion_simpson">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header" id="od_headingTwo">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#od_collapseTwo" aria-expanded="false" aria-controls="od_collapseTwo">
-                                    2.- VENTRÍCULO DERECHO
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="od_collapseTwo" class="collapse" aria-labelledby="od_headingTwo" data-parent="#accordionDatosEco">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 mb-2">
-                                        <label for="vd_base" class="form-label mb-0">Base (cm)</label>
-                                        <input type="number" name="vd_base" class="form-control" id="vd_base">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="vd_porcion_media" class="form-label mb-0">Porción media (cm)</label>
-                                        <input type="number" name="vd_porcion_media" class="form-control" id="vd_porcion_media">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="vd_longitud" class="form-label mb-0">Longitud (cm)</label>
-                                        <input type="number" name="vd_longitud" class="form-control" id="vd_longitud">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="vd_dilatado1" class="form-label mb-0">Dilatado</label>
-                                        <div class="form-control radioptions">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="vd_dilatado" id="vd_dilatado1" value="Sí">
-                                                <label class="form-check-label" for="vd_dilatado1">Sí</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="vd_dilatado" id="vd_dilatado2" value="No">
-                                                <label class="form-check-label" for="vd_dilatado2">No</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="vd_tapse" class="form-label mb-0">TAPSE (cm)</label>
-                                        <input type="number" name="vd_tapse" class="form-control" id="vd_tapse">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="vd_fraccion_acortamiento" class="form-label mb-0">Fracción de acortamiento (%)</label>
-                                        <input type="number" name="vd_fraccion_acortamiento" class="form-control" id="vd_fraccion_acortamiento">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header" id="od_headingThree">
-                            <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#od_collapseThree" aria-expanded="false" aria-controls="od_collapseThree">
-                                3.- RAÍZ DE AORTA
-                            </button>
-                            </h2>
-                        </div>
-                        <div id="od_collapseThree" class="collapse" aria-labelledby="od_headingThree" data-parent="#accordionDatosEco">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 mb-2">
-                                        <label for="rda_union" class="form-label mb-0">Unión (cm)</label>
-                                        <input type="number" name="rda_union" class="form-control" id="rda_union">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="rda_senos" class="form-label mb-0">Senos (cm)</label>
-                                        <input type="number" name="rda_senos" class="form-control" id="rda_senos">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="rda_anillo" class="form-label mb-0">Anillo (cm)</label>
-                                        <input type="number" name="rda_anillo" class="form-control" id="rda_anillo">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="rda_aorta_ascendente" class="form-label mb-0">Aorta ascendente (cm)</label>
-                                        <input type="number" name="rda_aorta_ascendente" class="form-control" id="rda_aorta_ascendente">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header" id="od_headingFour">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#od_collapseFour" aria-expanded="false" aria-controls="od_collapseFour">
-                                    4.- CATETERISMO CARDIACO IZQUIERDA
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="od_collapseFour" class="collapse" aria-labelledby="od_headingFour" data-parent="#accordionDatosEco">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 mb-2">
-                                        <label for="cci_fecha" class="form-label mb-0">Fecha</label>
-                                        <input type="date" name="cci_fecha" class="form-control" id="cci_fecha">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="cci_severidad" class="form-label mb-0">Severidad</label>
-                                        <select name="cci_severidad" class="form-control" id="cci_severidad">
-                                            <option value="">Seleccionar...</option>
-                                            <option value="Leve">Leve</option>
-                                            <option value="Moderada">Moderada</option>
-                                            <option value="Severa">Severa</option>
-                                            
-                                        </select>
-                                    </div>
-                                    <div class="col-md-12 mb-2">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered" id="dataTable" width="100%">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Lesión</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>CD</td>
-                                                        <td>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="lesion_cd" id="lesion_cd1" value="Sí">
-                                                                <label class="form-check-label" for="lesion_cd1">Sí</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="lesion_cd" id="lesion_cd2" value="No">
-                                                                <label class="form-check-label" for="lesion_cd2">No</label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>TCI</td>
-                                                        <td>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="lesion_tci" id="lesion_tci1" value="Sí">
-                                                                <label class="form-check-label" for="lesion_tci1">Sí</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="lesion_tci" id="lesion_tci2" value="No">
-                                                                <label class="form-check-label" for="lesion_tci2">No</label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>ADA</td>
-                                                        <td>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="lesion_ada" id="lesion_ada1" value="Sí">
-                                                                <label class="form-check-label" for="lesion_ada1">Sí</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="lesion_ada" id="lesion_ada2" value="No">
-                                                                <label class="form-check-label" for="lesion_ada2">No</label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>CX</td>
-                                                        <td>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="lesion_cx" id="lesion_cx1" value="Sí">
-                                                                <label class="form-check-label" for="lesion_cx1">Sí</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="lesion_cx" id="lesion_cx2" value="No">
-                                                                <label class="form-check-label" for="lesion_cx2">No</label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-        
-                                                    <tr>
-                                                        <td>DIAGONAL</td>
-                                                        <td>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="lesion_diagonal" id="lesion_diagonal1" value="Sí">
-                                                                <label class="form-check-label" for="lesion_diagonal1">Sí</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="lesion_diagonal" id="lesion_diagonal2" value="No">
-                                                                <label class="form-check-label" for="lesion_diagonal2">No</label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>MARGINAL</td>
-                                                        <td>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="lesion_marginal" id="lesion_marginal1" value="Sí">
-                                                                <label class="form-check-label" for="lesion_marginal1">Sí</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="lesion_marginal" id="lesion_marginal2" value="No">
-                                                                <label class="form-check-label" for="lesion_marginal2">No</label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>DESCENDENTE POSTERIOR</td>
-                                                        <td>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="lesion_descen_posterior" id="lesion_descen_posterior1" value="Sí">
-                                                                <label class="form-check-label" for="lesion_descen_posterior1">Sí</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="lesion_descen_posterior" id="lesion_descen_posterior2" value="No">
-                                                                <label class="form-check-label" for="lesion_descen_posterior2">No</label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-        
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header" id="od_headingFive">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#od_collapseFive" aria-expanded="false" aria-controls="od_collapseFive">
-                                    5.- CATETERISMO CARDIACO DERECHO
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="od_collapseFive" class="collapse" aria-labelledby="od_headingFive" data-parent="#accordionDatosEco">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ccd_fecha" class="form-label mb-0">Fecha</label>
-                                        <input type="date" name="ccd_fecha" class="form-control" id="ccd_fecha">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ccd_presartesis_pulmonar" class="form-label mb-0">Presión Arterial Sistólica Pulmonar</label>
-                                        <input type="number" name="ccd_presartesis_pulmonar" class="form-control" id="ccd_presartesis_pulmonar">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ccd_psap_cardercho" class="form-label mb-0">PSAP estimada por cateterismo cardiaco derecho (mmhg )</label>
-                                        <input type="number" name="ccd_psap_cardercho" class="form-control" id="ccd_psap_cardercho">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ccd_resis_pulmonar" class="form-label mb-0">Resistencia pulmonar (Wood)</label>
-                                        <input type="text" name="ccd_resis_pulmonar" class="form-control" id="ccd_resis_pulmonar">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ccd_presart_medpulmunar" class="form-label mb-0">Presión arterial media pulmonar (mmhg)</label>
-                                        <input type="number" name="ccd_presart_medpulmunar" class="form-control" id="ccd_presart_medpulmunar">
-                                    </div>
-        
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ccd_hiper_pulmonar1" class="form-label mb-0">Hipertensión Pulmonar</label>
-                                        <div class="form-control radioptions">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="ccd_hiper_pulmonar" id="ccd_hiper_pulmonar1" value="No">
-                                                <label class="form-check-label" for="ccd_hiper_pulmonar1">No</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="ccd_hiper_pulmonar" id="ccd_hiper_pulmonar2" value="Sí">
-                                                <label class="form-check-label" for="ccd_hiper_pulmonar2">Sí</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ccd_diag_hipertension" class="form-label mb-0">Método diagnóstico de hipertensión pulmonar <span class="infotoltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="Si es que fue diagnosticada"></span></label>
-                                        <input type="text" name="ccd_diag_hipertension" class="form-control" id="ccd_diag_hipertension">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ccd_presion_capilar_pulmonar" class="form-label mb-0">Presión capilar pulmonar</label>
-                                        <input type="text" name="ccd_presion_capilar_pulmonar" class="form-control" id="ccd_presion_capilar_pulmonar">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ccd_diam_vi_diastole" class="form-label mb-0">Diámetro ventricular izquierdo al final de la diástole (mm)</label>
-                                        <input type="number" name="ccd_diam_vi_diastole" class="form-control" id="ccd_diam_vi_diastole">
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label for="ccd_diam_vi_sistole" class="form-label mb-0">Diámetro ventricular izquierdo al final de la sístole (mm)</label>
-                                        <input type="number" name="ccd_diam_vi_sistole" class="form-control" id="ccd_diam_vi_sistole">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- Interverción y pronóstico -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Interverción y pronóstico</h6>
-            </div>
-            <div class="card-body">
-                <div class="row">
 
                     <div class="col-md-6 mb-2">
-                        <label for="fecha_intervencion" class="form-label mb-0">Fecha de intervención</label>
-                        <input type="date" name="fecha_intervencion" class="form-control" id="fecha_intervencion">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="valvulas_tratadas" class="form-label mb-0">Valvulas tratadas</label>
-                        <input type="text" name="valvulas_tratadas" class="form-control" id="valvulas_tratadas">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="tratamiento" class="form-label mb-0">Tratamiento </label>
-                        <select name="tratamiento" class="form-control" id="tratamiento">
+                        <label for="manejo" class="form-label mb-0">Manejo</label>
+                        <select name="manejo" id="manejo" class="form-control" >
                             <option value="">Seleccionar...</option>
-                            <option value="Quirúrgica">Quirúrgica</option>
-                            <option value="Intervencionismo">Intervencionismo</option>
-                            <option value="Solo farmacológico">Solo farmacológico</option>
+                            <option value="Solo lisis">Solo lisis</option>
+                            <option value="Farmacoinvasiva">Farmacoinvasiva</option>
+                            <option value="Intervención coronaria percutánea">Intervención coronaria percutánea</option>
+                            <option value="Bypass coronario">Bypass coronario</option>
+                            <option value="Solo tratamiento médico">Solo tratamiento médico</option>
+                            <option value="Estrategia selectiva invasiva">Estrategia selectiva invasiva</option>
                         </select>
                     </div>
 
                     <div class="col-md-6 mb-2">
-                        <div id="dv_quirurgica" class="d-none">
-                            <div class="row">
-                                <div class="col-md-12 mb-2">
-                                    <label for="reparacion1" class="form-label mb-0">Reparación </label>
-                                    <div class="form-control radioptions">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="reparacion" id="reparacion1" value="Sí" >
-                                            <label class="form-check-label" for="reparacion1">Sí</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="reparacion" id="reparacion2" value="No" >
-                                            <label class="form-check-label" for="reparacion2">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 mb-2">
-                                    <label for="valvula_reparada" class="form-label mb-0">Válvula reparada</label>
-                                    <input type="text" name="valvula_reparada" class="form-control" id="valvula_reparada">
-                                </div>
-                                <div class="col-md-12 mb-2">
-                                    <label for="dispositivos1" class="form-label mb-0">Dispositivos </label>
-                                    <div class="form-control radioptions">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="dispositivos" id="dispositivos1" value="Sí" >
-                                            <label class="form-check-label" for="dispositivos1">Sí</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="dispositivos" id="dispositivos2" value="No" >
-                                            <label class="form-check-label" for="dispositivos2">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 mb-2">
-                                    <label for="valvula_trat_dispositivo" class="form-label mb-0">Válvula tratada con dispositivo</label>
-                                    <input type="text" name="valvula_trat_dispositivo" class="form-control" id="valvula_trat_dispositivo">
-                                </div>
-                                <div class="col-md-12 mb-2">
-                                    <label for="protesis1" class="form-label mb-0">Protesis </label>
-                                    <div class="form-control radioptions">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="protesis" id="protesis1" value="Biológica" >
-                                            <label class="form-check-label" for="protesis1">Biológica</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="protesis" id="protesis2" value="Mecanica" >
-                                            <label class="form-check-label" for="protesis2">Mecanica</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="protesis" id="protesis3" value="No" >
-                                            <label class="form-check-label" for="protesis3">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 mb-2">
-                                    <label for="valvula_tratada_protesis" class="form-label mb-0">Válvula tratada con prótesis</label>
-                                    <input type="text" name="valvula_tratada_protesis" class="form-control" id="valvula_tratada_protesis">
-                                </div>
-                                <div class="col-md-12 mb-2">
-                                    <label for="otros_procedquirurgicos" class="form-label mb-0">Otros procedimientos quirurgicos</label>
-                                    <input type="text" name="otros_procedquirurgicos" class="form-control" id="otros_procedquirurgicos">
-                                </div>
+                        <label for="transferido_fibrinolisis1" class="form-label mb-0">¿Tranferido para fibrinólisis?</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="transferido_fibrinolisis" id="transferido_fibrinolisis1" value="Si" >
+                                <label class="form-check-label" for="transferido_fibrinolisis1">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="transferido_fibrinolisis" id="transferido_fibrinolisis2" value="No" >
+                                <label class="form-check-label" for="transferido_fibrinolisis2">No</label>
                             </div>
                         </div>
+                    </div>
 
-                        <div id="dv_intervencionismo" class="d-none">
-                            <div class="row">
-                                <div class="col-md-12 mb-2">
-                                    <label for="interv_tipodispusado" class="form-label mb-0">Tipo de dispositivo usado</label>
-                                    <input type="text" name="interv_tipodispusado" class="form-control" id="interv_tipodispusado">
-                                </div>
-                            </div>
-                        </div>
-                        
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Lugar de transferencia para fibrinólisis</label>
+                        <input type="text" name="" class="form-control" id="">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Fecha de fibrinólisis</label>
+                        <input type="date" name="" class="form-control" id="">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Hora de fibrinólisis</label>
+                        <input type="time" name="" class="form-control" id="">
+                    </div>
+                    
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Tiempo desde el ECG hasta fibrinólisis (minutos)</label>
+                        <input type="number" name="" class="form-control" id="">
                     </div>
 
                     <div class="col-md-12 mb-2">
-                        <div class="form-control">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th style="border-top: none;">
-                                                <label for="listmedicacion" class="form-label mb-0 d-block">Medicación</label>
-                                            </th>
-                                            <th style="border-top: none;" class="text-center">
-                                               
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="listmedicacion">
-                                        <tr>
-                                            <td>Administración de inhibidores de enzima convertidora de angiotensina</td>
-                                            <td class="text-center">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_ieca" id="medicacion_iecasi" value="Sí" >
-                                                    <label class="form-check-label" for="medicacion_iecasi">Sí</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_ieca" id="medicacion_iecano" value="No" >
-                                                    <label class="form-check-label" for="medicacion_iecano">No</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Administración de antagonistas de receptores de angiotensina II</td>
-                                            <td class="text-center">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_ara" id="medicacion_arasi" value="Sí" >
-                                                    <label class="form-check-label" for="medicacion_arasi">Sí</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_ara" id="medicacion_arano" value="No" >
-                                                    <label class="form-check-label" for="medicacion_arano">No</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Administración de beta-bloqueadores</td>
-                                            <td class="text-center">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_betabloqueador" id="medicacion_betabloqueadorsi" value="Sí" >
-                                                    <label class="form-check-label" for="medicacion_betabloqueadorsi">Sí</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_betabloqueador" id="medicacion_betabloqueadorno" value="No" >
-                                                    <label class="form-check-label" for="medicacion_betabloqueadorno">No</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Administración de digoxina</td>
-                                            <td class="text-center">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_digoxina" id="medicacion_digoxinasi" value="Sí" >
-                                                    <label class="form-check-label" for="medicacion_digoxinasi">Sí</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_digoxina" id="medicacion_digoxinano" value="No" >
-                                                    <label class="form-check-label" for="medicacion_digoxinano">No</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Administración de estatinas</td>
-                                            <td class="text-center">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_estatinas" id="medicacion_estatinassi" value="Sí" >
-                                                    <label class="form-check-label" for="medicacion_estatinasi">Sí</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_estatinas" id="medicacion_estatinasno" value="No" >
-                                                    <label class="form-check-label" for="medicacion_estatinasno">No</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Administración de diuréticos</td>
-                                            <td class="text-center">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_diureticos" id="medicacion_diureticossi" value="Sí" >
-                                                    <label class="form-check-label" for="medicacion_diureticossi">Sí</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_diureticos" id="medicacion_diureticosno" value="No" >
-                                                    <label class="form-check-label" for="medicacion_diureticosno">No</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Administración de calcio antagonistas</td>
-                                            <td class="text-center">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_calcio_antagonista" id="medicacion_calcio_antagonistasi" value="Sí" >
-                                                    <label class="form-check-label" for="medicacion_calcio_antagonistasi">Sí</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_calcio_antagonista" id="medicacion_calcio_antagonistano" value="No" >
-                                                    <label class="form-check-label" for="medicacion_calcio_antagonistano">No</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Administración de dabigatrán</td>
-                                            <td class="text-center">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_dabigatran" id="medicacion_dabigtransi" value="Sí" >
-                                                    <label class="form-check-label" for="medicacion_dabigtransi">Sí</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_dabigatran" id="medicacion_dabigatranno" value="No" >
-                                                    <label class="form-check-label" for="medicacion_dabigatranno">No</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Administración de Warfarina</td>
-                                            <td class="text-center">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_warfarina" id="medicacion_warfarinasi" value="Sí" >
-                                                    <label class="form-check-label" for="medicacion_warfarinasi">Sí</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_warfarina" id="medicacion_warfarinano" value="No" >
-                                                    <label class="form-check-label" for="medicacion_warfarinano">No</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Administración de ácido acetil salicílico</td>
-                                            <td class="text-center">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_acido_acetil_salicilico" id="medicacion_acido_acetil_salicilicosi" value="Sí" >
-                                                    <label class="form-check-label" for="medicacion_acido_acetil_salicilicosi">Sí</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="medicacion_acido_acetil_salicilico" id="medicacion_acido_acetil_salicilicono" value="No" >
-                                                    <label class="form-check-label" for="medicacion_acido_acetil_salicilicono">No</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Otros medicamentos</td>
-                                            <td class="text-center">
-                                                <input type="text" name="medicacion_otro" class="form-control" id="medicacion_otro" placeholder="Especificar">
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <label for="tipo_fibrinolisis1" class="form-label mb-0 d-block">Tipo de fibrinólisis </label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="tipo_fibrinolisis[]" id="tipo_fibrinolisis1" value="Alteplasa">
+                                <label class="form-check-label" for="tipo_fibrinolisis1">Alteplasa</label>
                             </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="tipo_fibrinolisis[]" id="tipo_fibrinolisis2" value="Estreptoquinasa">
+                                <label class="form-check-label" for="tipo_fibrinolisis2">Estreptoquinasa</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="tipo_fibrinolisis[]" id="tipo_fibrinolisis3" value="Tenecteplasa">
+                                <label class="form-check-label" for="tipo_fibrinolisis3">Tenecteplasa</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="tipo_fibrinolisis[]" id="tipo_fibrinolisis4" value="Reteplasa">
+                                <label class="form-check-label" for="tipo_fibrinolisis4">Reteplasa</label>
+                            </div>
+                            
                         </div>
                     </div>
 
-                    <div class="col-md-12 mb-4 mt-3">
-                        <h5 class="m-0 font-weight-bold text-primary border-bottom">Complicaciones de la intervención</h5>
-                    </div>
                     <div class="col-md-6 mb-2">
-                        <label for="inmediatas" class="form-label mb-0">Inmediatas (<24 HORAS)</label>
-                        <input type="text" name="inmediatas" class="form-control" id="inmediatas">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="tardias" class="form-label mb-0">Tardías (24 HORAS A 1 SEMANA)</label>
-                        <input type="text" name="tardias" class="form-control" id="tardias">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="muerte_general1" class="form-label mb-0">Muerte general </label>
+                        <label for="fibrinolisis_exitosa1" class="form-label mb-0">Fibrinólisis exitosa</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="muerte_general" id="muerte_general1" value="Sí">
-                                <label class="form-check-label" for="muerte_general1">Sí</label>
+                                <input class="form-check-input" type="radio" name="fibrinolisis_exitosa" id="fibrinolisis_exitosa1" value="Sí" >
+                                <label class="form-check-label" for="fibrinolisis_exitosa1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="muerte_general" id="muerte_general2" value="No">
-                                <label class="form-check-label" for="muerte_general2">No</label>
+                                <input class="form-check-input" type="radio" name="fibrinolisis_exitosa" id="fibrinolisis_exitosa2" value="No" >
+                                <label class="form-check-label" for="fibrinolisis_exitosa2">No</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-2">
-                        <label for="muerte_cardiovascular1" class="form-label mb-0">Muerte cardiovascular </label>
+                        <label for="angioplastia_rescate1" class="form-label mb-0">Angioplastía de rescate</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="muerte_cardiovascular" id="muerte_cardiovascular1" value="Sí">
-                                <label class="form-check-label" for="muerte_cardiovascular1">Sí</label>
+                                <input class="form-check-input" type="radio" name="angioplastia_rescate" id="angioplastia_rescate1" value="Sí" >
+                                <label class="form-check-label" for="angioplastia_rescate1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="muerte_cardiovascular" id="muerte_cardiovascular2" value="No">
-                                <label class="form-check-label" for="muerte_cardiovascular2">No</label>
+                                <input class="form-check-input" type="radio" name="angioplastia_rescate" id="angioplastia_rescate2" value="No" >
+                                <label class="form-check-label" for="angioplastia_rescate2">No</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-2">
-                        <label for="fechademuerte" class="form-label mb-0">Fecha de muerte</label>
-                        <input type="date" name="fechademuerte" class="form-control" id="fechademuerte">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="hospitalizacion1" class="form-label mb-0">Hospitalización </label>
+                        <label for="fibrinolisis_suspendida" class="form-label mb-0">Fibrinólisis suspendida</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="hospitalizacion" id="hospitalizacion1" value="Sí">
-                                <label class="form-check-label" for="hospitalizacion1">Sí</label>
+                                <input class="form-check-input" type="radio" name="fibrinolisis_suspendida" id="fibrinolisis_suspendida1" value="Sí" >
+                                <label class="form-check-label" for="fibrinolisis_suspendida1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="hospitalizacion" id="hospitalizacion2" value="No">
-                                <label class="form-check-label" for="hospitalizacion2">No</label>
+                                <input class="form-check-input" type="radio" name="fibrinolisis_suspendida" id="fibrinolisis_suspendida2" value="No" >
+                                <label class="form-check-label" for="fibrinolisis_suspendida2">No</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-2">
-                        <label for="tiempo_hospitalizacion" class="form-label mb-0">Tiempo de hospitalización (días)</label>
-                        <input type="number" name="tiempo_hospitalizacion" class="form-control" id="tiempo_hospitalizacion">
+                        <label for="" class="form-label mb-0">Causa de suspensión</label>
+                        <input type="text" name="" class="form-control" id="">
                     </div>
 
                     <div class="col-md-6 mb-2">
-                        <label for="fecha_hospitalizacion" class="form-label mb-0">Fecha de hospitalización</label>
-                        <input type="date" name="fecha_hospitalizacion" class="form-control" id="fecha_hospitalizacion">
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Datos Cateterismo cardiaco-->
-        {{-- <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Datos Cateterismo cardiaco</h6>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6 mb-2">
-                        <label for="lesion_cateterismo_cardiaco" class="form-label mb-0">Lesión por cateterismo cardiaco izquierdo </label>
+                        <label for="fuetransferido_icp" class="form-label mb-0">¿Fue transferido para ICP? </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="lesion_cateterismo_cardiaco_izquierdo" id="lesion_cateterismo_cardiaco1" value="Sí" >
-                                <label class="form-check-label" for="lesion_cateterismo_cardiaco1">Si</label>
+                                <input class="form-check-input" type="radio" name="fuetransferido_icp" id="fuetransferido_icp1" value="Sí" >
+                                <label class="form-check-label" for="fuetransferido_icp1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="lesion_cateterismo_cardiaco_izquierdo" id="lesion_cateterismo_cardiaco2" value="No" >
-                                <label class="form-check-label" for="lesion_cateterismo_cardiaco2">No</label>
+                                <input class="form-check-input" type="radio" name="fuetransferido_icp" id="fuetransferido_icp2" value="No" >
+                                <label class="form-check-label" for="fuetransferido_icp2">No</label>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6 mb-2">
-                        <label for="lugar_lesion_cateterismo_cardiaco_izquierdo" class="form-label mb-0">Lugar de lesión por cateterismo cardiaco izquierdo</label>
-                        <select name="lugar_lesion_cateterismo_cardiaco_izquierdo" class="form-control" id="lugar_lesion_cateterismo_cardiaco_izquierdo">
+                        <label for="" class="form-label mb-0">Lugar de transferencia para ICP</label>
+                        <input type="text" name="" class="form-control" id="">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Fecha de salida antes de la ICP</label>
+                        <input type="date" name="" class="form-control" id="">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Hora de salida antes de la ICP</label>
+                        <input type="time" name="" class="form-control" id="">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Tiempo del door-in al door-out (minutos)</label>
+                        <input type="number" name="" class="form-control" id="">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Fecha de llegada al centro para ICP</label>
+                        <input type="date" name="" class="form-control" id="">
+                    </div> 
+
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Tiempo de transporte al lugar de ICP</label>
+                        <input type="number" name="" class="form-control" id="">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Fecha de inicio de ICP</label>
+                        <input type="date" name="" class="form-control" id="">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Hora de ICP</label>
+                        <input type="time" name="" class="form-control" id="">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="tipo_acceso" class="form-label mb-0">Tipo de acceso</label>
+                        <select name="tipo_acceso" id="tipo_acceso" class="form-control" >
                             <option value="">Seleccionar...</option>
-                            <option value="CD">CD</option>
-                            <option value="TCI">TCI</option>
-                            <option value="ADA">ADA</option>
-                            <option value="CV">CV</option>
-                            <option value="Diagonal">Diagonal</option>
-                            <option value="Margina">Margina</option>
-                            <option value="Descendente">Descendente</option>
-                            <option value="Posterior">Posterior</option>
+                            <option value="Radial distal">Radial distal</option>
+                            <option value="Radial convencional">Radial convencional</option>
+                            <option value="Braquial">Braquial</option>
+                            <option value="Femoral">Femoral</option>
                         </select>
                     </div>
 
-                </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="arteria_responsable" class="form-label mb-0">Arteria responsable del IMA</label>
+                        <select name="arteria_responsable" id="arteria_responsable" class="form-control" >
+                            <option value="">Seleccionar...</option>
+                            <option value="Tronco coronario izquierdo">Tronco coronario izquierdo</option>
+                            <option value="Descendente anterior">Descendente anterior</option>
+                            <option value="Coronaria derecha">Coronaria derecha</option>
+                            <option value="Circunfleja">Circunfleja</option>
+                            <option value="IMA sin lesiones coronaria obstructivas">IMA sin lesiones coronaria obstructivas</option>
+                            <option value="Dos o más arterias responsables">Dos o más arterias responsables</option>
+                        </select>
+                    </div>
 
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Fecha de apertura</label>
+                        <input type="date" name="" class="form-control" id="">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Hora de apertura</label>
+                        <input type="time" name="" class="form-control" id="">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="" class="form-label mb-0">Otra estenosis coronaria</label>
+                        <input type="text" name="" class="form-control" id="">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="flujo_inicial" class="form-label mb-0">Flujo inicial según TIMI</label>
+                        <select name="flujo_inicial" id="flujo_inicial" class="form-control" >
+                            <option value="">Seleccionar...</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="flujo_final" class="form-label mb-0">Flujo final según TIMI</label>
+                        <select name="flujo_final" id="flujo_final" class="form-control" >
+                            <option value="">Seleccionar...</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="tipo_stent" class="form-label mb-0">Tipo de stent</label>
+                        <select name="tipo_stent" id="tipo_stent" class="form-control" >
+                            <option value="">Seleccionar...</option>
+                            <option value="Angioplastia con balón">Angioplastia con balón</option>
+                            <option value="Convencional no medicado">Convencional no medicado</option>
+                            <option value="Stent medicado">Stent medicado</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="diametro_stent" class="form-label mb-0">Diámetro del stent (mm)</label>
+                        <input type="number" name="diametro_stent" class="form-control" id="diametro_stent">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="longitud_stent" class="form-label mb-0">Longitud del stent (mm)</label>
+                        <input type="number" name="longitud_stent" class="form-control" id="longitud_stent">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="predilatacion" class="form-label mb-0">Predilatación</label>
+                        <select name="predilatacion" id="predilatacion" class="form-control" >
+                            <option value="">Seleccionar...</option>
+                            <option value="Sí">Sí</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="postdilatacion" class="form-label mb-0">Postdilatación</label>
+                        <select name="postdilatacion" id="postdilatacion" class="form-control" >
+                            <option value="">Seleccionar...</option>
+                            <option value="Sí">Sí</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="otra_intervencion" class="form-label mb-0">Otra intervención</label>
+                        <select name="otra_intervencion" id="otra_intervencion" class="form-control" >
+                            <option value="">Seleccionar...</option>
+                            <option value="No">No</option>
+                            <option value="Aspirador de trombo">Aspirador de trombo</option>
+                            <option value="Microcatéter">Microcatéter</option>
+                            <option value="Lisis intracoronaria">Lisis intracoronaria</option>
+                            <option value="Guideliner">Guideliner</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="exito_icp" class="form-label mb-0">Éxito de ICP</label>
+                        <select name="exito_icp" id="exito_icp" class="form-control" >
+                            <option value="">Seleccionar...</option>
+                            <option value="Sí">Sí</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-6">
+                        <label for="complicaciones_icp" class="form-label mb-0">Fecha del fin de la ICP</label>
+                        <input type="date" name="complicaciones_icp" class="form-control" id="complicaciones_icp">
+                    </div>
+
+                    <div class="col-md-6 mb-6">
+                        <label for="complicaciones_icp" class="form-label mb-0">Hora del fin de la ICP</label>
+                        <input type="time" name="complicaciones_icp" class="form-control" id="complicaciones_icp">
+                    </div>
+
+                    <div class="col-md-6 mb-6">
+                        <label for="complicaciones_icp" class="form-label mb-0">Duración de la ICP (minutos)</label>
+                        <input type="number" name="complicaciones_icp" class="form-control" id="complicaciones_icp">
+                    </div>
+
+                    <div class="col-md-12 mb-2">
+                        <label for="complicaciones_dela_icp1" class="form-label mb-0 d-block">Complicaciones de la ICP </label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_dela_icp[]" id="complicaciones_dela_icp1" value="No">
+                                <label class="form-check-label" for="complicaciones_dela_icp1">No</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_dela_icp[]" id="complicaciones_dela_icp2" value="No reflow">
+                                <label class="form-check-label" for="complicaciones_dela_icp2">No reflow</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_dela_icp[]" id="complicaciones_dela_icp3" value="Disección coronaria">
+                                <label class="form-check-label" for="complicaciones_dela_icp3">Disección coronaria</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_dela_icp[]" id="complicaciones_dela_icp4" value="Trombosis">
+                                <label class="form-check-label" for="complicaciones_dela_icp4">Trombosis</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_dela_icp[]" id="complicaciones_dela_icp5" value="Cierre de otra arteria">
+                                <label class="form-check-label" for="complicaciones_dela_icp5">Cierre de otra arteria</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_dela_icp[]" id="complicaciones_dela_icp6" value="Infarto miocárdico peri-intervención coronaria percutánea">
+                                <label class="form-check-label" for="complicaciones_dela_icp6">Infarto miocárdico peri-intervención coronaria percutánea</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_dela_icp[]" id="complicaciones_dela_icp7" value="PCR">
+                                <label class="form-check-label" for="complicaciones_dela_icp7">PCR</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_dela_icp[]" id="complicaciones_dela_icp8" value="Bradicardia con colocación de marcapasos">
+                                <label class="form-check-label" for="complicaciones_dela_icp8">Bradicardia con colocación de marcapasos</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_dela_icp[]" id="complicaciones_dela_icp9" value="Muerte">
+                                <label class="form-check-label" for="complicaciones_dela_icp9">Muerte</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_dela_icp[]" id="complicaciones_dela_icp10" value="Infraexpansión">
+                                <label class="form-check-label" for="complicaciones_dela_icp10">Infraexpansión</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_dela_icp[]" id="complicaciones_dela_icp11" value="Sobrexpansión">
+                                <label class="form-check-label" for="complicaciones_dela_icp11">Sobrexpansión</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_dela_icp[]" id="complicaciones_dela_icp12" value="ACV">
+                                <label class="form-check-label" for="complicaciones_dela_icp12">ACV</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mb-2">
+                        <label for="complicaciones_mecanicas1" class="form-label mb-0 d-block">Complicación mecánicas </label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_mecanicas[]" id="complicaciones_mecanicas1" value="No">
+                                <label class="form-check-label" for="complicaciones_mecanicas1">No</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_mecanicas[]" id="complicaciones_mecanicas2" value="Rotura de pared libre o pseudoaneurisma">
+                                <label class="form-check-label" for="complicaciones_mecanicas2">Rotura de pared libre o pseudoaneurisma</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_mecanicas[]" id="complicaciones_mecanicas3" value="Comunicación interventricular">
+                                <label class="form-check-label" for="complicaciones_mecanicas3">Comunicación interventricular</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_mecanicas[]" id="complicaciones_mecanicas4" value="Rotura de músculo papilar">
+                                <label class="form-check-label" for="complicaciones_mecanicas4">Rotura de músculo papilar</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="complicaciones_mecanicas[]" id="complicaciones_mecanicas5" value="Aneurisma ventricular">
+                                <label class="form-check-label" for="complicaciones_mecanicas5">Aneurisma ventricular</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="motivo_deno_reperfusion" class="form-label mb-0">Motivo de no reperfusión</label>
+                        <input type="text" name="motivo_deno_reperfusion" class="form-control" id="motivo_deno_reperfusion">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="tiempo_total_isquemia" class="form-label mb-0">Tiempo total de isquemia (minutos)</label>
+                        <input type="number" name="tiempo_total_isquemia" class="form-control" id="tiempo_total_isquemia">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="puntaje_grace" class="form-label mb-0">Puntaje GRACE</label>
+                        <input type="number" name="puntaje_grace" class="form-control" id="puntaje_grace">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="otros_cambios_ecg" class="form-label mb-0">Otros cambios en el ECG</label>
+                        <input type="text" name="otros_cambios_ecg" class="form-control" id="otros_cambios_ecg">
+                    </div>
+                </div>
             </div>
-        </div> --}}
+        </div>
+
+        <!--Datos de laboratorio-->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Datos de laboratorio</h6>
+            </div>
+            <div class="card-body">
+                <div class="row mb-1">
+
+                    <div class="col-md-6 mb-2">
+                        <label for="hemoglobina_al_ingreso)" class="form-label mb-0">Hemoglobina (al ingreso)</label>
+                        <input type="number" name="hemoglobina_al_ingreso" class="form-control" id="hemoglobina_al_ingreso">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="leucocitos_al_ingreso" class="form-label mb-0">Leucocitos (al ingreso)</label>
+                        <input type="number" name="leucocitos_al_ingreso" class="form-control" id="leucocitos_al_ingreso">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="plaquetas_al_ingreso" class="form-label mb-0">Plaquetas (al ingreso)</label>
+                        <input type="number" name="plaquetas_al_ingreso" class="form-control" id="plaquetas_al_ingreso">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="creatinina_al_ingreso" class="form-label mb-0">Creatinina (al ingreso)</label>
+                        <input type="number" name="creatinina_al_ingreso" class="form-control" id="creatinina_al_ingreso">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="urea_al_ingreso" class="form-label mb-0">Úrea (al ingreso)</label>
+                        <input type="number" name="urea_al_ingreso" class="form-control" id="urea_al_ingreso">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="glucosa_al_ingreso" class="form-label mb-0">Glucosa (al ingreso)</label>
+                        <input type="number" name="glucosa_al_ingreso" class="form-control" id="glucosa_al_ingreso">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="troponina_t_al_ingreso" class="form-label mb-0">Troponina T (al ingreso)</label>
+                        <input type="number" name="troponina_t_al_ingreso" class="form-control" id="troponina_t_al_ingreso">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="troponina_i_al_ingreso" class="form-label mb-0">Troponina I (al ingreso)</label>
+                        <input type="number" name="troponina_i_al_ingreso" class="form-control" id="troponina_i_al_ingreso">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="cpk_total_al_ingreso" class="form-label mb-0">CPK total (al ingreso)</label>
+                        <input type="number" name="cpk_total_al_ingreso" class="form-control" id="cpk_total_al_ingreso">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="cpk_mb_al_ingreso" class="form-label mb-0">CPK-MB (al ingreso)</label>
+                        <input type="number" name="cpk_mb_al_ingreso" class="form-control" id="cpk_mb_al_ingreso">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="lactato_al_ingreso" class="form-label mb-0">Lactato (al ingreso)</label>
+                        <input type="number" name="lactato_al_ingreso" class="form-control" id="lactato_al_ingreso">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="fraccion_eyectada_izquierda_ingreso" class="form-label mb-0">Fracción de eyección ventricular izquierda (%, al ingreso)</label>
+                        <input type="number" name="fraccion_eyectada_izquierda_ingreso" class="form-control" id="fraccion_eyectada_izquierda_ingreso">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="fraccion_eyectada_izquierda_hospitalizacion" class="form-label mb-0">Fracción de eyección ventricular izquierda (%, en hospitalización)</label>
+                        <input type="number" name="fraccion_eyectada_izquierda_hospitalizacion" class="form-control" id="fraccion_eyectada_izquierda_hospitalizacion">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--Datos de medicación farmacológica-->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Datos de medicación farmacológica</h6>
+            </div>
+            <div class="card-body">
+                <div class="row mb-1">
+                    <div class="col-md-6 mb-2">
+                        <label for="aspirina_en_hospitalizacion1" class="form-label mb-0">Aspirina (en hospitalización)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="aspirina_en_hospitalizacion" id="aspirina_en_hospitalizacion1" value="Sí">
+                                <label class="form-check-label" for="aspirina_en_hospitalizacion1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="aspirina_en_hospitalizacion" id="aspirina_en_hospitalizacion2" value="No">
+                                <label class="form-check-label" for="aspirina_en_hospitalizacion2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="clopidogrel_en_hospitalizacion1" class="form-label mb-0">Clopidogrel (en hospitalización)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="clopidogrel_en_hospitalizacion" id="clopidogrel_en_hospitalizacion1" value="Sí">
+                                <label class="form-check-label" for="clopidogrel_en_hospitalizacion1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="clopidogrel_en_hospitalizacion" id="clopidogrel_en_hospitalizacion2" value="No">
+                                <label class="form-check-label" for="clopidogrel_en_hospitalizacion2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="enoxaparina_en_hospitalizacion1" class="form-label mb-0">Enoxaparina (en hospitalización)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="enoxaparina_en_hospitalizacion" id="enoxaparina_en_hospitalizacion1" value="Sí">
+                                <label class="form-check-label" for="enoxaparina_en_hospitalizacion1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="enoxaparina_en_hospitalizacion" id="enoxaparina_en_hospitalizacion2" value="No">
+                                <label class="form-check-label" for="enoxaparina_en_hospitalizacion2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="heparina_no_fraccionada_en_hospitalizacion1" class="form-label mb-0">Heparina no fraccionada (en hospitalización)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="heparina_no_fraccionada_en_hospitalizacion" id="heparina_no_fraccionada_en_hospitalizacion1" value="Sí">
+                                <label class="form-check-label" for="heparina_no_fraccionada_en_hospitalizacion1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="heparina_no_fraccionada_en_hospitalizacion" id="heparina_no_fraccionada_en_hospitalizacion2" value="No">
+                                <label class="form-check-label" for="heparina_no_fraccionada_en_hospitalizacion2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="atorvastatina_en_hospitalizacion1" class="form-label mb-0">Atorvastatina (en hospitalización)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="atorvastatina_en_hospitalizacion" id="atorvastatina_en_hospitalizacion1" value="Sí">
+                                <label class="form-check-label" for="atorvastatina_en_hospitalizacion1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="atorvastatina_en_hospitalizacion" id="atorvastatina_en_hospitalizacion2" value="No">
+                                <label class="form-check-label" for="atorvastatina_en_hospitalizacion2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="betabloqueadores_en_hospitalizacion1" class="form-label mb-0">Betabloqueadores (en hospitalización)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="betabloqueadores_en_hospitalizacion" id="betabloqueadores_en_hospitalizacion1" value="Sí">
+                                <label class="form-check-label" for="betabloqueadores_en_hospitalizacion1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="betabloqueadores_en_hospitalizacion" id="betabloqueadores_en_hospitalizacion2" value="No">
+                                <label class="form-check-label" for="betabloqueadores_en_hospitalizacion2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="diureticos_de_asa_en_hospitalizacion1" class="form-label mb-0">Diuréticos de asa (en hospitalización)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="diureticos_de_asa_en_hospitalizacion" id="diureticos_de_asa_en_hospitalizacion1" value="Sí">
+                                <label class="form-check-label" for="diureticos_de_asa_en_hospitalizacion1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="diureticos_de_asa_en_hospitalizacion" id="diureticos_de_asa_en_hospitalizacion2" value="No">
+                                <label class="form-check-label" for="diureticos_de_asa_en_hospitalizacion2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="vasodilatadores_en_hospitalizacion1" class="form-label mb-0">Vasodilatadores (en hospitalización)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="vasodilatadores_en_hospitalizacion" id="vasodilatadores_en_hospitalizacion1" value="Sí">
+                                <label class="form-check-label" for="vasodilatadores_en_hospitalizacion1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="vasodilatadores_en_hospitalizacion" id="vasodilatadores_en_hospitalizacion2" value="No">
+                                <label class="form-check-label" for="vasodilatadores_en_hospitalizacion2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="vasopresores_en_hospitalizacion1" class="form-label mb-0">Vasopresores (en hospitalización)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="vasopresores_en_hospitalizacion" id="vasopresores_en_hospitalizacion1" value="Sí">
+                                <label class="form-check-label" for="vasopresores_en_hospitalizacion1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="vasopresores_en_hospitalizacion" id="vasopresores_en_hospitalizacion2" value="No">
+                                <label class="form-check-label" for="vasopresores_en_hospitalizacion2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="inotropicos_en_hospitalizacion1" class="form-label mb-0">Inotrópicos (en hospitalización)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inotropicos_en_hospitalizacion" id="inotropicos_en_hospitalizacion1" value="Sí">
+                                <label class="form-check-label" for="inotropicos_en_hospitalizacion1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inotropicos_en_hospitalizacion" id="inotropicos_en_hospitalizacion2" value="No">
+                                <label class="form-check-label" for="inotropicos_en_hospitalizacion2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ieca_ara_en_hospitalizacion1" class="form-label mb-0">IECA/ARA (en hospitalización)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ieca_ara_en_hospitalizacion" id="ieca_ara_en_hospitalizacion1" value="Sí">
+                                <label class="form-check-label" for="ieca_ara_en_hospitalizacion1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ieca_ara_en_hospitalizacion" id="ieca_ara_en_hospitalizacion2" value="No">
+                                <label class="form-check-label" for="ieca_ara_en_hospitalizacion2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ventilacion_mecanica_en_hospitalizacion1" class="form-label mb-0">Ventilación mecánica (en hospitalización)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ventilacion_mecanica_en_hospitalizacion" id="ventilacion_mecanica_en_hospitalizacion1" value="Sí">
+                                <label class="form-check-label" for="ventilacion_mecanica_en_hospitalizacion1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ventilacion_mecanica_en_hospitalizacion" id="ventilacion_mecanica_en_hospitalizacion2" value="No">
+                                <label class="form-check-label" for="ventilacion_mecanica_en_hospitalizacion2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dialisis_en_hospitalizacion1" class="form-label mb-0">Diálisis (en hospitalización)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dialisis_en_hospitalizacion" id="dialisis_en_hospitalizacion1" value="Sí">
+                                <label class="form-check-label" for="dialisis_en_hospitalizacion1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dialisis_en_hospitalizacion" id="dialisis_en_hospitalizacion2" value="No">
+                                <label class="form-check-label" for="dialisis_en_hospitalizacion2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="rehabilitacion_cardiaca_en_hospitalizacion1" class="form-label mb-0">Rehabilitación cardiaca en hospitalización</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rehabilitacion_cardiaca_en_hospitalizacion" id="rehabilitacion_cardiaca_en_hospitalizacion1" value="Sí">
+                                <label class="form-check-label" for="rehabilitacion_cardiaca_en_hospitalizacion1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rehabilitacion_cardiaca_en_hospitalizacion" id="rehabilitacion_cardiaca_en_hospitalizacion2" value="No">
+                                <label class="form-check-label" for="rehabilitacion_cardiaca_en_hospitalizacion2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="aspirina_al_alta1" class="form-label mb-0">Aspirina (al alta)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="aspirina_al_alta" id="aspirina_al_alta1" value="Sí">
+                                <label class="form-check-label" for="aspirina_al_alta1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="aspirina_al_alta" id="aspirina_al_alta2" value="No">
+                                <label class="form-check-label" for="aspirina_al_alta2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="clopidogrel_al_alta1" class="form-label mb-0">Clopidogrel (al alta)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="clopidogrel_al_alta" id="clopidogrel_al_alta1" value="Sí">
+                                <label class="form-check-label" for="clopidogrel_al_alta1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="clopidogrel_al_alta" id="clopidogrel_al_alta2" value="No">
+                                <label class="form-check-label" for="clopidogrel_al_alta2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="enoxaparina_al_alta1" class="form-label mb-0">Enoxaparina (al alta)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="enoxaparina_al_alta" id="enoxaparina_al_alta1" value="Sí">
+                                <label class="form-check-label" for="enoxaparina_al_alta1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="enoxaparina_al_alta" id="enoxaparina_al_alta2" value="No">
+                                <label class="form-check-label" for="enoxaparina_al_alta2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="heparina_no_fraccionada_al_alta1" class="form-label mb-0">Heparina no fraccionada (al alta)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="heparina_no_fraccionada_al_alta" id="heparina_no_fraccionada_al_alta1" value="Sí">
+                                <label class="form-check-label" for="heparina_no_fraccionada_al_alta1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="heparina_no_fraccionada_al_alta" id="heparina_no_fraccionada_al_alta2" value="No">
+                                <label class="form-check-label" for="heparina_no_fraccionada_al_alta2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="atorvastatina_al_alta1" class="form-label mb-0">Atorvastatina (al alta)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="atorvastatina_al_alta" id="atorvastatina_al_alta1" value="Sí">
+                                <label class="form-check-label" for="atorvastatina_al_alta1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="atorvastatina_al_alta" id="atorvastatina_al_alta2" value="No">
+                                <label class="form-check-label" for="atorvastatina_al_alta2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="betabloqueadores_al_alta1" class="form-label mb-0">Betabloqueadores (al alta)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="betabloqueadores_al_alta" id="betabloqueadores_al_alta1" value="Sí">
+                                <label class="form-check-label" for="betabloqueadores_al_alta1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="betabloqueadores_al_alta" id="betabloqueadores_al_alta2" value="No">
+                                <label class="form-check-label" for="betabloqueadores_al_alta2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="diureticos_de_asa_al_alta1" class="form-label mb-0">Diuréticos de asa (al alta)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="diureticos_de_asa_al_alta" id="diureticos_de_asa_al_alta1" value="Sí">
+                                <label class="form-check-label" for="diureticos_de_asa_al_alta1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="diureticos_de_asa_al_alta" id="diureticos_de_asa_al_alta2" value="No">
+                                <label class="form-check-label" for="diureticos_de_asa_al_alta2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="antagonistas_de_mineralocorticoides_al_alta1" class="form-label mb-0">Antagonistas de mineralocorticoides (al alta)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="antagonistas_de_mineralocorticoides_al_alta" id="antagonistas_de_mineralocorticoides_al_alta1" value="Sí">
+                                <label class="form-check-label" for="antagonistas_de_mineralocorticoides_al_alta1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="antagonistas_de_mineralocorticoides_al_alta" id="antagonistas_de_mineralocorticoides_al_alta2" value="No">
+                                <label class="form-check-label" for="antagonistas_de_mineralocorticoides_al_alta2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ieca_ara_al_alta1" class="form-label mb-0">IECA/ARA (al alta)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ieca_ara_al_alta" id="ieca_ara_al_alta1" value="Sí">
+                                <label class="form-check-label" for="ieca_ara_al_alta1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ieca_ara_al_alta" id="ieca_ara_al_alta2" value="No">
+                                <label class="form-check-label" for="ieca_ara_al_alta2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="inhibidores_del_receptor_p2y12_al_alta1" class="form-label mb-0">Inhibidores del receptor P2Y12 (al alta)</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inhibidores_del_receptor_p2y12_al_alta" id="inhibidores_del_receptor_p2y12_al_alta1" value="Sí">
+                                <label class="form-check-label" for="inhibidores_del_receptor_p2y12_al_alta1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inhibidores_del_receptor_p2y12_al_alta" id="inhibidores_del_receptor_p2y12_al_alta2" value="No">
+                                <label class="form-check-label" for="inhibidores_del_receptor_p2y12_al_alta2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--Datos de pronóstico-->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Datos de pronóstico</h6>
+            </div>
+            <div class="card-body">
+                <div class="row mb-1">
+
+                    <div class="col-md-6 mb-2">
+                        <label for="primera_medicion_de_fraccion_de_eyeccion_ventricular_izquierda_al_alta" class="form-label mb-0">Primera medición de fracción de eyección ventricular izquierda al alta (%)</label>
+                        <input type="number" name="primera_medicion_de_fraccion_de_eyeccion_ventricular_izquierda_al_alta" class="form-control" id="primera_medicion_de_fraccion_de_eyeccion_ventricular_izquierda_al_alta">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="fecha_primera_medicion_de_fraccion_de_eyeccion_ventricular_izquierda_al_alta" class="form-label mb-0">Fecha de primera medición de fracción de eyección ventricular izquierda al alta</label>
+                        <input type="date" name="fecha_primera_medicion_de_fraccion_de_eyeccion_ventricular_izquierda_al_alta" class="form-control" id="fecha_primera_medicion_de_fraccion_de_eyeccion_ventricular_izquierda_al_alta">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="muerte_hospitalaria1" class="form-label mb-0">Muerte hospitalaria</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="muerte_hospitalaria" id="muerte_hospitalaria1" value="Sí">
+                                <label class="form-check-label" for="muerte_hospitalaria1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="muerte_hospitalaria" id="muerte_hospitalaria2" value="No">
+                                <label class="form-check-label" for="muerte_hospitalaria2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="fecha_muerte_hospitalaria" class="form-label mb-0">Fecha de muerte hospitalaria</label>
+                        <input type="date" name="fecha_muerte_hospitalaria" class="form-control" id="fecha_muerte_hospitalaria">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="muerte_cardiovascular_al_alta1" class="form-label mb-0">Muerte cardiovascular al alta</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="muerte_cardiovascular_al_alta" id="muerte_cardiovascular_al_alta1" value="Sí">
+                                <label class="form-check-label" for="muerte_cardiovascular_al_alta1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="muerte_cardiovascular_al_alta" id="muerte_cardiovascular_al_alta2" value="No">
+                                <label class="form-check-label" for="muerte_cardiovascular_al_alta2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="fecha_muerte_cardiovascular_al_alta" class="form-label mb-0">Fecha de muerte cardiovascular</label>
+                        <input type="date" name="fecha_muerte_cardiovascular_al_alta" class="form-control" id="fecha_muerte_cardiovascular_al_alta">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="muerte_no_cardiovascular_al_alta1" class="form-label mb-0">Muerte no cardiovascular al alta</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="muerte_no_cardiovascular_al_alta" id="muerte_no_cardiovascular_al_alta1" value="Sí">
+                                <label class="form-check-label" for="muerte_no_cardiovascular_al_alta1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="muerte_no_cardiovascular_al_alta" id="muerte_no_cardiovascular_al_alta2" value="No">
+                                <label class="form-check-label" for="muerte_no_cardiovascular_al_alta2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="fecha_muerte_no_cardiovascular_al_alta" class="form-label mb-0">Fecha de muerte no cardiovascular</label>
+                        <input type="date" name="fecha_muerte_no_cardiovascular_al_alta" class="form-control" id="fecha_muerte_no_cardiovascular_al_alta">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="angina_postinfarto1" class="form-label mb-0">Angina postinfarto</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="angina_postinfarto" id="angina_postinfarto1" value="Sí">
+                                <label class="form-check-label" for="angina_postinfarto1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="angina_postinfarto" id="angina_postinfarto2" value="No">
+                                <label class="form-check-label" for="angina_postinfarto2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="fecha_angina_postinfarto" class="form-label mb-0">Fecha de angina postinfarto</label>
+                        <input type="date" name="fecha_angina_postinfarto" class="form-control" id="fecha_angina_postinfarto">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="reinfarto1" class="form-label mb-0">Reinfarto</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="reinfarto" id="reinfarto1" value="Sí">
+                                <label class="form-check-label" for="reinfarto1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="reinfarto" id="reinfarto2" value="No">
+                                <label class="form-check-label" for="reinfarto2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="fecha_reinfarto" class="form-label mb-0">Fecha de reinfarto</label>
+                        <input type="date" name="fecha_reinfarto" class="form-control" id="fecha_reinfarto">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="acv_al_alta1" class="form-label mb-0">ACV al alta</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="acv_al_alta" id="acv_al_alta1" value="Sí">
+                                <label class="form-check-label" for="acv_al_alta1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="acv_al_alta" id="acv_al_alta2" value="No">
+                                <label class="form-check-label" for="acv_al_alta2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="fecha_acv_al_alta" class="form-label mb-0">Fecha de ACV</label>
+                        <input type="date" name="fecha_acv_al_alta" class="form-control" id="fecha_acv_al_alta">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="trombosis_de_stent_al_alta1" class="form-label mb-0">Trombosis de stent al alta</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="trombosis_de_stent_al_alta" id="trombosis_de_stent_al_alta1" value="Sí">
+                                <label class="form-check-label" for="trombosis_de_stent_al_alta1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="trombosis_de_stent_al_alta" id="trombosis_de_stent_al_alta2" value="No">
+                                <label class="form-check-label" for="trombosis_de_stent_al_alta2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="fecha_trombosis_de_stent_al_alta" class="form-label mb-0">Fecha de trombosis de stent</label>
+                        <input type="date" name="fecha_trombosis_de_stent_al_alta" class="form-control" id="fecha_trombosis_de_stent_al_alta">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="rehospitalizacion_por_falla_cardiaca1" class="form-label mb-0">Rehospitalización por falla cardiaca</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rehospitalizacion_por_falla_cardiaca" id="rehospitalizacion_por_falla_cardiaca1" value="Sí">
+                                <label class="form-check-label" for="rehospitalizacion_por_falla_cardiaca1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rehospitalizacion_por_falla_cardiaca" id="rehospitalizacion_por_falla_cardiaca2" value="No">
+                                <label class="form-check-label" for="rehospitalizacion_por_falla_cardiaca2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="fecha_rehospitalizacion_por_falla_cardiaca" class="form-label mb-0">Fecha de rehospitalización por falla cardiaca</label>
+                        <input type="date" name="fecha_rehospitalizacion_por_falla_cardiaca" class="form-control" id="fecha_rehospitalizacion_por_falla_cardiaca">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="sangrado1" class="form-label mb-0">Sangrado</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sangrado" id="sangrado1" value="Sí">
+                                <label class="form-check-label" for="sangrado1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sangrado" id="sangrado2" value="No">
+                                <label class="form-check-label" for="sangrado2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="sangrado_segun_barc" class="form-label mb-0">Sangrado según BARC:</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sangrado_segun_barc" id="sangrado_segun_barc0" value="0">
+                                <label class="form-check-label" for="sangrado_segun_barc0">0</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sangrado_segun_barc" id="sangrado_segun_barc1" value="1">
+                                <label class="form-check-label" for="sangrado_segun_barc1">1</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sangrado_segun_barc" id="sangrado_segun_barc2" value="2">
+                                <label class="form-check-label" for="sangrado_segun_barc2">2</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sangrado_segun_barc" id="sangrado_segun_barc3" value="3">
+                                <label class="form-check-label" for="sangrado_segun_barc3">3</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sangrado_segun_barc" id="sangrado_segun_barc4" value="4">
+                                <label class="form-check-label" for="sangrado_segun_barc4">4</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sangrado_segun_barc" id="sangrado_segun_barc5" value="5">
+                                <label class="form-check-label" for="sangrado_segun_barc5">5</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="fecha_sangrado" class="form-label mb-0">Fecha de sangrado</label>
+                        <input type="date" name="fecha_sangrado" class="form-control" id="fecha_sangrado">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="rehabilitacion_cardiaca_al_alta1" class="form-label mb-0">Rehabilitación cardiaca al alta</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rehabilitacion_cardiaca_al_alta" id="rehabilitacion_cardiaca_al_alta1" value="Sí">
+                                <label class="form-check-label" for="rehabilitacion_cardiaca_al_alta1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rehabilitacion_cardiaca_al_alta" id="rehabilitacion_cardiaca_al_alta2" value="No">
+                                <label class="form-check-label" for="rehabilitacion_cardiaca_al_alta2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="segunda_medicion_de_fraccion_de_eyeccion_ventricular_izquierda_al_alta" class="form-label mb-0">Segunda medición de fracción de eyección ventricular izquierda al alta (%)</label>
+                        <input type="number" name="segunda_medicion_de_fraccion_de_eyeccion_ventricular_izquierda_al_alta" class="form-control" id="segunda_medicion_de_fraccion_de_eyeccion_ventricular_izquierda_al_alta">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="fecha_segunda_medicion_de_fraccion_de_eyeccion_ventricular_izquierda_al_alta" class="form-label mb-0">Fecha de segunda medición de fracción de eyección ventricular izquierda al alta</label>
+                        <input type="date" name="fecha_segunda_medicion_de_fraccion_de_eyeccion_ventricular_izquierda_al_alta" class="form-control" id="fecha_segunda_medicion_de_fraccion_de_eyeccion_ventricular_izquierda_al_alta">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
 
         <!-- boton cancel y Submit -->
         <div class="card shadow mb-4">
