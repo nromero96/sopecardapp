@@ -15,7 +15,7 @@ class RenimaController extends Controller
      */
     public function index()
     {
-        
+
 
         $data = [
             'category_name' => 'renima',
@@ -37,7 +37,7 @@ class RenimaController extends Controller
                 ->where('renimas.user_id', auth()->user()->id)
                 ->where('renimas.status', 'Activo')
                 ->get();
-            
+
         }
 
         return view('pages.renima.index')->with($data)->with('renimas', $renimas);
@@ -69,7 +69,31 @@ class RenimaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $renima = new Renima();
+        $renima->user_id = auth()->user()->id;
+        $renima->centro_salud = $request->centro_salud;
+        $renima->documento_identidad = $request->documento_identidad;
+        $renima->celular_contacto = $request->celular_contacto;
+        $renima->departamento = $request->departamento;
+        $renima->provincia = $request->provincia;
+        $renima->ciudad = $request->ciudad;
+        $renima->distrito = $request->distrito;
+        $renima->edad = $request->edad;
+        $renima->fecha_nacimiento = $request->fecha_nacimiento;
+        $renima->sexo = $request->sexo;
+        $renima->gestante = $request->gestante;
+        $renima->estado_civil = $request->estado_civil;
+        $renima->tipo_seguro = $request->tipo_seguro;
+        $renima->grado_instruccion = $request->grado_instruccion;
+
+
+        $renima->status = 'Activo';
+        $renima->save();
+
+
+        return redirect()->route('renima.index')->with('success', 'Renima creado exitosamente');
+
     }
 
     /**
