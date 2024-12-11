@@ -134,6 +134,15 @@
             </li>
             @endcan
 
+            @can('pulmonary-hypertension.index')
+            <li class="nav-item {{ ($page_name === 'pulmonary_hypertension_index' || $page_name === 'pulmonary_hypertension_create') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('pulmonary-hypertension.index') }}">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>H. PULMONAR</span>
+                </a>
+            </li>
+            @endcan
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

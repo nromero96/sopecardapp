@@ -83,6 +83,25 @@ class RolesAndPermissionsSeeder extends Seeder
                             'description' => 'Editar Renaval'])->syncRoles([$role1]);
         Permission::create(['name' => 'renaval.destroy',
                             'description' => 'Eliminar Renaval'])->syncRoles([$role1]);
-    
+
+        //create permissions for renima 
+        Permission::create(['name' => 'renima.index',
+                            'description' => 'Listar Renima'])->syncRoles([$role1]);
+        Permission::create(['name' => 'renima.create',
+                            'description' => 'Crear Renima'])->syncRoles([$role1]);
+        Permission::create(['name' => 'renima.edit',
+                            'description' => 'Editar Renima'])->syncRoles([$role1]);
+        Permission::create(['name' => 'renima.destroy',
+                            'description' => 'Eliminar Renima'])->syncRoles([$role1]);
+
+        //pulmonary_hypertension
+        Permission::create(['name' => 'pulmonary-hypertension.index',
+                            'description' => 'Listar Hipertensión Pulmonar'])->syncRoles([$role1, $role2]);
+        Permission::create(['name' => 'pulmonary-hypertension.create',
+                            'description' => 'Crear Hipertensión Pulmonar'])->syncRoles([$role1, $role2]);
+        Permission::create(['name' => 'pulmonary-hypertension.edit',
+                            'description' => 'Editar Hipertensión Pulmonar'])->syncRoles([$role1, $role2]);
+        Permission::create(['name' => 'pulmonary-hypertension.destroy',
+                            'description' => 'Eliminar Hipertensión Pulmonar'])->syncRoles([$role1, $role2]);
     }
 }

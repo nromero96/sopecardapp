@@ -7,7 +7,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Registrar Renima V <small class="text-danger">(EN CONSTRUCCION)</small> </h1>
+        <h1 class="h3 mb-0 text-gray-800">Registrar Renima</h1>
     </div>
 
     <!-- Form -->
