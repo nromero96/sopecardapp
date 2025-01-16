@@ -650,10 +650,17 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="ec_derrame_pericardico" class="form-label mb-0">Derrame pericárdico</label>
-                        <input type="text" name="ec_derrame_pericardico" class="form-control" id="ec_derrame_pericardico" >
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ec_derrame_pericardico" id="ec_derrame_pericardico1" value="Sí" >
+                                <label class="form-check-label" for="ec_derrame_pericardico1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ec_derrame_pericardico" id="ec_derrame_pericardico2" value="No" >
+                                <label class="form-check-label" for="ec_derrame_pericardico2">No</label>
+                            </div>
+                        </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
