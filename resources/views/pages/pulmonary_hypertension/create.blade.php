@@ -7,7 +7,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Registrar Hipertensión Pulmonar <small class="text-danger">(EN CONSTRUCCION)</small> </h1>
+        <h1 class="h3 mb-0 text-gray-800">Registrar INPER-HP <small class="text-danger">(EN CONSTRUCCION)</small> </h1>
     </div>
 
     <!-- Form -->
@@ -20,9 +20,13 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-12 mb-2">
+                    <div class="col-md-6 mb-2">
                         <label for="responsable" class="form-label mb-0">Responsable <small class="requiredata">*</small></label>
                         <input type="text" name="responsable" class="form-control" id="responsable" value="@if(Auth::user()->trato != ''){{ Auth::user()->trato.' ' }}@endif{{ Auth::user()->name }} {{ Auth::user()->lastname }}" readonly>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="centro_atencion" class="form-label mb-0">Centro de atención <small class="requiredata">*</small></label>
+                        <input type="text" name="centro_atencion" class="form-control" id="centro_atencion" required>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_altura_ciudad" class="form-label mb-0">Altura de ciudad <small class="text-danger">(metros)</small> <small class="requiredata">*</small></label>
-                        <input type="text" name="de_altura_ciudad" class="form-control" id="de_altura_ciudad">
+                        <input type="number" name="de_altura_ciudad" class="form-control" id="de_altura_ciudad">
                     </div>
 
                     <div class="col-md-6 mb-2">
@@ -146,6 +150,19 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <label for="at_tipo_paciente_hp" class="form-label mb-0">Tipo de paciente con hipertensión pulmonar</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="at_tipo_paciente_hp" id="at_tipo_paciente_hp1" value="Prevalente" >
+                                <label class="form-check-label" for="at_tipo_paciente_hp1">Prevalente</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="at_tipo_paciente_hp" id="at_tipo_paciente_hp2" value="Incidente" >
+                                <label class="form-check-label" for="at_tipo_paciente_hp2">Incidente</label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-md-6 mb-2">
                         <label for="at_tiempo_sint_diagnostico" class="form-label mb-0">Tiempo de síntomas al diagnóstico <small class="text-danger">(años)</small></label>
                         <input type="number" name="at_tiempo_sint_diagnostico" class="form-control" id="at_tiempo_sint_diagnostico" >
@@ -750,59 +767,59 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lhtc_anticentromero" class="form-label mb-0">Anticentrómero</label>
-                        <input type="text" name="lhtc_anticentromero" class="form-control" id="lhtc_anticentromero" >
+                        <input type="number" name="lhtc_anticentromero" class="form-control" id="lhtc_anticentromero" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lhtc_anti_scl70" class="form-label mb-0">Anti SCL70</label>
-                        <input type="text" name="lhtc_anti_scl70" class="form-control" id="lhtc_anti_scl70" >
+                        <input type="number" name="lhtc_anti_scl70" class="form-control" id="lhtc_anti_scl70" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lhtc_anti_dna" class="form-label mb-0">Anti DNA</label>
-                        <input type="text" name="lhtc_anti_dna" class="form-control" id="lhtc_anti_dna" >
+                        <input type="number" name="lhtc_anti_dna" class="form-control" id="lhtc_anti_dna" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lhtc_anti_rnp" class="form-label mb-0">Anti RNP</label>
-                        <input type="text" name="lhtc_anti_rnp" class="form-control" id="lhtc_anti_rnp" >
+                        <input type="number" name="lhtc_anti_rnp" class="form-control" id="lhtc_anti_rnp" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lhtc_anti_ro" class="form-label mb-0">Anti Ro</label>
-                        <input type="text" name="lhtc_anti_ro" class="form-control" id="lhtc_anti_ro" >
+                        <input type="number" name="lhtc_anti_ro" class="form-control" id="lhtc_anti_ro" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lhtc_anti_la" class="form-label mb-0">Anti La</label>
-                        <input type="text" name="lhtc_anti_la" class="form-control" id="lhtc_anti_la" >
+                        <input type="number" name="lhtc_anti_la" class="form-control" id="lhtc_anti_la" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lhtc_factor_reumatoideo" class="form-label mb-0">Factor reumatoideo</label>
-                        <input type="text" name="lhtc_factor_reumatoideo" class="form-control" id="lhtc_factor_reumatoideo" >
+                        <input type="number" name="lhtc_factor_reumatoideo" class="form-control" id="lhtc_factor_reumatoideo" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lhtc_anti_ccp" class="form-label mb-0">Anti CCP</label>
-                        <input type="text" name="lhtc_anti_ccp" class="form-control" id="lhtc_anti_ccp" >
+                        <input type="number" name="lhtc_anti_ccp" class="form-control" id="lhtc_anti_ccp" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lhtc_anti_jo" class="form-label mb-0">Anti Jo</label>
-                        <input type="text" name="lhtc_anti_jo" class="form-control" id="lhtc_anti_jo" >
+                        <input type="number" name="lhtc_anti_jo" class="form-control" id="lhtc_anti_jo" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lhtc_anticuerpo_lupico" class="form-label mb-0">Anticuerpo lúpico</label>
-                        <input type="text" name="lhtc_anticuerpo_lupico" class="form-control" id="lhtc_anticuerpo_lupico" >
+                        <input type="number" name="lhtc_anticuerpo_lupico" class="form-control" id="lhtc_anticuerpo_lupico" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lhtc_anticardiolipina_igg" class="form-label mb-0">Anticardiolipina IgG</label>
-                        <input type="text" name="lhtc_anticardiolipina_igg" class="form-control" id="lhtc_anticardiolipina_igg" >
+                        <input type="number" name="lhtc_anticardiolipina_igg" class="form-control" id="lhtc_anticardiolipina_igg" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lhtc_anticardiolipina_igm" class="form-label mb-0">Anticardiolipina IgM</label>
-                        <input type="text" name="lhtc_anticardiolipina_igm" class="form-control" id="lhtc_anticardiolipina_igm" >
+                        <input type="number" name="lhtc_anticardiolipina_igm" class="form-control" id="lhtc_anticardiolipina_igm" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lhtc_anti_beta_2_glicoproteina_igg" class="form-label mb-0">Anti beta 2 glicoproteina IgG</label>
-                        <input type="text" name="lhtc_anti_beta_2_glicoproteina_igg" class="form-control" id="lhtc_anti_beta_2_glicoproteina_igg" >
+                        <input type="number" name="lhtc_anti_beta_2_glicoproteina_igg" class="form-control" id="lhtc_anti_beta_2_glicoproteina_igg" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lhtc_anti_beta_2_glicoproteina_igm" class="form-label mb-0">Anti beta 2 glicoproteina IgM</label>
-                        <input type="text" name="lhtc_anti_beta_2_glicoproteina_igm" class="form-control" id="lhtc_anti_beta_2_glicoproteina_igm" >
+                        <input type="number" name="lhtc_anti_beta_2_glicoproteina_igm" class="form-control" id="lhtc_anti_beta_2_glicoproteina_igm" >
                     </div>
                 </div>
             </div>
@@ -886,7 +903,7 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="ecg_tc6m" class="form-label mb-0">Test de caminata 6 minutos</label>
-                        <input type="text" name="ecg_tc6m" class="form-control" id="ecg_tc6m" >
+                        <input type="number" name="ecg_tc6m" class="form-control" id="ecg_tc6m" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="ecg_se_detuvo" class="form-label mb-0">Se detuvo en la caminata</label>
@@ -1920,7 +1937,46 @@
                 $('[data-toggle="tooltip"]').tooltip();
             });
         });
+
+
+        // Obtener todos los inputs de tipo number
+        const numberInputs = document.querySelectorAll('input[type="number"]');
+
+        // Añadir eventos para validar la entrada
+        numberInputs.forEach(input => {
+            // Evitar caracteres no numéricos al escribir
+            input.addEventListener("keydown", event => {
+                const key = event.key;
+
+                // Permitir números, punto decimal, y teclas útiles
+                if (!/^\d$/.test(key) && 
+                    key !== "." && 
+                    key !== "Backspace" && 
+                    key !== "ArrowLeft" && 
+                    key !== "ArrowRight" && 
+                    key !== "Tab" && 
+                    key !== "Delete") {
+                    event.preventDefault();
+                }
+
+                // Evitar más de un punto decimal
+                if (key === "." && input.value.includes(".")) {
+                    event.preventDefault();
+                }
+            });
+
+            // Evitar caracteres no numéricos al pegar texto
+            input.addEventListener("paste", event => {
+                const pasteData = event.clipboardData.getData("text");
+                if (!/^\d*\.?\d*$/.test(pasteData)) {
+                    event.preventDefault();
+                }
+            });
+        });
+
+
     });
+
 
     //Tipo de seguro
     const it_tipoetiologia = document.getElementsByName('de_tipo_seguro');
@@ -1934,11 +1990,11 @@
     });
 
     //Antecedentes
-    const de_antecedentes22 = document.getElementById('dc_antecedentes22');
-    const de_antecedentes_otro = document.getElementById('dc_otro_antecedentes');
-    de_antecedentes22.addEventListener('change', function() {
-        de_antecedentes_otro.classList.toggle('d-none', !this.checked);
-    })
+    // const de_antecedentes22 = document.getElementById('dc_antecedentes22');
+    // const de_antecedentes_otro = document.getElementById('dc_otro_antecedentes');
+    // de_antecedentes22.addEventListener('change', function() {
+    //     de_antecedentes_otro.classList.toggle('d-none', !this.checked);
+    // })
     
 </script>
 @endsection

@@ -138,7 +138,7 @@
             <li class="nav-item {{ ($page_name === 'pulmonary_hypertension_index' || $page_name === 'pulmonary_hypertension_create') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('pulmonary-hypertension.index') }}">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>H. PULMONAR</span>
+                    <span>INPER-HP</span>
                 </a>
             </li>
             @endcan
