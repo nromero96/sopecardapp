@@ -15,26 +15,27 @@ class CreatePulmonaryHypertensionsTable extends Migration
     {
         Schema::create('pulmonary_hypertensions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
 
-            //Datos epidemiológicos
-            $table->string('nombre')->nullable();
-            $table->string('apellido')->nullable();
-            $table->integer('edad')->nullable();
-            $table->string('procedencia')->nullable();
-            $table->string('residencia')->nullable();
-            $table->integer('altura_ciudad')->nullable();
-            $table->string('estratificacion_altura')->nullable();
-            $table->integer('tiempo_residencia')->nullable();
-            $table->string('modalidad_ingreso')->nullable();
-            $table->string('intervecion_realizada')->nullable();
-            $table->string('gestante',5)->nullable();
-            $table->string('estado_civil',15)->nullable();
-            $table->string('grado_instruccion',50)->nullable();
+            //Responsable y centro
+            $table->unsignedBigInteger('user_id');
+            $table->string('centro_atencion')->nullable();
+
+            //Datos Epidemiológicos
+            $table->string('de_nombre')->nullable();
+            $table->integer('de_edad')->nullable();
+            $table->string('de_procedencia',150)->nullable();
+            $table->string('de_residencia',150)->nullable();
+            $table->integer('de_altura_ciudad')->nullable();
+            $table->string('de_estratificacion_altura',25)->nullable();
+            $table->integer('de_tiempo_residencia')->nullable();
+            $table->string('de_modalidad_ingreso',20)->nullable();
+            $table->string('de_intervencion',6)->nullable();
+            $table->string('de_gestante',6)->nullable();
+            $table->string('de_estado_civil',15)->nullable();
+            $table->string('de_grado_instruccion',50)->nullable();
 
             //Antecedentes
-            $table->integer('tiempo_sintomas_diagnostico')->nullable();
-            $table->string('hta_pulmonar',5)->nullable();
+            
 
 
             $table->string('status');

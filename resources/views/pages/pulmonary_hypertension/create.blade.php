@@ -1219,14 +1219,21 @@
             </div>
             <div class="card-body">
                 <div class="row mb-1">
-                    <div class="col-md-6 mb-2">
-                        <label for="ergo_prueba_maxima" class="form-label mb-0">Prueba Máxima</label>
-                        <input type="text" name="ergo_prueba_maxima" class="form-control" id="ergo_prueba_maxima" >
+
+                    <div class="col-md-6 mb-2"> 
+                        <label for="ergo_tipo_prueba" class="form-label mb-0">Tipo de prueba</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ergo_tipo_prueba" id="ergo_tipo_prueba1" value="Prueba Máxima" >
+                                <label class="form-check-label" for="ergo_tipo_prueba1">Prueba Máxima</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ergo_tipo_prueba" id="ergo_tipo_prueba2" value="Prueba Submáxima" >
+                                <label class="form-check-label" for="ergo_tipo_prueba2">Prueba Submáxima</label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="ergo_prueba_submaxima" class="form-label mb-0">Prueba submaxima</label>
-                        <input type="text" name="ergo_prueba_submaxima" class="form-control" id="ergo_prueba_submaxima" >
-                    </div>
+
                     <div class="col-md-6 mb-2">
                         <label for="ergo_consumo_maximo_o2" class="form-label mb-0">Consumo máximo de O2 <small class="text-danger">(ml/k/min)</small></label>
                         <input type="number" name="ergo_consumo_maximo_o2" class="form-control" id="ergo_consumo_maximo_o2" >
