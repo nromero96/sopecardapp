@@ -168,21 +168,21 @@
                         <input type="number" name="at_tiempo_sint_diagnostico" class="form-control" id="at_tiempo_sint_diagnostico" >
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="at_hipertension_arterial_pulmonar" class="form-label mb-0">Hipertensión arterial pulmonar</label>
+                        <label for="at_hipertension_ap" class="form-label mb-0">Hipertensión arterial pulmonar</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="at_hipertension_arterial_pulmonar" id="at_hipertension_arterial_pulmonar1" value="Sí" >
-                                <label class="form-check-label" for="at_hipertension_arterial_pulmonar1">Sí</label>
+                                <input class="form-check-input" type="radio" name="at_hipertension_ap" id="at_hipertension_ap1" value="Sí" >
+                                <label class="form-check-label" for="at_hipertension_ap1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="at_hipertension_arterial_pulmonar" id="at_hipertension_arterial_pulmonar2" value="No" >
-                                <label class="form-check-label" for="at_hipertension_arterial_pulmonar2">No</label>
+                                <input class="form-check-input" type="radio" name="at_hipertension_ap" id="at_hipertension_ap2" value="No" >
+                                <label class="form-check-label" for="at_hipertension_ap2">No</label>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="at_etiologia_hipertension_pulmonar" class="form-label mb-0">Etiología de hipertensión pulmonar</label>
-                        <select name="at_etiologia_hipertension_pulmonar" id="at_etiologia_hipertension_pulmonar" class="form-control" >
+                        <label for="at_etiologia_hp" class="form-label mb-0">Etiología de hipertensión pulmonar</label>
+                        <select name="at_etiologia_hp" id="at_etiologia_hp" class="form-control" >
                             <option value="">Seleccionar...</option>
                             <option value="Idiopática">Idiopática</option>
                             <option value="Farmacológica">Farmacológica</option>
@@ -200,7 +200,7 @@
                             <option value="Grupo 5">Grupo 5 (incluye anemia hemolítica, síndrome mieloproliferativo y enfermedad renal crónica)</option>
                             <option value="Otros">Otros</option>
                         </select>
-                        <input type="text" name="at_otra_etiologia" class="form-control mt-1" id="at_otra_etiologia" placeholder="Especificar otra etiología">
+                        <input type="text" name="at_etiologia_hp_otra" class="form-control mt-1" id="at_etiologia_hp_otra" placeholder="Especificar otra etiología">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="at_diagnostico_gestacion" class="form-label mb-0">Diagnóstico durante la gestación</label>
@@ -474,6 +474,10 @@
                                 <input class="form-check-input" type="radio" name="ef_fenomeno_raynaud" id="ef_fenomeno_raynaud1" value="Sí" >
                                 <label class="form-check-label" for="ef_fenomeno_raynaud1">Sí</label>
                             </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ef_fenomeno_raynaud" id="ef_fenomeno_raynaud2" value="No" >
+                                <label class="form-check-label" for="ef_fenomeno_raynaud2">No</label>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
@@ -482,6 +486,10 @@
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="ef_ulceras_digitales" id="ef_ulceras_digitales1" value="Sí" >
                                 <label class="form-check-label" for="ef_ulceras_digitales1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ef_ulceras_digitales" id="ef_ulceras_digitales2" value="No" >
+                                <label class="form-check-label" for="ef_ulceras_digitales2">No</label>
                             </div>
                         </div>
                     </div>

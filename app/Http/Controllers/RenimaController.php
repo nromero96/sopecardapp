@@ -97,6 +97,9 @@ class RenimaController extends Controller
             $renima->dc_frecuencia_respiratoria = $request->dc_frecuencia_respiratoria;
             $renima->dc_temperatura = $request->dc_temperatura;
             $renima->dc_saturacion_oxigeno = $request->dc_saturacion_oxigeno;
+            $renima->dc_peso = $request->dc_peso;
+            $renima->dc_talla = $request->dc_talla;
+            $renima->dc_imc = $request->dc_imc;
 
             $dc_antecedentes = $request->dc_antecedentes;
             if(!empty($dc_antecedentes)){
@@ -119,7 +122,6 @@ class RenimaController extends Controller
             $renima->ea_fecha_ecg = $request->ea_fecha_ecg;
             $renima->ea_hora_ecg = $request->ea_hora_ecg;
             $renima->ea_tpc_ecg = $request->ea_tpc_ecg;
-            $renima->ea_tt_isquemia = $request->ea_tt_isquemia;
 
             $ea_manif_clinicas = $request->ea_manif_clinicas;
             if(!empty($ea_manif_clinicas)){
@@ -131,11 +133,8 @@ class RenimaController extends Controller
             $renima->ea_clasificacion_kk = $request->ea_clasificacion_kk;
             $renima->ea_diagnostico = $request->ea_diagnostico;
             $renima->ea_diagnostico_st = $request->ea_diagnostico_st;
-            $renima->ea_diagnostico_st_elevado = $request->ea_diagnostico_st_elevado;
+            $renima->ea_evaluacion_riesgo = $request->ea_evaluacion_riesgo;
             $renima->ea_heart_score = $request->ea_heart_score;
-            $renima->ea_peso = $request->ea_peso;
-            $renima->ea_talla = $request->ea_talla;
-            $renima->ea_imc = $request->ea_imc;
 
         //Electrocardiograma (ecg_)
             $renima->ecg_ritmo = $request->ecg_ritmo;
@@ -173,6 +172,7 @@ class RenimaController extends Controller
             }
 
             $renima->dis_tipofibrinolisis_otro = $request->dis_tipofibrinolisis_otro;
+            $renima->dis_tipofibrinolisis_dosis = $request->dis_tipofibrinolisis_dosis;
             $renima->dis_fibrinolisis_exitosa = $request->dis_fibrinolisis_exitosa;
             $renima->dis_angioplastia_rescate = $request->dis_angioplastia_rescate;
             $renima->dis_fibrinolisis_suspendida = $request->dis_fibrinolisis_suspendida;
@@ -215,8 +215,25 @@ class RenimaController extends Controller
             }
 
             $renima->dis_complicaciones_dela_icp_otro = $request->dis_complicaciones_dela_icp_otro;
+            $renima->dis_tt_isquemia = $request->dis_tt_isquemia;
             $renima->dis_otrastenosis_coronaria = $request->dis_otrastenosis_coronaria;
+
+            $dis_otrastenosis_coronaria_lesiones = $request->dis_otrastenosis_coronaria_lesiones;
+            if(!empty($dis_otrastenosis_coronaria_lesiones)){
+                $renima->dis_otrastenosis_coronaria_lesiones = implode(',', $dis_otrastenosis_coronaria_lesiones);
+            }else{
+                $renima->dis_otrastenosis_coronaria_lesiones = '';
+            }
+
             $renima->dis_icp_otras_lesiones = $request->dis_icp_otras_lesiones;
+
+            $dis_icp_otras_lesiones_lesiones = $request->dis_icp_otras_lesiones_lesiones;
+            if(!empty($dis_icp_otras_lesiones_lesiones)){
+                $renima->dis_icp_otras_lesiones_lesiones = implode(',', $dis_icp_otras_lesiones_lesiones);
+            }else{
+                $renima->dis_icp_otras_lesiones_lesiones = '';
+            }
+
             $renima->dis_decisio_basada = $request->dis_decisio_basada;
             $renima->dis_momento_icp_otras_lesiones = $request->dis_momento_icp_otras_lesiones;
             $renima->dis_cuan_dias_antes_despues_alta_icp = $request->dis_cuan_dias_antes_despues_alta_icp;
@@ -224,43 +241,11 @@ class RenimaController extends Controller
             $renima->dis_reperfusion = $request->dis_reperfusion;
             $renima->dis_motivo_deno_reperfusion = $request->dis_motivo_deno_reperfusion;
             $renima->dis_motivo_deno_reperfusion_otro = $request->dis_motivo_deno_reperfusion_otro;
+            $renima->dis_cabg = $request->dis_cabg;
             $renima->dis_motivo_cabg = $request->dis_motivo_cabg;
             $renima->dis_motivo_cabg_otro = $request->dis_motivo_cabg_otro;
             $renima->dis_puntaje_grace = $request->dis_puntaje_grace;
             $renima->dis_puntaje_crussade = $request->dis_puntaje_crussade;
-
-        //Datos de medicación farmacologíca (dmf_)
-            $renima->dmf_aspirina = $request->dmf_aspirina;
-            $renima->dmf_clopidogrel = $request->dmf_clopidogrel;
-            $renima->dmf_enoxaparina = $request->dmf_enoxaparina;
-            $renima->dmf_heparina_no_fraccionada = $request->dmf_heparina_no_fraccionada;
-            $renima->dmf_atorvastatina = $request->dmf_atorvastatina;
-            $renima->dmf_betabloqueadores = $request->dmf_betabloqueadores;
-            $renima->dmf_diureticos_asa = $request->dmf_diureticos_asa;
-            $renima->dmf_vasodilatadores = $request->dmf_vasodilatadores;
-            $renima->dmf_vasopresores = $request->dmf_vasopresores;
-            $renima->dmf_inotropicos = $request->dmf_inotropicos;
-            $renima->dmf_ieca_ara = $request->dmf_ieca_ara;
-            $renima->dmf_ventilacion_mecanica = $request->dmf_ventilacion_mecanica;
-            $renima->dmf_dialisis = $request->dmf_dialisis;
-            $renima->dmf_rehab_cardiaca = $request->dmf_rehab_cardiaca;
-            $renima->dmf_antagonistas_mineraloc = $request->dmf_antagonistas_mineraloc;
-            $renima->dmf_inhibidores_recep_p2y12 = $request->dmf_inhibidores_recep_p2y12;
-
-        //Datos de laboratorio (dl_)
-            $renima->dl_hemoglobina = $request->dl_hemoglobina;
-            $renima->dl_leucocitos = $request->dl_leucocitos;
-            $renima->dl_plaquetas = $request->dl_plaquetas;
-            $renima->dl_creatinina = $request->dl_creatinina;
-            $renima->dl_urea = $request->dl_urea;
-            $renima->dl_glucosa = $request->dl_glucosa;
-            $renima->dl_troponina_t = $request->dl_troponina_t;
-            $renima->dl_troponina_i = $request->dl_troponina_i;
-            $renima->dl_cpk_total = $request->dl_cpk_total;
-            $renima->dl_cpk_mb = $request->dl_cpk_mb;
-            $renima->dl_lactato = $request->dl_lactato;
-            $renima->dl_fevi_ingreso = $request->dl_fevi_ingreso;
-            $renima->dl_fevi_hospitalizacion = $request->dl_fevi_hospitalizacion;
 
         //Terapia Intrahospitalaria (ti_)
             $renima->ti_aspirina = $request->ti_aspirina;
@@ -274,15 +259,18 @@ class RenimaController extends Controller
             $renima->ti_vasopresores = $request->ti_vasopresores;
             $renima->ti_inotropicos = $request->ti_inotropicos;
             $renima->ti_ieca_ara = $request->ti_ieca_ara;
+            $renima->ti_insulina = $request->ti_insulina;
+            $renima->ti_antagonistas_mineralocorticoide = $request->ti_antagonistas_mineralocorticoide;
             $renima->ti_ventilacion_mecanica = $request->ti_ventilacion_mecanica;
             $renima->ti_dialisis = $request->ti_dialisis;
             $renima->ti_rehabilitacion_cardiaca = $request->ti_rehabilitacion_cardiaca;
             $renima->ti_ventilacion_no_invasiva = $request->ti_ventilacion_no_invasiva;
             $renima->ti_balon_contrapulsacion_ia = $request->ti_balon_contrapulsacion_ia;
-            $renima->ti_rehab_cardiaca_intrahosp = $request->ti_rehab_cardiaca_intrahosp;
             $renima->ti_levosimendan = $request->ti_levosimendan;
             $renima->ti_marcapaso = $request->ti_marcapaso;
             $renima->ti_ecmo = $request->ti_ecmo;
+            $renima->ti_dai_resincro = $request->ti_dai_resincro;
+            $renima->ti_transplante_cardiaca = $request->ti_transplante_cardiaca;
 
         //Analisis Auxiliares Intrahospitalarios (aai_)
             $renima->aai_hemoglobina = $request->aai_hemoglobina;
@@ -293,13 +281,45 @@ class RenimaController extends Controller
             $renima->aai_glucosa = $request->aai_glucosa;
             $renima->aai_troponina_iot_primer = $request->aai_troponina_iot_primer;
             $renima->aai_troponina_iot_segundo = $request->aai_troponina_iot_segundo;
+            $renima->aai_horas_troponina = $request->aai_horas_troponina;
             $renima->aai_cpk_total = $request->aai_cpk_total;
             $renima->aai_cpk_mb = $request->aai_cpk_mb;
             $renima->aai_lactato = $request->aai_lactato;
             $renima->aai_fevi = $request->aai_fevi;
             $renima->aai_fecha_pm_fevi = $request->aai_fecha_pm_fevi;
-            $renima->aai_horas_troponina = $request->aai_horas_troponina;
             $renima->aai_hemoglobina_glicosilada = $request->aai_hemoglobina_glicosilada;
+
+        //Datos Clinicos intrahospitalarios (dci_)
+            $renima->dci_muerte_cardiovascular = $request->dci_muerte_cardiovascular;
+            $renima->dci_fecha_muerte_cardiovascular_alta = $request->dci_fecha_muerte_cardiovascular_alta;
+            $renima->dci_muerte_no_cardiovascular = $request->dci_muerte_no_cardiovascular;
+            $renima->dci_fecha_muerte_no_cardiovascular_alta = $request->dci_fecha_muerte_no_cardiovascular_alta;
+            $renima->dci_angina_postinfarto = $request->dci_angina_postinfarto;
+            $renima->dci_fecha_angina_postinfarto = $request->dci_fecha_angina_postinfarto;
+            $renima->dci_reinfarto = $request->dci_reinfarto;
+            $renima->dci_fecha_reinfarto = $request->dci_fecha_reinfarto;
+            $renima->dci_acv = $request->dci_acv;
+            $renima->dci_fecha_acv_alta = $request->dci_fecha_acv_alta;
+            $renima->dci_sangrado = $request->dci_sangrado;
+            $renima->dci_sangrado_segun_barc = $request->dci_sangrado_segun_barc;
+            $renima->dci_sangrado_segun_barc_tipo = $request->dci_sangrado_segun_barc_tipo;
+            $renima->dci_fecha_sangrado = $request->dci_fecha_sangrado;
+            $renima->dci_fecha_de_alta = $request->dci_fecha_de_alta;
+            $renima->dci_dias_hospitalizacion = $request->dci_dias_hospitalizacion;
+            $renima->dci_shock_cardiogenico = $request->dci_shock_cardiogenico;
+            $renima->dci_fecha_shock_cardiogenico = $request->dci_fecha_shock_cardiogenico;
+            $renima->dci_paro_cardiorespiratorio_recuperado = $request->dci_paro_cardiorespiratorio_recuperado;
+            $renima->dci_fecha_paro_cardiorespiratorio_recuperado = $request->dci_fecha_paro_cardiorespiratorio_recuperado;
+            $renima->dci_ruptura_musculo_papilar = $request->dci_ruptura_musculo_papilar;
+            $renima->dci_fecha_ruptura_musculo_papilar = $request->dci_fecha_ruptura_musculo_papilar;
+            $renima->dci_comunicacion_interventricular = $request->dci_comunicacion_interventricular;
+            $renima->dci_fecha_comunicacion_interventricular = $request->dci_fecha_comunicacion_interventricular;
+            $renima->dci_ruptura_pared_libre = $request->dci_ruptura_pared_libre;
+            $renima->dci_fecha_ruptura_pared_libre = $request->dci_fecha_ruptura_pared_libre;
+            $renima->dci_aneurisma_ventricular = $request->dci_aneurisma_ventricular;
+            $renima->dci_fecha_aneurisma_ventricular = $request->dci_fecha_aneurisma_ventricular;
+            $renima->dci_trombosis_stent = $request->dci_trombosis_stent;
+            $renima->dci_fecha_trombosis_stent = $request->dci_fecha_trombosis_stent;
 
         //Medicación al Alta (ma_)
             $renima->ma_aspirina = $request->ma_aspirina;
@@ -312,75 +332,30 @@ class RenimaController extends Controller
             $renima->ma_inhibidores_p2y12 = $request->ma_inhibidores_p2y12;
             $renima->ma_nitratos = $request->ma_nitratos;
             $renima->ma_anticoagulacion = $request->ma_anticoagulacion;
-
-        //Datos de pronóstico (dp_)
-            $renima->dp_muerte_hospitalaria = $request->dp_muerte_hospitalaria;
-            $renima->dp_fecha_muerte_hospitalaria = $request->dp_fecha_muerte_hospitalaria;
-            $renima->dp_muerte_cardiovascular_alta = $request->dp_muerte_cardiovascular_alta;
-            $renima->dp_fecha_muerte_cardiovascular_alta = $request->dp_fecha_muerte_cardiovascular_alta;
-            $renima->dp_muerte_no_cardiovascular_alta = $request->dp_muerte_no_cardiovascular_alta;
-            $renima->dp_fecha_muerte_no_cardiovascular_alta = $request->dp_fecha_muerte_no_cardiovascular_alta;
-            $renima->dp_angina_postinfarto = $request->dp_angina_postinfarto;
-            $renima->dp_fecha_angina_postinfarto = $request->dp_fecha_angina_postinfarto;
-            $renima->dp_reinfarto = $request->dp_reinfarto;
-            $renima->dp_fecha_reinfarto = $request->dp_fecha_reinfarto;
-            $renima->dp_acv_alta = $request->dp_acv_alta;
-            $renima->dp_fecha_acv_alta = $request->dp_fecha_acv_alta;
-            $renima->dp_trombosis_stent_alta = $request->dp_trombosis_stent_alta;
-            $renima->dp_fecha_trombosis_stent_alta = $request->dp_fecha_trombosis_stent_alta;
-            $renima->dp_rehospitalizacion_falla_cardiaca = $request->dp_rehospitalizacion_falla_cardiaca;
-            $renima->dp_fecha_rehospitalizacion_falla_cardiaca = $request->dp_fecha_rehospitalizacion_falla_cardiaca;
-            $renima->dp_sangrado = $request->dp_sangrado;
-            $renima->dp_sangrado_segun_barc = $request->dp_sangrado_segun_barc;
-            $renima->dp_fecha_sangrado = $request->dp_fecha_sangrado;
-            $renima->dp_rehabilitacion_cardiaca_alta = $request->dp_rehabilitacion_cardiaca_alta;
-            $renima->dp_segunda_medicion_fevi_alta = $request->dp_segunda_medicion_fevi_alta;
-            $renima->dp_fecha_segunda_fevi_alta = $request->dp_fecha_segunda_fevi_alta;
-            $renima->dp_fecha_de_alta = $request->dp_fecha_de_alta;
-            $renima->dp_dias_hospitalizacion = $request->dp_dias_hospitalizacion;
+            $renima->ma_otros = $request->ma_otros;
 
         // Seguimiento Clínico (sc_)
-            $renima->sc_muerte_hospitalaria = $request->sc_muerte_hospitalaria;
-            $renima->sc_fecha_muerte_hospitalaria = $request->sc_fecha_muerte_hospitalaria;
-            $renima->sc_muerte_cardiovascular_alta = $request->sc_muerte_cardiovascular_alta;
-            $renima->sc_fecha_muerte_cardiovascular_alta = $request->sc_fecha_muerte_cardiovascular_alta;
-            $renima->sc_muerte_no_cardiovascular_alta = $request->sc_muerte_no_cardiovascular_alta;
-            $renima->sc_fecha_muerte_no_cardiovascular_alta = $request->sc_fecha_muerte_no_cardiovascular_alta;
+            $renima->sc_muerte_cardiovascular = $request->sc_muerte_cardiovascular;
+            $renima->sc_fecha_muerte_cardiovascular = $request->sc_fecha_muerte_cardiovascular;
+            $renima->sc_muerte_no_cardiovascular = $request->sc_muerte_no_cardiovascular;
+            $renima->sc_fecha_muerte_no_cardiovascular = $request->sc_fecha_muerte_no_cardiovascular;
             $renima->sc_angina_postinfarto = $request->sc_angina_postinfarto;
             $renima->sc_fecha_angina_postinfarto = $request->sc_fecha_angina_postinfarto;
             $renima->sc_reinfarto = $request->sc_reinfarto;
             $renima->sc_fecha_reinfarto = $request->sc_fecha_reinfarto;
             $renima->sc_acv = $request->sc_acv;
             $renima->sc_fecha_acv = $request->sc_fecha_acv;
-            $renima->sc_shock_cardiogenico = $request->sc_shock_cardiogenico;
-            $renima->sc_fecha_shock_cardiogenico = $request->sc_fecha_shock_cardiogenico;
-            $renima->sc_paro_cardiorespiratorio_recuperado = $request->sc_paro_cardiorespiratorio_recuperado;
-            $renima->sc_fecha_paro_cardiorespiratorio_recuperado = $request->sc_fecha_paro_cardiorespiratorio_recuperado;
-            $renima->sc_ruptura_musculo_papilar = $request->sc_ruptura_musculo_papilar;
-            $renima->sc_fecha_ruptura_musculo_papilar = $request->sc_fecha_ruptura_musculo_papilar;
-            $renima->sc_comunicacion_interventricular = $request->sc_comunicacion_interventricular;
-            $renima->sc_fecha_comunicacion_interventricular = $request->sc_fecha_comunicacion_interventricular;
-            $renima->sc_ruptura_pared_libre = $request->sc_ruptura_pared_libre;
-            $renima->sc_fecha_ruptura_pared_libre = $request->sc_fecha_ruptura_pared_libre;
-            $renima->sc_trombosis_stent = $request->sc_trombosis_stent;
-            $renima->sc_fecha_trombosis_stent = $request->sc_fecha_trombosis_stent;
             $renima->sc_rehospitalizacion_falla_cardiaca = $request->sc_rehospitalizacion_falla_cardiaca;
             $renima->sc_fecha_rehospitalizacion_falla_cardiaca = $request->sc_fecha_rehospitalizacion_falla_cardiaca;
             $renima->sc_sangrado = $request->sc_sangrado;
-
-            $sc_complicaciones_mecanicas = $request->sc_complicaciones_mecanicas;
-            if(!empty($sc_complicaciones_mecanicas)){
-                $renima->sc_complicaciones_mecanicas = implode(',', $sc_complicaciones_mecanicas);
-            }else{
-                $renima->sc_complicaciones_mecanicas = '';
-            }
-
             $renima->sc_sangrado_segun_barc = $request->sc_sangrado_segun_barc;
             $renima->sc_sangrado_barc_tipo = $request->sc_sangrado_barc_tipo;
             $renima->sc_fecha_sangrado = $request->sc_fecha_sangrado;
             $renima->sc_prc = $request->sc_prc;
             $renima->sc_segunda_medicion_fevi_alta = $request->sc_segunda_medicion_fevi_alta;
             $renima->sc_fecha_segunda_fevi_alta = $request->sc_fecha_segunda_fevi_alta;
+            $renima->sc_reestenosis_stent = $request->sc_reestenosis_stent;
+            $renima->sc_fecha_reestenosis_stent = $request->sc_fecha_reestenosis_stent;
 
 
 

@@ -40,35 +40,35 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 mb-2">
-                        <label for="de_documento_identidad" class="form-label mb-0">Documento de identidad (DNI) <small class="requiredata">*</small></label>
-                        <input type="number" name="de_documento_identidad" class="form-control" id="de_documento_identidad" required>
+                        <label for="de_documento_identidad" class="form-label mb-0">Documento de identidad (DNI)</label>
+                        <input type="number" name="de_documento_identidad" class="form-control" id="de_documento_identidad">
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="de_telefono" class="form-label mb-0">Teléfono de contacto <small class="requiredata">*</small></label>
-                        <input type="number" name="de_telefono" class="form-control" id="de_telefono" required>
+                        <label for="de_telefono" class="form-label mb-0">Teléfono de contacto</label>
+                        <input type="number" name="de_telefono" class="form-control" id="de_telefono">
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="de_celular" class="form-label mb-0">Celular de contacto 1 <small class="requiredata">*</small></label>
-                        <input type="number" name="de_celular" class="form-control" id="de_celular" required>
+                        <label for="de_celular" class="form-label mb-0">Celular de contacto 1 <small>(Opcional)</small></label>
+                        <input type="number" name="de_celular" class="form-control" id="de_celular">
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="de_celular_2" class="form-label mb-0">Celular de contacto 2 <small class="requiredata">*</small></label>
-                        <input type="number" name="de_celular_2" class="form-control" id="de_celular_2" required>
+                        <label for="de_celular_2" class="form-label mb-0">Celular de contacto 2 <small>(Opcional)</small></label>
+                        <input type="number" name="de_celular_2" class="form-control" id="de_celular_2">
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="de_correo" class="form-label mb-0">Correo electrónico del paciente <small class="requiredata">*</small></label>
-                        <input type="email" name="de_correo" class="form-control" id="de_correo" required>
+                        <label for="de_correo" class="form-label mb-0">Correo electrónico del paciente <small>(Opcional)</small></label>
+                        <input type="email" name="de_correo" class="form-control" id="de_correo">
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="de_departamento" class="form-label mb-0">Departamento <small class="requiredata">*</small></label>
+                        <label for="de_departamento" class="form-label mb-0">Departamento</label>
                         <input type="text" name="de_departamento" class="form-control" id="de_departamento">
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="de_provincia" class="form-label mb-0">Provincia <small class="requiredata">*</small></label>
+                        <label for="de_provincia" class="form-label mb-0">Provincia</label>
                         <input type="text" name="de_provincia" class="form-control" id="de_provincia">
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="de_distrito" class="form-label mb-0">Distrito <small class="requiredata">*</small></label>
+                        <label for="de_distrito" class="form-label mb-0">Distrito</label>
                         <input type="text" name="de_distrito" class="form-control" id="de_distrito">
                     </div>
                     <div class="col-md-6 mb-2">
@@ -169,6 +169,18 @@
                         <label for="dc_saturacion_oxigeno" class="form-label mb-0">Saturación de oxígeno <small class="text-danger">(%)</small></label>
                         <input type="number" name="dc_saturacion_oxigeno" class="form-control" id="dc_saturacion_oxigeno">
                     </div>
+                    <div class="col-md-2 mb-2">
+                        <label for="dc_peso" class="form-label mb-0">Peso actual <small class="text-danger">(Kg)</small></label>
+                        <input type="number" name="dc_peso" class="form-control" id="dc_peso" step="0.01">
+                    </div>
+                    <div class="col-md-2 mb-2">
+                        <label for="dc_talla" class="form-label mb-0">Talla actual <small class="text-danger">(m)</small></label>
+                        <input type="number" name="dc_talla" class="form-control" id="dc_talla" step="0.01">
+                    </div>
+                    <div class="col-md-2 mb-2">
+                        <label for="dc_imc" class="form-label mb-0">IMC</label>
+                        <input type="number" name="dc_imc" class="form-control" id="dc_imc" step="0.01" placeholder="" readonly>
+                    </div>
                     <div class="col-md-12 mb-2">
                         <label for="dc_antecedentes1" class="form-label mb-0 d-block">Antecedentes </label>
                         <div class="form-control radioptions">
@@ -242,25 +254,21 @@
                                 <label class="form-check-label" for="dc_antecedentes17">COVID-19</label>
                             </div>
                             <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dc_antecedentes[]" id="dc_antecedentes18" value="Gestante">
-                                <label class="form-check-label" for="dc_antecedentes18">Gestante</label>
+                                <input class="form-check-input" type="checkbox" name="dc_antecedentes[]" id="dc_antecedentes18" value="hiperuricemia">
+                                <label class="form-check-label" for="dc_antecedentes18">Hiperuricemia</label>
                             </div>
                             <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dc_antecedentes[]" id="dc_antecedentes19" value="hiperuricemia">
-                                <label class="form-check-label" for="dc_antecedentes19">Hiperuricemia</label>
+                                <input class="form-check-input" type="checkbox" name="dc_antecedentes[]" id="dc_antecedentes19" value="Tabaquismo antiguo">
+                                <label class="form-check-label" for="dc_antecedentes19">Tabaquismo antiguo</label>
                             </div>
                             <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dc_antecedentes[]" id="dc_antecedentes20" value="Tabaquismo antiguo">
-                                <label class="form-check-label" for="dc_antecedentes20">Tabaquismo antiguo</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dc_antecedentes[]" id="dc_antecedentes21" value="Tabaquismo actual">
-                                <label class="form-check-label" for="dc_antecedentes21">Tabaquismo actual</label>
+                                <input class="form-check-input" type="checkbox" name="dc_antecedentes[]" id="dc_antecedentes20" value="Tabaquismo actual">
+                                <label class="form-check-label" for="dc_antecedentes20">Tabaquismo actual</label>
                             </div>
 
                             <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dc_antecedentes[]" id="dc_antecedentes22" value="otro">
-                                <label class="form-check-label" for="dc_antecedentes22">Otro</label>
+                                <input class="form-check-input" type="checkbox" name="dc_antecedentes[]" id="dc_antecedentes21" value="otro">
+                                <label class="form-check-label" for="dc_antecedentes21">Otro</label>
                             </div>
                             <input type="text" name="dc_otro_antecedentes" class="form-control mt-0 mb-1 d-none" id="dc_otro_antecedentes" placeholder="Especificar otro antecedente">
                         </div>
@@ -335,11 +343,6 @@
                         <label for="ea_tpc_ecg" class="form-label mb-0">Tiempo desde el primer contacto médico hasta el ECG <small class="text-danger">(minutos)</small></label>
                         <input type="number" name="ea_tpc_ecg" class="form-control" id="ea_tpc_ecg" placeholder="" readonly>
                         <small class="infotext">Fecha y hora de ECG - Fecha y hora de primer contacto médico</small>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="ea_tt_isquemia" class="form-label mb-0">Tiempo total de isquemia <small class="text-danger">(minutos)</small></label>
-                        <input type="number" name="ea_tt_isquemia" class="form-control" id="ea_tt_isquemia">
                     </div>
 
                     <div class="col-md-12 mb-2">
@@ -494,24 +497,24 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2 d-none" id="dv_ea_diagnostico_st_elevado">
-                        <label for="ea_diagnostico_st_elevado1" class="form-label mb-0">Sindrome coronario agudo ST no elevado</label>
+                    <div class="col-md-6 mb-2 d-none" id="dv_ea_evaluacion_riesgo">
+                        <label for="ea_evaluacion_riesgo1" class="form-label mb-0">Evaluacion del riesgo</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ea_diagnostico_st_elevado" id="ea_diagnostico_st_elevado1" value="No alto riesgo" >
-                                <label class="form-check-label" for="ea_diagnostico_st_elevado1">No alto riesgo</label>
+                                <input class="form-check-input" type="radio" name="ea_evaluacion_riesgo" id="ea_evaluacion_riesgo1" value="No alto riesgo" >
+                                <label class="form-check-label" for="ea_evaluacion_riesgo1">No alto riesgo</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ea_diagnostico_st_elevado" id="ea_diagnostico_st_elevado2" value="Alto riesgo" >
-                                <label class="form-check-label" for="ea_diagnostico_st_elevado2">Alto riesgo</label>
+                                <input class="form-check-input" type="radio" name="ea_evaluacion_riesgo" id="ea_evaluacion_riesgo2" value="Alto riesgo" >
+                                <label class="form-check-label" for="ea_evaluacion_riesgo2">Alto riesgo</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ea_diagnostico_st_elevado" id="ea_diagnostico_st_elevado3" value="Muy alto riesgo" >
-                                <label class="form-check-label" for="ea_diagnostico_st_elevado3">Muy alto riesgo</label>
+                                <input class="form-check-input" type="radio" name="ea_evaluacion_riesgo" id="ea_evaluacion_riesgo3" value="Muy alto riesgo" >
+                                <label class="form-check-label" for="ea_evaluacion_riesgo3">Muy alto riesgo</label>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-2 d-none" id="dv_ea_heart_score">
                         <label for="ea_heart_score" class="form-label mb-0">HEART score</label>
                         <select name="ea_heart_score" id="ea_heart_score" class="form-control" >
                             <option value="">Seleccionar...</option>
@@ -519,18 +522,6 @@
                             <option value="Intermedio (4-6 puntos)">Intermedio (4-6 puntos)</option>
                             <option value="Alto (>7 puntos)">Alto (>7 puntos)</option>
                         </select>
-                    </div>
-                    <div class="col-md-2 mb-2">
-                        <label for="ea_peso" class="form-label mb-0">Peso actual <small class="text-danger">(Kg)</small></label>
-                        <input type="number" name="ea_peso" class="form-control" id="ea_peso" step="0.01">
-                    </div>
-                    <div class="col-md-2 mb-2">
-                        <label for="ea_talla" class="form-label mb-0">Talla actual <small class="text-danger">(m)</small></label>
-                        <input type="number" name="ea_talla" class="form-control" id="ea_talla" step="0.01">
-                    </div>
-                    <div class="col-md-2 mb-2">
-                        <label for="ea_imc" class="form-label mb-0">IMC</label>
-                        <input type="number" name="ea_imc" class="form-control" id="ea_imc" step="0.01" placeholder="" readonly>
                     </div>
                 </div>
             </div>
@@ -639,8 +630,8 @@
                                 <label class="form-check-label" for="ecg_scasest8">BCRIHH</label>
                             </div>
                             <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="ecg_scasest[]" id="ecg_scasest9" value="BCRIHH Brugada positivo">
-                                <label class="form-check-label" for="ecg_scasest9">BCRIHH Brugada positivo</label>
+                                <input class="form-check-input" type="checkbox" name="ecg_scasest[]" id="ecg_scasest9" value="Sgarbossa positivo">
+                                <label class="form-check-label" for="ecg_scasest9">Sgarbossa positivo</label>
                             </div>
                             <div class="form-check-inline d-block">
                                 <input class="form-check-input" type="checkbox" name="ecg_scasest[]" id="ecg_scasest10" value="Rectificacion del ST">
@@ -670,26 +661,26 @@
                         <label for="dis_manejo" class="form-label mb-0">Manejo</label>
                         <select name="dis_manejo" id="dis_manejo" class="form-control" >
                             <option value="">Seleccionar...</option>
-
                             <optgroup label="IAMCEST">
                                 <option value="Solo lisis">Solo lisis</option>
                                 <option value="Farmacoinvasiva + ICP sistemática precoz (2 – 24 horas)">Farmacoinvasiva + ICP sistemática precoz (2 – 24 horas)</option>
                                 <option value="Farmacoinvasiva + ICP sistemática (> 24 horas)">Farmacoinvasiva + ICP sistemática (> 24 horas)</option>
-                                <option value="Farmacoinvasiva + ICP de Rescate">Farmacoinvasiva + ICP de Rescate</option>
-                                <option value="Intervención coronaria percutánea primaria (antes de las 12 horas)">Intervención coronaria percutánea primaria (antes de las 12 horas)</option>
+                                <option value="Lisis + ICP de Rescate">Lisis + ICP de Rescate</option>
+                                <option value="Intervención coronaria percutánea primaria (< 120 minutos)">ervención coronaria percutánea primaria (< 120 minutos)</option>
+                                <option value="Intervención coronaria percutánea primaria (121 minutos - 12 horas)">Intervención coronaria percutánea primaria (121 minutos - 12 horas)</option>
                                 <option value="Intervención coronaria percutánea primaria (> 12 horas)">Intervención coronaria percutánea primaria (> 12 horas)</option>
                             </optgroup>
                             <optgroup label="SCASEST">
                                 <option value="Estrategia invasiva inmediata ( ICP < 2 horas )">Estrategia invasiva inmediata ( ICP < 2 horas )</option>
                                 <option value="Estrategia invasiva temprana ( ICP 2 – 24 horas)">Estrategia invasiva temprana ( ICP 2 – 24 horas)</option>
                                 <option value="Estrategia selectiva invasiva (ICP > 24 horas)">Estrategia selectiva invasiva (ICP > 24 horas)</option>
-                                <option value="Bypass coronario">Bypass coronario</option>
-                                <option value="Solo tratamiento médico">Solo tratamiento médico</option>
                             </optgroup>
+                            <option value="Bypass coronario">Bypass coronario</option>
+                            <option value="Solo tratamiento médico">Solo tratamiento médico</option>
                         </select>
                     </div>
 
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-2 d-none" id="dv_dis_tf">
                         <label for="dis_tf1" class="form-label mb-0">¿Tranferido para fibrinólisis?</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
@@ -703,7 +694,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-2 d-none" id="dv_dis_lugar_tf">
                         <label for="dis_lugar_tf" class="form-label mb-0">Lugar de transferencia para fibrinólisis</label>
                         <select name="dis_lugar_tf" id="dis_lugar_tf" class="form-control" >
                             <option value="">Seleccionar...</option>
@@ -712,7 +703,7 @@
                         </select>
                         <input type="text" name="dis_lugar_tf_otro" class="form-control mt-1 d-none" id="dis_lugar_tf_otro" placeholder="Especificar">
                     </div>
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-2 d-none" id="dv_dis_fecha_fibrinolisis">
                         <label for="dis_fecha_fibrinolisis" class="form-label mb-0">Fecha y hora de fibrinólisis</label>
                         <div class="row">
                             <div class="col-8 col-md-8 pr-0">
@@ -723,13 +714,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-2 d-none" id="dv_dis_tiempo_ecg_fibrinolisis">
                         <label for="dis_tiempo_ecg_fibrinolisis" class="form-label mb-0">Tiempo desde el ECG hasta fibrinólisis <small class="text-danger">(minutos)</small></label>
                         <input type="number" name="dis_tiempo_ecg_fibrinolisis" class="form-control" id="dis_tiempo_ecg_fibrinolisis" placeholder="" readonly>
                         <small class="infotext">Fecha y hora de fibrinolisis - Fecha y hora de ECG</small>
                     </div>
 
-                    <div class="col-md-12 mb-2">
+                    <div class="col-md-12 mb-2 d-none" id="dv_dis_tipofibrinolisis">
                         <label for="dis_tipofibrinolisis1" class="form-label mb-0 d-block">Tipo de fibrinólisis </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline d-block">
@@ -756,7 +747,25 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-12 mb-2 d-none" id="dv_dis_tipofibrinolisis_dosis">
+                        <label for="dis_tipofibrinolisis_dosis1" class="form-label mb-0 d-block">Dosis </label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dis_tipofibrinolisis_dosis" id="dis_tipofibrinolisis_dosis1" value="Completa" >
+                                <label class="form-check-label" for="dis_tipofibrinolisis_dosis1">Completa</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dis_tipofibrinolisis_dosis" id="dis_tipofibrinolisis_dosis2" value="Ajustada a Peso" >
+                                <label class="form-check-label" for="dis_tipofibrinolisis_dosis2">Ajustada a Peso</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dis_tipofibrinolisis_dosis" id="dis_tipofibrinolisis_dosis3" value="Media dosis" >
+                                <label class="form-check-label" for="dis_tipofibrinolisis_dosis3">Media dosis</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2 d-none" id="dv_dis_fibrinolisis_exitosa">
                         <label for="dis_fibrinolisis_exitosa1" class="form-label mb-0">Fibrinólisis exitosa <small class="text-danger">(Caida del ST más del 50%)</small></label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
@@ -770,7 +779,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-2 d-none" id="dv_dis_angioplastia_rescate">
                         <label for="dis_angioplastia_rescate1" class="form-label mb-0">Angioplastía de rescate</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
@@ -784,7 +793,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-2 d-none" id="dv_dis_fibrinolisis_suspendida">
                         <label for="dis_fibrinolisis_suspendida1" class="form-label mb-0">Fibrinólisis suspendida</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
@@ -798,7 +807,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-2 d-none" id="dv_dis_causa_suspension">
                         <label for="dis_causa_suspension" class="form-label mb-0">Causa de suspensión</label>
                         <input type="text" name="dis_causa_suspension" class="form-control" id="dis_causa_suspension">
                     </div>
@@ -817,7 +826,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-2" id="div_dis_lugar_transferencia_icp">
                         <label for="dis_lugar_transferencia_icp" class="form-label mb-0">Lugar de transferencia para ICP</label>
                         <select name="dis_lugar_transferencia_icp" class="form-control" id="dis_lugar_transferencia_icp">
                             <option value="">Seleccionar...</option>
@@ -837,7 +846,7 @@
                         <input type="text" name="dis_lugar_transferencia_icp_otro" class="form-control mt-1 d-none" id="dis_lugar_transferencia_icp_otro" placeholder="Especificar">
                     </div>
 
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-2" id="div_dis_fecha_salida_antes_icp">
                         <label for="dis_fecha_salida_antes_icp" class="form-label mb-0">Fecha y hora de salida antes de la ICP</label>
                         <div class="row">
                             <div class="col-8 col-md-8 pr-0">
@@ -849,13 +858,13 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-2" id="div_dis_tiempo_doorin_doorout">
                         <label for="dis_tiempo_doorin_doorout" class="form-label mb-0">Tiempo del door-in al door-out <small class="text-danger">(minutos)</small></label>
                         <input type="number" name="dis_tiempo_doorin_doorout" class="form-control" id="dis_tiempo_doorin_doorout" placeholder="" readonly>
-                        <small class="infotext">Fecha y hora de salida antes de la ICP - Fecha y hora de llegada al centro para ICP</small>
+                        <small class="infotext">Fecha y hora de salida antes de la ICP - Fecha y hora al centro de primer contacto medico</small>
                     </div>
 
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-2" id="div_dis_fecha_llegada_centro_icp">
                         <label for="dis_fecha_llegada_centro_icp" class="form-label mb-0">Fecha y hora de llegada al centro para ICP</label>
                         <div class="row">
                             <div class="col-8 col-md-8 pr-0">
@@ -867,10 +876,10 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-2" id="div_dis_tiepo_transporte_icp">
                         <label for="dis_tiepo_transporte_icp" class="form-label mb-0">Tiempo promedio de transporte al lugar de la ICP <small class="text-danger">(minutos)</small></label>
                         <input type="number" name="dis_tiepo_transporte_icp" class="form-control" id="dis_tiepo_transporte_icp" placeholder="" readonly>
-                        <small class="infotext">Fecha y hora de llegada al centro para ICP - Fecha y hora de inicio de ICP</small>
+                        <small class="infotext">Fecha y hora de llegada al centro para ICP - Fecha y hora de salida antes de la ICP</small>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="dis_fecha_inicio_icp" class="form-label mb-0">Fecha y hora de inicio de ICP</label>
@@ -884,7 +893,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-2" id="div_dis_modo_transporte_icp">
                         <label for="dis_modo_transporte_icp" class="form-label mb-0">Modo de Transporte a ICP</label>
                         <select name="dis_modo_transporte_icp" id="dis_modo_transporte_icp" class="form-control" >
                             <option value="">Seleccionar...</option>
@@ -1065,7 +1074,8 @@
 
                     <div class="col-md-6 mb-6">
                         <label for="dis_duracion_icp" class="form-label mb-0">Duración de la ICP <small class="text-danger">(minutos)</small></label>
-                        <input type="number" name="dis_duracion_icp" class="form-control" id="dis_duracion_icp">
+                        <input type="number" name="dis_duracion_icp" class="form-control" id="dis_duracion_icp" readonly>
+                        <small class="infotext">Fecha y hora del fin de la ICP - Fecha y hora de inicio de ICP</small>
                     </div>
 
                     <div class="col-md-12 mb-2">
@@ -1128,6 +1138,15 @@
                     </div>
 
                     <div class="col-md-6 mb-2">
+                        <label for="dis_tt_isquemia" class="form-label mb-0">Tiempo total de isquemia <small class="text-danger">(minutos)</small></label>
+                        <input type="number" name="dis_tt_isquemia" class="form-control" id="dis_tt_isquemia" readonly>
+                        <small class="infotext"><span id="txtfecha_rest_tieisquim">Fecha y hora de inicio de ICP</span> - Fecha y hora de inicio de síntomas</small>
+                    </div>
+
+                    <div class="col-md-6">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
                         <label for="dis_otrastenosis_coronaria1" class="form-label mb-0">Otra estenosis coronaria</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
@@ -1140,6 +1159,61 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-6 mb-2 d-none" id="div_dis_otrastenosis_coronaria_lesiones">
+                        <label for="dis_otrastenosis_coronaria_lesiones1" class="form-label mb-0">Señale que otras lesiones severas (> 70%)estan presentes</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones1" value="Trono coronario izquierdo">
+                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones1">Trono coronario izquierdo</label>
+                            </div>
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones2" value="Descendente anterior">
+                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones2">Descendente anterior</label>
+                            </div>
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones3" value="1 Diagonal">
+                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones3">1 Diagonal</label>
+                            </div>
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones4" value="2 Diagonal">
+                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones4">2 Diagonal</label>
+                            </div>
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones5" value="Circunfleja">
+                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones5">Circunfleja</label>
+                            </div>
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones6" value="1 Obtusa Marginal">
+                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones6">1 Obtusa Marginal</label>
+                            </div>
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones7" value="2 Obtusa Marginal">
+                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones7">2 Obtusa Marginal</label>
+                            </div>
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones8" value="Coronaria Derecha">
+                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones8">Coronaria Derecha</label>
+                            </div>
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones9" value="1 Aguda Marginal">
+                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones9">1 Aguda Marginal</label>
+                            </div>
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones10" value="Tronco Postero Lateral">
+                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones10">Tronco Postero Lateral</label>
+                            </div>
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones11" value="Descendente Posterior">
+                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones11">Descendente Posterior</label>
+                            </div>
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones12" value="Ramo Intermedio">
+                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones12">Ramo Intermedio</label>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_icp_otras_lesiones1" class="form-label mb-0">ICP de otras lesiones</label>
@@ -1154,6 +1228,61 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-6 mb-2 d-none" id="div_dis_icp_otras_lesiones_lesiones">
+                        <label for="dis_icp_otras_lesiones_lesiones1" class="form-label mb-0">Señale que otras lesiones se hizo ICP</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones1" value="Trono coronario izquierdo">
+                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones1">Trono coronario izquierdo</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones2" value="Descendente anterior">
+                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones2">Descendente anterior</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones3" value="1 Diagonal">
+                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones3">1 Diagonal</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones4" value="2 Diagonal">
+                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones4">2 Diagonal</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones5" value="Circunfleja">
+                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones5">Circunfleja</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones6" value="1 Obtusa Marginal">
+                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones6">1 Obtusa Marginal</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones7" value="2 Obtusa Marginal">
+                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones7">2 Obtusa Marginal</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones8" value="Coronaria Derecha">
+                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones8">Coronaria Derecha</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones9" value="1 Aguda Marginal">
+                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones9">1 Aguda Marginal</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones10" value="Tronco Postero Lateral">
+                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones10">Tronco Postero Lateral</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones11" value="Descendente Posterior">
+                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones11">Descendente Posterior</label>
+                            </div>
+                            <div class="form-check form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones12" value="Ramo Intermedio">
+                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones12">Ramo Intermedio</label>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_decisio_basada" class="form-label mb-0">Decisión basada por</label>
@@ -1229,6 +1358,20 @@
                     </div>
 
                     <div class="col-md-6 mb-2">
+                        <label for="dis_cabg1" class="form-label mb-0">CABG</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dis_cabg" id="dis_cabg1" value="Sí" >
+                                <label class="form-check-label" for="dis_cabg1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dis_cabg" id="dis_cabg2" value="No" >
+                                <label class="form-check-label" for="dis_cabg2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2 d-none" id="div_dis_motivo_cabg">
                         <label for="dis_motivo_cabg" class="form-label mb-0">Motivo de CABG</label>
                         <select name="dis_motivo_cabg" id="dis_motivo_cabg" class="form-control" >
                             <option value="">Seleccionar...</option>
@@ -1244,310 +1387,23 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_puntaje_grace" class="form-label mb-0">Puntaje GRACE</label>
-                        <input type="number" name="dis_puntaje_grace" class="form-control" id="dis_puntaje_grace">
+                        <select name="dis_puntaje_grace" id="dis_puntaje_grace" class="form-control" >
+                            <option value="">Seleccionar...</option>
+                            <option value="Bajo">Bajo</option>
+                            <option value="Intermedio">Intermedio</option>
+                            <option value="Alto">Alto</option>
+                        </select>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="dis_puntaje_crussade" class="form-label mb-0">Puntaje Crussade</label>
-                        <input type="number" name="dis_puntaje_crussade" class="form-control" id="dis_puntaje_crussade">
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!--Datos de medicación farmacologíca-->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3 bg-danger">
-                <h6 class="m-0 font-weight-bold text-white">Datos de medicación farmacologíca</h6>
-            </div>
-            <div class="card-body">
-                <div class="row mb-1">
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_aspirina1" class="form-label mb-0">Aspirina <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_aspirina" id="dmf_aspirina1" value="Sí">
-                                <label class="form-check-label" for="dmf_aspirina1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_aspirina" id="dmf_aspirina2" value="No">
-                                <label class="form-check-label" for="dmf_aspirina2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_clopidogrel1" class="form-label mb-0">Clopidogrel <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_clopidogrel" id="dmf_clopidogrel1" value="Sí">
-                                <label class="form-check-label" for="dmf_clopidogrel1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_clopidogrel" id="dmf_clopidogrel2" value="No">
-                                <label class="form-check-label" for="dmf_clopidogrel2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_enoxaparina1" class="form-label mb-0">Enoxaparina <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_enoxaparina" id="dmf_enoxaparina1" value="Sí">
-                                <label class="form-check-label" for="dmf_enoxaparina1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_enoxaparina" id="dmf_enoxaparina2" value="No">
-                                <label class="form-check-label" for="dmf_enoxaparina2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_heparina_no_fraccionada1" class="form-label mb-0">Heparina no fraccionada <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_heparina_no_fraccionada" id="dmf_heparina_no_fraccionada1" value="Sí">
-                                <label class="form-check-label" for="dmf_heparina_no_fraccionada1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_heparina_no_fraccionada" id="dmf_heparina_no_fraccionada2" value="No">
-                                <label class="form-check-label" for="dmf_heparina_no_fraccionada2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_atorvastatina1" class="form-label mb-0">Atorvastatina <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_atorvastatina" id="dmf_atorvastatina1" value="Sí">
-                                <label class="form-check-label" for="dmf_atorvastatina1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_atorvastatina" id="dmf_atorvastatina2" value="No">
-                                <label class="form-check-label" for="dmf_atorvastatina2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_betabloqueadores1" class="form-label mb-0">Betabloqueadores <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_betabloqueadores" id="dmf_betabloqueadores1" value="Sí">
-                                <label class="form-check-label" for="dmf_betabloqueadores1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_betabloqueadores" id="dmf_betabloqueadores2" value="No">
-                                <label class="form-check-label" for="dmf_betabloqueadores2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_diureticos_asa1" class="form-label mb-0">Diuréticos de asa <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_diureticos_asa" id="dmf_diureticos_asa1" value="Sí">
-                                <label class="form-check-label" for="dmf_diureticos_asa1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_diureticos_asa" id="dmf_diureticos_asa2" value="No">
-                                <label class="form-check-label" for="dmf_diureticos_asa2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_vasodilatadores1" class="form-label mb-0">Vasodilatadores <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_vasodilatadores" id="dmf_vasodilatadores1" value="Sí">
-                                <label class="form-check-label" for="dmf_vasodilatadores1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_vasodilatadores" id="dmf_vasodilatadores2" value="No">
-                                <label class="form-check-label" for="dmf_vasodilatadores2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_vasopresores1" class="form-label mb-0">Vasopresores <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_vasopresores" id="dmf_vasopresores1" value="Sí">
-                                <label class="form-check-label" for="dmf_vasopresores1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_vasopresores" id="dmf_vasopresores2" value="No">
-                                <label class="form-check-label" for="dmf_vasopresores2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_inotropicos1" class="form-label mb-0">Inotrópicos <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_inotropicos" id="dmf_inotropicos1" value="Sí">
-                                <label class="form-check-label" for="dmf_inotropicos1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_inotropicos" id="dmf_inotropicos2" value="No">
-                                <label class="form-check-label" for="dmf_inotropicos2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_ieca_ara1" class="form-label mb-0">IECA/ARA <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_ieca_ara" id="dmf_ieca_ara1" value="Sí">
-                                <label class="form-check-label" for="dmf_ieca_ara1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_ieca_ara" id="dmf_ieca_ara2" value="No">
-                                <label class="form-check-label" for="dmf_ieca_ara2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_ventilacion_mecanica1" class="form-label mb-0">Ventilación mecánica <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_ventilacion_mecanica" id="dmf_ventilacion_mecanica1" value="Sí">
-                                <label class="form-check-label" for="dmf_ventilacion_mecanica1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_ventilacion_mecanica" id="dmf_ventilacion_mecanica2" value="No">
-                                <label class="form-check-label" for="dmf_ventilacion_mecanica2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_dialisis1" class="form-label mb-0">Diálisis <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_dialisis" id="dmf_dialisis1" value="Sí">
-                                <label class="form-check-label" for="dmf_dialisis1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_dialisis" id="dmf_dialisis2" value="No">
-                                <label class="form-check-label" for="dmf_dialisis2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_rehab_cardiaca1" class="form-label mb-0">Rehabilitación cardiaca <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_rehab_cardiaca" id="dmf_rehab_cardiaca1" value="Sí">
-                                <label class="form-check-label" for="dmf_rehab_cardiaca1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_rehab_cardiaca" id="dmf_rehab_cardiaca2" value="No">
-                                <label class="form-check-label" for="dmf_rehab_cardiaca2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_antagonistas_mineraloc1" class="form-label mb-0">Antagonistas de mineralocorticoides <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_antagonistas_mineraloc" id="dmf_antagonistas_mineraloc1" value="Sí">
-                                <label class="form-check-label" for="dmf_antagonistas_mineraloc1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_antagonistas_mineraloc" id="dmf_antagonistas_mineraloc2" value="No">
-                                <label class="form-check-label" for="dmf_antagonistas_mineraloc2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dmf_inhibidores_recep_p2y121" class="form-label mb-0">Inhibidores del receptor P2Y12 <small class="text-danger">(en hospitalización)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_inhibidores_recep_p2y12" id="dmf_inhibidores_recep_p2y121" value="Sí">
-                                <label class="form-check-label" for="dmf_inhibidores_recep_p2y121">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dmf_inhibidores_recep_p2y12" id="dmf_inhibidores_recep_p2y122" value="No">
-                                <label class="form-check-label" for="dmf_inhibidores_recep_p2y122">No</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--Datos de laboratorio-->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3 bg-primary">
-                <h6 class="m-0 font-weight-bold text-white">Datos de laboratorio</h6>
-            </div>
-            <div class="card-body">
-                <div class="row mb-1">
-                    <div class="col-md-6 mb-2">
-                        <label for="dl_hemoglobina" class="form-label mb-0">Hemoglobina <small class="text-danger">(al ingreso)</small></label>
-                        <input type="number" name="dl_hemoglobina" class="form-control" id="dl_hemoglobina">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="dl_leucocitos" class="form-label mb-0">Leucocitos <small class="text-danger">(al ingreso)</small></label>
-                        <input type="number" name="dl_leucocitos" class="form-control" id="dl_leucocitos">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="dl_plaquetas" class="form-label mb-0">Plaquetas <small class="text-danger">(al ingreso)</small></label>
-                        <input type="number" name="dl_plaquetas" class="form-control" id="dl_plaquetas">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="dl_creatinina" class="form-label mb-0">Creatinina <small class="text-danger">(al ingreso)</small></label>
-                        <input type="number" name="dl_creatinina" class="form-control" id="dl_creatinina">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="dl_urea" class="form-label mb-0">Úrea <small class="text-danger">(al ingreso)</small></label>
-                        <input type="number" name="dl_urea" class="form-control" id="dl_urea">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="dl_glucosa" class="form-label mb-0">Glucosa <small class="text-danger">(al ingreso)</small></label>
-                        <input type="number" name="dl_glucosa" class="form-control" id="dl_glucosa">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="dl_troponina_t" class="form-label mb-0">Troponina T <small class="text-danger">(al ingreso)</small></label>
-                        <input type="number" name="dl_troponina_t" class="form-control" id="dl_troponina_t">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="dl_troponina_i" class="form-label mb-0">Troponina I <small class="text-danger">(al ingreso)</small></label>
-                        <input type="number" name="dl_troponina_i" class="form-control" id="dl_troponina_i">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="dl_cpk_total" class="form-label mb-0">CPK total <small class="text-danger">(al ingreso)</small></label>
-                        <input type="number" name="dl_cpk_total" class="form-control" id="dl_cpk_total">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="dl_cpk_mb" class="form-label mb-0">CPK-MB <small class="text-danger">(al ingreso)</small></label>
-                        <input type="number" name="dl_cpk_mb" class="form-control" id="dl_cpk_mb">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="dl_lactato" class="form-label mb-0">Lactato <small class="text-danger">(al ingreso)</small></label>
-                        <input type="number" name="dl_lactato" class="form-control" id="dl_lactato">
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="dl_fevi_ingreso" class="form-label mb-0">Fracción de eyección ventricular izquierda <small class="text-danger">(%, al ingreso)</small></label>
-                        <input type="number" name="dl_fevi_ingreso" class="form-control" id="dl_fevi_ingreso">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dl_fevi_hospitalizacion" class="form-label mb-0">Fracción de eyección ventricular izquierda <small class="text-danger">(%, en hospitalización)</small></label>
-                        <input type="number" name="dl_fevi_hospitalizacion" class="form-control" id="dl_fevi_hospitalizacion">
+                        <select name="dis_puntaje_crussade" id="dis_puntaje_crussade" class="form-control" >
+                            <option value="">Seleccionar...</option>
+                            <option value="Muy Bajo">Muy Bajo</option>
+                            <option value="Bajo">Bajo</option>
+                            <option value="Moderado">Moderado</option>
+                            <option value="Alto">Alto</option>
+                            <option value="Muy Alto">Muy Alto</option>
+                        </select>
                     </div>
 
                 </div>
@@ -1556,300 +1412,344 @@
 
         <!--Terapia Intrahospitalaria-->
         <div class="card shadow mb-4">
-                    <div class="card-header py-3 bg-danger">
-                        <h6 class="m-0 font-weight-bold text-white">Terapia Intrahospitalaria</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="row mb-1">
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_aspirina1" class="form-label mb-0">Aspirina <small class="text-danger">(en hospitalización)</small></label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_aspirina" id="ti_aspirina1" value="Sí">
-                                        <label class="form-check-label" for="ti_aspirina1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_aspirina" id="ti_aspirina2" value="No">
-                                        <label class="form-check-label" for="ti_aspirina2">No</label>
-                                    </div>
-                                </div>
+            <div class="card-header py-3 bg-danger">
+                <h6 class="m-0 font-weight-bold text-white">Terapia Intrahospitalaria</h6>
+            </div>
+            <div class="card-body">
+                <div class="row mb-1">
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_aspirina1" class="form-label mb-0">Aspirina</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_aspirina" id="ti_aspirina1" value="Sí">
+                                <label class="form-check-label" for="ti_aspirina1">Sí</label>
                             </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_ip2y121" class="form-label mb-0">IP2Y12</label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y121" value="Clopidogrel">
-                                        <label class="form-check-label" for="ti_ip2y121">Clopidogrel</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y122" value="Prasugrel">
-                                        <label class="form-check-label" for="ti_ip2y122">Prasugrel</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y123" value="Ticagrelor">
-                                        <label class="form-check-label" for="ti_ip2y123">Ticagrelor</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_enoxaparina1" class="form-label mb-0">Enoxaparina <small class="text-danger">(en hospitalización)</small></label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_enoxaparina" id="ti_enoxaparina1" value="Sí">
-                                        <label class="form-check-label" for="ti_enoxaparina1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_enoxaparina" id="ti_enoxaparina2" value="No">
-                                        <label class="form-check-label" for="ti_enoxaparina2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_heparina_no_fraccionada1" class="form-label mb-0">Heparina no fraccionada <small class="text-danger">(en hospitalización)</small></label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_heparina_no_fraccionada" id="ti_heparina_no_fraccionada1" value="Sí">
-                                        <label class="form-check-label" for="ti_heparina_no_fraccionada1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_heparina_no_fraccionada" id="ti_heparina_no_fraccionada2" value="No">
-                                        <label class="form-check-label" for="ti_heparina_no_fraccionada2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_atorvastatina1" class="form-label mb-0">Atorvastatina <small class="text-danger">(en hospitalización)</small></label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_atorvastatina" id="ti_atorvastatina1" value="Sí">
-                                        <label class="form-check-label" for="ti_atorvastatina1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_atorvastatina" id="ti_atorvastatina2" value="No">
-                                        <label class="form-check-label" for="ti_atorvastatina2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_betabloqueadores1" class="form-label mb-0">Betabloqueadores <small class="text-danger">(en hospitalización)</small></label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_betabloqueadores" id="ti_betabloqueadores1" value="Sí">
-                                        <label class="form-check-label" for="ti_betabloqueadores1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_betabloqueadores" id="ti_betabloqueadores2" value="No">
-                                        <label class="form-check-label" for="ti_betabloqueadores2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_diureticos_asa1" class="form-label mb-0">Diuréticos de asa <small class="text-danger">(en hospitalización)</small></label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_diureticos_asa" id="ti_diureticos_asa1" value="Sí">
-                                        <label class="form-check-label" for="ti_diureticos_asa1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_diureticos_asa" id="ti_diureticos_asa2" value="No">
-                                        <label class="form-check-label" for="ti_diureticos_asa2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_vasodilatadores1" class="form-label mb-0">Vasodilatadores <small class="text-danger">(en hospitalización)</small></label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_vasodilatadores" id="ti_vasodilatadores1" value="Sí">
-                                        <label class="form-check-label" for="ti_vasodilatadores1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_vasodilatadores" id="ti_vasodilatadores2" value="No">
-                                        <label class="form-check-label" for="ti_vasodilatadores2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_vasopresores1" class="form-label mb-0">Vasopresores <small class="text-danger">(en hospitalización)</small></label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_vasopresores" id="ti_vasopresores1" value="Sí">
-                                        <label class="form-check-label" for="ti_vasopresores1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_vasopresores" id="ti_vasopresores2" value="No">
-                                        <label class="form-check-label" for="ti_vasopresores2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_inotropicos1" class="form-label mb-0">Inotrópicos <small class="text-danger">(en hospitalización)</small></label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_inotropicos" id="ti_inotropicos1" value="Sí">
-                                        <label class="form-check-label" for="ti_inotropicos1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_inotropicos" id="ti_inotropicos2" value="No">
-                                        <label class="form-check-label" for="ti_inotropicos2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_ieca_ara1" class="form-label mb-0">IECA/ARA <small class="text-danger">(en hospitalización)</small></label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_ieca_ara" id="ti_ieca_ara1" value="Sí">
-                                        <label class="form-check-label" for="ti_ieca_ara1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_ieca_ara" id="ti_ieca_ara2" value="No">
-                                        <label class="form-check-label" for="ti_ieca_ara2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_ventilacion_mecanica1" class="form-label mb-0">Ventilación mecánica <small class="text-danger">(en hospitalización)</small></label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_ventilacion_mecanica" id="ti_ventilacion_mecanica1" value="Sí">
-                                        <label class="form-check-label" for="ti_ventilacion_mecanica1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_ventilacion_mecanica" id="ti_ventilacion_mecanica2" value="No">
-                                        <label class="form-check-label" for="ti_ventilacion_mecanica2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_dialisis1" class="form-label mb-0">Diálisis <small class="text-danger">(en hospitalización)</small></label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_dialisis" id="ti_dialisis1" value="Sí">
-                                        <label class="form-check-label" for="ti_dialisis1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_dialisis" id="ti_dialisis2" value="No">
-                                        <label class="form-check-label" for="ti_dialisis2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_rehabilitacion_cardiaca1" class="form-label mb-0">Rehabilitación cardiaca <small class="text-danger">(en hospitalización)</small></label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_rehabilitacion_cardiaca" id="ti_rehabilitacion_cardiaca1" value="Sí">
-                                        <label class="form-check-label" for="ti_rehabilitacion_cardiaca1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_rehabilitacion_cardiaca" id="ti_rehabilitacion_cardiaca2" value="No">
-                                        <label class="form-check-label" for="ti_rehabilitacion_cardiaca2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_ventilacion_no_invasiva1" class="form-label mb-0">Ventilación no invasiva</label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_ventilacion_no_invasiva" id="ti_ventilacion_no_invasiva1" value="Sí">
-                                        <label class="form-check-label" for="ti_ventilacion_no_invasiva1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_ventilacion_no_invasiva" id="ti_ventilacion_no_invasiva2" value="No">
-                                        <label class="form-check-label" for="ti_ventilacion_no_invasiva2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_balon_contrapulsacion_ia1" class="form-label mb-0">Balón de contrapulsación intra aórtico</label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_balon_contrapulsacion_ia" id="ti_balon_contrapulsacion_ia1" value="Sí">
-                                        <label class="form-check-label" for="ti_balon_contrapulsacion_ia1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_balon_contrapulsacion_ia" id="ti_balon_contrapulsacion_ia2" value="No">
-                                        <label class="form-check-label" for="ti_balon_contrapulsacion_ia2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_rehab_cardiaca_intrahosp1" class="form-label mb-0">Rehabilitación Cardiaca Intrahospitalaria</label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_rehab_cardiaca_intrahosp" id="ti_rehab_cardiaca_intrahosp1" value="Sí">
-                                        <label class="form-check-label" for="ti_rehab_cardiaca_intrahosp1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_rehab_cardiaca_intrahosp" id="ti_rehab_cardiaca_intrahosp2" value="No">
-                                        <label class="form-check-label" for="ti_rehab_cardiaca_intrahosp2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_levosimendan1" class="form-label mb-0">Levosimendan</label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_levosimendan" id="ti_levosimendan1" value="Sí">
-                                        <label class="form-check-label" for="ti_levosimendan1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_levosimendan" id="ti_levosimendan2" value="No">
-                                        <label class="form-check-label" for="ti_levosimendan2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_marcapaso1" class="form-label mb-0">Marcapasos</label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_marcapaso" id="ti_marcapaso1" value="Transitorio">
-                                        <label class="form-check-label" for="ti_marcapaso1">Transitorio</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_marcapaso" id="ti_marcapaso2" value="Definitivo">
-                                        <label class="form-check-label" for="ti_marcapaso2">Definitivo</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_marcapaso" id="ti_marcapaso3" value="No">
-                                        <label class="form-check-label" for="ti_marcapaso3">No</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <label for="ti_ecmo1" class="form-label mb-0">ECMO</label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_ecmo" id="ti_ecmo1" value="Sí">
-                                        <label class="form-check-label" for="ti_ecmo1">Sí</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="ti_ecmo" id="ti_ecmo2" value="No">
-                                        <label class="form-check-label" for="ti_ecmo2">No</label>
-                                    </div>
-                                </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_aspirina" id="ti_aspirina2" value="No">
+                                <label class="form-check-label" for="ti_aspirina2">No</label>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_ip2y121" class="form-label mb-0">IP2Y12</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y121" value="Clopidogrel">
+                                <label class="form-check-label" for="ti_ip2y121">Clopidogrel</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y122" value="Prasugrel">
+                                <label class="form-check-label" for="ti_ip2y122">Prasugrel</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y123" value="Ticagrelor">
+                                <label class="form-check-label" for="ti_ip2y123">Ticagrelor</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_enoxaparina1" class="form-label mb-0">Enoxaparina</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_enoxaparina" id="ti_enoxaparina1" value="Sí">
+                                <label class="form-check-label" for="ti_enoxaparina1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_enoxaparina" id="ti_enoxaparina2" value="No">
+                                <label class="form-check-label" for="ti_enoxaparina2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_heparina_no_fraccionada1" class="form-label mb-0">Heparina no fraccionada</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_heparina_no_fraccionada" id="ti_heparina_no_fraccionada1" value="Sí">
+                                <label class="form-check-label" for="ti_heparina_no_fraccionada1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_heparina_no_fraccionada" id="ti_heparina_no_fraccionada2" value="No">
+                                <label class="form-check-label" for="ti_heparina_no_fraccionada2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_atorvastatina1" class="form-label mb-0">Atorvastatina</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_atorvastatina" id="ti_atorvastatina1" value="Sí">
+                                <label class="form-check-label" for="ti_atorvastatina1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_atorvastatina" id="ti_atorvastatina2" value="No">
+                                <label class="form-check-label" for="ti_atorvastatina2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_betabloqueadores1" class="form-label mb-0">Betabloqueadores</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_betabloqueadores" id="ti_betabloqueadores1" value="Sí">
+                                <label class="form-check-label" for="ti_betabloqueadores1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_betabloqueadores" id="ti_betabloqueadores2" value="No">
+                                <label class="form-check-label" for="ti_betabloqueadores2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_diureticos_asa1" class="form-label mb-0">Diuréticos de asa</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_diureticos_asa" id="ti_diureticos_asa1" value="Sí">
+                                <label class="form-check-label" for="ti_diureticos_asa1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_diureticos_asa" id="ti_diureticos_asa2" value="No">
+                                <label class="form-check-label" for="ti_diureticos_asa2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_vasodilatadores1" class="form-label mb-0">Vasodilatadores</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_vasodilatadores" id="ti_vasodilatadores1" value="Sí">
+                                <label class="form-check-label" for="ti_vasodilatadores1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_vasodilatadores" id="ti_vasodilatadores2" value="No">
+                                <label class="form-check-label" for="ti_vasodilatadores2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_vasopresores1" class="form-label mb-0">Vasopresores</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_vasopresores" id="ti_vasopresores1" value="Sí">
+                                <label class="form-check-label" for="ti_vasopresores1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_vasopresores" id="ti_vasopresores2" value="No">
+                                <label class="form-check-label" for="ti_vasopresores2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_inotropicos1" class="form-label mb-0">Inotrópicos</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_inotropicos" id="ti_inotropicos1" value="Sí">
+                                <label class="form-check-label" for="ti_inotropicos1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_inotropicos" id="ti_inotropicos2" value="No">
+                                <label class="form-check-label" for="ti_inotropicos2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_ieca_ara1" class="form-label mb-0">IECA/ARA</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_ieca_ara" id="ti_ieca_ara1" value="Sí">
+                                <label class="form-check-label" for="ti_ieca_ara1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_ieca_ara" id="ti_ieca_ara2" value="No">
+                                <label class="form-check-label" for="ti_ieca_ara2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_insulina1" class="form-label mb-0">Insulina</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_insulina" id="ti_insulina1" value="Sí">
+                                <label class="form-check-label" for="ti_insulina1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_insulina" id="ti_insulina2" value="No">
+                                <label class="form-check-label" for="ti_insulina2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_antagonistas_mineralocorticoide1" class="form-label mb-0">Antagonistas de los mineralos corticoides</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_antagonistas_mineralocorticoide" id="ti_antagonistas_mineralocorticoide1" value="Sí">
+                                <label class="form-check-label" for="ti_antagonistas_mineralocorticoide1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_antagonistas_mineralocorticoide" id="ti_antagonistas_mineralocorticoide2" value="No">
+                                <label class="form-check-label" for="ti_antagonistas_mineralocorticoide2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_ventilacion_mecanica1" class="form-label mb-0">Ventilación mecánica</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_ventilacion_mecanica" id="ti_ventilacion_mecanica1" value="Sí">
+                                <label class="form-check-label" for="ti_ventilacion_mecanica1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_ventilacion_mecanica" id="ti_ventilacion_mecanica2" value="No">
+                                <label class="form-check-label" for="ti_ventilacion_mecanica2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_dialisis1" class="form-label mb-0">Diálisis</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_dialisis" id="ti_dialisis1" value="Sí">
+                                <label class="form-check-label" for="ti_dialisis1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_dialisis" id="ti_dialisis2" value="No">
+                                <label class="form-check-label" for="ti_dialisis2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_rehabilitacion_cardiaca1" class="form-label mb-0">Rehabilitación cardiaca</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_rehabilitacion_cardiaca" id="ti_rehabilitacion_cardiaca1" value="Sí">
+                                <label class="form-check-label" for="ti_rehabilitacion_cardiaca1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_rehabilitacion_cardiaca" id="ti_rehabilitacion_cardiaca2" value="No">
+                                <label class="form-check-label" for="ti_rehabilitacion_cardiaca2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_ventilacion_no_invasiva1" class="form-label mb-0">Ventilación no invasiva</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_ventilacion_no_invasiva" id="ti_ventilacion_no_invasiva1" value="Sí">
+                                <label class="form-check-label" for="ti_ventilacion_no_invasiva1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_ventilacion_no_invasiva" id="ti_ventilacion_no_invasiva2" value="No">
+                                <label class="form-check-label" for="ti_ventilacion_no_invasiva2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_balon_contrapulsacion_ia1" class="form-label mb-0">Balón de contrapulsación intra aórtico</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_balon_contrapulsacion_ia" id="ti_balon_contrapulsacion_ia1" value="Sí">
+                                <label class="form-check-label" for="ti_balon_contrapulsacion_ia1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_balon_contrapulsacion_ia" id="ti_balon_contrapulsacion_ia2" value="No">
+                                <label class="form-check-label" for="ti_balon_contrapulsacion_ia2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_levosimendan1" class="form-label mb-0">Levosimendan</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_levosimendan" id="ti_levosimendan1" value="Sí">
+                                <label class="form-check-label" for="ti_levosimendan1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_levosimendan" id="ti_levosimendan2" value="No">
+                                <label class="form-check-label" for="ti_levosimendan2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_marcapaso1" class="form-label mb-0">Marcapasos</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_marcapaso" id="ti_marcapaso1" value="Transitorio">
+                                <label class="form-check-label" for="ti_marcapaso1">Transitorio</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_marcapaso" id="ti_marcapaso2" value="Definitivo">
+                                <label class="form-check-label" for="ti_marcapaso2">Definitivo</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_marcapaso" id="ti_marcapaso3" value="No">
+                                <label class="form-check-label" for="ti_marcapaso3">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_ecmo1" class="form-label mb-0">ECMO</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_ecmo" id="ti_ecmo1" value="Sí">
+                                <label class="form-check-label" for="ti_ecmo1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_ecmo" id="ti_ecmo2" value="No">
+                                <label class="form-check-label" for="ti_ecmo2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_dai_resincro1" class="form-label mb-0">DAI/Resincro</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_dai_resincro" id="ti_dai_resincro1" value="Sí">
+                                <label class="form-check-label" for="ti_dai_resincro1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_dai_resincro" id="ti_dai_resincro2" value="No">
+                                <label class="form-check-label" for="ti_dai_resincro2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="ti_transplante_cardiaca1" class="form-label mb-0">Trasplante Cardiaca</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_transplante_cardiaca" id="ti_transplante_cardiaca1" value="Sí">
+                                <label class="form-check-label" for="ti_transplante_cardiaca1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_transplante_cardiaca" id="ti_transplante_cardiaca2" value="No">
+                                <label class="form-check-label" for="ti_transplante_cardiaca2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
+
 
         <!--Analisis Auxiliares Intrahospitalarios-->
         <div class="card shadow mb-4">
@@ -1891,6 +1791,10 @@
                         <input type="number" name="aai_troponina_iot_segundo" class="form-control" id="aai_troponina_iot_segundo">
                     </div>
                     <div class="col-md-6 mb-2">
+                        <label for="aai_horas_troponina" class="form-label mb-0">Nº de horas al 2º control de Troponina</label>
+                        <input type="number" name="aai_horas_troponina" class="form-control" id="aai_horas_troponina">
+                    </div>
+                    <div class="col-md-6 mb-2">
                         <label for="aai_cpk_total" class="form-label mb-0">CPK total</label>
                         <input type="number" name="aai_cpk_total" class="form-control" id="aai_cpk_total">
                     </div>
@@ -1910,13 +1814,351 @@
                         <label for="aai_fecha_pm_fevi" class="form-label mb-0">Fecha de primera medición de fracción de eyección ventricular izquierda</label>
                         <input type="date" name="aai_fecha_pm_fevi" class="form-control" id="aai_fecha_pm_fevi">
                     </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="aai_horas_troponina" class="form-label mb-0">Nº de horas al 2º control de Troponina</label>
-                        <input type="number" name="aai_horas_troponina" class="form-control" id="aai_horas_troponina">
-                    </div>
+                    
                     <div class="col-md-6 mb-2">
                         <label for="aai_hemoglobina_glicosilada" class="form-label mb-0">Hemoglobina Glicosilada</label>
                         <input type="number" name="aai_hemoglobina_glicosilada" class="form-control" id="aai_hemoglobina_glicosilada">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Datos Clinicos intrahospitalarios -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-primary">
+                <h6 class="m-0 font-weight-bold text-white">Datos Clinicos intrahospitalarios</h6>
+            </div>
+            <div class="card-body">
+                <div class="row mb-1">
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_muerte_cardiovascular1" class="form-label mb-0">Muerte cardiovascular</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_muerte_cardiovascular" id="dci_muerte_cardiovascular1" value="Sí">
+                                <label class="form-check-label" for="dci_muerte_cardiovascular1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_muerte_cardiovascular" id="dci_muerte_cardiovascular2" value="No">
+                                <label class="form-check-label" for="dci_muerte_cardiovascular2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_fecha_muerte_cardiovascular_alta" class="form-label mb-0">Fecha de muerte cardiovascular</label>
+                        <input type="date" name="dci_fecha_muerte_cardiovascular_alta" class="form-control" id="dci_fecha_muerte_cardiovascular_alta">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_muerte_no_cardiovascular1" class="form-label mb-0">Muerte no cardiovascular</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_muerte_no_cardiovascular" id="dci_muerte_no_cardiovascular1" value="Sí">
+                                <label class="form-check-label" for="dci_muerte_no_cardiovascular1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_muerte_no_cardiovascular" id="dci_muerte_no_cardiovascular2" value="No">
+                                <label class="form-check-label" for="dci_muerte_no_cardiovascular2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_fecha_muerte_no_cardiovascular_alta" class="form-label mb-0">Fecha de muerte no cardiovascular</label>
+                        <input type="date" name="dci_fecha_muerte_no_cardiovascular_alta" class="form-control" id="dci_fecha_muerte_no_cardiovascular_alta">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_angina_postinfarto1" class="form-label mb-0">Angina postinfarto</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_angina_postinfarto" id="dci_angina_postinfarto1" value="Sí">
+                                <label class="form-check-label" for="dci_angina_postinfarto1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_angina_postinfarto" id="dci_angina_postinfarto2" value="No">
+                                <label class="form-check-label" for="dci_angina_postinfarto2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_fecha_angina_postinfarto" class="form-label mb-0">Fecha de angina postinfarto</label>
+                        <input type="date" name="dci_fecha_angina_postinfarto" class="form-control" id="dci_fecha_angina_postinfarto">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_reinfarto1" class="form-label mb-0">Reinfarto</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_reinfarto" id="dci_reinfarto1" value="Sí">
+                                <label class="form-check-label" for="dci_reinfarto1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_reinfarto" id="dci_reinfarto2" value="No">
+                                <label class="form-check-label" for="dci_reinfarto2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_fecha_reinfarto" class="form-label mb-0">Fecha de reinfarto</label>
+                        <input type="date" name="dci_fecha_reinfarto" class="form-control" id="dci_fecha_reinfarto">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_acv1" class="form-label mb-0">ACV</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv1" value="Sí">
+                                <label class="form-check-label" for="dci_acv1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv2" value="No">
+                                <label class="form-check-label" for="dci_acv2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_fecha_acv_alta" class="form-label mb-0">Fecha de ACV</label>
+                        <input type="date" name="dci_fecha_acv_alta" class="form-control" id="dci_fecha_acv_alta">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_sangrado1" class="form-label mb-0">Sangrado</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_sangrado" id="dci_sangrado1" value="Sí">
+                                <label class="form-check-label" for="dci_sangrado1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_sangrado" id="dci_sangrado2" value="No">
+                                <label class="form-check-label" for="dci_sangrado2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_sangrado_segun_barc0" class="form-label mb-0">Sangrado según BARC:</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc0" value="0">
+                                <label class="form-check-label" for="dci_sangrado_segun_barc0">0</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc1" value="1">
+                                <label class="form-check-label" for="dci_sangrado_segun_barc1">1</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc2" value="2">
+                                <label class="form-check-label" for="dci_sangrado_segun_barc2">2</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc3" value="3">
+                                <label class="form-check-label" for="dci_sangrado_segun_barc3">3</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc4" value="4">
+                                <label class="form-check-label" for="dci_sangrado_segun_barc4">4</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc5" value="5">
+                                <label class="form-check-label" for="dci_sangrado_segun_barc5">5</label>
+                            </div>
+                        </div>
+
+                        <div class="form-control radioptions mt-1 d-none" id="div_dci_sangrado_segun_barc_tipo">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc_tipo" id="dci_sangrado_segun_barc_tipo1" value="A"> 
+                                <label class="form-check-label" for="dci_sangrado_segun_barc_tipo1">A</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc_tipo" id="dci_sangrado_segun_barc_tipo2" value="B"> 
+                                <label class="form-check-label" for="dci_sangrado_segun_barc_tipo2">B</label>
+                            </div>
+                            <div class="form-check form-check-inline" id="div_dci_sangrado_segun_barc_tipo3">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc_tipo" id="dci_sangrado_segun_barc_tipo3" value="C"> 
+                                <label class="form-check-label" for="dci_sangrado_segun_barc_tipo3">C</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_fecha_sangrado" class="form-label mb-0">Fecha de sangrado</label>
+                        <input type="date" name="dci_fecha_sangrado" class="form-control" id="dci_fecha_sangrado">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_fecha_de_alta" class="form-label mb-0">Fecha de Alta </label>
+                        <input type="date" name="dci_fecha_de_alta" class="form-control" id="dci_fecha_de_alta">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_dias_hospitalizacion" class="form-label mb-0">Dias de Hospitalización </label>
+                        <input type="number" name="dci_dias_hospitalizacion" class="form-control" id="dci_dias_hospitalizacion" readonly>
+                        <small class="infotext">Fecha de Alta - Fecha y hora al centro de primer contacto medico</small>
+                    </div>
+
+                    <div class="col-md-6"></div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_shock_cardiogenico1" class="form-label mb-0">Shock Cardiogenico <small class="text-danger">(tipo SCAI)</small></label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico1" value="No">
+                                <label class="form-check-label" for="dci_shock_cardiogenico1">No</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico2" value="A">
+                                <label class="form-check-label" for="dci_shock_cardiogenico2">A</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico3" value="B">
+                                <label class="form-check-label" for="dci_shock_cardiogenico3">B</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico4" value="C">
+                                <label class="form-check-label" for="dci_shock_cardiogenico4">C</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico5" value="D">
+                                <label class="form-check-label" for="dci_shock_cardiogenico5">D</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico6" value="E">
+                                <label class="form-check-label" for="dci_shock_cardiogenico6">E</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_fecha_shock_cardiogenico" class="form-label mb-0">Fecha de Dx. de Shock Cardiogenico</label>
+                        <input type="date" name="dci_fecha_shock_cardiogenico" class="form-control" id="dci_fecha_shock_cardiogenico">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_paro_cardiorespiratorio_recuperado1" class="form-label mb-0">Paro Cardio Respiratorio Recuperado</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_paro_cardiorespiratorio_recuperado" id="dci_paro_cardiorespiratorio_recuperado1" value="Si">
+                                <label class="form-check-label" for="dci_paro_cardiorespiratorio_recuperado1">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_paro_cardiorespiratorio_recuperado" id="dci_paro_cardiorespiratorio_recuperado2" value="TV/FV">
+                                <label class="form-check-label" for="dci_paro_cardiorespiratorio_recuperado2">TV/FV</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_paro_cardiorespiratorio_recuperado" id="dci_paro_cardiorespiratorio_recuperado3" value="Asistolia">
+                                <label class="form-check-label" for="dci_paro_cardiorespiratorio_recuperado3">Asistolia</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_paro_cardiorespiratorio_recuperado" id="dci_paro_cardiorespiratorio_recuperado4" value="AESP">
+                                <label class="form-check-label" for="dci_paro_cardiorespiratorio_recuperado4">AESP</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_fecha_paro_cardiorespiratorio_recuperado" class="form-label mb-0">Fecha de Paro Cardio Respiratorio Recuperado</label>
+                        <input type="date" name="dci_fecha_paro_cardiorespiratorio_recuperado" class="form-control" id="dci_fecha_paro_cardiorespiratorio_recuperado">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_ruptura_musculo_papilar1" class="form-label mb-0">Ruptura de Musculo Papilar</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_ruptura_musculo_papilar" id="dci_ruptura_musculo_papilar1" value="No">
+                                <label class="form-check-label" for="dci_ruptura_musculo_papilar1">No</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_ruptura_musculo_papilar" id="dci_ruptura_musculo_papilar2" value="Sí">
+                                <label class="form-check-label" for="dci_ruptura_musculo_papilar2">Sí</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_fecha_ruptura_musculo_papilar" class="form-label mb-0">Fecha de Dx. de Ruptura de Musculo Papilar</label>
+                        <input type="date" name="dci_fecha_ruptura_musculo_papilar" class="form-control" id="dci_fecha_ruptura_musculo_papilar">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_comunicacion_interventricular1" class="form-label mb-0">Comunicación ínterventricular</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_comunicacion_interventricular" id="dci_comunicacion_interventricular1" value="No">
+                                <label class="form-check-label" for="dci_comunicacion_interventricular1">No</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_comunicacion_interventricular" id="dci_comunicacion_interventricular2" value="Sí">
+                                <label class="form-check-label" for="dci_comunicacion_interventricular2">Sí</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_fecha_comunicacion_interventricular" class="form-label mb-0">Fecha de Dx. de Comunicación ínterventricular</label>
+                        <input type="date" name="dci_fecha_comunicacion_interventricular" class="form-control" id="dci_fecha_comunicacion_interventricular">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_ruptura_pared_libre1" class="form-label mb-0">Ruptura de Pared Libre</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_ruptura_pared_libre" id="dci_ruptura_pared_libre1" value="No">
+                                <label class="form-check-label" for="dci_ruptura_pared_libre1">No</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_ruptura_pared_libre" id="dci_ruptura_pared_libre2" value="Sí">
+                                <label class="form-check-label" for="dci_ruptura_pared_libre2">Sí</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_fecha_ruptura_pared_libre" class="form-label mb-0">Fecha de Dx. de Ruptura pared libre</label>
+                        <input type="date" name="dci_fecha_ruptura_pared_libre" class="form-control" id="dci_fecha_ruptura_pared_libre">
+                    </div>
+
+                    
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_aneurisma_ventricular1" class="form-label mb-0">Aneurisma Ventricular</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_aneurisma_ventricular" id="dci_aneurisma_ventricular1" value="Sí">
+                                <label class="form-check-label" for="dci_aneurisma_ventricular1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_aneurisma_ventricular" id="dci_aneurisma_ventricular2" value="No">
+                                <label class="form-check-label" for="dci_aneurisma_ventricular2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_fecha_aneurisma_ventricular" class="form-label mb-0">Fecha de Aneurisma Ventricular</label>
+                        <input type="date" name="dci_fecha_aneurisma_ventricular" class="form-control" id="dci_fecha_aneurisma_ventricular">
+                    </div>
+                    
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_trombosis_stent1" class="form-label mb-0">Trombosis de stent</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_trombosis_stent" id="dci_trombosis_stent1" value="Sí">
+                                <label class="form-check-label" for="dci_trombosis_stent1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_trombosis_stent" id="dci_trombosis_stent2" value="No">
+                                <label class="form-check-label" for="dci_trombosis_stent2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_fecha_trombosis_stent" class="form-label mb-0">Fecha de trombosis de stent</label>
+                        <input type="date" name="dci_fecha_trombosis_stent" class="form-control" id="dci_fecha_trombosis_stent">
                     </div>
                 </div>
             </div>
@@ -1930,7 +2172,7 @@
             <div class="card-body">
                 <div class="row mb-1">
                     <div class="col-md-6 mb-2">
-                        <label for="ma_aspirina1" class="form-label mb-0">Aspirina <small class="text-danger">(al alta)</small></label>
+                        <label for="ma_aspirina1" class="form-label mb-0">Aspirina</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="ma_aspirina" id="ma_aspirina1" value="Sí">
@@ -2070,320 +2312,58 @@
                         </select>
                     </div>
 
-                </div>
-            </div>
-        </div>
-
-        <!--Datos de pronóstico-->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3 bg-primary">
-                <h6 class="m-0 font-weight-bold text-white">Datos de pronóstico</h6>
-            </div>
-            <div class="card-body">
-                <div class="row mb-1">
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_muerte_hospitalaria1" class="form-label mb-0">Muerte hospitalaria</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_muerte_hospitalaria" id="dp_muerte_hospitalaria1" value="Sí">
-                                <label class="form-check-label" for="dp_muerte_hospitalaria1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_muerte_hospitalaria" id="dp_muerte_hospitalaria2" value="No">
-                                <label class="form-check-label" for="dp_muerte_hospitalaria2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_fecha_muerte_hospitalaria" class="form-label mb-0">Fecha de muerte hospitalaria</label>
-                        <input type="date" name="dp_fecha_muerte_hospitalaria" class="form-control" id="dp_fecha_muerte_hospitalaria">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_muerte_cardiovascular_alta1" class="form-label mb-0">Muerte cardiovascular al alta</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_muerte_cardiovascular_alta" id="dp_muerte_cardiovascular_alta1" value="Sí">
-                                <label class="form-check-label" for="dp_muerte_cardiovascular_alta1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_muerte_cardiovascular_alta" id="dp_muerte_cardiovascular_alta2" value="No">
-                                <label class="form-check-label" for="dp_muerte_cardiovascular_alta2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_fecha_muerte_cardiovascular_alta" class="form-label mb-0">Fecha de muerte cardiovascular</label>
-                        <input type="date" name="dp_fecha_muerte_cardiovascular_alta" class="form-control" id="dp_fecha_muerte_cardiovascular_alta">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_muerte_no_cardiovascular_alta1" class="form-label mb-0">Muerte no cardiovascular al alta</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_muerte_no_cardiovascular_alta" id="dp_muerte_no_cardiovascular_alta1" value="Sí">
-                                <label class="form-check-label" for="dp_muerte_no_cardiovascular_alta1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_muerte_no_cardiovascular_alta" id="dp_muerte_no_cardiovascular_alta2" value="No">
-                                <label class="form-check-label" for="dp_muerte_no_cardiovascular_alta2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_fecha_muerte_no_cardiovascular_alta" class="form-label mb-0">Fecha de muerte no cardiovascular</label>
-                        <input type="date" name="dp_fecha_muerte_no_cardiovascular_alta" class="form-control" id="dp_fecha_muerte_no_cardiovascular_alta">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_angina_postinfarto1" class="form-label mb-0">Angina postinfarto</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_angina_postinfarto" id="dp_angina_postinfarto1" value="Sí">
-                                <label class="form-check-label" for="dp_angina_postinfarto1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_angina_postinfarto" id="dp_angina_postinfarto2" value="No">
-                                <label class="form-check-label" for="dp_angina_postinfarto2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_fecha_angina_postinfarto" class="form-label mb-0">Fecha de angina postinfarto</label>
-                        <input type="date" name="dp_fecha_angina_postinfarto" class="form-control" id="dp_fecha_angina_postinfarto">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_reinfarto1" class="form-label mb-0">Reinfarto</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_reinfarto" id="dp_reinfarto1" value="Sí">
-                                <label class="form-check-label" for="dp_reinfarto1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_reinfarto" id="dp_reinfarto2" value="No">
-                                <label class="form-check-label" for="dp_reinfarto2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_fecha_reinfarto" class="form-label mb-0">Fecha de reinfarto</label>
-                        <input type="date" name="dp_fecha_reinfarto" class="form-control" id="dp_fecha_reinfarto">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_acv_alta1" class="form-label mb-0">ACV al alta</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_acv_alta" id="dp_acv_alta1" value="Sí">
-                                <label class="form-check-label" for="dp_acv_alta1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_acv_alta" id="dp_acv_alta2" value="No">
-                                <label class="form-check-label" for="dp_acv_alta2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_fecha_acv_alta" class="form-label mb-0">Fecha de ACV</label>
-                        <input type="date" name="dp_fecha_acv_alta" class="form-control" id="dp_fecha_acv_alta">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_trombosis_stent_alta1" class="form-label mb-0">Trombosis de stent al alta</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_trombosis_stent_alta" id="dp_trombosis_stent_alta1" value="Sí">
-                                <label class="form-check-label" for="dp_trombosis_stent_alta1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_trombosis_stent_alta" id="dp_trombosis_stent_alta2" value="No">
-                                <label class="form-check-label" for="dp_trombosis_stent_alta2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_fecha_trombosis_stent_alta" class="form-label mb-0">Fecha de trombosis de stent</label>
-                        <input type="date" name="dp_fecha_trombosis_stent_alta" class="form-control" id="dp_fecha_trombosis_stent_alta">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_rehospitalizacion_falla_cardiaca1" class="form-label mb-0">Rehospitalización por falla cardiaca</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_rehospitalizacion_falla_cardiaca" id="dp_rehospitalizacion_falla_cardiaca1" value="Sí">
-                                <label class="form-check-label" for="dp_rehospitalizacion_falla_cardiaca1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_rehospitalizacion_falla_cardiaca" id="dp_rehospitalizacion_falla_cardiaca2" value="No">
-                                <label class="form-check-label" for="dp_rehospitalizacion_falla_cardiaca2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_fecha_rehospitalizacion_falla_cardiaca" class="form-label mb-0">Fecha de rehospitalización por falla cardiaca</label>
-                        <input type="date" name="dp_fecha_rehospitalizacion_falla_cardiaca" class="form-control" id="dp_fecha_rehospitalizacion_falla_cardiaca">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_sangrado1" class="form-label mb-0">Sangrado</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_sangrado" id="dp_sangrado1" value="Sí">
-                                <label class="form-check-label" for="dp_sangrado1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_sangrado" id="dp_sangrado2" value="No">
-                                <label class="form-check-label" for="dp_sangrado2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_sangrado_segun_barc0" class="form-label mb-0">Sangrado según BARC:</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_sangrado_segun_barc" id="dp_sangrado_segun_barc0" value="0">
-                                <label class="form-check-label" for="dp_sangrado_segun_barc0">0</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_sangrado_segun_barc" id="dp_sangrado_segun_barc1" value="1">
-                                <label class="form-check-label" for="dp_sangrado_segun_barc1">1</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_sangrado_segun_barc" id="dp_sangrado_segun_barc2" value="2">
-                                <label class="form-check-label" for="dp_sangrado_segun_barc2">2</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_sangrado_segun_barc" id="dp_sangrado_segun_barc3" value="3">
-                                <label class="form-check-label" for="dp_sangrado_segun_barc3">3</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_sangrado_segun_barc" id="dp_sangrado_segun_barc4" value="4">
-                                <label class="form-check-label" for="dp_sangrado_segun_barc4">4</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_sangrado_segun_barc" id="dp_sangrado_segun_barc5" value="5">
-                                <label class="form-check-label" for="dp_sangrado_segun_barc5">5</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_fecha_sangrado" class="form-label mb-0">Fecha de sangrado</label>
-                        <input type="date" name="dp_fecha_sangrado" class="form-control" id="dp_fecha_sangrado">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_rehabilitacion_cardiaca_alta1" class="form-label mb-0">Rehabilitación cardiaca al alta</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_rehabilitacion_cardiaca_alta" id="dp_rehabilitacion_cardiaca_alta1" value="Sí">
-                                <label class="form-check-label" for="dp_rehabilitacion_cardiaca_alta1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dp_rehabilitacion_cardiaca_alta" id="dp_rehabilitacion_cardiaca_alta2" value="No">
-                                <label class="form-check-label" for="dp_rehabilitacion_cardiaca_alta2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_segunda_medicion_fevi_alta" class="form-label mb-0">Segunda medición de fracción de eyección ventricular izquierda al alta <small class="text-danger">(%)</small></label>
-                        <input type="number" name="dp_segunda_medicion_fevi_alta" class="form-control" id="dp_segunda_medicion_fevi_alta">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_fecha_segunda_fevi_alta" class="form-label mb-0">Fecha de segunda medición de fracción de eyección ventricular izquierda al alta</label>
-                        <input type="date" name="dp_fecha_segunda_fevi_alta" class="form-control" id="dp_fecha_segunda_fevi_alta">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_fecha_de_alta" class="form-label mb-0">Fecha de Alta </label>
-                        <input type="date" name="dp_fecha_de_alta" class="form-control" id="dp_fecha_de_alta">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dp_dias_hospitalizacion" class="form-label mb-0">Dias de Hospitalización </label>
-                        <input type="number" name="dp_dias_hospitalizacion" class="form-control" id="dp_dias_hospitalizacion">
+                    <div class="col-md-12 mb-2">
+                        <label for="ma_otros" class="form-label mb-0">Otros </label>
+                        <input type="text" name="ma_otros" class="form-control" id="ma_otros" placeholder="Especificar">
                     </div>
 
                 </div>
             </div>
         </div>
 
-        <!--Seguimiento Clínico-->
+        <!--Seguimiento Clínico Luego del Alta-->
         <div class="card shadow mb-4">
             <div class="card-header bg-danger py-3">
-                <h6 class="m-0 font-weight-bold text-white">Seguimiento Clínico</h6>
+                <h6 class="m-0 font-weight-bold text-white">Seguimiento Clínico Luego del Alta</h6>
             </div>
             <div class="card-body">
                 <div class="row mb-1">
-
                     <div class="col-md-6 mb-2">
-                        <label for="sc_muerte_hospitalaria1" class="form-label mb-0">Muerte Intra-Hospitalaria</label>
+                        <label for="sc_muerte_cardiovascular1" class="form-label mb-0">Muerte cardiovascular</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_muerte_hospitalaria" id="sc_muerte_hospitalaria1" value="Sí">
-                                <label class="form-check-label" for="sc_muerte_hospitalaria1">Sí</label>
+                                <input class="form-check-input" type="radio" name="sc_muerte_cardiovascular" id="sc_muerte_cardiovascular1" value="Sí">
+                                <label class="form-check-label" for="sc_muerte_cardiovascular1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_muerte_hospitalaria" id="sc_muerte_hospitalaria2" value="No">
-                                <label class="form-check-label" for="sc_muerte_hospitalaria2">No</label>
+                                <input class="form-check-input" type="radio" name="sc_muerte_cardiovascular" id="sc_muerte_cardiovascular2" value="No">
+                                <label class="form-check-label" for="sc_muerte_cardiovascular2">No</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-2">
-                        <label for="sc_fecha_muerte_hospitalaria" class="form-label mb-0">Fecha de muerte Intra-Hospitalaria</label>
-                        <input type="date" name="sc_fecha_muerte_hospitalaria" class="form-control" id="sc_fecha_muerte_hospitalaria">
+                        <label for="sc_fecha_muerte_cardiovascular" class="form-label mb-0">Fecha de muerte cardiovascular</label>
+                        <input type="date" name="sc_fecha_muerte_cardiovascular" class="form-control" id="sc_fecha_muerte_cardiovascular">
                     </div>
 
                     <div class="col-md-6 mb-2">
-                        <label for="sc_muerte_cardiovascular_alta1" class="form-label mb-0">Muerte cardiovascular al alta</label>
+                        <label for="sc_muerte_no_cardiovascular1" class="form-label mb-0">Muerte no cardiovascular al alta</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_muerte_cardiovascular_alta" id="sc_muerte_cardiovascular_alta1" value="Sí">
-                                <label class="form-check-label" for="sc_muerte_cardiovascular_alta1">Sí</label>
+                                <input class="form-check-input" type="radio" name="sc_muerte_no_cardiovascular" id="sc_muerte_no_cardiovascular1" value="Sí">
+                                <label class="form-check-label" for="sc_muerte_no_cardiovascular1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_muerte_cardiovascular_alta" id="sc_muerte_cardiovascular_alta2" value="No">
-                                <label class="form-check-label" for="sc_muerte_cardiovascular_alta2">No</label>
+                                <input class="form-check-input" type="radio" name="sc_muerte_no_cardiovascular" id="sc_muerte_no_cardiovascular2" value="No">
+                                <label class="form-check-label" for="sc_muerte_no_cardiovascular2">No</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-2">
-                        <label for="sc_fecha_muerte_cardiovascular_alta" class="form-label mb-0">Fecha de muerte cardiovascular</label>
-                        <input type="date" name="sc_fecha_muerte_cardiovascular_alta" class="form-control" id="sc_fecha_muerte_cardiovascular_alta">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="sc_muerte_no_cardiovascular_alta1" class="form-label mb-0">Muerte no cardiovascular al alta</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_muerte_no_cardiovascular_alta" id="sc_muerte_no_cardiovascular_alta1" value="Sí">
-                                <label class="form-check-label" for="sc_muerte_no_cardiovascular_alta1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_muerte_no_cardiovascular_alta" id="sc_muerte_no_cardiovascular_alta2" value="No">
-                                <label class="form-check-label" for="sc_muerte_no_cardiovascular_alta2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="sc_fecha_muerte_no_cardiovascular_alta" class="form-label mb-0">Fecha de muerte no cardiovascular</label>
-                        <input type="date" name="sc_fecha_muerte_no_cardiovascular_alta" class="form-control" id="sc_fecha_muerte_no_cardiovascular_alta">
+                        <label for="sc_fecha_muerte_no_cardiovascular" class="form-label mb-0">Fecha de muerte no cardiovascular</label>
+                        <input type="date" name="sc_fecha_muerte_no_cardiovascular" class="form-control" id="sc_fecha_muerte_no_cardiovascular">
                     </div>
 
                     <div class="col-md-6 mb-2">
@@ -2446,144 +2426,6 @@
                         <label for="sc_fecha_acv" class="form-label mb-0">Fecha de ACV</label>
                         <input type="date" name="sc_fecha_acv" class="form-control" id="sc_fecha_acv">
                     </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="sc_shock_cardiogenico1" class="form-label mb-0">Shock Cardiogenico <small class="text-danger">(tipo SCAI)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_shock_cardiogenico" id="sc_shock_cardiogenico1" value="No">
-                                <label class="form-check-label" for="sc_shock_cardiogenico1">No</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_shock_cardiogenico" id="sc_shock_cardiogenico2" value="A">
-                                <label class="form-check-label" for="sc_shock_cardiogenico2">A</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_shock_cardiogenico" id="sc_shock_cardiogenico3" value="B">
-                                <label class="form-check-label" for="sc_shock_cardiogenico3">B</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_shock_cardiogenico" id="sc_shock_cardiogenico4" value="C">
-                                <label class="form-check-label" for="sc_shock_cardiogenico4">C</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_shock_cardiogenico" id="sc_shock_cardiogenico5" value="D">
-                                <label class="form-check-label" for="sc_shock_cardiogenico5">D</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_shock_cardiogenico" id="sc_shock_cardiogenico6" value="E">
-                                <label class="form-check-label" for="sc_shock_cardiogenico6">E</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="sc_fecha_shock_cardiogenico" class="form-label mb-0">Fecha de Dx. de Shock Cardiogenico</label>
-                        <input type="date" name="sc_fecha_shock_cardiogenico" class="form-control" id="sc_fecha_shock_cardiogenico">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="sc_paro_cardiorespiratorio_recuperado1" class="form-label mb-0">Paro Cardio Respiratorio Recuperado</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_paro_cardiorespiratorio_recuperado" id="sc_paro_cardiorespiratorio_recuperado1" value="Si">
-                                <label class="form-check-label" for="sc_paro_cardiorespiratorio_recuperado1">Si</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_paro_cardiorespiratorio_recuperado" id="sc_paro_cardiorespiratorio_recuperado2" value="TV/FV">
-                                <label class="form-check-label" for="sc_paro_cardiorespiratorio_recuperado2">TV/FV</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_paro_cardiorespiratorio_recuperado" id="sc_paro_cardiorespiratorio_recuperado3" value="Asistolia">
-                                <label class="form-check-label" for="sc_paro_cardiorespiratorio_recuperado3">Asistolia</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_paro_cardiorespiratorio_recuperado" id="sc_paro_cardiorespiratorio_recuperado4" value="AESP">
-                                <label class="form-check-label" for="sc_paro_cardiorespiratorio_recuperado4">AESP</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="sc_fecha_paro_cardiorespiratorio_recuperado" class="form-label mb-0">Fecha de Paro Cardio Respiratorio Recuperado</label>
-                        <input type="date" name="sc_fecha_paro_cardiorespiratorio_recuperado" class="form-control" id="sc_fecha_paro_cardiorespiratorio_recuperado">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="sc_ruptura_musculo_papilar1" class="form-label mb-0">Ruptura de Musculo Papilar</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_ruptura_musculo_papilar" id="sc_ruptura_musculo_papilar1" value="No">
-                                <label class="form-check-label" for="sc_ruptura_musculo_papilar1">No</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_ruptura_musculo_papilar" id="sc_ruptura_musculo_papilar2" value="Sí">
-                                <label class="form-check-label" for="sc_ruptura_musculo_papilar2">Sí</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="sc_fecha_ruptura_musculo_papilar" class="form-label mb-0">Fecha de Dx. de Ruptura de Musculo Papilar</label>
-                        <input type="date" name="sc_fecha_ruptura_musculo_papilar" class="form-control" id="sc_fecha_ruptura_musculo_papilar">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="sc_comunicacion_interventricular1" class="form-label mb-0">Comunicación ínterventricular</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_comunicacion_interventricular" id="sc_comunicacion_interventricular1" value="No">
-                                <label class="form-check-label" for="sc_comunicacion_interventricular1">No</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_comunicacion_interventricular" id="sc_comunicacion_interventricular2" value="Sí">
-                                <label class="form-check-label" for="sc_comunicacion_interventricular2">Sí</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="sc_fecha_comunicacion_interventricular" class="form-label mb-0">Fecha de Dx. de Comunicación ínterventricular</label>
-                        <input type="date" name="sc_fecha_comunicacion_interventricular" class="form-control" id="sc_fecha_comunicacion_interventricular">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="sc_ruptura_pared_libre1" class="form-label mb-0">Ruptura de Pared Libre</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_ruptura_pared_libre" id="sc_ruptura_pared_libre1" value="No">
-                                <label class="form-check-label" for="sc_ruptura_pared_libre1">No</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_ruptura_pared_libre" id="sc_ruptura_pared_libre2" value="Sí">
-                                <label class="form-check-label" for="sc_ruptura_pared_libre2">Sí</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="sc_fecha_ruptura_pared_libre" class="form-label mb-0">Fecha de Dx. de Ruptura pared libre</label>
-                        <input type="date" name="sc_fecha_ruptura_pared_libre" class="form-control" id="sc_fecha_ruptura_pared_libre">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="sc_trombosis_stent1" class="form-label mb-0">Trombosis de stent</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_trombosis_stent" id="sc_trombosis_stent1" value="Sí">
-                                <label class="form-check-label" for="sc_trombosis_stent1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_trombosis_stent" id="sc_trombosis_stent2" value="No">
-                                <label class="form-check-label" for="sc_trombosis_stent2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="sc_fecha_trombosis_stent" class="form-label mb-0">Fecha de trombosis de stent</label>
-                        <input type="date" name="sc_fecha_trombosis_stent" class="form-control" id="sc_fecha_trombosis_stent">
-                    </div>
-
                     <div class="col-md-6 mb-2">
                         <label for="sc_rehospitalizacion_falla_cardiaca1" class="form-label mb-0">Rehospitalización por falla cardiaca</label>
                         <div class="form-control radioptions">
@@ -2613,32 +2455,6 @@
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="sc_sangrado" id="sc_sangrado2" value="No">
                                 <label class="form-check-label" for="sc_sangrado2">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 mb-2">
-                        <label for="sc_complicaciones_mecanicas1" class="form-label mb-0 d-block">Complicación mecánicas puesto como variables de seguimiento</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="sc_complicaciones_mecanicas[]" id="sc_complicaciones_mecanicas1" value="No">
-                                <label class="form-check-label" for="sc_complicaciones_mecanicas1">No</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="sc_complicaciones_mecanicas[]" id="sc_complicaciones_mecanicas2" value="Rotura de pared libre o pseudoaneurisma">
-                                <label class="form-check-label" for="sc_complicaciones_mecanicas2">Rotura de pared libre o pseudoaneurisma</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="sc_complicaciones_mecanicas[]" id="sc_complicaciones_mecanicas3" value="Comunicación interventricular">
-                                <label class="form-check-label" for="sc_complicaciones_mecanicas3">Comunicación interventricular</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="sc_complicaciones_mecanicas[]" id="sc_complicaciones_mecanicas4" value="Rotura de músculo papilar">
-                                <label class="form-check-label" for="sc_complicaciones_mecanicas4">Rotura de músculo papilar</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="sc_complicaciones_mecanicas[]" id="sc_complicaciones_mecanicas5" value="Aneurisma ventricular">
-                                <label class="form-check-label" for="sc_complicaciones_mecanicas5">Aneurisma ventricular</label>
                             </div>
                         </div>
                     </div>
@@ -2707,7 +2523,25 @@
                     <div class="col-md-6 mb-2">
                         <label for="sc_fecha_segunda_fevi_alta" class="form-label mb-0">Fecha de segunda medición de fracción de eyección ventricular izquierda</label>
                         <input type="date" name="sc_fecha_segunda_fevi_alta" class="form-control" id="sc_fecha_segunda_fevi_alta">
+                    </div> 
+                    <div class="col-md-6 mb-2">
+                        <label for="sc_reestenosis_stent1" class="form-label mb-0">Re-estenosis de stent</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sc_reestenosis_stent" id="sc_reestenosis_stent1" value="Sí">
+                                <label class="form-check-label" for="sc_reestenosis_stent1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sc_reestenosis_stent" id="sc_reestenosis_stent2" value="No">
+                                <label class="form-check-label" for="sc_reestenosis_stent2">No</label>
+                            </div>
+                        </div>
                     </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="sc_fecha_reestenosis_stent" class="form-label mb-0">Fecha de re-estenosis de stent</label>
+                        <input type="date" name="sc_fecha_reestenosis_stent" class="form-control" id="sc_fecha_reestenosis_stent">
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -2753,9 +2587,9 @@
     });
 
     //Antecedentes
-    const de_antecedentes22 = document.getElementById('dc_antecedentes22');
+    const de_antecedentes21 = document.getElementById('dc_antecedentes21');
     const de_antecedentes_otro = document.getElementById('dc_otro_antecedentes');
-    de_antecedentes22.addEventListener('change', function() {
+    de_antecedentes21.addEventListener('change', function() {
         de_antecedentes_otro.classList.toggle('d-none', !this.checked);
     })
 
@@ -2783,6 +2617,7 @@
         input.addEventListener('change', calcularTiempoDesdeSintomas);
     });
 
+
     //Tiempo desde el primer contacto médico hasta el ECG
     const ea_tpc_ecg = document.getElementById('ea_tpc_ecg');
     const ea_fecha_ecg = document.getElementById('ea_fecha_ecg');
@@ -2805,10 +2640,121 @@
         input.addEventListener('change', calcularTiempoPrimerContactoECG);
     });
 
+    //Al hacer change dis_manejo
+    const dis_manejo = document.getElementById('dis_manejo');
+    const dv_dis_tf = document.getElementById('dv_dis_tf');
+    const dv_dis_lugar_tf = document.getElementById('dv_dis_lugar_tf');
+    const dv_dis_fecha_fibrinolisis = document.getElementById('dv_dis_fecha_fibrinolisis');
+    const dv_dis_tiempo_ecg_fibrinolisis = document.getElementById('dv_dis_tiempo_ecg_fibrinolisis');
+    const dv_dis_tipofibrinolisis = document.getElementById('dv_dis_tipofibrinolisis');
+    const dv_dis_fibrinolisis_exitosa = document.getElementById('dv_dis_fibrinolisis_exitosa');
+    const dv_dis_angioplastia_rescate = document.getElementById('dv_dis_angioplastia_rescate');
+    const dv_dis_fibrinolisis_suspendida = document.getElementById('dv_dis_fibrinolisis_suspendida');
+    const dv_dis_causa_suspension = document.getElementById('dv_dis_causa_suspension');
+    const textContent = document.getElementById('txtfecha_rest_tieisquim');
+
+    dis_manejo.addEventListener('change', function() {
+        //reset radio buttons dentro de los dv_
+        const radios_dv_dis_tf = document.querySelectorAll('#dv_dis_tf input[type="radio"]');
+        radios_dv_dis_tf.forEach(radio => {
+            radio.checked = false;
+        });
+
+        const selects_dv_dis_lugar_tf = document.querySelectorAll('#dv_dis_lugar_tf select');
+        selects_dv_dis_lugar_tf.forEach(select => {
+            select.value = '';
+        });
+
+        const inputs_dv_dis_fecha_fibrinolisis = document.querySelectorAll('#dv_dis_fecha_fibrinolisis input[type="date"], #dv_dis_fecha_fibrinolisis input[type="time"]');
+        inputs_dv_dis_fecha_fibrinolisis.forEach(input => {
+            input.value = '';
+        });
+
+        const inputs_dv_dis_tiempo_ecg_fibrinolisis = document.querySelectorAll('#dv_dis_tiempo_ecg_fibrinolisis input[type="number"]');
+        inputs_dv_dis_tiempo_ecg_fibrinolisis.forEach(input => {
+            input.value = '';
+        });
+
+        const checksbox_dv_dis_tipofibrinolisis = document.querySelectorAll('#dv_dis_tipofibrinolisis input[type="checkbox"]');
+        checksbox_dv_dis_tipofibrinolisis.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+
+        const dis_tipofibrinolisis_otro = document.getElementById('dis_tipofibrinolisis_otro');
+        //limpiar el campo de texto de otro tipo de fibrinolisis
+        dis_tipofibrinolisis_otro.value = '';
+        
+
+        const radios_dv_dis_fibrinolisis_exitosa = document.querySelectorAll('#dv_dis_fibrinolisis_exitosa input[type="radio"]');
+        radios_dv_dis_fibrinolisis_exitosa.forEach(radio => {
+            radio.checked = false;
+        });
+
+        const radios_dv_dis_angioplastia_rescate = document.querySelectorAll('#dv_dis_angioplastia_rescate input[type="radio"]');
+        radios_dv_dis_angioplastia_rescate.forEach(radio => {
+            radio.checked = false;
+        });
+
+        const radios_dv_dis_fibrinolisis_suspendida = document.querySelectorAll('#dv_dis_fibrinolisis_suspendida input[type="radio"]');
+        radios_dv_dis_fibrinolisis_suspendida.forEach(radio => {
+            radio.checked = false;
+        });
+
+        const input_dv_dis_causa_suspension = document.querySelectorAll('#dv_dis_causa_suspension input[type="input"]');
+        input_dv_dis_causa_suspension.forEach(input => {
+            input.value = '';
+        });
+
+        if (this.value === 'Solo lisis' || this.value === 'Farmacoinvasiva + ICP sistemática precoz (2 – 24 horas)' || this.value === 'Farmacoinvasiva + ICP sistemática (> 24 horas)' || this.value === 'Lisis + ICP de Rescate') {
+            dv_dis_tf.classList.remove('d-none');
+            dv_dis_lugar_tf.classList.remove('d-none');
+            dv_dis_fecha_fibrinolisis.classList.remove('d-none');
+            dv_dis_tiempo_ecg_fibrinolisis.classList.remove('d-none');
+            dv_dis_tipofibrinolisis.classList.remove('d-none');
+            dv_dis_fibrinolisis_exitosa.classList.remove('d-none');
+            dv_dis_angioplastia_rescate.classList.remove('d-none');
+            dv_dis_fibrinolisis_suspendida.classList.remove('d-none');
+            dv_dis_causa_suspension.classList.remove('d-none');
+            txtfecha_rest_tieisquim.textContent = 'Fecha y hora de fibrinólisis';
+        } else {
+            dv_dis_tf.classList.add('d-none');
+            dv_dis_lugar_tf.classList.add('d-none');
+            dv_dis_fecha_fibrinolisis.classList.add('d-none');
+            dv_dis_tiempo_ecg_fibrinolisis.classList.add('d-none');
+            dv_dis_tipofibrinolisis.classList.add('d-none');
+            dv_dis_fibrinolisis_exitosa.classList.add('d-none');
+            dv_dis_angioplastia_rescate.classList.add('d-none');
+            dv_dis_fibrinolisis_suspendida.classList.add('d-none');
+            dv_dis_causa_suspension.classList.add('d-none');
+            txtfecha_rest_tieisquim.textContent = 'Fecha y hora de inicio de ICP';
+
+            if(this.value === 'Solo tratamiento médico') {
+                const dis_puntaje_grace = document.getElementById('dis_puntaje_grace');
+                //focus
+                dis_puntaje_grace.focus();
+            }
+
+        }
+
+        calcularTiempoTotalIsquemia();
+    });
+
+    //Activar Dis Dosis check box name'dis_tipofibrinolisis[]'
+    const dis_tipofibrinolisis = document.getElementsByName('dis_tipofibrinolisis[]');
+    dv_dis_tipofibrinolisis_dosis = document.getElementById('dv_dis_tipofibrinolisis_dosis');
+    dis_tipofibrinolisis.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            dv_dis_tipofibrinolisis_dosis.classList.toggle('d-none', !this.checked);
+        });
+    });
+
+
+
     //Al hacer change en ea_diagnostico
     const ea_diagnostico = document.getElementById('ea_diagnostico');
     const dv_ea_diagnostico_st = document.getElementById('dv_ea_diagnostico_st');
-    const dv_ea_diagnostico_st_elevado = document.getElementById('dv_ea_diagnostico_st_elevado');
+    const dv_ea_evaluacion_riesgo = document.getElementById('dv_ea_evaluacion_riesgo');
+    const dv_ea_heart_score = document.getElementById('dv_ea_heart_score');
 
     ea_diagnostico.addEventListener('change', function() {
         //reset radio buttons dentro de los dv_
@@ -2817,43 +2763,48 @@
             radio.checked = false;
         });
 
-        const radios_dv_ea_diagnostico_st_elevado = document.querySelectorAll('#dv_ea_diagnostico_st_elevado input[type="radio"]');
-        radios_dv_ea_diagnostico_st_elevado.forEach(radio => {
+        const radios_dv_ea_evaluacion_riesgo = document.querySelectorAll('#dv_ea_evaluacion_riesgo input[type="radio"]');
+        radios_dv_ea_evaluacion_riesgo.forEach(radio => {
             radio.checked = false;
         });
 
-        if (this.value === 'IAM con elevacion del ST') {
-            dv_ea_diagnostico_st.classList.add('d-none');
-            dv_ea_diagnostico_st_elevado.classList.remove('d-none');
-        } else if (this.value === 'Sindrome coronario agudo ST no elevado') {
+        const selects_dv_ea_heart_score = document.querySelectorAll('#dv_ea_heart_score select');
+        selects_dv_ea_heart_score.forEach(select => {
+            select.value = '';
+        });
+
+        if (this.value === 'Sindrome coronario agudo ST no elevado') {
             dv_ea_diagnostico_st.classList.remove('d-none');
-            dv_ea_diagnostico_st_elevado.classList.add('d-none');
+            dv_ea_evaluacion_riesgo.classList.remove('d-none');
+            dv_ea_heart_score.classList.remove('d-none');
+            
         }else{
             dv_ea_diagnostico_st.classList.add('d-none');
-            dv_ea_diagnostico_st_elevado.classList.add('d-none');
+            dv_ea_evaluacion_riesgo.classList.add('d-none');
+            dv_ea_heart_score.classList.add('d-none');
         }
     });
 
     //Calcular IMC
-    const ea_peso = document.getElementById('ea_peso');
-    const ea_talla = document.getElementById('ea_talla');
-    const ea_imc = document.getElementById('ea_imc');
+    const dc_peso = document.getElementById('dc_peso');
+    const dc_talla = document.getElementById('dc_talla');
+    const dc_imc = document.getElementById('dc_imc');
     function calcularIMC() {
         // Asegurarse de que la altura no sea cero para evitar división por cero
-        if(ea_talla.value <= 0){
-            ea_imc.value = '';
+        if(dc_talla.value <= 0){
+            dc_imc.value = '';
             return;
         }
 
         // Calcular el IMC
-        const imc = ea_peso.value / (ea_talla.value ** 2);
+        const imc = dc_peso.value / (dc_talla.value ** 2);
 
         // Mostrar el resultado en el campo de texto
-        ea_imc.value = imc.toFixed(2);
+        dc_imc.value = imc.toFixed(2);
 
     }
     // Agregar eventos
-    [ea_peso, ea_talla].forEach(input => {
+    [dc_peso, dc_talla].forEach(input => {
         input.addEventListener('keyup', calcularIMC);
     });
 
@@ -2908,17 +2859,26 @@
     });
 
     //Tiempo del door-in al door-out
+
+    const ea_cpcm_fecha_ingreso = document.getElementById('ea_cpcm_fecha_ingreso');
+    const ea_cpcm_hora_ingreso = document.getElementById('ea_cpcm_hora_ingreso');
+
     const dis_tiempo_doorin_doorout = document.getElementById('dis_tiempo_doorin_doorout');
     const dis_fecha_salida_antes_icp = document.getElementById('dis_fecha_salida_antes_icp');
     const dis_hora_salida_antes_icp = document.getElementById('dis_hora_salida_antes_icp');
     const dis_fecha_llegada_centro_icp = document.getElementById('dis_fecha_llegada_centro_icp');
     const dis_hora_llegada_centro_icp = document.getElementById('dis_hora_llegada_centro_icp');
-    function calcularTiempoDoorInDoorOut() {
-        const fechaSalidaAntesICP = new Date(dis_fecha_salida_antes_icp.value + 'T' + dis_hora_salida_antes_icp.value);
-        const fechaLlegadaCentroICP = new Date(dis_fecha_llegada_centro_icp.value + 'T' + dis_hora_llegada_centro_icp.value);
 
-        if (!isNaN(fechaSalidaAntesICP) && !isNaN(fechaLlegadaCentroICP)) {
-            const diff = fechaLlegadaCentroICP - fechaSalidaAntesICP;
+
+    
+    function calcularTiempoDoorInDoorOut() {
+
+        //Fecha y hora al centro de primer contacto medico
+        const fechaPrimerContacto = new Date(ea_cpcm_fecha_ingreso.value + 'T' + ea_cpcm_hora_ingreso.value);
+        const fechaSalidaAntesICP = new Date(dis_fecha_salida_antes_icp.value + 'T' + dis_hora_salida_antes_icp.value);
+
+        if (!isNaN(fechaSalidaAntesICP) && !isNaN(fechaPrimerContacto)) {
+            const diff =  fechaSalidaAntesICP - fechaPrimerContacto;
             const minutos = Math.floor(diff / 1000 / 60);
             dis_tiempo_doorin_doorout.value = minutos >= 0 ? minutos : 0; // Asegurarse de no mostrar minutos negativos
         } else {
@@ -2926,21 +2886,71 @@
         }
     }
     // Agregar eventos
-    inputs.push(dis_fecha_salida_antes_icp, dis_hora_salida_antes_icp, dis_fecha_llegada_centro_icp, dis_hora_llegada_centro_icp);
+    inputs.push(ea_cpcm_fecha_ingreso, ea_cpcm_hora_ingreso, dis_fecha_salida_antes_icp, dis_hora_salida_antes_icp, dis_fecha_llegada_centro_icp, dis_hora_llegada_centro_icp);
     inputs.forEach(input => {
         input.addEventListener('change', calcularTiempoDoorInDoorOut);
     });
 
+    //¿Fue transferido para ICP?  radio NAME 'dis_fuetransferido_icp'
+    const dis_fuetransferido_icp = document.getElementsByName('dis_fuetransferido_icp');
+    //accion para obtener el valor de los radio buttons
+    dis_fuetransferido_icp.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+
+            const div_dis_lugar_transferencia_icp = document.getElementById('div_dis_lugar_transferencia_icp');
+            const div_dis_fecha_salida_antes_icp = document.getElementById('div_dis_fecha_salida_antes_icp');
+            const div_dis_tiempo_doorin_doorout = document.getElementById('div_dis_tiempo_doorin_doorout');
+            const div_dis_fecha_llegada_centro_icp = document.getElementById('div_dis_fecha_llegada_centro_icp');
+            const div_dis_tiepo_transporte_icp = document.getElementById('div_dis_tiepo_transporte_icp');
+            const div_dis_modo_transporte_icp = document.getElementById('div_dis_modo_transporte_icp');
+
+
+            const div_dis_containers = [
+                '#div_dis_lugar_transferencia_icp',
+                '#div_dis_fecha_salida_antes_icp',
+                '#div_dis_tiempo_doorin_doorout',
+                '#div_dis_fecha_llegada_centro_icp',
+                '#div_dis_tiepo_transporte_icp',
+                '#div_dis_modo_transporte_icp'
+            ];
+
+            div_dis_containers.forEach(selector => {
+                document.querySelectorAll(`${selector} select, ${selector} input`).forEach(element => {
+                    element.value = '';
+                });
+            });
+
+
+
+            if(radio.value === 'No'){
+                //Agregar la clase d-none
+                div_dis_lugar_transferencia_icp.classList.add('d-none');
+                div_dis_fecha_salida_antes_icp.classList.add('d-none');
+                div_dis_tiempo_doorin_doorout.classList.add('d-none');
+                div_dis_fecha_llegada_centro_icp.classList.add('d-none');
+                div_dis_tiepo_transporte_icp.classList.add('d-none');
+                div_dis_modo_transporte_icp.classList.add('d-none');
+            }else{
+                //Eliminar la clase d-none
+                div_dis_lugar_transferencia_icp.classList.remove('d-none');
+                div_dis_fecha_salida_antes_icp.classList.remove('d-none');
+                div_dis_tiempo_doorin_doorout.classList.remove('d-none');
+                div_dis_fecha_llegada_centro_icp.classList.remove('d-none');
+                div_dis_tiepo_transporte_icp.classList.remove('d-none');
+                div_dis_modo_transporte_icp.classList.remove('d-none');
+            }
+        });
+    });
+
+
     //Tiempo promedio de transporte al lugar de la ICP
     const dis_tiepo_transporte_icp = document.getElementById('dis_tiepo_transporte_icp');
-    const dis_fecha_inicio_icp = document.getElementById('dis_fecha_inicio_icp');
-    const dis_hora_inicio_icp = document.getElementById('dis_hora_inicio_icp');
     function calcularTiempoPromedioTransporteICP() {
-        const fechaInicioICP = new Date(dis_fecha_inicio_icp.value + 'T' + dis_hora_inicio_icp.value);
+        const fechasalidaAntesICP = new Date(dis_fecha_salida_antes_icp.value + 'T' + dis_hora_salida_antes_icp.value);
         const fechaLlegadaCentroICP = new Date(dis_fecha_llegada_centro_icp.value + 'T' + dis_hora_llegada_centro_icp.value);
 
-        if (!isNaN(fechaInicioICP) && !isNaN(fechaLlegadaCentroICP)) {
-            const diff =  fechaInicioICP - fechaLlegadaCentroICP;
+        if (!isNaN(fechasalidaAntesICP) && !isNaN(fechaLlegadaCentroICP)) {
+            const diff =  fechaLlegadaCentroICP - fechasalidaAntesICP;
             const minutos = Math.floor(diff / 1000 / 60);
             dis_tiepo_transporte_icp.value = minutos >= 0 ? minutos : 0; // Asegurarse de no mostrar minutos negativos
         } else {
@@ -2948,10 +2958,189 @@
         }
     }
     // Agregar eventos
-    inputs.push(dis_fecha_inicio_icp, dis_hora_inicio_icp);
+    inputs.push(dis_fecha_salida_antes_icp, dis_hora_salida_antes_icp, dis_fecha_llegada_centro_icp, dis_hora_llegada_centro_icp);
     inputs.forEach(input => {
         input.addEventListener('change', calcularTiempoPromedioTransporteICP);
     });
+
+    // Tiempo Duración de la ICP
+    const dis_duracion_icp = document.getElementById('dis_duracion_icp');
+    const dis_fecha_inicio_icp = document.getElementById('dis_fecha_inicio_icp');
+    const dis_hora_inicio_icp = document.getElementById('dis_hora_inicio_icp');
+    const dis_fecha_fin_icp = document.getElementById('dis_fecha_fin_icp');
+    const dis_hora_fin_icp = document.getElementById('dis_hora_fin_icp');
+
+    function calcularDuracionICP() {
+        const fechaInicioICP = new Date(dis_fecha_inicio_icp.value + 'T' + dis_hora_inicio_icp.value);
+        const fechaFinICP = new Date(dis_fecha_fin_icp.value + 'T' + dis_hora_fin_icp.value);
+
+        if (!isNaN(fechaInicioICP) && !isNaN(fechaFinICP)) {
+            const diff =  fechaFinICP - fechaInicioICP;
+            const minutos = Math.floor(diff / 1000 / 60);
+            dis_duracion_icp.value = minutos >= 0 ? minutos : 0; // Asegurarse de no mostrar minutos negativos
+        } else {
+            dis_duracion_icp.value = ''; // Limpiar el campo si hay un error
+        }
+    }
+
+    // Agregar eventos
+    inputs.push(dis_fecha_inicio_icp, dis_hora_inicio_icp, dis_fecha_fin_icp, dis_hora_fin_icp);
+    inputs.forEach(input => {
+        input.addEventListener('change', calcularDuracionICP);
+    });
+
+
+     //Tiempo total de isquemia
+     const dis_tt_isquemia = document.getElementById('dis_tt_isquemia');
+     function calcularTiempoTotalIsquemia() {
+        const fechaIniciosintomas = new Date(ea_fecha_iniciosintomas.value + 'T' + ea_hora_iniciosintomas.value);
+        const fechaFibrinolisis = new Date(dis_fecha_fibrinolisis.value + 'T' + dis_hora_fibrinolisis.value);
+        const fechaInicioICP = new Date(dis_fecha_inicio_icp.value + 'T' + dis_hora_inicio_icp.value);
+ 
+        const valDismanejo = dis_manejo.value;
+
+        if(valDismanejo === 'Solo lisis' || valDismanejo === 'Farmacoinvasiva + ICP sistemática precoz (2 – 24 horas)' || valDismanejo === 'Farmacoinvasiva + ICP sistemática (> 24 horas)' || valDismanejo === 'Lisis + ICP de Rescate'){
+            if (!isNaN(fechaIniciosintomas) && !isNaN(fechaFibrinolisis)) {
+                const diff = fechaFibrinolisis - fechaIniciosintomas;
+                const minutos = Math.floor(diff / 1000 / 60);
+                dis_tt_isquemia.value = minutos >= 0 ? minutos : 0; // Asegurarse de no mostrar minutos negativos
+            } else {
+                dis_tt_isquemia.value = ''; // Limpiar el campo si hay un error
+            }
+        }else{
+            if(!isNaN(fechaIniciosintomas) && !isNaN(fechaInicioICP)){
+                const diff = fechaInicioICP - fechaIniciosintomas;
+                const minutos = Math.floor(diff / 1000 / 60);
+                dis_tt_isquemia.value = minutos >= 0 ? minutos : 0; // Asegurarse de no mostrar minutos negativos
+            }else{
+                dis_tt_isquemia.value = ''; // Limpiar el campo si hay un error
+            }
+        }
+     }
+
+    // Agregar eventos
+    inputs.push(ea_fecha_iniciosintomas, ea_hora_iniciosintomas, dis_fecha_fibrinolisis, dis_hora_fibrinolisis, dis_fecha_inicio_icp, dis_hora_inicio_icp);
+    inputs.forEach(input => {
+        input.addEventListener('change', calcularTiempoTotalIsquemia);
+    });
+
+
+    //Otra estenosis coronaria
+    const dis_otrastenosis_coronaria = document.getElementsByName('dis_otrastenosis_coronaria');
+    dis_otrastenosis_coronaria.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            const div_dis_otrastenosis_coronaria_lesiones = document.getElementById('div_dis_otrastenosis_coronaria_lesiones');
+
+            //Clean check box in div_dis_otrastenosis_coronaria_lesiones
+            const checksbox_dis_otrastenosis_coronaria_lesiones = document.querySelectorAll('#div_dis_otrastenosis_coronaria_lesiones input[type="checkbox"]');
+            checksbox_dis_otrastenosis_coronaria_lesiones.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+
+            if(this.value === 'Sí'){
+                div_dis_otrastenosis_coronaria_lesiones.classList.remove('d-none');
+            }else{
+                div_dis_otrastenosis_coronaria_lesiones.classList.add('d-none');
+            }
+        });
+    });
+
+    //ICP de otras lesiones
+    const dis_icp_otras_lesiones = document.getElementsByName('dis_icp_otras_lesiones');
+    dis_icp_otras_lesiones.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            const div_dis_icp_otras_lesiones_lesiones = document.getElementById('div_dis_icp_otras_lesiones_lesiones');
+
+            //Clean check box in div_dis_icp_otras_lesiones_lesiones
+            const checksbox_dis_icp_otras_lesiones_lesiones = document.querySelectorAll('#div_dis_icp_otras_lesiones_lesiones input[type="checkbox"]');
+            checksbox_dis_icp_otras_lesiones_lesiones.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+
+            if(this.value === 'Sí'){
+                div_dis_icp_otras_lesiones_lesiones.classList.remove('d-none');
+            }else{
+                div_dis_icp_otras_lesiones_lesiones.classList.add('d-none');
+            }
+        });
+    });
+
+
+    //CABG
+    const dis_cabg = document.getElementsByName('dis_cabg');
+    dis_cabg.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            const div_dis_motivo_cabg = document.getElementById('div_dis_motivo_cabg');
+
+            //Clean select and input in div_dis_motivo_cabg
+            const select_dis_motivo_cabg = document.querySelectorAll('#div_dis_motivo_cabg select');
+            select_dis_motivo_cabg.forEach(select => {
+                select.value = '';
+            });
+
+            const input_dis_motivo_cabg_otro = document.querySelectorAll('#div_dis_motivo_cabg input[type="text"]');
+            input_dis_motivo_cabg_otro.forEach(input => {
+                input.value = '';
+            });
+
+            if(this.value === 'Sí'){
+                div_dis_motivo_cabg.classList.remove('d-none');
+            }else{
+                div_dis_motivo_cabg.classList.add('d-none');
+            }
+
+        });
+    });
+
+    //dci_sangrado_segun_barc
+    const dci_sangrado_segun_barc = document.getElementsByName('dci_sangrado_segun_barc');
+    const div_dci_sangrado_segun_barc_tipo = document.getElementById('div_dci_sangrado_segun_barc_tipo');
+    dci_sangrado_segun_barc.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            //reset radio buttons dentro de los div_
+            const radios_div_dci_sangrado_segun_barc_tipo = document.querySelectorAll('#div_dci_sangrado_segun_barc_tipo input[type="radio"]');
+            radios_div_dci_sangrado_segun_barc_tipo.forEach(radio => {
+                radio.checked = false;
+            });
+
+            if (this.value === '3' || this.value === '5') {
+                div_dci_sangrado_segun_barc_tipo.classList.remove('d-none');
+            } else {
+                div_dci_sangrado_segun_barc_tipo.classList.add('d-none');
+            }
+
+            //la div_dci_sangrado_segun_barc_tipo3 solo mostrar cuando marca 3
+            const div_dci_sangrado_segun_barc_tipo3 = document.getElementById('div_dci_sangrado_segun_barc_tipo3');
+            div_dci_sangrado_segun_barc_tipo3.classList.toggle('d-none', this.value !== '3');
+
+        });
+    });
+
+    //Dias de Hospitalización
+    const dci_dias_hospitalizacion = document.getElementById('dci_dias_hospitalizacion');
+    const dci_fecha_de_alta = document.getElementById('dci_fecha_de_alta');
+
+    function calcularDiasHospitalizacion() {
+        //00 horas
+        const fechaIngreso = new Date(ea_cpcm_fecha_ingreso.value + 'T00:00');
+        //23:59 horas
+        const fechaAlta = new Date(dci_fecha_de_alta.value + 'T23:59');
+
+        if (!isNaN(fechaIngreso) && !isNaN(fechaAlta)) {
+            const diff = fechaAlta - fechaIngreso;
+            const dias = Math.floor(diff / 1000 / 60 / 60 / 24);
+            dci_dias_hospitalizacion.value = dias >= 0 ? dias : 0; // Asegurarse de no mostrar días negativos
+        } else {
+            dci_dias_hospitalizacion.value = ''; // Limpiar el campo si hay un error
+        }
+    }
+
+    // Agregar eventos
+    inputs.push(dci_fecha_de_alta, ea_cpcm_fecha_ingreso);
+    inputs.forEach(input => {
+        input.addEventListener('change', calcularDiasHospitalizacion);
+    });
+
 
     //Complicaciones de la ICP Otro
     const dis_complicaciones_dela_icp13 = document.getElementById('dis_complicaciones_dela_icp13');
@@ -2980,8 +3169,8 @@
         if (!isOtro) dis_motivo_cabg_otro.value = '';
     });
 
+
     //Sangrado según BARC
-    //radio name 'sc_sangrado_segun_barc'
     const sc_sangrado_segun_barc = document.getElementsByName('sc_sangrado_segun_barc');
     const dv_sc_sangrado_barc_tipo = document.getElementById('dv_sc_sangrado_barc_tipo');
     sc_sangrado_segun_barc.forEach(function(radio) {
