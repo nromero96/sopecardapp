@@ -249,10 +249,10 @@
                                 <input class="form-check-input" type="checkbox" name="dc_antecedentes[]" id="dc_antecedentes16" value="Enfermedad renal crónica">
                                 <label class="form-check-label" for="dc_antecedentes16">Enfermedad renal crónica</label>
                             </div>
-                            <div class="form-check form-check-inline d-block">
+                            {{-- <div class="form-check form-check-inline d-block">
                                 <input class="form-check-input" type="checkbox" name="dc_antecedentes[]" id="dc_antecedentes17" value="COVID-19">
                                 <label class="form-check-label" for="dc_antecedentes17">COVID-19</label>
-                            </div>
+                            </div> --}}
                             <div class="form-check form-check-inline d-block">
                                 <input class="form-check-input" type="checkbox" name="dc_antecedentes[]" id="dc_antecedentes18" value="hiperuricemia">
                                 <label class="form-check-label" for="dc_antecedentes18">Hiperuricemia</label>
@@ -300,7 +300,7 @@
                         <input type="text" name="ea_cpcm" class="form-control" id="ea_cpcm">
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="ea_cpcm_fecha_ingreso" class="form-label mb-0">Fecha y hora al centro de primer contacto medico </label>
+                        <label for="ea_cpcm_fecha_ingreso" class="form-label mb-0">Fecha y hora de llegada al centro del primer contacto médico </label>
                         <div class="row">
                             <div class="col-8 col-md-8 pr-0">
                                 <input type="date" name="ea_cpcm_fecha_ingreso" class="form-control rounded-left" id="ea_cpcm_fecha_ingreso" style="border-radius: 0px;">
@@ -641,6 +641,32 @@
                     </div>
 
                     <div class="col-md-12 mb-2">
+                        <label for="ecg_otros_hallazgos1" class="form-label mb-0">Otros Hallazgos</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="ecg_otros_hallazgos[]" id="ecg_otros_hallazgos1" value="BCRDHH">
+                                <label class="form-check-label" for="ecg_otros_hallazgos1">BCRDHH</label>
+                            </div>
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="ecg_otros_hallazgos[]" id="ecg_otros_hallazgos2" value="BCRIHH">
+                                <label class="form-check-label" for="ecg_otros_hallazgos2">BCRIHH</label>
+                            </div>
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="ecg_otros_hallazgos[]" id="ecg_otros_hallazgos3" value="BCRIHH Sgarbosa positivo">
+                                <label class="form-check-label" for="ecg_otros_hallazgos3">BCRIHH Sgarbosa positivo</label>
+                            </div>
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="ecg_otros_hallazgos[]" id="ecg_otros_hallazgos4" value="Bandera Sudafricana">
+                                <label class="form-check-label" for="ecg_otros_hallazgos4">Bandera Sudafricana</label>
+                            </div>
+                            <div class="form-check-inline d-block">
+                                <input class="form-check-input" type="checkbox" name="ecg_otros_hallazgos[]" id="ecg_otros_hallazgos5" value="Patrón de TCI o multivaso">
+                                <label class="form-check-label" for="ecg_otros_hallazgos5">Patrón de TCI o multivaso</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mb-2">
                         <label for="ecg_otro" class="form-label mb-0">Otro</label>
                         <input type="text" name="ecg_otro" class="form-control" id="ecg_otro">
                     </div>
@@ -666,7 +692,7 @@
                                 <option value="Farmacoinvasiva + ICP sistemática precoz (2 – 24 horas)">Farmacoinvasiva + ICP sistemática precoz (2 – 24 horas)</option>
                                 <option value="Farmacoinvasiva + ICP sistemática (> 24 horas)">Farmacoinvasiva + ICP sistemática (> 24 horas)</option>
                                 <option value="Lisis + ICP de Rescate">Lisis + ICP de Rescate</option>
-                                <option value="Intervención coronaria percutánea primaria (< 120 minutos)">ervención coronaria percutánea primaria (< 120 minutos)</option>
+                                <option value="Intervención coronaria percutánea primaria (< 120 minutos)">Intervención coronaria percutánea primaria (< 120 minutos)</option>
                                 <option value="Intervención coronaria percutánea primaria (121 minutos - 12 horas)">Intervención coronaria percutánea primaria (121 minutos - 12 horas)</option>
                                 <option value="Intervención coronaria percutánea primaria (> 12 horas)">Intervención coronaria percutánea primaria (> 12 horas)</option>
                             </optgroup>
@@ -861,7 +887,7 @@
                     <div class="col-md-6 mb-2" id="div_dis_tiempo_doorin_doorout">
                         <label for="dis_tiempo_doorin_doorout" class="form-label mb-0">Tiempo del door-in al door-out <small class="text-danger">(minutos)</small></label>
                         <input type="number" name="dis_tiempo_doorin_doorout" class="form-control" id="dis_tiempo_doorin_doorout" placeholder="" readonly>
-                        <small class="infotext">Fecha y hora de salida antes de la ICP - Fecha y hora al centro de primer contacto medico</small>
+                        <small class="infotext">Fecha y hora de salida antes de la ICP - Fecha y hora de llegada al centro del primer contacto médico</small>
                     </div>
 
                     <div class="col-md-6 mb-2" id="div_dis_fecha_llegada_centro_icp">
@@ -1164,8 +1190,8 @@
                         <label for="dis_otrastenosis_coronaria_lesiones1" class="form-label mb-0">Señale que otras lesiones severas (> 70%)estan presentes</label>
                         <div class="form-control radioptions">
                             <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones1" value="Trono coronario izquierdo">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones1">Trono coronario izquierdo</label>
+                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones1" value="Tronco coronario izquierdo">
+                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones1">Tronco coronario izquierdo</label>
                             </div>
                             <div class="form-check-inline d-block">
                                 <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones2" value="Descendente anterior">
@@ -1233,8 +1259,8 @@
                         <label for="dis_icp_otras_lesiones_lesiones1" class="form-label mb-0">Señale que otras lesiones se hizo ICP</label>
                         <div class="form-control radioptions">
                             <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones1" value="Trono coronario izquierdo">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones1">Trono coronario izquierdo</label>
+                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones1" value="Tronco coronario izquierdo">
+                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones1">Tronco coronario izquierdo</label>
                             </div>
                             <div class="form-check form-check-inline d-block">
                                 <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones2" value="Descendente anterior">
@@ -1445,6 +1471,10 @@
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y123" value="Ticagrelor">
                                 <label class="form-check-label" for="ti_ip2y123">Ticagrelor</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y124" value="No">
+                                <label class="form-check-label" for="ti_ip2y124">No</label>
                             </div>
                         </div>
                     </div>
@@ -1910,12 +1940,20 @@
                         <label for="dci_acv1" class="form-label mb-0">ACV</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv1" value="Sí">
-                                <label class="form-check-label" for="dci_acv1">Sí</label>
+                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv1" value="TIA">
+                                <label class="form-check-label" for="dci_acv1">TIA</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv2" value="No">
-                                <label class="form-check-label" for="dci_acv2">No</label>
+                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv2" value="Isquemico">
+                                <label class="form-check-label" for="dci_acv2">Isquemico</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv3" value="Hemorragico">
+                                <label class="form-check-label" for="dci_acv3">Hemorragico</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv4" value="No">
+                                <label class="form-check-label" for="dci_acv4">No</label>
                             </div>
                         </div>
                     </div>
@@ -1990,17 +2028,6 @@
                         <input type="date" name="dci_fecha_sangrado" class="form-control" id="dci_fecha_sangrado">
                     </div>
 
-                    <div class="col-md-6 mb-2">
-                        <label for="dci_fecha_de_alta" class="form-label mb-0">Fecha de Alta </label>
-                        <input type="date" name="dci_fecha_de_alta" class="form-control" id="dci_fecha_de_alta">
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                        <label for="dci_dias_hospitalizacion" class="form-label mb-0">Dias de Hospitalización </label>
-                        <input type="number" name="dci_dias_hospitalizacion" class="form-control" id="dci_dias_hospitalizacion" readonly>
-                        <small class="infotext">Fecha de Alta - Fecha y hora al centro de primer contacto medico</small>
-                    </div>
-
                     <div class="col-md-6"></div>
 
                     <div class="col-md-6 mb-2">
@@ -2042,8 +2069,8 @@
                         <label for="dci_paro_cardiorespiratorio_recuperado1" class="form-label mb-0">Paro Cardio Respiratorio Recuperado</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_paro_cardiorespiratorio_recuperado" id="dci_paro_cardiorespiratorio_recuperado1" value="Si">
-                                <label class="form-check-label" for="dci_paro_cardiorespiratorio_recuperado1">Si</label>
+                                <input class="form-check-input" type="radio" name="dci_paro_cardiorespiratorio_recuperado" id="dci_paro_cardiorespiratorio_recuperado1" value="No">
+                                <label class="form-check-label" for="dci_paro_cardiorespiratorio_recuperado1">No</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="dci_paro_cardiorespiratorio_recuperado" id="dci_paro_cardiorespiratorio_recuperado2" value="TV/FV">
@@ -2126,12 +2153,12 @@
                         <label for="dci_aneurisma_ventricular1" class="form-label mb-0">Aneurisma Ventricular</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_aneurisma_ventricular" id="dci_aneurisma_ventricular1" value="Sí">
-                                <label class="form-check-label" for="dci_aneurisma_ventricular1">Sí</label>
+                                <input class="form-check-input" type="radio" name="dci_aneurisma_ventricular" id="dci_aneurisma_ventricular1" value="No">
+                                <label class="form-check-label" for="dci_aneurisma_ventricular1">No</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_aneurisma_ventricular" id="dci_aneurisma_ventricular2" value="No">
-                                <label class="form-check-label" for="dci_aneurisma_ventricular2">No</label>
+                                <input class="form-check-input" type="radio" name="dci_aneurisma_ventricular" id="dci_aneurisma_ventricular2" value="Sí">
+                                <label class="form-check-label" for="dci_aneurisma_ventricular2">Sí</label>
                             </div>
                         </div>
                     </div>
@@ -2146,12 +2173,12 @@
                         <label for="dci_trombosis_stent1" class="form-label mb-0">Trombosis de stent</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_trombosis_stent" id="dci_trombosis_stent1" value="Sí">
-                                <label class="form-check-label" for="dci_trombosis_stent1">Sí</label>
+                                <input class="form-check-input" type="radio" name="dci_trombosis_stent" id="dci_trombosis_stent1" value="No">
+                                <label class="form-check-label" for="dci_trombosis_stent1">No</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_trombosis_stent" id="dci_trombosis_stent2" value="No">
-                                <label class="form-check-label" for="dci_trombosis_stent2">No</label>
+                                <input class="form-check-input" type="radio" name="dci_trombosis_stent" id="dci_trombosis_stent2" value="Sí">
+                                <label class="form-check-label" for="dci_trombosis_stent2">Sí</label>
                             </div>
                         </div>
                     </div>
@@ -2160,6 +2187,18 @@
                         <label for="dci_fecha_trombosis_stent" class="form-label mb-0">Fecha de trombosis de stent</label>
                         <input type="date" name="dci_fecha_trombosis_stent" class="form-control" id="dci_fecha_trombosis_stent">
                     </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_fecha_de_alta" class="form-label mb-0">Fecha de Alta </label>
+                        <input type="date" name="dci_fecha_de_alta" class="form-control" id="dci_fecha_de_alta">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="dci_dias_hospitalizacion" class="form-label mb-0">Dias de Hospitalización </label>
+                        <input type="number" name="dci_dias_hospitalizacion" class="form-control" id="dci_dias_hospitalizacion" readonly>
+                        <small class="infotext">Fecha de Alta - Fecha y hora de llegada al centro del primer contacto médico</small>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -2199,6 +2238,10 @@
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="ma_ip2y12" id="ma_ip2y123" value="Ticagrelor">
                                 <label class="form-check-label" for="ma_ip2y123">Ticagrelor</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ma_ip2y12" id="ma_ip2y124" value="No">
+                                <label class="form-check-label" for="ma_ip2y124">No</label>
                             </div>
                         </div>
                     </div>
@@ -2419,6 +2462,10 @@
                                 <input class="form-check-input" type="radio" name="sc_acv" id="sc_acv3" value="Hemorragico">
                                 <label class="form-check-label" for="sc_acv3">Hemorragico</label>
                             </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sc_acv" id="sc_acv4" value="No">
+                                <label class="form-check-label" for="sc_acv4">No</label>
+                            </div>
                         </div>
                     </div>
 
@@ -2541,7 +2588,23 @@
                         <label for="sc_fecha_reestenosis_stent" class="form-label mb-0">Fecha de re-estenosis de stent</label>
                         <input type="date" name="sc_fecha_reestenosis_stent" class="form-control" id="sc_fecha_reestenosis_stent">
                     </div>
-
+                    <div class="col-md-6 mb-2">
+                        <label for="sc_trombosis_stent1" class="form-label mb-0">Trombosis de stent</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sc_trombosis_stent" id="sc_trombosis_stent1" value="Sí">
+                                <label class="form-check-label" for="sc_trombosis_stent1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sc_trombosis_stent" id="sc_trombosis_stent2" value="No">
+                                <label class="form-check-label" for="sc_trombosis_stent2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="sc_fecha_trombosis_stent" class="form-label mb-0">Fecha de trombosis de stent</label>
+                        <input type="date" name="sc_fecha_trombosis_stent" class="form-control" id="sc_fecha_trombosis_stent">
+                    </div>
                 </div>
             </div>
         </div>
@@ -2873,7 +2936,7 @@
     
     function calcularTiempoDoorInDoorOut() {
 
-        //Fecha y hora al centro de primer contacto medico
+        //Fecha y hora de llegada al centro del primer contacto médico
         const fechaPrimerContacto = new Date(ea_cpcm_fecha_ingreso.value + 'T' + ea_cpcm_hora_ingreso.value);
         const fechaSalidaAntesICP = new Date(dis_fecha_salida_antes_icp.value + 'T' + dis_hora_salida_antes_icp.value);
 

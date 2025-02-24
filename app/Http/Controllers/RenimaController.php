@@ -153,6 +153,13 @@ class RenimaController extends Controller
                 $renima->ecg_scasest = '';
             }
 
+            $ecg_otros_hallazgos = $request->ecg_otros_hallazgos;
+            if(!empty($ecg_otros_hallazgos)){
+                $renima->ecg_otros_hallazgos = implode(',', $ecg_otros_hallazgos);
+            }else{
+                $renima->ecg_otros_hallazgos = '';
+            }
+
             $renima->ecg_otro = $request->ecg_otro;
 
         //Datos del manejo de intervención en IAMCEST y SCASEST (dis_)
@@ -304,8 +311,6 @@ class RenimaController extends Controller
             $renima->dci_sangrado_segun_barc = $request->dci_sangrado_segun_barc;
             $renima->dci_sangrado_segun_barc_tipo = $request->dci_sangrado_segun_barc_tipo;
             $renima->dci_fecha_sangrado = $request->dci_fecha_sangrado;
-            $renima->dci_fecha_de_alta = $request->dci_fecha_de_alta;
-            $renima->dci_dias_hospitalizacion = $request->dci_dias_hospitalizacion;
             $renima->dci_shock_cardiogenico = $request->dci_shock_cardiogenico;
             $renima->dci_fecha_shock_cardiogenico = $request->dci_fecha_shock_cardiogenico;
             $renima->dci_paro_cardiorespiratorio_recuperado = $request->dci_paro_cardiorespiratorio_recuperado;
@@ -320,6 +325,8 @@ class RenimaController extends Controller
             $renima->dci_fecha_aneurisma_ventricular = $request->dci_fecha_aneurisma_ventricular;
             $renima->dci_trombosis_stent = $request->dci_trombosis_stent;
             $renima->dci_fecha_trombosis_stent = $request->dci_fecha_trombosis_stent;
+            $renima->dci_fecha_de_alta = $request->dci_fecha_de_alta;
+            $renima->dci_dias_hospitalizacion = $request->dci_dias_hospitalizacion;
 
         //Medicación al Alta (ma_)
             $renima->ma_aspirina = $request->ma_aspirina;
@@ -356,6 +363,8 @@ class RenimaController extends Controller
             $renima->sc_fecha_segunda_fevi_alta = $request->sc_fecha_segunda_fevi_alta;
             $renima->sc_reestenosis_stent = $request->sc_reestenosis_stent;
             $renima->sc_fecha_reestenosis_stent = $request->sc_fecha_reestenosis_stent;
+            $renima->sc_trombosis_stent = $request->sc_trombosis_stent;
+            $renima->sc_fecha_trombosis_stent = $request->sc_fecha_trombosis_stent;
 
 
 

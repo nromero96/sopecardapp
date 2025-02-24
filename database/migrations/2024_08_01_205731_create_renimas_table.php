@@ -69,8 +69,9 @@ class CreateRenimasTable extends Migration
 
             //Electrocardiograma (ecg_)
                 $table->string('ecg_ritmo',50)->nullable();
-                $table->string('ecg_iamcest_localizacion')->nullable(); // Luego validar son multiples
-                $table->string('ecg_scasest')->nullable(); // Luego validar son multiples
+                $table->text('ecg_iamcest_localizacion')->nullable(); // Luego validar son multiples
+                $table->text('ecg_scasest')->nullable(); // Luego validar son multiples
+                $table->text('ecg_otros_hallazgos')->nullable(); // Luego validar son multiples
                 $table->string('ecg_otro',100)->nullable();
 
             //Datos del manejo de intervención en IAMCEST y SCASEST (dis_)
@@ -157,7 +158,7 @@ class CreateRenimasTable extends Migration
                 $table->string('ti_ventilacion_no_invasiva',5)->nullable();
                 $table->string('ti_balon_contrapulsacion_ia',5)->nullable();
                 $table->string('ti_levosimendan',5)->nullable();
-                $table->string('ti_marcapaso',10)->nullable();
+                $table->string('ti_marcapaso',15)->nullable();
                 $table->string('ti_ecmo',5)->nullable();
                 $table->string('ti_dai_resincro',5)->nullable();
                 $table->string('ti_transplante_cardiaca',5)->nullable();
@@ -189,14 +190,12 @@ class CreateRenimasTable extends Migration
                 $table->date('dci_fecha_angina_postinfarto')->nullable();
                 $table->string('dci_reinfarto',5)->nullable();
                 $table->date('dci_fecha_reinfarto')->nullable();
-                $table->string('dci_acv',5)->nullable();
+                $table->string('dci_acv',20)->nullable();
                 $table->date('dci_fecha_acv_alta')->nullable();
                 $table->string('dci_sangrado',5)->nullable();
                 $table->string('dci_sangrado_segun_barc',5)->nullable();
                 $table->string('dci_sangrado_segun_barc_tipo',5)->nullable();
                 $table->date('dci_fecha_sangrado')->nullable();
-                $table->date('dci_fecha_de_alta')->nullable();
-                $table->integer('dci_dias_hospitalizacion')->nullable();
                 $table->string('dci_shock_cardiogenico',5)->nullable();
                 $table->date('dci_fecha_shock_cardiogenico')->nullable();
                 $table->string('dci_paro_cardiorespiratorio_recuperado',5)->nullable();
@@ -211,6 +210,8 @@ class CreateRenimasTable extends Migration
                 $table->date('dci_fecha_aneurisma_ventricular')->nullable();
                 $table->string('dci_trombosis_stent',5)->nullable();
                 $table->date('dci_fecha_trombosis_stent')->nullable();
+                $table->date('dci_fecha_de_alta')->nullable();
+                $table->integer('dci_dias_hospitalizacion')->nullable();
 
             //Medicación al Alta (ma_)
                 $table->string('ma_aspirina',5)->nullable();
@@ -247,6 +248,9 @@ class CreateRenimasTable extends Migration
                 $table->date('sc_fecha_segunda_fevi_alta')->nullable();
                 $table->string('sc_reestenosis_stent',5)->nullable();
                 $table->date('sc_fecha_reestenosis_stent')->nullable();
+                $table->string('sc_trombosis_stent',5)->nullable();
+                $table->date('sc_fecha_trombosis_stent')->nullable();
+                
 
             $table->string('status');
             $table->timestamps();
