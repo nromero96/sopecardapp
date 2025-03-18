@@ -164,6 +164,7 @@ class RenimaController extends Controller
 
         //Datos del manejo de intervención en IAMCEST y SCASEST (dis_)
             $renima->dis_manejo = $request->dis_manejo;
+            $renima->dis_manejo_icpp_dosis = $request->dis_manejo_icpp_dosis;
             $renima->dis_tf = $request->dis_tf;
             $renima->dis_lugar_tf = $request->dis_lugar_tf;
             $renima->dis_lugar_tf_otro = $request->dis_lugar_tf_otro;

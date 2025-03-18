@@ -76,6 +76,7 @@ class CreateRenimasTable extends Migration
 
             //Datos del manejo de intervención en IAMCEST y SCASEST (dis_)
                 $table->string('dis_manejo',150)->nullable();
+                $table->string('dis_manejo_icpp_dosis',50)->nullable();
                 $table->string('dis_tf',5)->nullable();
                 $table->string('dis_lugar_tf',150)->nullable();
                 $table->string('dis_lugar_tf_otro')->nullable();
@@ -198,7 +199,7 @@ class CreateRenimasTable extends Migration
                 $table->date('dci_fecha_sangrado')->nullable();
                 $table->string('dci_shock_cardiogenico',5)->nullable();
                 $table->date('dci_fecha_shock_cardiogenico')->nullable();
-                $table->string('dci_paro_cardiorespiratorio_recuperado',5)->nullable();
+                $table->string('dci_paro_cardiorespiratorio_recuperado',20)->nullable();
                 $table->date('dci_fecha_paro_cardiorespiratorio_recuperado')->nullable();
                 $table->string('dci_ruptura_musculo_papilar',5)->nullable();
                 $table->date('dci_fecha_ruptura_musculo_papilar')->nullable();
