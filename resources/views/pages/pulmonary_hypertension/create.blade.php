@@ -7,7 +7,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Registrar INPER-HP <small class="text-danger">(EN CONSTRUCCION)</small> </h1>
+        <h1 class="h3 mb-0 text-gray-800">Registrar INPER-HP</h1>
     </div>
 
     <!-- Form -->
@@ -86,8 +86,8 @@
                         <label for="de_intervencion" class="form-label mb-0">Intervención realizada a >= 2500 msnm <small class="text-danger">(si es que se realizó)</small></label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="de_intervencion" id="de_intervencion1" value="Si" >
-                                <label class="form-check-label" for="de_intervencion1">Si</label>
+                                <input class="form-check-input" type="radio" name="de_intervencion" id="de_intervencion1" value="Sí" >
+                                <label class="form-check-label" for="de_intervencion1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="de_intervencion" id="de_intervencion2" value="No" >
@@ -101,8 +101,8 @@
                         <label for="de_gestante" class="form-label mb-0">Gestante</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="de_gestante" id="de_gestante1" value="Si" >
-                                <label class="form-check-label" for="de_gestante1">Si</label>
+                                <input class="form-check-input" type="radio" name="de_gestante" id="de_gestante1" value="Sí" >
+                                <label class="form-check-label" for="de_gestante1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="de_gestante" id="de_gestante2" value="No" >
@@ -1561,19 +1561,6 @@
                         <textarea name="trmto_complicaciones_descripcion" class="form-control mt-1 mb-1" id="trmto_complicaciones_descripcion" placeholder="Describa las complicaciones" ></textarea>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="trmto_hipertension_pulmonar_residual" class="form-label mb-0">Hipertensión pulmonar residual <small class="text-danger">(angioplastía para hipertensión pulmonar del grupo 4)</small></label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="trmto_hipertension_pulmonar_residual" id="trmto_hipertension_pulmonar_residual1" value="Sí" >
-                                <label class="form-check-label" for="trmto_hipertension_pulmonar_residual1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="trmto_hipertension_pulmonar_residual" id="trmto_hipertension_pulmonar_residual2" value="No" >
-                                <label class="form-check-label" for="trmto_hipertension_pulmonar_residual2">No</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
                         <label for="trmto_muerte_periprocedimiento" class="form-label mb-0">Muerte periprocedimiento <small class="text-danger">(angioplastía para hipertensión pulmonar del grupo 4)</small></label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
@@ -1644,19 +1631,6 @@
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="trmto_ecmo_perioperatorio" id="trmto_ecmo_perioperatorio2" value="No" >
                                 <label class="form-check-label" for="trmto_ecmo_perioperatorio2">No</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="trmto_muerte_perioperatoria" class="form-label mb-0">Muerte perioperatoria</label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="trmto_muerte_perioperatoria" id="trmto_muerte_perioperatoria1" value="Sí" >
-                                <label class="form-check-label" for="trmto_muerte_perioperatoria1">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="trmto_muerte_perioperatoria" id="trmto_muerte_perioperatoria2" value="No" >
-                                <label class="form-check-label" for="trmto_muerte_perioperatoria2">No</label>
                             </div>
                         </div>
                     </div>
