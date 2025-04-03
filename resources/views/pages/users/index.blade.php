@@ -44,6 +44,7 @@
                             <th>Nombre</th>
                             <th>Correo</th>
                             <th>Teléfono</th>
+                            <th>Sede</th>
                             <th>Rol</th>
                             <th></th>
                         </tr>
@@ -54,6 +55,7 @@
                             <th>Nombre</th>
                             <th>Correo</th>
                             <th>Teléfono</th>
+                            <th>Sede</th>
                             <th>Rol</th>
                             <th width="87px"></th>
                         </tr>
@@ -62,19 +64,35 @@
 
                         @foreach ($users as $user)
                         <tr>
-                            <td>{{ $user->id }}</td>
-                            <td>
+                            <td class="align-middle">{{ $user->id }}</td>
+                            <td class="align-middle">
                                 @if($user->trato != '') {{ $user->trato.' ' }} @endif {{ $user->name }} {{ $user->lastname }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->phone }}</td>
-                            <td>
+                            <td class="align-middle">{{ $user->email }}</td>
+                            <td class="align-middle">{{ $user->phone }}</td>
+
+                            <td class="align-middle" style="line-height: 1;">
+                                @if($user->sede != null)
+                                    <span class="d-block">{{ $user->sede_name }}</span>
+                                    <small class="text-muted">({{ $user->sede_address }})</small>
+                                @else
+                                    <span class="text-danger">Sin sede asignada</span>
+                                @endif
+                            </td>
+
+                            <td class="align-middle">
                                 @if(!empty($user->getRoleNames()))
                                     @foreach($user->getRoleNames() as $v)
-                                        <p class="mb-0 fw-bold">{{ $v }}</p>
+                                        <p class="mb-0 fw-bold">
+                                            @if($v == 'admin')
+                                                <span class="text-capitalize badge badge-primary">{{ $v }}</span>
+                                            @else
+                                                <span class="text-capitalize badge badge-info">{{ $v }}</span>
+                                            @endif
+                                        </p>
                                     @endforeach
                                 @endif
                             </td>
-                            <td>
+                            <td class="align-middle">
                                 
                                 <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                     @csrf
@@ -96,5 +114,23 @@
 
 </div>
 <!-- /.container-fluid -->
+
+@endsection
+
+@section('scripts')
+
+    <script>
+        //Confirmación de eliminación de usuario
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                
+                if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
+                    this.submit();
+                }
+
+            });
+        });
+    </script>
 
 @endsection

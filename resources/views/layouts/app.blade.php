@@ -42,17 +42,18 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-
+            @can('dashboard.index')
             <li class="nav-item {{ ($page_name === 'home_index') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+            @endcan
 
             @can('users.index', 'sedes.index')
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            
             <!-- Heading -->
             <div class="sidebar-heading">
                 Admin

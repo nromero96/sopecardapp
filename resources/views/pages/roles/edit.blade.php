@@ -55,24 +55,38 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-12 mb-2">
-                        @php
-                            $i = 1;
-                        @endphp
-                        @foreach ($permissions as $permission)
-                            <div class="switch form-switch-custom form-switch-primary">
-                                <input class="switch-input" type="checkbox" role="switch" name="permissions[]" value="{{$permission->id}}" id="form-custom-switch-{{$i}}" {{ in_array($permission->id, $rolepermissions) ? 'checked' : '-' }} >
-                                <label class="switch-label fw-bold ms-2" for="form-custom-switch-{{$i}}">{{$permission->description}}</label>
-                            </div>
+                    {{-- Si el rol es medico --}}
+
+                    @if($role->name == 'medico')
+                        <div class="col-md-12 mb-2">
+                            <p class="text-danger">Los permisos para los médicos se asignan de forma individual.</p>
+                            <p class="text-danger">Si deseas cambiar los permisos de un médico, debes hacerlo en la página de edición del usuario.</p>
+
+                            <a href="{{ route('roles.index') }}" class="btn btn-outline-primary mb-2 mb-sm-0">Regresar</a>
+                        </div>
+                    @else
+
+                        <div class="col-md-12 mb-2">
                             @php
-                                $i++;
+                                $i = 1;
                             @endphp
-                        @endforeach
-                    </div>
-                    <div class="col-md-12 mb-2 mb-sm-0 text-right">
-                        <a href="{{ route('roles.index') }}" class="btn btn-outline-primary mb-2 mb-sm-0">Cancelar</a>
-                        <button type="submit" class="btn btn-primary mb-2 mb-sm-0">Actualizar</button>
-                    </div>
+                            @foreach ($permissions as $permission)
+                                <div class="switch form-switch-custom form-switch-primary">
+                                    <input class="switch-input" type="checkbox" role="switch" name="permissions[]" value="{{$permission->id}}" id="form-custom-switch-{{$i}}" {{ in_array($permission->id, $rolepermissions) ? 'checked' : '-' }} >
+                                    <label class="switch-label fw-bold ms-2" for="form-custom-switch-{{$i}}">{{$permission->description}}</label>
+                                </div>
+                                @php
+                                    $i++;
+                                @endphp
+                            @endforeach
+                        </div>
+                        <div class="col-md-12 mb-2 mb-sm-0 text-right">
+                            <a href="{{ route('roles.index') }}" class="btn btn-outline-primary mb-2 mb-sm-0">Cancelar</a>
+                            <button type="submit" class="btn btn-primary mb-2 mb-sm-0">Actualizar</button>
+                        </div>
+
+                    @endif
+
                 </div>
             </div>
         </div>

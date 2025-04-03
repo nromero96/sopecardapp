@@ -9,6 +9,7 @@ use App\Models\Repecca;
 
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\Models\Sede;
 
 class UserController extends Controller
 {
@@ -20,8 +21,12 @@ class UserController extends Controller
             'page_name' => 'users_index',
         ];
 
-        $users = User::orderBy('id', 'desc')->get();
-
+        //join sedes table to get name of sede
+        $users = User::leftjoin('sedes', 'users.sede', '=', 'sedes.id')
+            ->select('users.*', 'sedes.name as sede_name', 'sedes.address as sede_address')
+            ->where('users.status', '!=', 'eliminado')
+            ->orderBy('users.id', 'desc')
+            ->get();
 
 
         return view('pages.users.index')->with($data)->with('users', $users);
@@ -34,9 +39,12 @@ class UserController extends Controller
             'page_name' => 'users_create',
         ];
 
-        $roles = Role::all();
+        $sedes = Sede::where('status', 'activo')->orderBy('name')->get();
 
-        return view('pages.users.create')->with($data)->with('roles', $roles);
+        $roles = Role::all();
+        $permissions = Permission::orderBy('name')->get();
+
+        return view('pages.users.create')->with($data)->with('roles', $roles)->with('permissions', $permissions)->with('sedes', $sedes);
     }
 
     public function store(Request $request)
@@ -50,6 +58,8 @@ class UserController extends Controller
             'password' => 'required',
             'trato' => 'nullable',
             'role' => 'required',
+            'permissions' => 'nullable|array',
+            'permissions.*' => 'string|distinct|exists:permissions,name',
         ]);
 
         //store
@@ -61,11 +71,16 @@ class UserController extends Controller
         $user->phone = $request->phone;
         $user->password = bcrypt($request->password);
         $user->trato = $request->trato;
+        $user->sede = $request->sede;
 
         $user->save();
 
         //assign role
         $user->assignRole($request->role);
+
+        //assign permissions
+        $user->syncPermissions($request->permissions ?? []);
+        
 
         return redirect()->route('users.index')->with('success', 'Usuario creado correctamente.');
 
@@ -78,10 +93,15 @@ class UserController extends Controller
             'page_name' => 'users_edit',
         ];
 
+        $sedes = Sede::where('status', '!=', 'deleted')->orderBy('name')->get();
+
         $user = User::find($id);
         $roles = Role::all();
 
-        return view('pages.users.edit')->with($data)->with('user', $user)->with('roles', $roles);
+        $permissions = Permission::orderBy('name')->get();
+        $userPermissions = $user->permissions->pluck('name')->toArray();
+
+        return view('pages.users.edit', compact('user', 'roles', 'permissions', 'userPermissions', 'sedes'))->with($data);
     }
 
     public function update(Request $request, $id)
@@ -94,7 +114,10 @@ class UserController extends Controller
             'phone' => 'nullable',
             'password' => 'nullable',
             'trato' => 'nullable',
-            'role' => 'required',
+            'role' => 'required|exists:roles,id',
+            'sede' => 'nullable|exists:sedes,id',
+            'permissions' => 'nullable|array',
+            'permissions.*' => 'string|distinct|exists:permissions,name',
         ]);
 
         //store
@@ -110,11 +133,15 @@ class UserController extends Controller
         }
 
         $user->trato = $request->trato;
+        $user->sede = $request->sede;
 
         $user->save();
 
         //assign role
         $user->syncRoles($request->role);
+
+        //assign permissions
+        $user->syncPermissions($request->permissions ?? []);
 
         return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente.');
     }
@@ -124,14 +151,9 @@ class UserController extends Controller
         //validate if not exists user_id in tables repecca
         $user = User::find($id);
         
-        $reppeca = Repecca::where('user_id', $id)->first();
-
-        if($reppeca){
-            return redirect()->route('users.index')->with('error', 'No se puede eliminar el usuario, tiene registros asociados.');
-        }
-
-
-        $user->delete();
+        //actualizar el estado a eliminado
+        $user->status = 'eliminado';
+        $user->save();
 
         return redirect()->route('users.index')->with('success', 'Usuario eliminado correctamente.');
 

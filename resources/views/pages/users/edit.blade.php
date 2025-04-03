@@ -85,6 +85,40 @@
                                     @endforeach
                                 </div>
                             </div>
+
+                            <div class="col-md-12 mb-2">
+                                <label for="sede" class="form-label mb-0">Sede:</label>
+                                <select name="sede" id="sede" class="form-control">
+                                    <option value="" {{ $user->sede == '' ? 'selected' : '' }}>Ninguna</option>
+                                    @foreach($sedes as $sede)
+                                        <option value="{{ $sede->id }}" {{ $user->sede == $sede->id ? 'selected' : '' }}>{{ $sede->name }} - {{ $sede->address }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="text-danger">{{ $errors->first('sede') }}</span>
+                            </div>
+
+
+                            <div class="col-md-12 mb-4">
+                                <label class="form-label d-block mb-2 font-weight-bold">Permisos:</label>
+                                <div class="card p-3">
+                                    <div class="row">
+                                        @foreach($permissions as $permission)
+                                            <div class="col-md-12">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="permissions[]" 
+                                                        value="{{ $permission->name }}" id="perm-{{ $permission->id }}"
+                                                        {{ in_array($permission->name, $userPermissions) ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="perm-{{ $permission->id }}">
+                                                        {{ $permission->description }}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <div class="col-md-12 mb-2 mb-sm-0 text-right">
                                 <a href="{{ route('users.index') }}" class="btn btn-outline-primary mb-2 mb-sm-0">Cancelar</a>
                                 <button type="submit" class="btn btn-primary mb-2 mb-sm-0">Actualizar</button>
@@ -100,4 +134,31 @@
 </div>
 <!-- /.container-fluid -->
 
+@endsection
+
+
+@section('scripts')
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            //obtener el valor del rol seleccionado
+            var selectedRole = $('input[name="role"]:checked').val();
+            //validar el rol seleccionado al cargar la página
+            validarRole(selectedRole);
+
+            $('input[name="role"]').change(function() {
+                validarRole($(this).val());
+            });
+        });
+
+        function validarRole(value) {
+            //si es admin, desmarcar todos los permisos y ocultar el checkbox de permisos
+            if (value == 1) {
+                $('input[name="permissions[]"]').prop('checked', false);
+                $('input[name="permissions[]"]').prop('disabled', true);
+            } else {
+                $('input[name="permissions[]"]').prop('disabled', false);
+            }
+        }
+    </script>
 @endsection
