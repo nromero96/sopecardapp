@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Sede;
 
 class SedeController extends Controller
 {
@@ -19,7 +20,9 @@ class SedeController extends Controller
             'page_name' => 'sedes_index',
         ];
 
-        return view('pages.sede.index')->with($data);
+        $sedes = Sede::where('status', '!=', 'deleted')->get();
+
+        return view('pages.sedes.index')->with($data)->with('sedes', $sedes);
     }
 
     /**
@@ -29,7 +32,12 @@ class SedeController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'category_name' => 'sedes',
+            'page_name' => 'sedes_create',
+        ];
+
+        return view('pages.sedes.create')->with($data);
     }
 
     /**
@@ -40,7 +48,14 @@ class SedeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255|unique:sedes,name',
+            'address' => 'nullable|string|max:255',
+        ]);
+
+        Sede::create($request->all());
+
+        return redirect()->route('sedes.index')->with('success', 'Sede creada correctamente.');
     }
 
     /**
@@ -62,7 +77,18 @@ class SedeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'category_name' => 'sedes',
+            'page_name' => 'sedes_edit',
+        ];
+
+        $sede = Sede::find($id);
+
+        if ($sede) {
+            return view('pages.sedes.edit')->with($data)->with('sede', $sede);
+        } else {
+            return redirect()->route('sedes.index')->with('error', 'Sede no encontrada.');
+        }
     }
 
     /**
@@ -74,7 +100,20 @@ class SedeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255|unique:sedes,name,' . $id,
+            'address' => 'nullable|string|max:255',
+            'status' => 'required|string|in:activo,inactivo',
+        ]);
+
+        $sede = Sede::find($id);
+
+        if ($sede) {
+            $sede->update($request->all());
+            return redirect()->route('sedes.index')->with('success', 'Sede actualizada correctamente.');
+        } else {
+            return redirect()->route('sedes.index')->with('error', 'Sede no encontrada.');
+        }
     }
 
     /**
@@ -85,6 +124,14 @@ class SedeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $sede = Sede::find($id);
+
+        if ($sede) {
+            $sede->status = 'deleted';
+            $sede->save();
+            return redirect()->route('sedes.index')->with('success', 'Sede eliminada correctamente.');
+        } else {
+            return redirect()->route('sedes.index')->with('error', 'Sede no encontrada.');
+        }
     }
 }
