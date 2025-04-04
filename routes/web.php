@@ -69,7 +69,12 @@ Route::group(['middleware' => ['auth', 'ensureStatusActive']], function () {
 
     Route::resource('/repecca', RepeccaController::class)->names('repecca');
     Route::resource('/renaval', RenavalController::class)->names('renaval');
+
+
     Route::resource('/renima', RenimaController::class)->names('renima');
+    //search searchcp
+    Route::get('/searchcp', [RenimaController::class, 'searchcp'])->name('renima.searchcp');
+    Route::get('/renima-assignme/{id}', [RenimaController::class, 'assignme'])->name('renima.assignme');
 
     Route::resource('/pulmonary-hypertension', PulmonaryHypertensionController::class)->names('pulmonary-hypertension');
 

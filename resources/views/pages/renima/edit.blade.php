@@ -11,24 +11,25 @@
     </div>
 
     <!-- Form -->
-    <form action="{{ route('renima.store') }}" method="POST">
+    <form action="{{ route('renima.update', $renima->id) }}" method="POST" enctype="multipart/form-data" id="renimaForm">
         @csrf
+        @method('PUT')
         <!-- Información Responsable -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Responsable y centro.</h6>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6 mb-2">
-                        <label for="responsable" class="form-label mb-0">Responsable <small class="requiredata">*</small></label>
-                        <input type="text" name="responsable" class="form-control" id="responsable" value="@if($user_auth->trato != ''){{ $user_auth->trato.' ' }}@endif{{ $user_auth->name }} {{ $user_auth->lastname }}" readonly>
+                @foreach($user_asociados as $user_asociado)
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <p class="form-control"> @if($user_asociado->trato != ''){{ $user_asociado->trato.' ' }}@endif{{ $user_asociado->name }} {{ $user_asociado->lastname }}</p>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <p class="form-control"> @if($user_asociado->sede_name != ''){{ $user_asociado->sede_name }}@endif @if($user_asociado->sede_address != '') - {{ $user_asociado->sede_address }}@endif</p>
+                        </div>
                     </div>
-                    <div class="col-md-6 mb-2">
-                        <label for="centro_salud" class="form-label mb-0">Centro de salud <small class="requiredata">*</small></label>
-                        <input type="text" name="centro_salud" class="form-control" id="centro_salud" value="@if($user_auth->sede_nombre != ''){{ $user_auth->sede_nombre }}@endif @if($user_auth->sede_direccion != '') - {{ $user_auth->sede_direccion }}@endif" readonly>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
 
@@ -41,53 +42,53 @@
                 <div class="row">
                     <div class="col-md-6 mb-2">
                         <label for="de_documento_identidad" class="form-label mb-0">Documento de identidad (DNI)</label>
-                        <input type="number" name="de_documento_identidad" class="form-control" id="de_documento_identidad">
+                        <input type="number" name="de_documento_identidad" class="form-control" id="de_documento_identidad" value="{{ $renima->de_documento_identidad }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_telefono" class="form-label mb-0">Teléfono de contacto</label>
-                        <input type="number" name="de_telefono" class="form-control" id="de_telefono">
+                        <input type="number" name="de_telefono" class="form-control" id="de_telefono" value="{{ $renima->de_telefono }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_celular" class="form-label mb-0">Celular de contacto 1 <small>(Opcional)</small></label>
-                        <input type="number" name="de_celular" class="form-control" id="de_celular">
+                        <input type="number" name="de_celular" class="form-control" id="de_celular" value="{{ $renima->de_celular }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_celular_2" class="form-label mb-0">Celular de contacto 2 <small>(Opcional)</small></label>
-                        <input type="number" name="de_celular_2" class="form-control" id="de_celular_2">
+                        <input type="number" name="de_celular_2" class="form-control" id="de_celular_2" value="{{ $renima->de_celular_2 }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_correo" class="form-label mb-0">Correo electrónico del paciente <small>(Opcional)</small></label>
-                        <input type="email" name="de_correo" class="form-control" id="de_correo">
+                        <input type="email" name="de_correo" class="form-control" id="de_correo" value="{{ $renima->de_correo }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_departamento" class="form-label mb-0">Departamento</label>
-                        <input type="text" name="de_departamento" class="form-control" id="de_departamento">
+                        <input type="text" name="de_departamento" class="form-control" id="de_departamento" value="{{ $renima->de_departamento }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_provincia" class="form-label mb-0">Provincia</label>
-                        <input type="text" name="de_provincia" class="form-control" id="de_provincia">
+                        <input type="text" name="de_provincia" class="form-control" id="de_provincia" value="{{ $renima->de_provincia }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_distrito" class="form-label mb-0">Distrito</label>
-                        <input type="text" name="de_distrito" class="form-control" id="de_distrito">
+                        <input type="text" name="de_distrito" class="form-control" id="de_distrito" value="{{ $renima->de_distrito }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_edad" class="form-label mb-0">Edad (años) </label>
-                        <input type="number" name="de_edad" class="form-control" id="de_edad" >
+                        <input type="number" name="de_edad" class="form-control" id="de_edad" value="{{ $renima->de_edad }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_nacimiento" class="form-label mb-0">Fecha de nacimiento </label>
-                        <input type="date" name="de_nacimiento" class="form-control" id="de_nacimiento" >
+                        <input type="date" name="de_nacimiento" class="form-control" id="de_nacimiento" value="{{ $renima->de_nacimiento }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_sexo1" class="form-label mb-0">Sexo </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="de_sexo" id="de_sexo1" value="Masculino" >
+                                <input class="form-check-input" type="radio" name="de_sexo" id="de_sexo1" value="Masculino" @if($renima->de_sexo == 'Masculino') checked @endif>
                                 <label class="form-check-label" for="de_sexo1">Masculino</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="de_sexo" id="de_sexo2" value="Femenino" >
+                                <input class="form-check-input" type="radio" name="de_sexo" id="de_sexo2" value="Femenino" @if($renima->de_sexo == 'Femenino') checked @endif>
                                 <label class="form-check-label" for="de_sexo2">Femenino</label>
                             </div>
                         </div>
@@ -95,39 +96,39 @@
                     <div class="col-md-6 mb-2">
                         <label for="de_estado_civil" class="form-label mb-0">Estado civil </label>
                         <select name="de_estado_civil" id="de_estado_civil" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Soltero">Soltero</option>
-                            <option value="Casado">Casado</option>
-                            <option value="Divorciado">Divorciado</option>
-                            <option value="Viudo">Viudo</option>
+                            <option value="" @if($renima->de_estado_civil == '') selected @endif>Seleccionar...</option>
+                            <option value="Soltero" @if($renima->de_estado_civil == 'Soltero') selected @endif>Soltero</option>
+                            <option value="Casado" @if($renima->de_estado_civil == 'Casado') selected @endif>Casado</option>
+                            <option value="Divorciado" @if($renima->de_estado_civil == 'Divorciado') selected @endif>Divorciado</option>
+                            <option value="Viudo" @if($renima->de_estado_civil == 'Viudo') selected @endif>Viudo</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_tipo_seguro" class="form-label mb-0">Tipo de seguro </label>
                         <select name="de_tipo_seguro" id="de_tipo_seguro" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="MINSA">MINSA</option>
-                            <option value="EsSalud">EsSalud</option>
-                            <option value="FFAA y Policiales">FFAA y Policiales</option>
-                            <option value="Privado">Privado</option>
-                            <option value="Otro">Otro</option>
+                            <option value="" @if($renima->de_tipo_seguro == '') selected @endif>Seleccionar...</option>
+                            <option value="MINSA" @if($renima->de_tipo_seguro == 'MINSA') selected @endif>MINSA</option>
+                            <option value="EsSalud" @if($renima->de_tipo_seguro == 'EsSalud') selected @endif>EsSalud</option>
+                            <option value="FFAA y Policiales" @if($renima->de_tipo_seguro == 'FFAA y Policiales') selected @endif>FFAA y Policiales</option>
+                            <option value="Privado" @if($renima->de_tipo_seguro == 'Privado') selected @endif>Privado</option>
+                            <option value="Otro" @if($renima->de_tipo_seguro == 'Otro') selected @endif>Otro</option>
                         </select>
-                        <input type="text" name="de_tipo_seguro_otro" class="form-control mt-1 d-none" id="de_tipo_seguro_otro" placeholder="Especificar otro tipo de seguro">
+                        <input type="text" name="de_tipo_seguro_otro" class="form-control mt-1 @if($renima->de_tipo_seguro == 'Otro') @else d-none @endif" id="de_tipo_seguro_otro" placeholder="Especificar otro tipo de seguro" value="{{ $renima->de_tipo_seguro_otro }}">
 
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_grado_instruccion" class="form-label mb-0">Grado de instrucción </label>
                         <select name="de_grado_instruccion" id="de_grado_instruccion" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Sin escolaridad">Sin escolaridad</option>
-                            <option value="Primaria incompleta">Primaria incompleta</option>
-                            <option value="Primaria completa">Primaria completa</option>
-                            <option value="Secundaria incompleta">Secundaria incompleta</option>
-                            <option value="Secundaria completa">Secundaria completa</option>
-                            <option value="Superior universitario incompleta">Superior universitario incompleta</option>
-                            <option value="Superior universitario completa">Superior universitario completa</option>
-                            <option value="Superior técnico incompleta">Superior técnico incompleta</option>
-                            <option value="Superior técnico completa">Superior técnico completa</option>
+                            <option value="" @if($renima->de_grado_instruccion == '') selected @endif>Seleccionar...</option>
+                            <option value="Sin escolaridad" @if($renima->de_grado_instruccion == 'Sin escolaridad') selected @endif>Sin escolaridad</option>
+                            <option value="Primaria incompleta" @if($renima->de_grado_instruccion == 'Primaria incompleta') selected @endif>Primaria incompleta</option>
+                            <option value="Primaria completa" @if($renima->de_grado_instruccion == 'Primaria completa') selected @endif>Primaria completa</option>
+                            <option value="Secundaria incompleta" @if($renima->de_grado_instruccion == 'Secundaria incompleta') selected @endif>Secundaria incompleta</option>
+                            <option value="Secundaria completa" @if($renima->de_grado_instruccion == 'Secundaria completa') selected @endif>Secundaria completa</option>
+                            <option value="Superior universitario incompleta" @if($renima->de_grado_instruccion == 'Superior universitario incompleta') selected @endif>Superior universitario incompleta</option>
+                            <option value="Superior universitario completa" @if($renima->de_grado_instruccion == 'Superior universitario completa') selected @endif>Superior universitario completa</option>
+                            <option value="Superior técnico incompleta" @if($renima->de_grado_instruccion == 'Superior técnico incompleta') selected @endif>Superior técnico incompleta</option>
+                            <option value="Superior técnico completa" @if($renima->de_grado_instruccion == 'Superior técnico completa') selected @endif>Superior técnico completa</option>
                         </select>
                     </div>
                 </div>
@@ -143,47 +144,51 @@
                 <div class="row">
                     <div class="col-md-6 mb-2">
                         <label for="dc_pas" class="form-label mb-0">Presión arterial sistólica <small class="text-danger">(mmHg)</small></label>
-                        <input type="number" name="dc_pas" class="form-control" id="dc_pas" >
+                        <input type="number" name="dc_pas" class="form-control" id="dc_pas" value="{{ $renima->dc_pas }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="dc_pad" class="form-label mb-0">Presión arterial diastólica <small class="text-danger">(mmHg)</small></label>
-                        <input type="number" name="dc_pad" class="form-control" id="dc_pad" >
+                        <input type="number" name="dc_pad" class="form-control" id="dc_pad" value="{{ $renima->dc_pad }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dc_frecuencia_cardiaca" class="form-label mb-0">Frecuencia cardiaca</label>
-                        <input type="number" name="dc_frecuencia_cardiaca" class="form-control" id="dc_frecuencia_cardiaca">
+                        <input type="number" name="dc_frecuencia_cardiaca" class="form-control" id="dc_frecuencia_cardiaca" value="{{ $renima->dc_frecuencia_cardiaca }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dc_frecuencia_respiratoria" class="form-label mb-0">Frecuencia respiratoria</label>
-                        <input type="number" name="dc_frecuencia_respiratoria" class="form-control" id="dc_frecuencia_respiratoria">
+                        <input type="number" name="dc_frecuencia_respiratoria" class="form-control" id="dc_frecuencia_respiratoria" value="{{ $renima->dc_frecuencia_respiratoria }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dc_temperatura" class="form-label mb-0">Temperatura <small class="text-danger">(C°)</small></label>
-                        <input type="number" name="dc_temperatura" class="form-control" id="dc_temperatura">
+                        <input type="number" name="dc_temperatura" class="form-control" id="dc_temperatura" value="{{ $renima->dc_temperatura }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dc_saturacion_oxigeno" class="form-label mb-0">Saturación de oxígeno <small class="text-danger">(%)</small></label>
-                        <input type="number" name="dc_saturacion_oxigeno" class="form-control" id="dc_saturacion_oxigeno">
+                        <input type="number" name="dc_saturacion_oxigeno" class="form-control" id="dc_saturacion_oxigeno" value="{{ $renima->dc_saturacion_oxigeno }}">
                     </div>
                     <div class="col-md-2 mb-2">
                         <label for="dc_peso" class="form-label mb-0">Peso actual <small class="text-danger">(Kg)</small></label>
-                        <input type="number" name="dc_peso" class="form-control" id="dc_peso" step="0.01">
+                        <input type="number" name="dc_peso" class="form-control" id="dc_peso" step="0.01" value="{{ $renima->dc_peso }}">
                     </div>
                     <div class="col-md-2 mb-2">
                         <label for="dc_talla" class="form-label mb-0">Talla actual <small class="text-danger">(m)</small></label>
-                        <input type="number" name="dc_talla" class="form-control" id="dc_talla" step="0.01">
+                        <input type="number" name="dc_talla" class="form-control" id="dc_talla" step="0.01" value="{{ $renima->dc_talla }}">
                     </div>
                     <div class="col-md-2 mb-2">
                         <label for="dc_imc" class="form-label mb-0">IMC</label>
-                        <input type="number" name="dc_imc" class="form-control" id="dc_imc" step="0.01" placeholder="" readonly>
+                        <input type="number" name="dc_imc" class="form-control" id="dc_imc" step="0.01" placeholder="" value="{{ $renima->dc_imc }}" readonly>
                     </div>
                     <div class="col-md-12 mb-2">
                         <label for="dc_antecedentes1" class="form-label mb-0 d-block">Antecedentes </label>
                         <div class="form-control radioptions">
+                            @php
+                                // Convertir la cadena de la base de datos en un array
+                                $antecedentesSeleccionados = explode(',', $renima->dc_antecedentes); 
+                            @endphp
 
                             @foreach([
                                 "Hipertensión arterial",
@@ -209,12 +214,13 @@
                             ] as $index => $antecedente)
                                 <div class="form-check form-check-inline d-block">
                                     <input class="form-check-input" type="checkbox" name="dc_antecedentes[]" id="dc_antecedentes{{ $index+1 }}" 
-                                        value="{{ $antecedente }}">
+                                        value="{{ $antecedente }}" {{ in_array($antecedente, $antecedentesSeleccionados) ? 'checked' : '' }}>
                                     <label class="form-check-label" for="dc_antecedentes{{ $index+1 }}">{{ $antecedente }}</label>
                                 </div>
                             @endforeach
 
-                            <input type="text" name="dc_otro_antecedentes" class="form-control mt-0 mb-1 d-none" id="dc_otro_antecedentes" placeholder="Especificar otro antecedente">
+                            <input type="text" name="dc_otro_antecedentes" class="form-control mt-0 mb-1 {{ in_array('Otro', $antecedentesSeleccionados) ? '' : 'd-none' }}" id="dc_otro_antecedentes" placeholder="Especificar otro antecedente" value="{{ $renima->dc_otro_antecedentes }}">
+
                         </div>
                     </div>
                 </div>
@@ -232,25 +238,25 @@
                         <label for="ea_fecha_iniciosintomas" class="form-label mb-0">Fecha y hora de inicio de síntomas </label>
                         <div class="row">
                             <div class="col-8 col-md-8 pr-0">
-                                <input type="date" name="ea_fecha_iniciosintomas" class="form-control rounded-left" id="ea_fecha_iniciosintomas" style="border-radius: 0px;">
+                                <input type="date" name="ea_fecha_iniciosintomas" class="form-control rounded-left" id="ea_fecha_iniciosintomas" style="border-radius: 0px;" value="{{ $renima->ea_fecha_iniciosintomas }}">
                             </div>
                             <div class="col-4 col-md-4 pl-0">
-                                <input type="time" name="ea_hora_iniciosintomas" class="form-control rounded-right" id="ea_hora_iniciosintomas" style="border-radius: 0px;">
+                                <input type="time" name="ea_hora_iniciosintomas" class="form-control rounded-right" id="ea_hora_iniciosintomas" style="border-radius: 0px;" value="{{ $renima->ea_hora_iniciosintomas }}">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="ea_cpcm" class="form-label mb-0">Centro del primer contacto médico </label>
-                        <input type="text" name="ea_cpcm" class="form-control" id="ea_cpcm">
+                        <input type="text" name="ea_cpcm" class="form-control" id="ea_cpcm" value="{{ $renima->ea_cpcm }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="ea_cpcm_fecha_ingreso" class="form-label mb-0">Fecha y hora de llegada al centro del primer contacto médico </label>
                         <div class="row">
                             <div class="col-8 col-md-8 pr-0">
-                                <input type="date" name="ea_cpcm_fecha_ingreso" class="form-control rounded-left" id="ea_cpcm_fecha_ingreso" style="border-radius: 0px;">
+                                <input type="date" name="ea_cpcm_fecha_ingreso" class="form-control rounded-left" id="ea_cpcm_fecha_ingreso" style="border-radius: 0px;" value="{{ $renima->ea_cpcm_fecha_ingreso }}">
                             </div>
                             <div class="col-4 col-md-4 pl-0">
-                                <input type="time" name="ea_cpcm_hora_ingreso" class="form-control rounded-right" id="ea_cpcm_hora_ingreso" style="border-radius: 0px;">
+                                <input type="time" name="ea_cpcm_hora_ingreso" class="form-control rounded-right" id="ea_cpcm_hora_ingreso" style="border-radius: 0px;" value="{{ $renima->ea_cpcm_hora_ingreso }}">
                             </div>
                         </div>
                     </div>
@@ -258,40 +264,44 @@
                         <label for="ea_fecha_pcm" class="form-label mb-0">Fecha y hora de primer contacto médico </label>
                         <div class="row">
                             <div class="col-8 col-md-8 pr-0">
-                                <input type="date" name="ea_fecha_pcm" class="form-control rounded-left" id="ea_fecha_pcm" style="border-radius: 0px;">
+                                <input type="date" name="ea_fecha_pcm" class="form-control rounded-left" id="ea_fecha_pcm" style="border-radius: 0px;" value="{{ $renima->ea_fecha_pcm }}">
                             </div>
                             <div class="col-4 col-md-4 pl-0">
-                                <input type="time" name="ea_hora_pcm" class="form-control rounded-right" id="ea_hora_pcm" style="border-radius: 0px;">
+                                <input type="time" name="ea_hora_pcm" class="form-control rounded-right" id="ea_hora_pcm" style="border-radius: 0px;" value="{{ $renima->ea_hora_pcm }}">
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="ea_tiempo_ispc" class="form-label mb-0">Tiempo desde el inicio de síntomas al primer contacto médico <small class="text-danger">(minutos)</small></label>
-                        <input type="number" name="ea_tiempo_ispc" class="form-control" id="ea_tiempo_ispc" placeholder="" readonly>
+                        <input type="number" name="ea_tiempo_ispc" class="form-control" id="ea_tiempo_ispc" placeholder="" readonly value="{{ $renima->ea_tiempo_ispc }}">
                         <small class="infotext">Fecha y hora de primer contacto médico - Fecha y hora de inicio de síntomas</small>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="ea_fecha_ecg" class="form-label mb-0">Fecha y hora de ECG </label>
                         <div class="row">
                             <div class="col-8 col-md-8 pr-0">
-                                <input type="date" name="ea_fecha_ecg" class="form-control rounded-left" id="ea_fecha_ecg" style="border-radius: 0px;">
+                                <input type="date" name="ea_fecha_ecg" class="form-control rounded-left" id="ea_fecha_ecg" style="border-radius: 0px;" value="{{ $renima->ea_fecha_ecg }}">
                             </div>
                             <div class="col-4 col-md-4 pl-0">
-                                <input type="time" name="ea_hora_ecg" class="form-control rounded-right" id="ea_hora_ecg" style="border-radius: 0px;">
+                                <input type="time" name="ea_hora_ecg" class="form-control rounded-right" id="ea_hora_ecg" style="border-radius: 0px;" value="{{ $renima->ea_hora_ecg }}">
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="ea_tpc_ecg" class="form-label mb-0">Tiempo desde el primer contacto médico hasta el ECG <small class="text-danger">(minutos)</small></label>
-                        <input type="number" name="ea_tpc_ecg" class="form-control" id="ea_tpc_ecg" placeholder="" readonly>
+                        <input type="number" name="ea_tpc_ecg" class="form-control" id="ea_tpc_ecg" placeholder="" readonly value="{{ $renima->ea_tpc_ecg }}">
                         <small class="infotext">Fecha y hora de ECG - Fecha y hora de primer contacto médico</small>
                     </div>
 
                     <div class="col-md-12 mb-2">
                         <label for="ea_manif_clinicas1" class="form-label mb-0 d-block">Manifestaciones clínicas </label>
                         <div class="form-control radioptions">
+                            @php
+                                // Convertir la cadena de la base de datos en un array
+                                $manifClinicasSeleccionadas = explode(',', $renima->ea_manif_clinicas);
+                            @endphp
 
                             @foreach([
                                 "Dolor torácico (inespecifico)",
@@ -320,7 +330,7 @@
                             ] as $index => $manifClinica)
 
                                 <div class="form-check form-check-inline d-block">
-                                    <input class="form-check-input" type="checkbox" name="ea_manif_clinicas[]" id="ea_manif_clinicas{{ $index+1 }}" value="{{ $manifClinica }}">
+                                    <input class="form-check-input" type="checkbox" name="ea_manif_clinicas[]" id="ea_manif_clinicas{{ $index+1 }}" value="{{ $manifClinica }}" {{ in_array($manifClinica, $manifClinicasSeleccionadas) ? 'checked' : '' }}>
                                     <label class="form-check-label" for="ea_manif_clinicas{{ $index+1 }}">{{ $manifClinica }}</label>
                                 </div>
 
@@ -332,19 +342,19 @@
                         <label for="ea_clasificacion_kk1" class="form-label mb-0">Clasificación Killip Kimball</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ea_clasificacion_kk" id="ea_clasificacion_kk1" value="1" >
+                                <input class="form-check-input" type="radio" name="ea_clasificacion_kk" id="ea_clasificacion_kk1" value="1" @if($renima->ea_clasificacion_kk == '1') checked @endif>
                                 <label class="form-check-label" for="ea_clasificacion_kk1">1</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ea_clasificacion_kk" id="ea_clasificacion_kk2" value="2" >
+                                <input class="form-check-input" type="radio" name="ea_clasificacion_kk" id="ea_clasificacion_kk2" value="2" @if($renima->ea_clasificacion_kk == '2') checked @endif>
                                 <label class="form-check-label" for="ea_clasificacion_kk2">2</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ea_clasificacion_kk" id="ea_clasificacion_kk3" value="3" >
+                                <input class="form-check-input" type="radio" name="ea_clasificacion_kk" id="ea_clasificacion_kk3" value="3" @if($renima->ea_clasificacion_kk == '3') checked @endif>
                                 <label class="form-check-label" for="ea_clasificacion_kk3">3</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ea_clasificacion_kk" id="ea_clasificacion_kk4" value="4" >
+                                <input class="form-check-input" type="radio" name="ea_clasificacion_kk" id="ea_clasificacion_kk4" value="4" @if($renima->ea_clasificacion_kk == '4') checked @endif>
                                 <label class="form-check-label" for="ea_clasificacion_kk4">4</label>
                             </div>
                         </div>
@@ -353,50 +363,50 @@
                     <div class="col-md-6 mb-2">
                         <label for="ea_diagnostico" class="form-label mb-0">Diagnóstico</label>
                         <select class="form-control" name="ea_diagnostico" id="ea_diagnostico">
-                            <option value="">Seleccionar...</option>
-                            <option value="IAM con elevacion del ST">IAM con elevacion del ST</option>
-                            <option value="Sindrome coronario agudo ST no elevado">Sindrome coronario agudo ST no elevado</option>
+                            <option value="" @if($renima->ea_diagnostico == '') selected @endif>Seleccionar...</option>
+                            <option value="IAM con elevacion del ST" @if($renima->ea_diagnostico == 'IAM con elevacion del ST') selected @endif>IAM con elevacion del ST</option>
+                            <option value="Sindrome coronario agudo ST no elevado" @if($renima->ea_diagnostico == 'Sindrome coronario agudo ST no elevado') selected @endif>Sindrome coronario agudo ST no elevado</option>
                         </select>
                     </div>
 
-                    <div class="col-md-6 mb-2 d-none" id="dv_ea_diagnostico_st">
+                    <div class="col-md-6 mb-2 @if($renima->ea_diagnostico == 'Sindrome coronario agudo ST no elevado') @else d-none @endif" id="dv_ea_diagnostico_st">
                         <label for="ea_diagnostico_st1" class="form-label mb-0">IAM con elevacion del ST</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ea_diagnostico_st" id="ea_diagnostico_st1" value="IAM ST no Elevado" >
+                                <input class="form-check-input" type="radio" name="ea_diagnostico_st" id="ea_diagnostico_st1" value="IAM ST no Elevado" @if($renima->ea_diagnostico_st == 'IAM ST no Elevado') checked @endif>
                                 <label class="form-check-label" for="ea_diagnostico_st1">IAM ST no Elevado</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ea_diagnostico_st" id="ea_diagnostico_st2" value="Angina Inestable" >
+                                <input class="form-check-input" type="radio" name="ea_diagnostico_st" id="ea_diagnostico_st2" value="Angina Inestable" @if($renima->ea_diagnostico_st == 'Angina Inestable') checked @endif>
                                 <label class="form-check-label" for="ea_diagnostico_st2">Angina Inestable</label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2 d-none" id="dv_ea_evaluacion_riesgo">
+                    <div class="col-md-6 mb-2 @if($renima->ea_diagnostico == 'Sindrome coronario agudo ST no elevado') @else d-none @endif" id="dv_ea_evaluacion_riesgo">
                         <label for="ea_evaluacion_riesgo1" class="form-label mb-0">Evaluacion del riesgo</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ea_evaluacion_riesgo" id="ea_evaluacion_riesgo1" value="No alto riesgo" >
+                                <input class="form-check-input" type="radio" name="ea_evaluacion_riesgo" id="ea_evaluacion_riesgo1" value="No alto riesgo" @if($renima->ea_evaluacion_riesgo == 'No alto riesgo') checked @endif>
                                 <label class="form-check-label" for="ea_evaluacion_riesgo1">No alto riesgo</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ea_evaluacion_riesgo" id="ea_evaluacion_riesgo2" value="Alto riesgo" >
+                                <input class="form-check-input" type="radio" name="ea_evaluacion_riesgo" id="ea_evaluacion_riesgo2" value="Alto riesgo" @if($renima->ea_evaluacion_riesgo == 'Alto riesgo') checked @endif>
                                 <label class="form-check-label" for="ea_evaluacion_riesgo2">Alto riesgo</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ea_evaluacion_riesgo" id="ea_evaluacion_riesgo3" value="Muy alto riesgo" >
+                                <input class="form-check-input" type="radio" name="ea_evaluacion_riesgo" id="ea_evaluacion_riesgo3" value="Muy alto riesgo" @if($renima->ea_evaluacion_riesgo == 'Muy alto riesgo') checked @endif>
                                 <label class="form-check-label" for="ea_evaluacion_riesgo3">Muy alto riesgo</label>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-2 d-none" id="dv_ea_heart_score">
+                    <div class="col-md-6 mb-2 @if($renima->ea_diagnostico == 'Sindrome coronario agudo ST no elevado') @else d-none @endif" id="dv_ea_heart_score">
                         <label for="ea_heart_score" class="form-label mb-0">HEART score</label>
                         <select name="ea_heart_score" id="ea_heart_score" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Bajo (0-3 puntos)">Bajo (0-3 puntos)</option>
-                            <option value="Intermedio (4-6 puntos)">Intermedio (4-6 puntos)</option>
-                            <option value="Alto (>7 puntos)">Alto (>7 puntos)</option>
+                            <option value="" @if($renima->ea_heart_score == '') selected @endif>Seleccionar...</option>
+                            <option value="Bajo (0-3 puntos)" @if($renima->ea_heart_score == 'Bajo (0-3 puntos)') selected @endif>Bajo (0-3 puntos)</option>
+                            <option value="Intermedio (4-6 puntos)" @if($renima->ea_heart_score == 'Intermedio (4-6 puntos)') selected @endif>Intermedio (4-6 puntos)</option>
+                            <option value="Alto (>7 puntos)" @if($renima->ea_heart_score == 'Alto (>7 puntos)') selected @endif>Alto (>7 puntos)</option>
                         </select>
                     </div>
                 </div>
@@ -413,16 +423,21 @@
                     <div class="col-md-6 mb-2">
                         <label for="ecg_ritmo" class="form-label mb-0">Ritmo</label>
                         <select name="ecg_ritmo" id="ecg_ritmo" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Sinusal">Sinusal</option>
-                            <option value="Fibrilacion Auricular">Fibrilacion Auricular</option>
-                            <option value="BAV II O III grado">BAV II O III grado</option>
-                            <option value="TV/FV">TV/FV</option>
+                            <option value="" @if($renima->ecg_ritmo == '') selected @endif>Seleccionar...</option>
+                            <option value="Sinusal" @if($renima->ecg_ritmo == 'Sinusal') selected @endif>Sinusal</option>
+                            <option value="Fibrilacion Auricular" @if($renima->ecg_ritmo == 'Fibrilacion Auricular') selected @endif>Fibrilacion Auricular</option>
+                            <option value="BAV II O III grado" @if($renima->ecg_ritmo == 'BAV II O III grado') selected @endif>BAV II O III grado</option>
+                            <option value="TV/FV" @if($renima->ecg_ritmo == 'TV/FV') selected @endif>TV/FV</option>
                         </select>
                     </div>
                     <div class="col-md-12 mb-2">
                         <label for="ecg_iamcest_localizacion1" class="form-label mb-0">IAMCEST localizacion</label>
                         <div class="form-control radioptions">
+
+                            @php 
+                                // Convertir la cadena de la base de datos en un array
+                                $localizacionSeleccionada = explode(',', $renima->ecg_iamcest_localizacion);
+                            @endphp
 
                             @foreach([
                                 "Septal (V1-V2)",
@@ -438,7 +453,7 @@
                                 "Infero-postero-lateral + VD (II-III-AVF+V3R-V4R)"
                             ] as $index => $localizacion)
                                 <div class="form-check form-check-inline d-block">
-                                    <input class="form-check-input" type="checkbox" name="ecg_iamcest_localizacion[]" id="ecg_iamcest_localizacion{{ $index+1 }}" value="{{$localizacion}}">
+                                    <input class="form-check-input" type="checkbox" name="ecg_iamcest_localizacion[]" id="ecg_iamcest_localizacion{{ $index+1 }}" value="{{$localizacion}}" {{ in_array($localizacion, $localizacionSeleccionada) ? 'checked' : '' }}>
                                     <label class="form-check-label" for="ecg_iamcest_localizacion{{ $index+1 }}">{{$localizacion}}</label>
                                 </div>
                             @endforeach
@@ -448,6 +463,10 @@
                     <div class="col-md-12 mb-2">
                         <label for="ecg_scasest1" class="form-label mb-0">SCASEST</label>
                         <div class="form-control radioptions">
+                            @php
+                                // Convertir la cadena de la base de datos en un array
+                                $scasestSeleccionados = explode(',', $renima->ecg_scasest);
+                            @endphp
 
                             @foreach([
                                 "Depresion del ST T",
@@ -458,7 +477,7 @@
                                 "Rectificacion del ST"
                             ] as $index => $scasest)
                                 <div class="form-check-inline d-block">
-                                    <input class="form-check-input" type="checkbox" name="ecg_scasest[]" id="ecg_scasest{{ $index+1 }}" value="{{$scasest}}">
+                                    <input class="form-check-input" type="checkbox" name="ecg_scasest[]" id="ecg_scasest{{ $index+1 }}" value="{{$scasest}}" {{ in_array($scasest, $scasestSeleccionados) ? 'checked' : '' }}>
                                     <label class="form-check-label" for="ecg_scasest{{ $index+1 }}">{{$scasest}}</label>
                                 </div>
                             @endforeach
@@ -468,6 +487,10 @@
                     <div class="col-md-12 mb-2">
                         <label for="ecg_otros_hallazgos1" class="form-label mb-0">Otros Hallazgos</label>
                         <div class="form-control radioptions">
+                            @php
+                                // Convertir la cadena de la base de datos en un array
+                                $otrosHallazgosSeleccionados = explode(',', $renima->ecg_otros_hallazgos);
+                            @endphp
 
                             @foreach([
                                 "BCRDHH",
@@ -477,7 +500,7 @@
                                 "Patrón de TCI o multivaso"
                             ] as $index => $hallazgo)
                                 <div class="form-check-inline d-block">
-                                    <input class="form-check-input" type="checkbox" name="ecg_otros_hallazgos[]" id="ecg_otros_hallazgos{{ $index+1 }}" value="{{$hallazgo}}">
+                                    <input class="form-check-input" type="checkbox" name="ecg_otros_hallazgos[]" id="ecg_otros_hallazgos{{ $index+1 }}" value="{{$hallazgo}}" {{ in_array($hallazgo, $otrosHallazgosSeleccionados) ? 'checked' : '' }}>
                                     <label class="form-check-label" for="ecg_otros_hallazgos{{ $index+1 }}">{{$hallazgo}}</label>
                                 </div>
                             @endforeach
@@ -486,7 +509,7 @@
 
                     <div class="col-md-12 mb-2">
                         <label for="ecg_otro" class="form-label mb-0">Otro</label>
-                        <input type="text" name="ecg_otro" class="form-control" id="ecg_otro">
+                        <input type="text" name="ecg_otro" class="form-control" id="ecg_otro" value="{{ $renima->ecg_otro }}">
                     </div>
 
                 </div>
@@ -2452,20 +2475,30 @@
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-8 mb-2 mb-sm-0">
-                        {{-- Checkbox indicando "He completado los datos de mi paciente" --}}
-                        <div class="form-check">
-                            <input type="hidden" name="is_completed" value="0">
-                            <input class="form-check-input" type="checkbox" value="1" id="is_completed" name="is_completed">
-                            <label class="form-check-label" for="is_completed" style="margin-top: 2px;">
-                                He completado los datos de mi paciente. <small class="text-danger">(Recuerde que no podrá editar el formulario)</small>
-                            </label>
+                    @if($renima->ru_is_completed == '1')
+                        <div class="col-md-12 mb-2 mb-sm-0">
+                            <p class="mb-0">
+                                <strong>Ya no puede editar el formulario, marcaste que ya completaste los datos de tu paciente.</strong><br>
+                                <strong>Fecha de creación:</strong> {{ $renima->created_at->format('d/m/Y H:i') }} <br>
+                                <strong>Última modificación:</strong> {{ $renima->updated_at->format('d/m/Y H:i') }}
+                            </p>
                         </div>
-                    </div>
-                    <div class="col-md-4 mb-2 mb-sm-0 text-right">
-                        <a href="{{ route('renima.index') }}" class="btn btn-outline-primary mb-2 mb-sm-0">Cancelar</a>
-                        <button type="submit" class="btn btn-primary mb-2 mb-sm-0">Guardar</button>
-                    </div>
+                    @else
+                        <div class="col-md-8 mb-2 mb-sm-0">
+                            <div class="form-check">
+                                <input type="hidden" name="is_completed" value="0">
+                                <input class="form-check-input" type="checkbox" value="1" id="is_completed" name="is_completed" @if($renima->ru_is_completed) checked @endif>
+                                <label class="form-check-label" for="is_completed" style="margin-top: 2px;">
+                                    He completado los datos de mi paciente. <small class="text-danger">(Recuerde que no podrá editar el formulario) {{$renima->ru_is_completed}}</small>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-2 mb-sm-0 text-right">
+                            <a href="{{ route('renima.index') }}" class="btn btn-outline-primary mb-2 mb-sm-0">Cancelar</a>
+                            <button type="submit" class="btn btn-primary mb-2 mb-sm-0">Guardar</button>
+                        </div>
+                    @endif
+
                 </div>
             </div>
         </div>
