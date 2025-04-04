@@ -309,6 +309,11 @@
                 this.querySelector('i').classList.toggle('fa-eye-slash');
             });
 
+            //campo email solo acepta letras minusculas
+            $('#email').on('input', function() {
+                this.value = this.value.toLowerCase();
+            });
+
         });
     </script>
 
