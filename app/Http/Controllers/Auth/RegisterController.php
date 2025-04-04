@@ -50,9 +50,16 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'trato' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password_confirmation' => ['required', 'string', 'min:8'],
+            'sede' => ['nullable', 'string', 'max:255'],
+            'registro' => ['required', 'string', 'max:255'],
+            'is_acept_terms' => ['required', 'boolean'],
         ]);
     }
 
@@ -64,10 +71,33 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
+            'trato' => $data['trato'],
             'name' => $data['name'],
+            'lastname' => $data['lastname'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
+            'sede' => $data['sede'],
         ]);
+
+        // syncRoles 2 = medico
+        $user->syncRoles(2);
+
+        //assign permissions
+        if($data['registro'] == 'REPECCA'){
+            $user->syncPermissions(['dashboard.index', 'repecca.create', 'repecca.destroy', 'repecca.edit', 'repecca.index']);
+        }else if($data['registro'] == 'RENAVAL'){
+            $user->syncPermissions(['dashboard.index', 'renaval.create', 'renaval.destroy', 'renaval.edit', 'renaval.index']);
+        }else if($data['registro'] == 'RENIMA'){
+            $user->syncPermissions(['dashboard.index', 'renima.create', 'renima.destroy', 'renima.edit', 'renima.index']);
+        }else if($data['registro'] == 'INPER-HP'){
+            $user->syncPermissions(['dashboard.index', 'pulmonary-hypertension.create', 'pulmonary-hypertension.destroy', 'pulmonary-hypertension.edit', 'pulmonary-hypertension.index']);
+        }else{
+            $user->syncPermissions(['dashboard.index']);
+        }
+
+        return $user;
+
     }
 }

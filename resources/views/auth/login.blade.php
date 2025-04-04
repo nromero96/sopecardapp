@@ -76,7 +76,7 @@
                                         </div>
 
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            {{ __('Ingresar') }}
+                                            <b>{{ __('Ingresar') }}</b>
                                         </button>
 
                                     </form>
@@ -87,6 +87,12 @@
                                                 {{ __('¿Olvidaste tu contraseña?') }}
                                             </a>
                                         @endif
+
+
+                                        <a class="small d-block" href="{{ route('register') }}">
+                                            {{ __('¿No tienes una cuenta? Registrate!') }}
+                                        </a>
+
                                     </div>
                                 </div>
                             </div>

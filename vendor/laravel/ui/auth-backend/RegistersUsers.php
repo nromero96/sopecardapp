@@ -7,6 +7,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\Sede;
+
 trait RegistersUsers
 {
     use RedirectsUsers;
@@ -18,7 +20,8 @@ trait RegistersUsers
      */
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        $sedes = Sede::where('status','activo')->orderBy('name')->get();
+        return view('auth.register')->with(['sedes' => $sedes]);
     }
 
     /**
