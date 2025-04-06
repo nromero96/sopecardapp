@@ -527,23 +527,23 @@
                     <div class="col-md-6 mb-2">
                         <label for="dis_manejo" class="form-label mb-0">Manejo</label>
                         <select name="dis_manejo" id="dis_manejo" class="form-control" >
-                            <option value="">Seleccionar...</option>
+                            <option value="" @if($renima->dis_manejo == '') selected @endif>Seleccionar...</option>
                             <optgroup label="IAMCEST">
-                                <option value="Solo lisis">Solo lisis</option>
-                                <option value="Farmacoinvasiva + ICP sistemática precoz (2 – 24 horas)">Farmacoinvasiva + ICP sistemática precoz (2 – 24 horas)</option>
-                                <option value="Farmacoinvasiva + ICP sistemática (> 24 horas)">Farmacoinvasiva + ICP sistemática (> 24 horas)</option>
-                                <option value="Lisis + ICP de Rescate">Lisis + ICP de Rescate</option>
-                                <option value="Intervención coronaria percutánea primaria (< 120 minutos)">Intervención coronaria percutánea primaria (< 120 minutos)</option>
-                                <option value="Intervención coronaria percutánea primaria (121 minutos - 12 horas)">Intervención coronaria percutánea primaria (121 minutos - 12 horas)</option>
-                                <option value="Intervención coronaria percutánea primaria (> 12 horas)">Intervención coronaria percutánea primaria (> 12 horas)</option>
+                                <option value="Solo lisis" @if($renima->dis_manejo == 'Solo lisis') selected @endif>Solo lisis</option>
+                                <option value="Farmacoinvasiva + ICP sistemática precoz (2 – 24 horas)" @if($renima->dis_manejo == 'Farmacoinvasiva + ICP sistemática precoz (2 – 24 horas)') selected @endif>Farmacoinvasiva + ICP sistemática precoz (2 – 24 horas)</option>
+                                <option value="Farmacoinvasiva + ICP sistemática (> 24 horas)" @if($renima->dis_manejo == 'Farmacoinvasiva + ICP sistemática (> 24 horas)') selected @endif>Farmacoinvasiva + ICP sistemática (> 24 horas)</option>
+                                <option value="Lisis + ICP de Rescate" @if($renima->dis_manejo == 'Lisis + ICP de Rescate') selected @endif>Lisis + ICP de Rescate</option>
+                                <option value="Intervención coronaria percutánea primaria (< 120 minutos)" @if($renima->dis_manejo == 'Intervención coronaria percutánea primaria (< 120 minutos)') selected @endif>Intervención coronaria percutánea primaria (< 120 minutos)</option>
+                                <option value="Intervención coronaria percutánea primaria (121 minutos - 12 horas)" @if($renima->dis_manejo == 'Intervención coronaria percutánea primaria (121 minutos - 12 horas)') selected @endif>Intervención coronaria percutánea primaria (121 minutos - 12 horas)</option>
+                                <option value="Intervención coronaria percutánea primaria (> 12 horas)" @if($renima->dis_manejo == 'Intervención coronaria percutánea primaria (> 12 horas)') selected @endif>Intervención coronaria percutánea primaria (> 12 horas)</option>
                             </optgroup>
                             <optgroup label="SCASEST">
-                                <option value="Estrategia invasiva inmediata ( ICP < 2 horas )">Estrategia invasiva inmediata ( ICP < 2 horas )</option>
-                                <option value="Estrategia invasiva temprana ( ICP 2 – 24 horas)">Estrategia invasiva temprana ( ICP 2 – 24 horas)</option>
-                                <option value="Estrategia selectiva invasiva (ICP > 24 horas)">Estrategia selectiva invasiva (ICP > 24 horas)</option>
+                                <option value="Estrategia invasiva inmediata ( ICP < 2 horas )" @if($renima->dis_manejo == 'Estrategia invasiva inmediata ( ICP < 2 horas )') selected @endif>Estrategia invasiva inmediata ( ICP < 2 horas )</option>
+                                <option value="Estrategia invasiva temprana ( ICP 2 – 24 horas)" @if($renima->dis_manejo == 'Estrategia invasiva temprana ( ICP 2 – 24 horas)') selected @endif>Estrategia invasiva temprana ( ICP 2 – 24 horas)</option>
+                                <option value="Estrategia selectiva invasiva (ICP > 24 horas)" @if($renima->dis_manejo == 'Estrategia selectiva invasiva (ICP > 24 horas)') selected @endif>Estrategia selectiva invasiva (ICP > 24 horas)</option>
                             </optgroup>
-                            <option value="Bypass coronario">Bypass coronario</option>
-                            <option value="Solo tratamiento médico">Solo tratamiento médico</option>
+                            <option value="Bypass coronario" @if($renima->dis_manejo == 'Bypass coronario') selected @endif>Bypass coronario</option>
+                            <option value="Solo tratamiento médico" @if($renima->dis_manejo == 'Solo tratamiento médico') selected @endif>Solo tratamiento médico</option>
                         </select>
                     </div>
 
@@ -1308,11 +1308,11 @@
                         <label for="ti_aspirina1" class="form-label mb-0">Aspirina</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_aspirina" id="ti_aspirina1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_aspirina" id="ti_aspirina1" value="Sí" @if($renima->ti_aspirina == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_aspirina1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_aspirina" id="ti_aspirina2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_aspirina" id="ti_aspirina2" value="No" @if($renima->ti_aspirina == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_aspirina2">No</label>
                             </div>
                         </div>
@@ -1322,19 +1322,19 @@
                         <label for="ti_ip2y121" class="form-label mb-0">IP2Y12</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y121" value="Clopidogrel">
+                                <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y121" value="Clopidogrel" @if($renima->ti_ip2y12 == 'Clopidogrel') checked @endif>
                                 <label class="form-check-label" for="ti_ip2y121">Clopidogrel</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y122" value="Prasugrel">
+                                <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y122" value="Prasugrel" @if($renima->ti_ip2y12 == 'Prasugrel') checked @endif>
                                 <label class="form-check-label" for="ti_ip2y122">Prasugrel</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y123" value="Ticagrelor">
+                                <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y123" value="Ticagrelor" @if($renima->ti_ip2y12 == 'Ticagrelor') checked @endif>
                                 <label class="form-check-label" for="ti_ip2y123">Ticagrelor</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y124" value="No">
+                                <input class="form-check-input" type="radio" name="ti_ip2y12" id="ti_ip2y124" value="No" @if($renima->ti_ip2y12 == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_ip2y124">No</label>
                             </div>
                         </div>
@@ -1344,11 +1344,11 @@
                         <label for="ti_enoxaparina1" class="form-label mb-0">Enoxaparina</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_enoxaparina" id="ti_enoxaparina1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_enoxaparina" id="ti_enoxaparina1" value="Sí" @if($renima->ti_enoxaparina == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_enoxaparina1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_enoxaparina" id="ti_enoxaparina2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_enoxaparina" id="ti_enoxaparina2" value="No" @if($renima->ti_enoxaparina == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_enoxaparina2">No</label>
                             </div>
                         </div>
@@ -1358,11 +1358,11 @@
                         <label for="ti_heparina_no_fraccionada1" class="form-label mb-0">Heparina no fraccionada</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_heparina_no_fraccionada" id="ti_heparina_no_fraccionada1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_heparina_no_fraccionada" id="ti_heparina_no_fraccionada1" value="Sí" @if($renima->ti_heparina_no_fraccionada == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_heparina_no_fraccionada1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_heparina_no_fraccionada" id="ti_heparina_no_fraccionada2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_heparina_no_fraccionada" id="ti_heparina_no_fraccionada2" value="No" @if($renima->ti_heparina_no_fraccionada == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_heparina_no_fraccionada2">No</label>
                             </div>
                         </div>
@@ -1372,11 +1372,11 @@
                         <label for="ti_atorvastatina1" class="form-label mb-0">Atorvastatina</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_atorvastatina" id="ti_atorvastatina1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_atorvastatina" id="ti_atorvastatina1" value="Sí" @if($renima->ti_atorvastatina == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_atorvastatina1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_atorvastatina" id="ti_atorvastatina2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_atorvastatina" id="ti_atorvastatina2" value="No" @if($renima->ti_atorvastatina == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_atorvastatina2">No</label>
                             </div>
                         </div>
@@ -1386,11 +1386,11 @@
                         <label for="ti_betabloqueadores1" class="form-label mb-0">Betabloqueadores</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_betabloqueadores" id="ti_betabloqueadores1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_betabloqueadores" id="ti_betabloqueadores1" value="Sí" @if($renima->ti_betabloqueadores == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_betabloqueadores1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_betabloqueadores" id="ti_betabloqueadores2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_betabloqueadores" id="ti_betabloqueadores2" value="No" @if($renima->ti_betabloqueadores == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_betabloqueadores2">No</label>
                             </div>
                         </div>
@@ -1400,11 +1400,11 @@
                         <label for="ti_diureticos_asa1" class="form-label mb-0">Diuréticos de asa</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_diureticos_asa" id="ti_diureticos_asa1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_diureticos_asa" id="ti_diureticos_asa1" value="Sí" @if($renima->ti_diureticos_asa == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_diureticos_asa1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_diureticos_asa" id="ti_diureticos_asa2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_diureticos_asa" id="ti_diureticos_asa2" value="No" @if($renima->ti_diureticos_asa == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_diureticos_asa2">No</label>
                             </div>
                         </div>
@@ -1414,11 +1414,11 @@
                         <label for="ti_vasodilatadores1" class="form-label mb-0">Vasodilatadores</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_vasodilatadores" id="ti_vasodilatadores1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_vasodilatadores" id="ti_vasodilatadores1" value="Sí" @if($renima->ti_vasodilatadores == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_vasodilatadores1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_vasodilatadores" id="ti_vasodilatadores2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_vasodilatadores" id="ti_vasodilatadores2" value="No" @if($renima->ti_vasodilatadores == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_vasodilatadores2">No</label>
                             </div>
                         </div>
@@ -1428,11 +1428,11 @@
                         <label for="ti_vasopresores1" class="form-label mb-0">Vasopresores</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_vasopresores" id="ti_vasopresores1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_vasopresores" id="ti_vasopresores1" value="Sí" @if($renima->ti_vasopresores == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_vasopresores1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_vasopresores" id="ti_vasopresores2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_vasopresores" id="ti_vasopresores2" value="No" @if($renima->ti_vasopresores == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_vasopresores2">No</label>
                             </div>
                         </div>
@@ -1442,11 +1442,11 @@
                         <label for="ti_inotropicos1" class="form-label mb-0">Inotrópicos</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_inotropicos" id="ti_inotropicos1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_inotropicos" id="ti_inotropicos1" value="Sí" @if($renima->ti_inotropicos == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_inotropicos1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_inotropicos" id="ti_inotropicos2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_inotropicos" id="ti_inotropicos2" value="No" @if($renima->ti_inotropicos == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_inotropicos2">No</label>
                             </div>
                         </div>
@@ -1456,11 +1456,11 @@
                         <label for="ti_ieca_ara1" class="form-label mb-0">IECA/ARA</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_ieca_ara" id="ti_ieca_ara1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_ieca_ara" id="ti_ieca_ara1" value="Sí" @if($renima->ti_ieca_ara == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_ieca_ara1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_ieca_ara" id="ti_ieca_ara2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_ieca_ara" id="ti_ieca_ara2" value="No" @if($renima->ti_ieca_ara == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_ieca_ara2">No</label>
                             </div>
                         </div>
@@ -1470,11 +1470,11 @@
                         <label for="ti_insulina1" class="form-label mb-0">Insulina</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_insulina" id="ti_insulina1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_insulina" id="ti_insulina1" value="Sí" @if($renima->ti_insulina == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_insulina1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_insulina" id="ti_insulina2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_insulina" id="ti_insulina2" value="No" @if($renima->ti_insulina == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_insulina2">No</label>
                             </div>
                         </div>
@@ -1484,11 +1484,11 @@
                         <label for="ti_antagonistas_mineralocorticoide1" class="form-label mb-0">Antagonistas de los mineralos corticoides</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_antagonistas_mineralocorticoide" id="ti_antagonistas_mineralocorticoide1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_antagonistas_mineralocorticoide" id="ti_antagonistas_mineralocorticoide1" value="Sí" @if($renima->ti_antagonistas_mineralocorticoide == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_antagonistas_mineralocorticoide1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_antagonistas_mineralocorticoide" id="ti_antagonistas_mineralocorticoide2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_antagonistas_mineralocorticoide" id="ti_antagonistas_mineralocorticoide2" value="No" @if($renima->ti_antagonistas_mineralocorticoide == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_antagonistas_mineralocorticoide2">No</label>
                             </div>
                         </div>
@@ -1498,11 +1498,11 @@
                         <label for="ti_ventilacion_mecanica1" class="form-label mb-0">Ventilación mecánica</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_ventilacion_mecanica" id="ti_ventilacion_mecanica1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_ventilacion_mecanica" id="ti_ventilacion_mecanica1" value="Sí" @if($renima->ti_ventilacion_mecanica == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_ventilacion_mecanica1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_ventilacion_mecanica" id="ti_ventilacion_mecanica2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_ventilacion_mecanica" id="ti_ventilacion_mecanica2" value="No" @if($renima->ti_ventilacion_mecanica == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_ventilacion_mecanica2">No</label>
                             </div>
                         </div>
@@ -1512,11 +1512,11 @@
                         <label for="ti_dialisis1" class="form-label mb-0">Diálisis</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_dialisis" id="ti_dialisis1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_dialisis" id="ti_dialisis1" value="Sí" @if($renima->ti_dialisis == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_dialisis1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_dialisis" id="ti_dialisis2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_dialisis" id="ti_dialisis2" value="No" @if($renima->ti_dialisis == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_dialisis2">No</label>
                             </div>
                         </div>
@@ -1526,11 +1526,11 @@
                         <label for="ti_rehabilitacion_cardiaca1" class="form-label mb-0">Rehabilitación cardiaca</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_rehabilitacion_cardiaca" id="ti_rehabilitacion_cardiaca1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_rehabilitacion_cardiaca" id="ti_rehabilitacion_cardiaca1" value="Sí" @if($renima->ti_rehabilitacion_cardiaca == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_rehabilitacion_cardiaca1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_rehabilitacion_cardiaca" id="ti_rehabilitacion_cardiaca2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_rehabilitacion_cardiaca" id="ti_rehabilitacion_cardiaca2" value="No" @if($renima->ti_rehabilitacion_cardiaca == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_rehabilitacion_cardiaca2">No</label>
                             </div>
                         </div>
@@ -1540,11 +1540,11 @@
                         <label for="ti_ventilacion_no_invasiva1" class="form-label mb-0">Ventilación no invasiva</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_ventilacion_no_invasiva" id="ti_ventilacion_no_invasiva1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_ventilacion_no_invasiva" id="ti_ventilacion_no_invasiva1" value="Sí" @if($renima->ti_ventilacion_no_invasiva == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_ventilacion_no_invasiva1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_ventilacion_no_invasiva" id="ti_ventilacion_no_invasiva2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_ventilacion_no_invasiva" id="ti_ventilacion_no_invasiva2" value="No" @if($renima->ti_ventilacion_no_invasiva == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_ventilacion_no_invasiva2">No</label>
                             </div>
                         </div>
@@ -1554,11 +1554,11 @@
                         <label for="ti_balon_contrapulsacion_ia1" class="form-label mb-0">Balón de contrapulsación intra aórtico</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_balon_contrapulsacion_ia" id="ti_balon_contrapulsacion_ia1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_balon_contrapulsacion_ia" id="ti_balon_contrapulsacion_ia1" value="Sí" @if($renima->ti_balon_contrapulsacion_ia == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_balon_contrapulsacion_ia1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_balon_contrapulsacion_ia" id="ti_balon_contrapulsacion_ia2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_balon_contrapulsacion_ia" id="ti_balon_contrapulsacion_ia2" value="No" @if($renima->ti_balon_contrapulsacion_ia == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_balon_contrapulsacion_ia2">No</label>
                             </div>
                         </div>
@@ -1568,11 +1568,11 @@
                         <label for="ti_levosimendan1" class="form-label mb-0">Levosimendan</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_levosimendan" id="ti_levosimendan1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_levosimendan" id="ti_levosimendan1" value="Sí" @if($renima->ti_levosimendan == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_levosimendan1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_levosimendan" id="ti_levosimendan2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_levosimendan" id="ti_levosimendan2" value="No" @if($renima->ti_levosimendan == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_levosimendan2">No</label>
                             </div>
                         </div>
@@ -1582,15 +1582,15 @@
                         <label for="ti_marcapaso1" class="form-label mb-0">Marcapasos</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_marcapaso" id="ti_marcapaso1" value="Transitorio">
+                                <input class="form-check-input" type="radio" name="ti_marcapaso" id="ti_marcapaso1" value="Transitorio" @if($renima->ti_marcapaso == 'Transitorio') checked @endif>
                                 <label class="form-check-label" for="ti_marcapaso1">Transitorio</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_marcapaso" id="ti_marcapaso2" value="Definitivo">
+                                <input class="form-check-input" type="radio" name="ti_marcapaso" id="ti_marcapaso2" value="Definitivo" @if($renima->ti_marcapaso == 'Definitivo') checked @endif>
                                 <label class="form-check-label" for="ti_marcapaso2">Definitivo</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_marcapaso" id="ti_marcapaso3" value="No">
+                                <input class="form-check-input" type="radio" name="ti_marcapaso" id="ti_marcapaso3" value="No" @if($renima->ti_marcapaso == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_marcapaso3">No</label>
                             </div>
                         </div>
@@ -1599,11 +1599,11 @@
                         <label for="ti_ecmo1" class="form-label mb-0">ECMO</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_ecmo" id="ti_ecmo1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_ecmo" id="ti_ecmo1" value="Sí" @if($renima->ti_ecmo == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_ecmo1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_ecmo" id="ti_ecmo2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_ecmo" id="ti_ecmo2" value="No" @if($renima->ti_ecmo == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_ecmo2">No</label>
                             </div>
                         </div>
@@ -1613,11 +1613,11 @@
                         <label for="ti_dai_resincro1" class="form-label mb-0">DAI/Resincro</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_dai_resincro" id="ti_dai_resincro1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_dai_resincro" id="ti_dai_resincro1" value="Sí" @if($renima->ti_dai_resincro == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_dai_resincro1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_dai_resincro" id="ti_dai_resincro2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_dai_resincro" id="ti_dai_resincro2" value="No" @if($renima->ti_dai_resincro == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_dai_resincro2">No</label>
                             </div>
                         </div>
@@ -1627,11 +1627,11 @@
                         <label for="ti_transplante_cardiaca1" class="form-label mb-0">Trasplante Cardiaca</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_transplante_cardiaca" id="ti_transplante_cardiaca1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ti_transplante_cardiaca" id="ti_transplante_cardiaca1" value="Sí" @if($renima->ti_transplante_cardiaca == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ti_transplante_cardiaca1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ti_transplante_cardiaca" id="ti_transplante_cardiaca2" value="No">
+                                <input class="form-check-input" type="radio" name="ti_transplante_cardiaca" id="ti_transplante_cardiaca2" value="No" @if($renima->ti_transplante_cardiaca == 'No') checked @endif>
                                 <label class="form-check-label" for="ti_transplante_cardiaca2">No</label>
                             </div>
                         </div>
@@ -1651,64 +1651,64 @@
                 <div class="row mb-1">
                     <div class="col-md-6 mb-2">
                         <label for="aai_hemoglobina" class="form-label mb-0">Hemoglobina</label>
-                        <input type="number" name="aai_hemoglobina" class="form-control" id="aai_hemoglobina">
+                        <input type="number" name="aai_hemoglobina" class="form-control" id="aai_hemoglobina" @if($renima->aai_hemoglobina) value="{{ $renima->aai_hemoglobina }}" @endif>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_leucocitos" class="form-label mb-0">Leucocitos</label>
-                        <input type="number" name="aai_leucocitos" class="form-control" id="aai_leucocitos">
+                        <input type="number" name="aai_leucocitos" class="form-control" id="aai_leucocitos" @if($renima->aai_leucocitos) value="{{ $renima->aai_leucocitos }}" @endif>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_plaquetas" class="form-label mb-0">Plaquetas</label>
-                        <input type="number" name="aai_plaquetas" class="form-control" id="aai_plaquetas">
+                        <input type="number" name="aai_plaquetas" class="form-control" id="aai_plaquetas" @if($renima->aai_plaquetas) value="{{ $renima->aai_plaquetas }}" @endif>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_creatinina" class="form-label mb-0">Creatinina</label>
-                        <input type="number" name="aai_creatinina" class="form-control" id="aai_creatinina">
+                        <input type="number" name="aai_creatinina" class="form-control" id="aai_creatinina" @if($renima->aai_creatinina) value="{{ $renima->aai_creatinina }}" @endif>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_urea" class="form-label mb-0">Úrea</label>
-                        <input type="number" name="aai_urea" class="form-control" id="aai_urea">
+                        <input type="number" name="aai_urea" class="form-control" id="aai_urea" @if($renima->aai_urea) value="{{ $renima->aai_urea }}" @endif>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_glucosa" class="form-label mb-0">Glucosa</label>
-                        <input type="number" name="aai_glucosa" class="form-control" id="aai_glucosa">
+                        <input type="number" name="aai_glucosa" class="form-control" id="aai_glucosa" @if($renima->aai_glucosa) value="{{ $renima->aai_glucosa }}" @endif>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_troponina_iot_primer" class="form-label mb-0">Troponina I o T Primer control</label>
-                        <input type="number" name="aai_troponina_iot_primer" class="form-control" id="aai_troponina_iot_primer">
+                        <input type="number" name="aai_troponina_iot_primer" class="form-control" id="aai_troponina_iot_primer" @if($renima->aai_troponina_iot_primer) value="{{ $renima->aai_troponina_iot_primer }}" @endif>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_troponina_iot_segundo" class="form-label mb-0">Troponina I o T Segundo control</label>
-                        <input type="number" name="aai_troponina_iot_segundo" class="form-control" id="aai_troponina_iot_segundo">
+                        <input type="number" name="aai_troponina_iot_segundo" class="form-control" id="aai_troponina_iot_segundo" @if($renima->aai_troponina_iot_segundo) value="{{ $renima->aai_troponina_iot_segundo }}" @endif>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_horas_troponina" class="form-label mb-0">Nº de horas al 2º control de Troponina</label>
-                        <input type="number" name="aai_horas_troponina" class="form-control" id="aai_horas_troponina">
+                        <input type="number" name="aai_horas_troponina" class="form-control" id="aai_horas_troponina" @if($renima->aai_horas_troponina) value="{{ $renima->aai_horas_troponina }}" @endif>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_cpk_total" class="form-label mb-0">CPK total</label>
-                        <input type="number" name="aai_cpk_total" class="form-control" id="aai_cpk_total">
+                        <input type="number" name="aai_cpk_total" class="form-control" id="aai_cpk_total" @if($renima->aai_cpk_total) value="{{ $renima->aai_cpk_total }}" @endif>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_cpk_mb" class="form-label mb-0">CPK-MB</label>
-                        <input type="number" name="aai_cpk_mb" class="form-control" id="aai_cpk_mb">
+                        <input type="number" name="aai_cpk_mb" class="form-control" id="aai_cpk_mb" @if($renima->aai_cpk_mb) value="{{ $renima->aai_cpk_mb }}" @endif>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_lactato" class="form-label mb-0">Lactato</label>
-                        <input type="number" name="aai_lactato" class="form-control" id="aai_lactato">
+                        <input type="number" name="aai_lactato" class="form-control" id="aai_lactato" @if($renima->aai_lactato) value="{{ $renima->aai_lactato }}" @endif>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_fevi" class="form-label mb-0">Fracción de eyección ventricular izquierda</label>
-                        <input type="number" name="aai_fevi" class="form-control" id="aai_fevi">
+                        <input type="number" name="aai_fevi" class="form-control" id="aai_fevi" @if($renima->aai_fevi) value="{{ $renima->aai_fevi }}" @endif>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_fecha_pm_fevi" class="form-label mb-0">Fecha de primera medición de fracción de eyección ventricular izquierda</label>
-                        <input type="date" name="aai_fecha_pm_fevi" class="form-control" id="aai_fecha_pm_fevi">
+                        <input type="date" name="aai_fecha_pm_fevi" class="form-control" id="aai_fecha_pm_fevi" value="{{ $renima->aai_fecha_pm_fevi }}">
                     </div>
                     
                     <div class="col-md-6 mb-2">
                         <label for="aai_hemoglobina_glicosilada" class="form-label mb-0">Hemoglobina Glicosilada</label>
-                        <input type="number" name="aai_hemoglobina_glicosilada" class="form-control" id="aai_hemoglobina_glicosilada">
+                        <input type="number" name="aai_hemoglobina_glicosilada" class="form-control" id="aai_hemoglobina_glicosilada" @if($renima->aai_hemoglobina_glicosilada) value="{{ $renima->aai_hemoglobina_glicosilada }}" @endif>
                     </div>
                 </div>
             </div>
@@ -1725,11 +1725,11 @@
                         <label for="dci_muerte_cardiovascular1" class="form-label mb-0">Muerte cardiovascular</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_muerte_cardiovascular" id="dci_muerte_cardiovascular1" value="Sí">
+                                <input class="form-check-input" type="radio" name="dci_muerte_cardiovascular" id="dci_muerte_cardiovascular1" value="Sí" @if($renima->dci_muerte_cardiovascular == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dci_muerte_cardiovascular1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_muerte_cardiovascular" id="dci_muerte_cardiovascular2" value="No">
+                                <input class="form-check-input" type="radio" name="dci_muerte_cardiovascular" id="dci_muerte_cardiovascular2" value="No" @if($renima->dci_muerte_cardiovascular == 'No') checked @endif>
                                 <label class="form-check-label" for="dci_muerte_cardiovascular2">No</label>
                             </div>
                         </div>
@@ -1737,18 +1737,18 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_fecha_muerte_cardiovascular_alta" class="form-label mb-0">Fecha de muerte cardiovascular</label>
-                        <input type="date" name="dci_fecha_muerte_cardiovascular_alta" class="form-control" id="dci_fecha_muerte_cardiovascular_alta">
+                        <input type="date" name="dci_fecha_muerte_cardiovascular_alta" class="form-control" id="dci_fecha_muerte_cardiovascular_alta" value="{{ $renima->dci_fecha_muerte_cardiovascular_alta }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_muerte_no_cardiovascular1" class="form-label mb-0">Muerte no cardiovascular</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_muerte_no_cardiovascular" id="dci_muerte_no_cardiovascular1" value="Sí">
+                                <input class="form-check-input" type="radio" name="dci_muerte_no_cardiovascular" id="dci_muerte_no_cardiovascular1" value="Sí" @if($renima->dci_muerte_no_cardiovascular == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dci_muerte_no_cardiovascular1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_muerte_no_cardiovascular" id="dci_muerte_no_cardiovascular2" value="No">
+                                <input class="form-check-input" type="radio" name="dci_muerte_no_cardiovascular" id="dci_muerte_no_cardiovascular2" value="No" @if($renima->dci_muerte_no_cardiovascular == 'No') checked @endif>
                                 <label class="form-check-label" for="dci_muerte_no_cardiovascular2">No</label>
                             </div>
                         </div>
@@ -1756,18 +1756,18 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_fecha_muerte_no_cardiovascular_alta" class="form-label mb-0">Fecha de muerte no cardiovascular</label>
-                        <input type="date" name="dci_fecha_muerte_no_cardiovascular_alta" class="form-control" id="dci_fecha_muerte_no_cardiovascular_alta">
+                        <input type="date" name="dci_fecha_muerte_no_cardiovascular_alta" class="form-control" id="dci_fecha_muerte_no_cardiovascular_alta" value="{{ $renima->dci_fecha_muerte_no_cardiovascular_alta }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_angina_postinfarto1" class="form-label mb-0">Angina postinfarto</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_angina_postinfarto" id="dci_angina_postinfarto1" value="Sí">
+                                <input class="form-check-input" type="radio" name="dci_angina_postinfarto" id="dci_angina_postinfarto1" value="Sí" @if($renima->dci_angina_postinfarto == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dci_angina_postinfarto1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_angina_postinfarto" id="dci_angina_postinfarto2" value="No">
+                                <input class="form-check-input" type="radio" name="dci_angina_postinfarto" id="dci_angina_postinfarto2" value="No" @if($renima->dci_angina_postinfarto == 'No') checked @endif>
                                 <label class="form-check-label" for="dci_angina_postinfarto2">No</label>
                             </div>
                         </div>
@@ -1775,18 +1775,18 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_fecha_angina_postinfarto" class="form-label mb-0">Fecha de angina postinfarto</label>
-                        <input type="date" name="dci_fecha_angina_postinfarto" class="form-control" id="dci_fecha_angina_postinfarto">
+                        <input type="date" name="dci_fecha_angina_postinfarto" class="form-control" id="dci_fecha_angina_postinfarto" value="{{ $renima->dci_fecha_angina_postinfarto }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_reinfarto1" class="form-label mb-0">Reinfarto</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_reinfarto" id="dci_reinfarto1" value="Sí">
+                                <input class="form-check-input" type="radio" name="dci_reinfarto" id="dci_reinfarto1" value="Sí" @if($renima->dci_reinfarto == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dci_reinfarto1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_reinfarto" id="dci_reinfarto2" value="No">
+                                <input class="form-check-input" type="radio" name="dci_reinfarto" id="dci_reinfarto2" value="No" @if($renima->dci_reinfarto == 'No') checked @endif>
                                 <label class="form-check-label" for="dci_reinfarto2">No</label>
                             </div>
                         </div>
@@ -1794,26 +1794,26 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_fecha_reinfarto" class="form-label mb-0">Fecha de reinfarto</label>
-                        <input type="date" name="dci_fecha_reinfarto" class="form-control" id="dci_fecha_reinfarto">
+                        <input type="date" name="dci_fecha_reinfarto" class="form-control" id="dci_fecha_reinfarto" value="{{ $renima->dci_fecha_reinfarto }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_acv1" class="form-label mb-0">ACV</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv1" value="TIA">
+                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv1" value="TIA" @if($renima->dci_acv == 'TIA') checked @endif>
                                 <label class="form-check-label" for="dci_acv1">TIA</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv2" value="Isquemico">
+                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv2" value="Isquemico" @if($renima->dci_acv == 'Isquemico') checked @endif>
                                 <label class="form-check-label" for="dci_acv2">Isquemico</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv3" value="Hemorragico">
+                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv3" value="Hemorragico" @if($renima->dci_acv == 'Hemorragico') checked @endif>
                                 <label class="form-check-label" for="dci_acv3">Hemorragico</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv4" value="No">
+                                <input class="form-check-input" type="radio" name="dci_acv" id="dci_acv4" value="No" @if($renima->dci_acv == 'No') checked @endif>
                                 <label class="form-check-label" for="dci_acv4">No</label>
                             </div>
                         </div>
@@ -1821,18 +1821,18 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_fecha_acv_alta" class="form-label mb-0">Fecha de ACV</label>
-                        <input type="date" name="dci_fecha_acv_alta" class="form-control" id="dci_fecha_acv_alta">
+                        <input type="date" name="dci_fecha_acv_alta" class="form-control" id="dci_fecha_acv_alta" value="{{ $renima->dci_fecha_acv_alta }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_sangrado1" class="form-label mb-0">Sangrado</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_sangrado" id="dci_sangrado1" value="Sí">
+                                <input class="form-check-input" type="radio" name="dci_sangrado" id="dci_sangrado1" value="Sí" @if($renima->dci_sangrado == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dci_sangrado1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_sangrado" id="dci_sangrado2" value="No">
+                                <input class="form-check-input" type="radio" name="dci_sangrado" id="dci_sangrado2" value="No" @if($renima->dci_sangrado == 'No') checked @endif>
                                 <label class="form-check-label" for="dci_sangrado2">No</label>
                             </div>
                         </div>
@@ -1842,42 +1842,42 @@
                         <label for="dci_sangrado_segun_barc0" class="form-label mb-0">Sangrado según BARC:</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc0" value="0">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc0" value="0" @if($renima->dci_sangrado_segun_barc == '0') checked @endif>
                                 <label class="form-check-label" for="dci_sangrado_segun_barc0">0</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc1" value="1">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc1" value="1" @if($renima->dci_sangrado_segun_barc == '1') checked @endif>
                                 <label class="form-check-label" for="dci_sangrado_segun_barc1">1</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc2" value="2">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc2" value="2" @if($renima->dci_sangrado_segun_barc == '2') checked @endif>
                                 <label class="form-check-label" for="dci_sangrado_segun_barc2">2</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc3" value="3">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc3" value="3" @if($renima->dci_sangrado_segun_barc == '3') checked @endif>
                                 <label class="form-check-label" for="dci_sangrado_segun_barc3">3</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc4" value="4">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc4" value="4" @if($renima->dci_sangrado_segun_barc == '4') checked @endif>
                                 <label class="form-check-label" for="dci_sangrado_segun_barc4">4</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc5" value="5">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc" id="dci_sangrado_segun_barc5" value="5" @if($renima->dci_sangrado_segun_barc == '5') checked @endif>
                                 <label class="form-check-label" for="dci_sangrado_segun_barc5">5</label>
                             </div>
                         </div>
 
-                        <div class="form-control radioptions mt-1 d-none" id="div_dci_sangrado_segun_barc_tipo">
+                        <div class="form-control radioptions mt-1 @if($renima->dci_sangrado_segun_barc == '3' || $renima->dci_sangrado_segun_barc == '5') @else d-none @endif" id="div_dci_sangrado_segun_barc_tipo">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc_tipo" id="dci_sangrado_segun_barc_tipo1" value="A"> 
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc_tipo" id="dci_sangrado_segun_barc_tipo1" value="A" @if($renima->dci_sangrado_segun_barc_tipo == 'A') checked @endif>
                                 <label class="form-check-label" for="dci_sangrado_segun_barc_tipo1">A</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc_tipo" id="dci_sangrado_segun_barc_tipo2" value="B"> 
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc_tipo" id="dci_sangrado_segun_barc_tipo2" value="B" @if($renima->dci_sangrado_segun_barc_tipo == 'B') checked @endif>
                                 <label class="form-check-label" for="dci_sangrado_segun_barc_tipo2">B</label>
                             </div>
-                            <div class="form-check form-check-inline" id="div_dci_sangrado_segun_barc_tipo3">
-                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc_tipo" id="dci_sangrado_segun_barc_tipo3" value="C"> 
+                            <div class="form-check form-check-inline @if($renima->dci_sangrado_segun_barc == '5') d-none @endif" id="div_dci_sangrado_segun_barc_tipo3">
+                                <input class="form-check-input" type="radio" name="dci_sangrado_segun_barc_tipo" id="dci_sangrado_segun_barc_tipo3" value="C" @if($renima->dci_sangrado_segun_barc_tipo == 'C') checked @endif>
                                 <label class="form-check-label" for="dci_sangrado_segun_barc_tipo3">C</label>
                             </div>
                         </div>
@@ -1886,7 +1886,7 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_fecha_sangrado" class="form-label mb-0">Fecha de sangrado</label>
-                        <input type="date" name="dci_fecha_sangrado" class="form-control" id="dci_fecha_sangrado">
+                        <input type="date" name="dci_fecha_sangrado" class="form-control" id="dci_fecha_sangrado" value="{{ $renima->dci_fecha_sangrado }}">
                     </div>
 
                     <div class="col-md-6"></div>
@@ -1895,28 +1895,28 @@
                         <label for="dci_shock_cardiogenico1" class="form-label mb-0">Shock Cardiogenico <small class="text-danger">(tipo SCAI)</small></label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico1" value="A">
+                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico1" value="A" @if($renima->dci_shock_cardiogenico == 'A') checked @endif>
                                 <label class="form-check-label" for="dci_shock_cardiogenico1">A</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico2" value="B">
+                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico2" value="B" @if($renima->dci_shock_cardiogenico == 'B') checked @endif>
                                 <label class="form-check-label" for="dci_shock_cardiogenico2">B</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico3" value="C">
+                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico3" value="C" @if($renima->dci_shock_cardiogenico == 'C') checked @endif>
                                 <label class="form-check-label" for="dci_shock_cardiogenico3">C</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico4" value="D">
+                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico4" value="D" @if($renima->dci_shock_cardiogenico == 'D') checked @endif>
                                 <label class="form-check-label" for="dci_shock_cardiogenico4">D</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico5" value="E">
+                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico5" value="E" @if($renima->dci_shock_cardiogenico == 'E') checked @endif>
                                 <label class="form-check-label" for="dci_shock_cardiogenico5">E</label>
                             </div>
 
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico6" value="No">
+                                <input class="form-check-input" type="radio" name="dci_shock_cardiogenico" id="dci_shock_cardiogenico6" value="No" @if($renima->dci_shock_cardiogenico == 'No') checked @endif>
                                 <label class="form-check-label" for="dci_shock_cardiogenico6">No</label>
                             </div>
                         </div>
@@ -1924,26 +1924,26 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_fecha_shock_cardiogenico" class="form-label mb-0">Fecha de Dx. de Shock Cardiogenico</label>
-                        <input type="date" name="dci_fecha_shock_cardiogenico" class="form-control" id="dci_fecha_shock_cardiogenico">
+                        <input type="date" name="dci_fecha_shock_cardiogenico" class="form-control" id="dci_fecha_shock_cardiogenico" value="{{ $renima->dci_fecha_shock_cardiogenico }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_paro_cardiorespiratorio_recuperado1" class="form-label mb-0">Paro Cardio Respiratorio Recuperado</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_paro_cardiorespiratorio_recuperado" id="dci_paro_cardiorespiratorio_recuperado1" value="TV/FV">
+                                <input class="form-check-input" type="radio" name="dci_paro_cardiorespiratorio_recuperado" id="dci_paro_cardiorespiratorio_recuperado1" value="TV/FV" @if($renima->dci_paro_cardiorespiratorio_recuperado == 'TV/FV') checked @endif>
                                 <label class="form-check-label" for="dci_paro_cardiorespiratorio_recuperado1">TV/FV</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_paro_cardiorespiratorio_recuperado" id="dci_paro_cardiorespiratorio_recuperado2" value="Asistolia">
+                                <input class="form-check-input" type="radio" name="dci_paro_cardiorespiratorio_recuperado" id="dci_paro_cardiorespiratorio_recuperado2" value="Asistolia" @if($renima->dci_paro_cardiorespiratorio_recuperado == 'Asistolia') checked @endif>
                                 <label class="form-check-label" for="dci_paro_cardiorespiratorio_recuperado2">Asistolia</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_paro_cardiorespiratorio_recuperado" id="dci_paro_cardiorespiratorio_recuperado3" value="AESP">
+                                <input class="form-check-input" type="radio" name="dci_paro_cardiorespiratorio_recuperado" id="dci_paro_cardiorespiratorio_recuperado3" value="AESP" @if($renima->dci_paro_cardiorespiratorio_recuperado == 'AESP') checked @endif>
                                 <label class="form-check-label" for="dci_paro_cardiorespiratorio_recuperado3">AESP</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_paro_cardiorespiratorio_recuperado" id="dci_paro_cardiorespiratorio_recuperado4" value="No">
+                                <input class="form-check-input" type="radio" name="dci_paro_cardiorespiratorio_recuperado" id="dci_paro_cardiorespiratorio_recuperado4" value="No" @if($renima->dci_paro_cardiorespiratorio_recuperado == 'No') checked @endif>
                                 <label class="form-check-label" for="dci_paro_cardiorespiratorio_recuperado4">No</label>
                             </div>
                         </div>
@@ -1951,36 +1951,36 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_fecha_paro_cardiorespiratorio_recuperado" class="form-label mb-0">Fecha de Paro Cardio Respiratorio Recuperado</label>
-                        <input type="date" name="dci_fecha_paro_cardiorespiratorio_recuperado" class="form-control" id="dci_fecha_paro_cardiorespiratorio_recuperado">
+                        <input type="date" name="dci_fecha_paro_cardiorespiratorio_recuperado" class="form-control" id="dci_fecha_paro_cardiorespiratorio_recuperado" value="{{ $renima->dci_fecha_paro_cardiorespiratorio_recuperado }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_ruptura_musculo_papilar1" class="form-label mb-0">Ruptura de Musculo Papilar</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_ruptura_musculo_papilar" id="dci_ruptura_musculo_papilar1" value="Sí">
+                                <input class="form-check-input" type="radio" name="dci_ruptura_musculo_papilar" id="dci_ruptura_musculo_papilar1" value="Sí" @if($renima->dci_ruptura_musculo_papilar == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dci_ruptura_musculo_papilar1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_ruptura_musculo_papilar" id="dci_ruptura_musculo_papilar2" value="No">
+                                <input class="form-check-input" type="radio" name="dci_ruptura_musculo_papilar" id="dci_ruptura_musculo_papilar2" value="No" @if($renima->dci_ruptura_musculo_papilar == 'No') checked @endif>
                                 <label class="form-check-label" for="dci_ruptura_musculo_papilar2">No</label>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="dci_fecha_ruptura_musculo_papilar" class="form-label mb-0">Fecha de Dx. de Ruptura de Musculo Papilar</label>
-                        <input type="date" name="dci_fecha_ruptura_musculo_papilar" class="form-control" id="dci_fecha_ruptura_musculo_papilar">
+                        <input type="date" name="dci_fecha_ruptura_musculo_papilar" class="form-control" id="dci_fecha_ruptura_musculo_papilar" value="{{ $renima->dci_fecha_ruptura_musculo_papilar }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_comunicacion_interventricular1" class="form-label mb-0">Comunicación ínterventricular</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_comunicacion_interventricular" id="dci_comunicacion_interventricular1" value="Sí">
+                                <input class="form-check-input" type="radio" name="dci_comunicacion_interventricular" id="dci_comunicacion_interventricular1" value="Sí" @if($renima->dci_comunicacion_interventricular == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dci_comunicacion_interventricular1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_comunicacion_interventricular" id="dci_comunicacion_interventricular2" value="No">
+                                <input class="form-check-input" type="radio" name="dci_comunicacion_interventricular" id="dci_comunicacion_interventricular2" value="No" @if($renima->dci_comunicacion_interventricular == 'No') checked @endif>
                                 <label class="form-check-label" for="dci_comunicacion_interventricular2">No</label>
                             </div>
                         </div>
@@ -1988,18 +1988,18 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_fecha_comunicacion_interventricular" class="form-label mb-0">Fecha de Dx. de Comunicación ínterventricular</label>
-                        <input type="date" name="dci_fecha_comunicacion_interventricular" class="form-control" id="dci_fecha_comunicacion_interventricular">
+                        <input type="date" name="dci_fecha_comunicacion_interventricular" class="form-control" id="dci_fecha_comunicacion_interventricular" value="{{ $renima->dci_fecha_comunicacion_interventricular }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_ruptura_pared_libre1" class="form-label mb-0">Ruptura de Pared Libre</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_ruptura_pared_libre" id="dci_ruptura_pared_libre1" value="Sí">
+                                <input class="form-check-input" type="radio" name="dci_ruptura_pared_libre" id="dci_ruptura_pared_libre1" value="Sí" @if($renima->dci_ruptura_pared_libre == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dci_ruptura_pared_libre1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_ruptura_pared_libre" id="dci_ruptura_pared_libre2" value="No">
+                                <input class="form-check-input" type="radio" name="dci_ruptura_pared_libre" id="dci_ruptura_pared_libre2" value="No" @if($renima->dci_ruptura_pared_libre == 'No') checked @endif>
                                 <label class="form-check-label" for="dci_ruptura_pared_libre2">No</label>
                             </div>
                         </div>
@@ -2007,7 +2007,7 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_fecha_ruptura_pared_libre" class="form-label mb-0">Fecha de Dx. de Ruptura pared libre</label>
-                        <input type="date" name="dci_fecha_ruptura_pared_libre" class="form-control" id="dci_fecha_ruptura_pared_libre">
+                        <input type="date" name="dci_fecha_ruptura_pared_libre" class="form-control" id="dci_fecha_ruptura_pared_libre" value="{{ $renima->dci_fecha_ruptura_pared_libre }}">
                     </div>
 
                     
@@ -2015,11 +2015,11 @@
                         <label for="dci_aneurisma_ventricular1" class="form-label mb-0">Aneurisma Ventricular</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_aneurisma_ventricular" id="dci_aneurisma_ventricular1" value="Sí">
+                                <input class="form-check-input" type="radio" name="dci_aneurisma_ventricular" id="dci_aneurisma_ventricular1" value="Sí" @if($renima->dci_aneurisma_ventricular == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dci_aneurisma_ventricular1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_aneurisma_ventricular" id="dci_aneurisma_ventricular2" value="No">
+                                <input class="form-check-input" type="radio" name="dci_aneurisma_ventricular" id="dci_aneurisma_ventricular2" value="No" @if($renima->dci_aneurisma_ventricular == 'No') checked @endif>
                                 <label class="form-check-label" for="dci_aneurisma_ventricular2">No</label>
                             </div>
                         </div>
@@ -2027,7 +2027,7 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_fecha_aneurisma_ventricular" class="form-label mb-0">Fecha de Aneurisma Ventricular</label>
-                        <input type="date" name="dci_fecha_aneurisma_ventricular" class="form-control" id="dci_fecha_aneurisma_ventricular">
+                        <input type="date" name="dci_fecha_aneurisma_ventricular" class="form-control" id="dci_fecha_aneurisma_ventricular" value="{{ $renima->dci_fecha_aneurisma_ventricular }}">
                     </div>
                     
 
@@ -2035,11 +2035,11 @@
                         <label for="dci_trombosis_stent1" class="form-label mb-0">Trombosis de stent</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_trombosis_stent" id="dci_trombosis_stent1" value="Sí">
+                                <input class="form-check-input" type="radio" name="dci_trombosis_stent" id="dci_trombosis_stent1" value="Sí" @if($renima->dci_trombosis_stent == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dci_trombosis_stent1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dci_trombosis_stent" id="dci_trombosis_stent2" value="No">
+                                <input class="form-check-input" type="radio" name="dci_trombosis_stent" id="dci_trombosis_stent2" value="No" @if($renima->dci_trombosis_stent == 'No') checked @endif>
                                 <label class="form-check-label" for="dci_trombosis_stent2">No</label>
                             </div>
                         </div>
@@ -2047,17 +2047,17 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_fecha_trombosis_stent" class="form-label mb-0">Fecha de trombosis de stent</label>
-                        <input type="date" name="dci_fecha_trombosis_stent" class="form-control" id="dci_fecha_trombosis_stent">
+                        <input type="date" name="dci_fecha_trombosis_stent" class="form-control" id="dci_fecha_trombosis_stent" value="{{ $renima->dci_fecha_trombosis_stent }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_fecha_de_alta" class="form-label mb-0">Fecha de Alta </label>
-                        <input type="date" name="dci_fecha_de_alta" class="form-control" id="dci_fecha_de_alta">
+                        <input type="date" name="dci_fecha_de_alta" class="form-control" id="dci_fecha_de_alta" value="{{ $renima->dci_fecha_de_alta }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dci_dias_hospitalizacion" class="form-label mb-0">Dias de Hospitalización </label>
-                        <input type="number" name="dci_dias_hospitalizacion" class="form-control" id="dci_dias_hospitalizacion" readonly>
+                        <input type="number" name="dci_dias_hospitalizacion" class="form-control" id="dci_dias_hospitalizacion" readonly value="{{ $renima->dci_dias_hospitalizacion }}">
                         <small class="infotext">Fecha de Alta - Fecha y hora de llegada al centro del primer contacto médico</small>
                     </div>
 
@@ -2076,11 +2076,11 @@
                         <label for="ma_aspirina1" class="form-label mb-0">Aspirina</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_aspirina" id="ma_aspirina1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ma_aspirina" id="ma_aspirina1" value="Sí" @if($renima->ma_aspirina == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ma_aspirina1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_aspirina" id="ma_aspirina2" value="No">
+                                <input class="form-check-input" type="radio" name="ma_aspirina" id="ma_aspirina2" value="No" @if($renima->ma_aspirina == 'No') checked @endif>
                                 <label class="form-check-label" for="ma_aspirina2">No</label>
                             </div>
                         </div>
@@ -2090,19 +2090,19 @@
                         <label for="ma_ip2y121" class="form-label mb-0">IP2Y12</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_ip2y12" id="ma_ip2y121" value="Clopidogrel">
+                                <input class="form-check-input" type="radio" name="ma_ip2y12" id="ma_ip2y121" value="Clopidogrel" @if($renima->ma_ip2y12 == 'Clopidogrel') checked @endif>
                                 <label class="form-check-label" for="ma_ip2y121">Clopidogrel</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_ip2y12" id="ma_ip2y122" value="Prasugrel">
+                                <input class="form-check-input" type="radio" name="ma_ip2y12" id="ma_ip2y122" value="Prasugrel" @if($renima->ma_ip2y12 == 'Prasugrel') checked @endif>
                                 <label class="form-check-label" for="ma_ip2y122">Prasugrel</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_ip2y12" id="ma_ip2y123" value="Ticagrelor">
+                                <input class="form-check-input" type="radio" name="ma_ip2y12" id="ma_ip2y123" value="Ticagrelor" @if($renima->ma_ip2y12 == 'Ticagrelor') checked @endif>
                                 <label class="form-check-label" for="ma_ip2y123">Ticagrelor</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_ip2y12" id="ma_ip2y124" value="No">
+                                <input class="form-check-input" type="radio" name="ma_ip2y12" id="ma_ip2y124" value="No" @if($renima->ma_ip2y12 == 'No') checked @endif>
                                 <label class="form-check-label" for="ma_ip2y124">No</label>
                             </div>
                         </div>
@@ -2112,11 +2112,11 @@
                         <label for="ma_estatinas1" class="form-label mb-0">Estatinas</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_estatinas" id="ma_estatinas1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ma_estatinas" id="ma_estatinas1" value="Sí" @if($renima->ma_estatinas == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ma_estatinas1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_estatinas" id="ma_estatinas2" value="No">
+                                <input class="form-check-input" type="radio" name="ma_estatinas" id="ma_estatinas2" value="No" @if($renima->ma_estatinas == 'No') checked @endif>
                                 <label class="form-check-label" for="ma_estatinas2">No</label>
                             </div>
                         </div>
@@ -2126,11 +2126,11 @@
                         <label for="ma_betabloqueadores1" class="form-label mb-0">Betabloqueadores </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_betabloqueadores" id="ma_betabloqueadores1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ma_betabloqueadores" id="ma_betabloqueadores1" value="Sí" @if($renima->ma_betabloqueadores == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ma_betabloqueadores1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_betabloqueadores" id="ma_betabloqueadores2" value="No">
+                                <input class="form-check-input" type="radio" name="ma_betabloqueadores" id="ma_betabloqueadores2" value="No" @if($renima->ma_betabloqueadores == 'No') checked @endif>
                                 <label class="form-check-label" for="ma_betabloqueadores2">No</label>
                             </div>
                         </div>
@@ -2140,11 +2140,11 @@
                         <label for="ma_diureticos_asa1" class="form-label mb-0">Diuréticos de asa </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_diureticos_asa" id="ma_diureticos_asa1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ma_diureticos_asa" id="ma_diureticos_asa1" value="Sí" @if($renima->ma_diureticos_asa == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ma_diureticos_asa1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_diureticos_asa" id="ma_diureticos_asa2" value="No">
+                                <input class="form-check-input" type="radio" name="ma_diureticos_asa" id="ma_diureticos_asa2" value="No" @if($renima->ma_diureticos_asa == 'No') checked @endif>
                                 <label class="form-check-label" for="ma_diureticos_asa2">No</label>
                             </div>
                         </div>
@@ -2154,11 +2154,11 @@
                         <label for="ma_antagonistas_mineralocorticoide1" class="form-label mb-0">Antagonistas de mineralocorticoides </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_antagonistas_mineralocorticoide" id="ma_antagonistas_mineralocorticoide1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ma_antagonistas_mineralocorticoide" id="ma_antagonistas_mineralocorticoide1" value="Sí" @if($renima->ma_antagonistas_mineralocorticoide == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ma_antagonistas_mineralocorticoide1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_antagonistas_mineralocorticoide" id="ma_antagonistas_mineralocorticoide2" value="No">
+                                <input class="form-check-input" type="radio" name="ma_antagonistas_mineralocorticoide" id="ma_antagonistas_mineralocorticoide2" value="No" @if($renima->ma_antagonistas_mineralocorticoide == 'No') checked @endif>
                                 <label class="form-check-label" for="ma_antagonistas_mineralocorticoide2">No</label>
                             </div>
                         </div>
@@ -2168,11 +2168,11 @@
                         <label for="ma_ieca_ara1" class="form-label mb-0">IECA/ARA </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_ieca_ara" id="ma_ieca_ara1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ma_ieca_ara" id="ma_ieca_ara1" value="Sí" @if($renima->ma_ieca_ara == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ma_ieca_ara1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_ieca_ara" id="ma_ieca_ara2" value="No">
+                                <input class="form-check-input" type="radio" name="ma_ieca_ara" id="ma_ieca_ara2" value="No" @if($renima->ma_ieca_ara == 'No') checked @endif>
                                 <label class="form-check-label" for="ma_ieca_ara2">No</label>
                             </div>
                         </div>
@@ -2182,11 +2182,11 @@
                         <label for="ma_inhibidores_p2y121" class="form-label mb-0">Inhibidores del receptor P2Y12 </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_inhibidores_p2y12" id="ma_inhibidores_p2y121" value="Sí">
+                                <input class="form-check-input" type="radio" name="ma_inhibidores_p2y12" id="ma_inhibidores_p2y121" value="Sí" @if($renima->ma_inhibidores_p2y12 == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ma_inhibidores_p2y121">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_inhibidores_p2y12" id="ma_inhibidores_p2y122" value="No">
+                                <input class="form-check-input" type="radio" name="ma_inhibidores_p2y12" id="ma_inhibidores_p2y122" value="No" @if($renima->ma_inhibidores_p2y12 == 'No') checked @endif>
                                 <label class="form-check-label" for="ma_inhibidores_p2y122">No</label>
                             </div>
                         </div>
@@ -2195,11 +2195,11 @@
                         <label for="ma_nitratos1" class="form-label mb-0">Nitratos </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_nitratos" id="ma_nitratos1" value="Sí">
+                                <input class="form-check-input" type="radio" name="ma_nitratos" id="ma_nitratos1" value="Sí" @if($renima->ma_nitratos == 'Sí') checked @endif>
                                 <label class="form-check-label" for="ma_nitratos1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_nitratos" id="ma_nitratos2" value="No">
+                                <input class="form-check-input" type="radio" name="ma_nitratos" id="ma_nitratos2" value="No" @if($renima->ma_nitratos == 'No') checked @endif>
                                 <label class="form-check-label" for="ma_nitratos2">No</label>
                             </div>
                         </div>
@@ -2208,18 +2208,18 @@
                     <div class="col-md-6 mb-2">
                         <label for="ma_anticoagulacion" class="form-label mb-0">Anticoagulación </label>
                         <select class="form-control" name="ma_anticoagulacion" id="ma_anticoagulacion">
-                            <option value="">Seleccionar...</option>
-                            <option value="Warfarina">Warfarina</option>
-                            <option value="Apixaban">Apixaban</option>
-                            <option value="Dabigatran">Dabigatran</option>
-                            <option value="Rivaroxaban">Rivaroxaban</option>
-                            <option value="Edoxaban">Edoxaban</option>
+                            <option value="" @if($renima->ma_anticoagulacion == '') selected @endif>Seleccione...</option>
+                            <option value="Warfarina" @if($renima->ma_anticoagulacion == 'Warfarina') selected @endif>Warfarina</option>
+                            <option value="Apixaban" @if($renima->ma_anticoagulacion == 'Apixaban') selected @endif>Apixaban</option>
+                            <option value="Dabigatran" @if($renima->ma_anticoagulacion == 'Dabigatran') selected @endif>Dabigatran</option>
+                            <option value="Rivaroxaban" @if($renima->ma_anticoagulacion == 'Rivaroxaban') selected @endif>Rivaroxaban</option>
+                            <option value="Edoxaban" @if($renima->ma_anticoagulacion == 'Edoxaban') selected @endif>Edoxaban</option>
                         </select>
                     </div>
 
                     <div class="col-md-12 mb-2">
                         <label for="ma_otros" class="form-label mb-0">Otros </label>
-                        <input type="text" name="ma_otros" class="form-control" id="ma_otros" placeholder="Especificar">
+                        <input type="text" name="ma_otros" class="form-control" id="ma_otros" placeholder="Especificar" value="{{ $renima->ma_otros }}">
                     </div>
 
                 </div>
@@ -2237,11 +2237,11 @@
                         <label for="sc_muerte_cardiovascular1" class="form-label mb-0">Muerte cardiovascular</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_muerte_cardiovascular" id="sc_muerte_cardiovascular1" value="Sí">
+                                <input class="form-check-input" type="radio" name="sc_muerte_cardiovascular" id="sc_muerte_cardiovascular1" value="Sí" @if($renima->sc_muerte_cardiovascular == 'Sí') checked @endif>
                                 <label class="form-check-label" for="sc_muerte_cardiovascular1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_muerte_cardiovascular" id="sc_muerte_cardiovascular2" value="No">
+                                <input class="form-check-input" type="radio" name="sc_muerte_cardiovascular" id="sc_muerte_cardiovascular2" value="No"  @if($renima->sc_muerte_cardiovascular == 'No') checked @endif>
                                 <label class="form-check-label" for="sc_muerte_cardiovascular2">No</label>
                             </div>
                         </div>
@@ -2249,18 +2249,18 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="sc_fecha_muerte_cardiovascular" class="form-label mb-0">Fecha de muerte cardiovascular</label>
-                        <input type="date" name="sc_fecha_muerte_cardiovascular" class="form-control" id="sc_fecha_muerte_cardiovascular">
+                        <input type="date" name="sc_fecha_muerte_cardiovascular" class="form-control" id="sc_fecha_muerte_cardiovascular" value="{{ $renima->sc_fecha_muerte_cardiovascular }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="sc_muerte_no_cardiovascular1" class="form-label mb-0">Muerte no cardiovascular al alta</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_muerte_no_cardiovascular" id="sc_muerte_no_cardiovascular1" value="Sí">
+                                <input class="form-check-input" type="radio" name="sc_muerte_no_cardiovascular" id="sc_muerte_no_cardiovascular1" value="Sí" @if($renima->sc_muerte_no_cardiovascular == 'Sí') checked @endif>
                                 <label class="form-check-label" for="sc_muerte_no_cardiovascular1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_muerte_no_cardiovascular" id="sc_muerte_no_cardiovascular2" value="No">
+                                <input class="form-check-input" type="radio" name="sc_muerte_no_cardiovascular" id="sc_muerte_no_cardiovascular2" value="No" @if($renima->sc_muerte_no_cardiovascular == 'No') checked @endif>
                                 <label class="form-check-label" for="sc_muerte_no_cardiovascular2">No</label>
                             </div>
                         </div>
@@ -2268,18 +2268,18 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="sc_fecha_muerte_no_cardiovascular" class="form-label mb-0">Fecha de muerte no cardiovascular</label>
-                        <input type="date" name="sc_fecha_muerte_no_cardiovascular" class="form-control" id="sc_fecha_muerte_no_cardiovascular">
+                        <input type="date" name="sc_fecha_muerte_no_cardiovascular" class="form-control" id="sc_fecha_muerte_no_cardiovascular" value="{{ $renima->sc_fecha_muerte_no_cardiovascular }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="sc_angina_postinfarto1" class="form-label mb-0">Angina postinfarto</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_angina_postinfarto" id="sc_angina_postinfarto1" value="Sí">
+                                <input class="form-check-input" type="radio" name="sc_angina_postinfarto" id="sc_angina_postinfarto1" value="Sí" @if($renima->sc_angina_postinfarto == 'Sí') checked @endif>
                                 <label class="form-check-label" for="sc_angina_postinfarto1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_angina_postinfarto" id="sc_angina_postinfarto2" value="No">
+                                <input class="form-check-input" type="radio" name="sc_angina_postinfarto" id="sc_angina_postinfarto2" value="No" @if($renima->sc_angina_postinfarto == 'No') checked @endif>
                                 <label class="form-check-label" for="sc_angina_postinfarto2">No</label>
                             </div>
                         </div>
@@ -2287,18 +2287,18 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="sc_fecha_angina_postinfarto" class="form-label mb-0">Fecha de angina postinfarto</label>
-                        <input type="date" name="sc_fecha_angina_postinfarto" class="form-control" id="sc_fecha_angina_postinfarto">
+                        <input type="date" name="sc_fecha_angina_postinfarto" class="form-control" id="sc_fecha_angina_postinfarto" value="{{ $renima->sc_fecha_angina_postinfarto }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="sc_reinfarto1" class="form-label mb-0">Reinfarto</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_reinfarto" id="sc_reinfarto1" value="Sí">
+                                <input class="form-check-input" type="radio" name="sc_reinfarto" id="sc_reinfarto1" value="Sí" @if($renima->sc_reinfarto == 'Sí') checked @endif>
                                 <label class="form-check-label" for="sc_reinfarto1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_reinfarto" id="sc_reinfarto2" value="No">
+                                <input class="form-check-input" type="radio" name="sc_reinfarto" id="sc_reinfarto2" value="No" @if($renima->sc_reinfarto == 'No') checked @endif>
                                 <label class="form-check-label" for="sc_reinfarto2">No</label>
                             </div>
                         </div>
@@ -2306,26 +2306,26 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="sc_fecha_reinfarto" class="form-label mb-0">Fecha de reinfarto</label>
-                        <input type="date" name="sc_fecha_reinfarto" class="form-control" id="sc_fecha_reinfarto">
+                        <input type="date" name="sc_fecha_reinfarto" class="form-control" id="sc_fecha_reinfarto" value="{{ $renima->sc_fecha_reinfarto }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="sc_acv1" class="form-label mb-0">ACV</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_acv" id="sc_acv1" value="TIA">
+                                <input class="form-check-input" type="radio" name="sc_acv" id="sc_acv1" value="TIA" @if($renima->sc_acv == 'TIA') checked @endif>
                                 <label class="form-check-label" for="sc_acv1">TIA</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_acv" id="sc_acv2" value="Isquemico">
+                                <input class="form-check-input" type="radio" name="sc_acv" id="sc_acv2" value="Isquemico" @if($renima->sc_acv == 'Isquemico') checked @endif>
                                 <label class="form-check-label" for="sc_acv2">Isquemico</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_acv" id="sc_acv3" value="Hemorragico">
+                                <input class="form-check-input" type="radio" name="sc_acv" id="sc_acv3" value="Hemorragico" @if($renima->sc_acv == 'Hemorragico') checked @endif>
                                 <label class="form-check-label" for="sc_acv3">Hemorragico</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_acv" id="sc_acv4" value="No">
+                                <input class="form-check-input" type="radio" name="sc_acv" id="sc_acv4" value="No" @if($renima->sc_acv == 'No') checked @endif>
                                 <label class="form-check-label" for="sc_acv4">No</label>
                             </div>
                         </div>
@@ -2333,17 +2333,17 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="sc_fecha_acv" class="form-label mb-0">Fecha de ACV</label>
-                        <input type="date" name="sc_fecha_acv" class="form-control" id="sc_fecha_acv">
+                        <input type="date" name="sc_fecha_acv" class="form-control" id="sc_fecha_acv" value="{{ $renima->sc_fecha_acv }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="sc_rehospitalizacion_falla_cardiaca1" class="form-label mb-0">Rehospitalización por falla cardiaca</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_rehospitalizacion_falla_cardiaca" id="sc_rehospitalizacion_falla_cardiaca1" value="Sí">
+                                <input class="form-check-input" type="radio" name="sc_rehospitalizacion_falla_cardiaca" id="sc_rehospitalizacion_falla_cardiaca1" value="Sí" @if($renima->sc_rehospitalizacion_falla_cardiaca == 'Sí') checked @endif>
                                 <label class="form-check-label" for="sc_rehospitalizacion_falla_cardiaca1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_rehospitalizacion_falla_cardiaca" id="sc_rehospitalizacion_falla_cardiaca2" value="No">
+                                <input class="form-check-input" type="radio" name="sc_rehospitalizacion_falla_cardiaca" id="sc_rehospitalizacion_falla_cardiaca2" value="No" @if($renima->sc_rehospitalizacion_falla_cardiaca == 'No') checked @endif>
                                 <label class="form-check-label" for="sc_rehospitalizacion_falla_cardiaca2">No</label>
                             </div>
                         </div>
@@ -2351,18 +2351,18 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="sc_fecha_rehospitalizacion_falla_cardiaca" class="form-label mb-0">Fecha de rehospitalización por falla cardiaca</label>
-                        <input type="date" name="sc_fecha_rehospitalizacion_falla_cardiaca" class="form-control" id="sc_fecha_rehospitalizacion_falla_cardiaca">
+                        <input type="date" name="sc_fecha_rehospitalizacion_falla_cardiaca" class="form-control" id="sc_fecha_rehospitalizacion_falla_cardiaca" value="{{ $renima->sc_fecha_rehospitalizacion_falla_cardiaca }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="sc_sangrado1" class="form-label mb-0">Sangrado</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_sangrado" id="sc_sangrado1" value="Sí">
+                                <input class="form-check-input" type="radio" name="sc_sangrado" id="sc_sangrado1" value="Sí" @if($renima->sc_sangrado == 'Sí') checked @endif>
                                 <label class="form-check-label" for="sc_sangrado1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_sangrado" id="sc_sangrado2" value="No">
+                                <input class="form-check-input" type="radio" name="sc_sangrado" id="sc_sangrado2" value="No" @if($renima->sc_sangrado == 'No') checked @endif>
                                 <label class="form-check-label" for="sc_sangrado2">No</label>
                             </div>
                         </div>
@@ -2372,37 +2372,37 @@
                         <label for="sc_sangrado_segun_barc1" class="form-label mb-0">Sangrado según BARC:</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_sangrado_segun_barc" id="sc_sangrado_segun_barc1" value="1">
+                                <input class="form-check-input" type="radio" name="sc_sangrado_segun_barc" id="sc_sangrado_segun_barc1" value="1" @if($renima->sc_sangrado_segun_barc == '1') checked @endif>
                                 <label class="form-check-label" for="sc_sangrado_segun_barc1">1</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_sangrado_segun_barc" id="sc_sangrado_segun_barc2" value="2">
+                                <input class="form-check-input" type="radio" name="sc_sangrado_segun_barc" id="sc_sangrado_segun_barc2" value="2" @if($renima->sc_sangrado_segun_barc == '2') checked @endif>
                                 <label class="form-check-label" for="sc_sangrado_segun_barc2">2</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_sangrado_segun_barc" id="sc_sangrado_segun_barc3" value="3">
+                                <input class="form-check-input" type="radio" name="sc_sangrado_segun_barc" id="sc_sangrado_segun_barc3" value="3" @if($renima->sc_sangrado_segun_barc == '3') checked @endif>
                                 <label class="form-check-label" for="sc_sangrado_segun_barc3">3</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_sangrado_segun_barc" id="sc_sangrado_segun_barc4" value="4">
+                                <input class="form-check-input" type="radio" name="sc_sangrado_segun_barc" id="sc_sangrado_segun_barc4" value="4" @if($renima->sc_sangrado_segun_barc == '4') checked @endif>
                                 <label class="form-check-label" for="sc_sangrado_segun_barc4">4</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_sangrado_segun_barc" id="sc_sangrado_segun_barc5" value="5">
+                                <input class="form-check-input" type="radio" name="sc_sangrado_segun_barc" id="sc_sangrado_segun_barc5" value="5" @if($renima->sc_sangrado_segun_barc == '5') checked @endif>
                                 <label class="form-check-label" for="sc_sangrado_segun_barc5">5</label>
                             </div>
                         </div>
 
-                        <div class="form-control radioptions mt-1 d-none" id="dv_sc_sangrado_barc_tipo">
+                        <div class="form-control radioptions mt-1 @if($renima->sc_sangrado_segun_barc == '3' || $renima->sc_sangrado_segun_barc == '5') @else checked @endif" id="dv_sc_sangrado_barc_tipo">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_sangrado_barc_tipo" id="sc_sangrado_barc_tipo1" value="A">
+                                <input class="form-check-input" type="radio" name="sc_sangrado_barc_tipo" id="sc_sangrado_barc_tipo1" value="A" @if($renima->sc_sangrado_barc_tipo == 'A') checked @endif>
                                 <label class="form-check-label" for="sc_sangrado_barc_tipo1">A</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_sangrado_barc_tipo" id="sc_sangrado_barc_tipo2" value="B">
+                                <input class="form-check-input" type="radio" name="sc_sangrado_barc_tipo" id="sc_sangrado_barc_tipo2" value="B" @if($renima->sc_sangrado_barc_tipo == 'B') checked @endif>
                                 <label class="form-check-label" for="sc_sangrado_barc_tipo2">B</label>
                             </div>
-                            <div class="form-check form-check-inline" id="dv_sc_sangrado_barc_tipo3">
+                            <div class="form-check form-check-inline @if($renima->sc_sangrado_segun_barc == '5') d-none @endif)" id="dv_sc_sangrado_barc_tipo3" @if($renima->sc_sangrado_barc_tipo == 'C') checked @endif>
                                 <input class="form-check-input" type="radio" name="sc_sangrado_barc_tipo" id="sc_sangrado_barc_tipo3" value="C">
                                 <label class="form-check-label" for="sc_sangrado_barc_tipo3">C</label>
                             </div>
@@ -2412,60 +2412,60 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="sc_fecha_sangrado" class="form-label mb-0">Fecha de sangrado</label>
-                        <input type="date" name="sc_fecha_sangrado" class="form-control" id="sc_fecha_sangrado">
+                        <input type="date" name="sc_fecha_sangrado" class="form-control" id="sc_fecha_sangrado" value="{{ $renima->sc_fecha_sangrado }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="sc_prc" class="form-label mb-0">Programa de Rehabilitacion Cardiaca</label>
                         <select name="sc_prc" id="sc_prc" class="form-control">
-                            <option value="No">No</option>
-                            <option value="Completo programa">Completo programa</option>
-                            <option value="No completo programa">No completo programa</option>
+                            <option value="No" @if($renima->sc_prc == 'No') selected @endif>No</option>
+                            <option value="Completo programa" @if($renima->sc_prc == 'Completo programa') selected @endif>Completo programa</option>
+                            <option value="No completo programa" @if($renima->sc_prc == 'No completo programa') selected @endif>No completo programa</option>
                         </select>
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="sc_segunda_medicion_fevi_alta" class="form-label mb-0">Segunda medición de fracción de eyección ventricular izquierda<small class="text-danger">(%)</small></label>
-                        <input type="number" name="sc_segunda_medicion_fevi_alta" class="form-control" id="sc_segunda_medicion_fevi_alta">
+                        <input type="number" name="sc_segunda_medicion_fevi_alta" class="form-control" id="sc_segunda_medicion_fevi_alta" value="{{ $renima->sc_segunda_medicion_fevi_alta }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="sc_fecha_segunda_fevi_alta" class="form-label mb-0">Fecha de segunda medición de fracción de eyección ventricular izquierda</label>
-                        <input type="date" name="sc_fecha_segunda_fevi_alta" class="form-control" id="sc_fecha_segunda_fevi_alta">
+                        <input type="date" name="sc_fecha_segunda_fevi_alta" class="form-control" id="sc_fecha_segunda_fevi_alta" value="{{ $renima->sc_fecha_segunda_fevi_alta }}">
                     </div> 
                     <div class="col-md-6 mb-2">
                         <label for="sc_reestenosis_stent1" class="form-label mb-0">Re-estenosis de stent</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_reestenosis_stent" id="sc_reestenosis_stent1" value="Sí">
+                                <input class="form-check-input" type="radio" name="sc_reestenosis_stent" id="sc_reestenosis_stent1" value="Sí" @if($renima->sc_reestenosis_stent == 'Sí') checked @endif>
                                 <label class="form-check-label" for="sc_reestenosis_stent1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_reestenosis_stent" id="sc_reestenosis_stent2" value="No">
+                                <input class="form-check-input" type="radio" name="sc_reestenosis_stent" id="sc_reestenosis_stent2" value="No" @if($renima->sc_reestenosis_stent == 'No') checked @endif>
                                 <label class="form-check-label" for="sc_reestenosis_stent2">No</label>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="sc_fecha_reestenosis_stent" class="form-label mb-0">Fecha de re-estenosis de stent</label>
-                        <input type="date" name="sc_fecha_reestenosis_stent" class="form-control" id="sc_fecha_reestenosis_stent">
+                        <input type="date" name="sc_fecha_reestenosis_stent" class="form-control" id="sc_fecha_reestenosis_stent" value="{{ $renima->sc_fecha_reestenosis_stent }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="sc_trombosis_stent1" class="form-label mb-0">Trombosis de stent</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_trombosis_stent" id="sc_trombosis_stent1" value="Sí">
+                                <input class="form-check-input" type="radio" name="sc_trombosis_stent" id="sc_trombosis_stent1" value="Sí" @if($renima->sc_trombosis_stent == 'Sí') checked @endif>
                                 <label class="form-check-label" for="sc_trombosis_stent1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sc_trombosis_stent" id="sc_trombosis_stent2" value="No">
+                                <input class="form-check-input" type="radio" name="sc_trombosis_stent" id="sc_trombosis_stent2" value="No" @if($renima->sc_trombosis_stent == 'No') checked @endif>
                                 <label class="form-check-label" for="sc_trombosis_stent2">No</label>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="sc_fecha_trombosis_stent" class="form-label mb-0">Fecha de trombosis de stent</label>
-                        <input type="date" name="sc_fecha_trombosis_stent" class="form-control" id="sc_fecha_trombosis_stent">
+                        <input type="date" name="sc_fecha_trombosis_stent" class="form-control" id="sc_fecha_trombosis_stent" value="{{ $renima->sc_fecha_trombosis_stent }}">
                     </div>
                 </div>
             </div>
