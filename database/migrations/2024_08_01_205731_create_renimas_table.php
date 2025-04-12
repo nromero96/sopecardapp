@@ -66,6 +66,7 @@ class CreateRenimasTable extends Migration
                 $table->string('ea_diagnostico_st',50)->nullable();
                 $table->string('ea_evaluacion_riesgo',50)->nullable();
                 $table->string('ea_heart_score',50)->nullable();
+                $table->string('ea_otros',100)->nullable();
 
             //Electrocardiograma (ecg_)
                 $table->string('ecg_ritmo',50)->nullable();
@@ -85,7 +86,6 @@ class CreateRenimasTable extends Migration
                 $table->integer('dis_tiempo_ecg_fibrinolisis')->nullable();
                 $table->string('dis_tipofibrinolisis')->nullable();
                 $table->string('dis_tipofibrinolisis_otro',150)->nullable();
-                $table->string('dis_tipofibrinolisis_dosis',150)->nullable();
                 $table->string('dis_fibrinolisis_exitosa',5)->nullable();
                 $table->string('dis_angioplastia_rescate',5)->nullable();
                 $table->string('dis_fibrinolisis_suspendida',5)->nullable();
@@ -109,9 +109,9 @@ class CreateRenimasTable extends Migration
                 $table->string('dis_flujo_inicial_timi',5)->nullable();
                 $table->string('dis_flujo_final_timi',5)->nullable();
                 $table->string('dis_tipo_stent',50)->nullable();
-                $table->integer('dis_numero_stent')->nullable();
-                $table->integer('dis_diametro_stent')->nullable();
-                $table->integer('dis_longitud_stent')->nullable();
+                $table->string('dis_numero_stent', 6)->nullable();
+                $table->string('dis_diametro_stent', 6)->nullable();
+                $table->string('dis_longitud_stent', 6)->nullable();
                 $table->string('dis_predilatacion',5)->nullable();
                 $table->string('dis_postdilatacion',5)->nullable();
                 $table->string('dis_otra_intervencion',50)->nullable();
@@ -166,23 +166,29 @@ class CreateRenimasTable extends Migration
 
 
             //Analisis Auxiliares Intrahospitalarios (aai_)
-                $table->integer('aai_hemoglobina')->nullable();
-                $table->integer('aai_leucocitos')->nullable();
-                $table->integer('aai_plaquetas')->nullable();
-                $table->integer('aai_creatinina')->nullable();
-                $table->integer('aai_urea')->nullable();
-                $table->integer('aai_glucosa')->nullable();
-                $table->integer('aai_troponina_iot_primer')->nullable();
-                $table->integer('aai_troponina_iot_segundo')->nullable();
-                $table->integer('aai_horas_troponina')->nullable();
-                $table->integer('aai_cpk_total')->nullable();
-                $table->integer('aai_cpk_mb')->nullable();
-                $table->integer('aai_lactato')->nullable();
-                $table->integer('aai_fevi')->nullable();
-                $table->date('aai_fecha_pm_fevi')->nullable();
-                $table->integer('aai_hemoglobina_glicosilada')->nullable();
+                $table->string('aai_hemoglobina', 6)->nullable();
+                $table->string('aai_leucocitos', 6)->nullable();
+                $table->string('aai_plaquetas', 6)->nullable();
+                $table->string('aai_creatinina', 6)->nullable();
+                $table->string('aai_urea', 6)->nullable();
+                $table->string('aai_glucosa', 6)->nullable();
+                $table->string('aai_trigliceridos', 6)->nullable();
+                $table->string('aai_colesterol_total', 6)->nullable();
+                $table->string('aai_colesterol_hdl', 6)->nullable();
+                $table->string('aai_colesterol_ldl', 6)->nullable();
+                $table->string('aai_tipo_troponina', 10)->nullable();
+                $table->string('aai_troponina_iot_primer', 7)->nullable();
+                $table->string('aai_troponina_iot_segundo', 7)->nullable();
+                $table->string('aai_horas_troponina', 6)->nullable();
+                $table->string('aai_cpk_total', 6)->nullable();
+                $table->string('aai_cpk_mb', 6)->nullable();
+                $table->string('aai_lactato', 6)->nullable();
+                $table->string('aai_fevi', 6)->nullable();
+                $table->date('aai_fecha_pm_fevi', 6)->nullable();
+                $table->string('aai_hemoglobina_glicosilada', 6)->nullable();
+                $table->string('aai_detalle', 200)->nullable();
 
-            //Datos Clinicos intrahospitalarios (dci_)
+            //Datos Clinicos Intrahospitalarios (dci_)
                 $table->string('dci_muerte_cardiovascular',5)->nullable();
                 $table->date('dci_fecha_muerte_cardiovascular_alta')->nullable();
                 $table->string('dci_muerte_no_cardiovascular',5)->nullable();
@@ -222,7 +228,6 @@ class CreateRenimasTable extends Migration
                 $table->string('ma_diureticos_asa',5)->nullable();
                 $table->string('ma_antagonistas_mineralocorticoide',5)->nullable();
                 $table->string('ma_ieca_ara',5)->nullable();
-                $table->string('ma_inhibidores_p2y12',5)->nullable();
                 $table->string('ma_nitratos',5)->nullable();
                 $table->string('ma_anticoagulacion',50)->nullable();
                 $table->string('ma_otros',150)->nullable();
@@ -251,6 +256,7 @@ class CreateRenimasTable extends Migration
                 $table->date('sc_fecha_reestenosis_stent')->nullable();
                 $table->string('sc_trombosis_stent',5)->nullable();
                 $table->date('sc_fecha_trombosis_stent')->nullable();
+                $table->string('sc_otros', 100)->nullable();
                 
 
             $table->string('status');

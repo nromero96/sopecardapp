@@ -143,43 +143,43 @@
                 <div class="row">
                     <div class="col-md-6 mb-2">
                         <label for="dc_pas" class="form-label mb-0">Presión arterial sistólica <small class="text-danger">(mmHg)</small></label>
-                        <input type="number" name="dc_pas" class="form-control" id="dc_pas" >
+                        <input type="text" name="dc_pas" class="form-control solo-numpunt" id="dc_pas" maxlength="6">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="dc_pad" class="form-label mb-0">Presión arterial diastólica <small class="text-danger">(mmHg)</small></label>
-                        <input type="number" name="dc_pad" class="form-control" id="dc_pad" >
+                        <input type="text" name="dc_pad" class="form-control solo-numpunt" id="dc_pad" maxlength="6">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dc_frecuencia_cardiaca" class="form-label mb-0">Frecuencia cardiaca</label>
-                        <input type="number" name="dc_frecuencia_cardiaca" class="form-control" id="dc_frecuencia_cardiaca">
+                        <input type="text" name="dc_frecuencia_cardiaca" class="form-control solo-numpunt" id="dc_frecuencia_cardiaca" maxlength="6">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dc_frecuencia_respiratoria" class="form-label mb-0">Frecuencia respiratoria</label>
-                        <input type="number" name="dc_frecuencia_respiratoria" class="form-control" id="dc_frecuencia_respiratoria">
+                        <input type="text" name="dc_frecuencia_respiratoria" class="form-control solo-numpunt" id="dc_frecuencia_respiratoria" maxlength="6">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dc_temperatura" class="form-label mb-0">Temperatura <small class="text-danger">(C°)</small></label>
-                        <input type="number" name="dc_temperatura" class="form-control" id="dc_temperatura">
+                        <input type="text" name="dc_temperatura" class="form-control solo-numpunt" id="dc_temperatura" maxlength="6">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dc_saturacion_oxigeno" class="form-label mb-0">Saturación de oxígeno <small class="text-danger">(%)</small></label>
-                        <input type="number" name="dc_saturacion_oxigeno" class="form-control" id="dc_saturacion_oxigeno">
+                        <input type="text" name="dc_saturacion_oxigeno" class="form-control solo-numpunt" id="dc_saturacion_oxigeno" maxlength="6">
                     </div>
                     <div class="col-md-2 mb-2">
                         <label for="dc_peso" class="form-label mb-0">Peso actual <small class="text-danger">(Kg)</small></label>
-                        <input type="number" name="dc_peso" class="form-control" id="dc_peso" step="0.01">
+                        <input type="text" name="dc_peso" class="form-control solo-numpunt" id="dc_peso" maxlength="6">
                     </div>
                     <div class="col-md-2 mb-2">
                         <label for="dc_talla" class="form-label mb-0">Talla actual <small class="text-danger">(m)</small></label>
-                        <input type="number" name="dc_talla" class="form-control" id="dc_talla" step="0.01">
+                        <input type="text" name="dc_talla" class="form-control solo-numpunt" id="dc_talla" maxlength="6">
                     </div>
                     <div class="col-md-2 mb-2">
                         <label for="dc_imc" class="form-label mb-0">IMC</label>
-                        <input type="number" name="dc_imc" class="form-control" id="dc_imc" step="0.01" placeholder="" readonly>
+                        <input type="text" name="dc_imc" class="form-control" id="dc_imc" placeholder="" readonly>
                     </div>
                     <div class="col-md-12 mb-2">
                         <label for="dc_antecedentes1" class="form-label mb-0 d-block">Antecedentes </label>
@@ -221,10 +221,10 @@
             </div>
         </div>
 
-        <!-- Enfermedad actual  -->
+        <!-- Enfermedad Actual  -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 bg-primary">
-                <h6 class="m-0 font-weight-bold text-white">Enfermedad actual</h6>
+                <h6 class="m-0 font-weight-bold text-white">Enfermedad Actual</h6>
             </div>
             <div class="card-body">
                 <div class="row mb-1">
@@ -360,7 +360,7 @@
                     </div>
 
                     <div class="col-md-6 mb-2 d-none" id="dv_ea_diagnostico_st">
-                        <label for="ea_diagnostico_st1" class="form-label mb-0">IAM con elevacion del ST</label>
+                        <label for="ea_diagnostico_st1" class="form-label mb-0">Tipo de SCASEST</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="ea_diagnostico_st" id="ea_diagnostico_st1" value="IAM ST no Elevado" >
@@ -399,6 +399,10 @@
                             <option value="Alto (>7 puntos)">Alto (>7 puntos)</option>
                         </select>
                     </div>
+                    <div class="col-md-12 mb-2">
+                        <label for="ea_otros" class="form-label mb-0">Otros</label>
+                        <input type="text" name="ea_otros" class="form-control" id="ea_otros" maxlength="100">
+                    </div>
                 </div>
             </div>
         </div>
@@ -428,13 +432,13 @@
                                 "Septal (V1-V2)",
                                 "Anterior (V3-V4)",
                                 "Anteroseptal (V1-V4)",
-                                "Lateral (I⸴ AVL+ V5- V6)",
-                                "Antero-lateral (I-AVL⸴ V3-V6)",
-                                "Anterior extensa (V1-V6⸴ I-AVL)",
+                                "Lateral (I+ AVL+ V5- V6)",
+                                "Antero-lateral (I-AVL+ V3-V6)",
+                                "Anterior extensa (V1-V6+ I-AVL)",
                                 "Inferior (II-III-AVF)",
                                 "Posterior (V7-V9)",
-                                "Infero-posterior (II-III-AVF⸴ V7-V9)",
-                                "Infero-postero-lateral (II-III-AVF⸴ I-AVL⸴ V7-V9)",
+                                "Infero-posterior (II-III-AVF+ V7-V9)",
+                                "Infero-postero-lateral (II-III-AVF+ I-AVL+ V7-V9)",
                                 "Infero-postero-lateral + VD (II-III-AVF+V3R-V4R)"
                             ] as $index => $localizacion)
                                 <div class="form-check form-check-inline d-block">
@@ -605,25 +609,6 @@
                                 <input class="form-check-input" type="checkbox" name="dis_tipofibrinolisis[]" id="dis_tipofibrinolisis5" value="Otro">
                                 <label class="form-check-label" for="dis_tipofibrinolisis5">Otro</label>
                                 <input type="text" name="dis_tipofibrinolisis_otro" class="form-control mb-1 d-none" id="dis_tipofibrinolisis_otro" placeholder="Especificar">
-                            </div>
-
-
-                            <div class="mb-1 d-none" id="dv_dis_tipofibrinolisis_dosis">
-                                <label for="dis_tipofibrinolisis_dosis1" class="form-label mb-0 d-block">Dosis </label>
-                                <div class="form-control radioptions">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="dis_tipofibrinolisis_dosis" id="dis_tipofibrinolisis_dosis1" value="Completa" >
-                                        <label class="form-check-label" for="dis_tipofibrinolisis_dosis1">Completa</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="dis_tipofibrinolisis_dosis" id="dis_tipofibrinolisis_dosis2" value="Ajustada a Peso" >
-                                        <label class="form-check-label" for="dis_tipofibrinolisis_dosis2">Ajustada a Peso</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="dis_tipofibrinolisis_dosis" id="dis_tipofibrinolisis_dosis3" value="Media dosis" >
-                                        <label class="form-check-label" for="dis_tipofibrinolisis_dosis3">Media dosis</label>
-                                    </div>
-                                </div>
                             </div>
 
                         </div>
@@ -858,17 +843,17 @@
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_numero_stent" class="form-label mb-0">Numero de stents</label>
-                        <input type="number" name="dis_numero_stent" class="form-control" id="dis_numero_stent">
+                        <input type="text" name="dis_numero_stent" class="form-control solo-numpunt" id="dis_numero_stent" maxlength="6">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_diametro_stent" class="form-label mb-0">Diámetro máximo del stent <small class="text-danger">(mm)</small></label>
-                        <input type="number" name="dis_diametro_stent" class="form-control" id="dis_diametro_stent">
+                        <input type="text" name="dis_diametro_stent" class="form-control solo-numpunt" id="dis_diametro_stent" maxlength="6">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_longitud_stent" class="form-label mb-0">Longitud total del stent <small class="text-danger">(mm)</small></label>
-                        <input type="number" name="dis_longitud_stent" class="form-control" id="dis_longitud_stent">
+                        <input type="text" name="dis_longitud_stent" class="form-control solo-numpunt" id="dis_longitud_stent" maxlength="6">
                     </div>
 
                     <div class="col-md-6 mb-2">
@@ -1601,7 +1586,7 @@
                     </div>
 
                     <div class="col-md-6 mb-2">
-                        <label for="ti_transplante_cardiaca1" class="form-label mb-0">Trasplante Cardiaca</label>
+                        <label for="ti_transplante_cardiaca1" class="form-label mb-0">Trasplante Cardiaco</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="ti_transplante_cardiaca" id="ti_transplante_cardiaca1" value="Sí">
@@ -1628,55 +1613,102 @@
                 <div class="row mb-1">
                     <div class="col-md-6 mb-2">
                         <label for="aai_hemoglobina" class="form-label mb-0">Hemoglobina</label>
-                        <input type="number" name="aai_hemoglobina" class="form-control" id="aai_hemoglobina">
+                        <input type="text" name="aai_hemoglobina" class="form-control solo-numpunt" id="aai_hemoglobina" maxlength="6">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_leucocitos" class="form-label mb-0">Leucocitos</label>
-                        <input type="number" name="aai_leucocitos" class="form-control" id="aai_leucocitos">
+                        <input type="text" name="aai_leucocitos" class="form-control solo-numpunt" id="aai_leucocitos" maxlength="6">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_plaquetas" class="form-label mb-0">Plaquetas</label>
-                        <input type="number" name="aai_plaquetas" class="form-control" id="aai_plaquetas">
+                        <input type="text"name="aai_plaquetas" class="form-control solo-numpunt" id="aai_plaquetas" maxlength="6">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_creatinina" class="form-label mb-0">Creatinina</label>
-                        <input type="number" name="aai_creatinina" class="form-control" id="aai_creatinina">
+                        <input type="text" name="aai_creatinina" class="form-control solo-numpunt" id="aai_creatinina" maxlength="6">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_urea" class="form-label mb-0">Úrea</label>
-                        <input type="number" name="aai_urea" class="form-control" id="aai_urea">
+                        <input type="text" name="aai_urea" class="form-control solo-numpunt" id="aai_urea" maxlength="6">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_glucosa" class="form-label mb-0">Glucosa</label>
-                        <input type="number" name="aai_glucosa" class="form-control" id="aai_glucosa">
+                        <input type="text" name="aai_glucosa" class="form-control solo-numpunt" id="aai_glucosa" maxlength="6">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="aai_trigliceridos" class="form-label mb-0">Triglicéridos</label>
+                        <input type="text" name="aai_trigliceridos" class="form-control solo-numpunt" id="aai_trigliceridos" maxlength="6">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="aai_colesterol_total" class="form-label mb-0">Colesterol Total</label>
+                        <input type="text" name="aai_colesterol_total" class="form-control solo-numpunt" id="aai_colesterol_total" maxlength="6">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="aai_colesterol_hdl" class="form-label mb-0">Colesterol HDL</label>
+                        <input type="text" name="aai_colesterol_hdl" class="form-control solo-numpunt" id="aai_colesterol_hdl" maxlength="6">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="aai_colesterol_ldl" class="form-label mb-0">Colesterol LDL</label>
+                        <input type="text" name="aai_colesterol_ldl" class="form-control solo-numpunt" id="aai_colesterol_ldl" maxlength="6">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="aai_tipo_troponina" class="form-label mb-0">Tipo de Troponina</label>
+                        <div class="form-control radioptions">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="aai_tipo_troponina" id="aai_tipo_troponina1" value="I">
+                                <label class="form-check-label" for="aai_tipo_troponina1">I</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="aai_tipo_troponina" id="aai_tipo_troponina2" value="T">
+                                <label class="form-check-label" for="aai_tipo_troponina2">T</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="aai_tipo_troponina" id="aai_tipo_troponina3" value="I US">
+                                <label class="form-check-label" for="aai_tipo_troponina3">I US</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                
+                                <input class="form-check-input" type="radio" name="aai_tipo_troponina" id="aai_tipo_troponina4" value="T US">
+                                <label class="form-check-label" for="aai_tipo_troponina4">T US</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="aai_tipo_troponina" id="aai_tipo_troponina5" value="No">
+                                <label class="form-check-label" for="aai_tipo_troponina5">No</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="aai_troponina_iot_primer" class="form-label mb-0">Troponina I o T Primer control</label>
-                        <input type="number" name="aai_troponina_iot_primer" class="form-control" id="aai_troponina_iot_primer">
+                        <label for="aai_troponina_iot_primer" class="form-label mb-0">Troponina Primer control</label>
+                        <input type="text" name="aai_troponina_iot_primer" class="form-control solo-numpunt" id="aai_troponina_iot_primer" maxlength="7">
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="aai_troponina_iot_segundo" class="form-label mb-0">Troponina I o T Segundo control</label>
-                        <input type="number" name="aai_troponina_iot_segundo" class="form-control" id="aai_troponina_iot_segundo">
+                        <label for="aai_troponina_iot_segundo" class="form-label mb-0">Troponina Segundo control</label>
+                        <input type="text" name="aai_troponina_iot_segundo" class="form-control solo-numpunt" id="aai_troponina_iot_segundo" maxlength="7">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_horas_troponina" class="form-label mb-0">Nº de horas al 2º control de Troponina</label>
-                        <input type="number" name="aai_horas_troponina" class="form-control" id="aai_horas_troponina">
+                        <input type="text" name="aai_horas_troponina" class="form-control solo-numpunt" id="aai_horas_troponina" maxlength="6">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_cpk_total" class="form-label mb-0">CPK total</label>
-                        <input type="number" name="aai_cpk_total" class="form-control" id="aai_cpk_total">
+                        <input type="text" name="aai_cpk_total" class="form-control solo-numpunt" id="aai_cpk_total" maxlength="6">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_cpk_mb" class="form-label mb-0">CPK-MB</label>
-                        <input type="number" name="aai_cpk_mb" class="form-control" id="aai_cpk_mb">
+                        <input type="text" name="aai_cpk_mb" class="form-control solo-numpunt" id="aai_cpk_mb" maxlength="6">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_lactato" class="form-label mb-0">Lactato</label>
-                        <input type="number" name="aai_lactato" class="form-control" id="aai_lactato">
+                        <input type="text" name="aai_lactato" class="form-control solo-numpunt" id="aai_lactato" maxlength="6">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_fevi" class="form-label mb-0">Fracción de eyección ventricular izquierda</label>
-                        <input type="number" name="aai_fevi" class="form-control" id="aai_fevi">
+                        <input type="text" name="aai_fevi" class="form-control solo-numpunt" id="aai_fevi" maxlength="6">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="aai_fecha_pm_fevi" class="form-label mb-0">Fecha de primera medición de fracción de eyección ventricular izquierda</label>
@@ -1685,16 +1717,23 @@
                     
                     <div class="col-md-6 mb-2">
                         <label for="aai_hemoglobina_glicosilada" class="form-label mb-0">Hemoglobina Glicosilada</label>
-                        <input type="number" name="aai_hemoglobina_glicosilada" class="form-control" id="aai_hemoglobina_glicosilada">
+                        <input type="text" name="aai_hemoglobina_glicosilada" class="form-control solo-numpunt" id="aai_hemoglobina_glicosilada" maxlength="6">
                     </div>
+
+                    <div class="col-md-12 mb-2">
+                        <label for="aai_detalle" class="form-label mb-0">Detalle/Nota</label>
+                        <input type="text" name="aai_detalle" class="form-control" id="aai_detalle" maxlength="200">
+                    </div>
+
+
                 </div>
             </div>
         </div>
 
-        <!--Datos Clinicos intrahospitalarios -->
+        <!--Datos Clinicos Intrahospitalarios -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 bg-primary">
-                <h6 class="m-0 font-weight-bold text-white">Datos Clinicos intrahospitalarios</h6>
+                <h6 class="m-0 font-weight-bold text-white">Datos Clinicos Intrahospitalarios</h6>
             </div>
             <div class="card-body">
                 <div class="row mb-1">
@@ -2156,19 +2195,6 @@
                     </div>
 
                     <div class="col-md-6 mb-2">
-                        <label for="ma_inhibidores_p2y121" class="form-label mb-0">Inhibidores del receptor P2Y12 </label>
-                        <div class="form-control radioptions">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_inhibidores_p2y12" id="ma_inhibidores_p2y121" value="Sí">
-                                <label class="form-check-label" for="ma_inhibidores_p2y121">Sí</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ma_inhibidores_p2y12" id="ma_inhibidores_p2y122" value="No">
-                                <label class="form-check-label" for="ma_inhibidores_p2y122">No</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
                         <label for="ma_nitratos1" class="form-label mb-0">Nitratos </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
@@ -2203,10 +2229,10 @@
             </div>
         </div>
 
-        <!--Seguimiento Clínico Luego del Alta-->
+        <!--Seguimiento Clínico al Año-->
         <div class="card shadow mb-4">
             <div class="card-header bg-danger py-3">
-                <h6 class="m-0 font-weight-bold text-white">Seguimiento Clínico Luego del Alta</h6>
+                <h6 class="m-0 font-weight-bold text-white">Seguimiento Clínico al Año</h6>
             </div>
             <div class="card-body">
                 <div class="row mb-1">
@@ -2313,7 +2339,7 @@
                         <input type="date" name="sc_fecha_acv" class="form-control" id="sc_fecha_acv">
                     </div>
                     <div class="col-md-6 mb-2">
-                        <label for="sc_rehospitalizacion_falla_cardiaca1" class="form-label mb-0">Rehospitalización por falla cardiaca</label>
+                        <label for="sc_rehospitalizacion_falla_cardiaca1" class="form-label mb-0">Hospitalización por falla cardiaca</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="sc_rehospitalizacion_falla_cardiaca" id="sc_rehospitalizacion_falla_cardiaca1" value="Sí">
@@ -2327,7 +2353,7 @@
                     </div>
 
                     <div class="col-md-6 mb-2">
-                        <label for="sc_fecha_rehospitalizacion_falla_cardiaca" class="form-label mb-0">Fecha de rehospitalización por falla cardiaca</label>
+                        <label for="sc_fecha_rehospitalizacion_falla_cardiaca" class="form-label mb-0">Fecha de hospitalización por falla cardiaca</label>
                         <input type="date" name="sc_fecha_rehospitalizacion_falla_cardiaca" class="form-control" id="sc_fecha_rehospitalizacion_falla_cardiaca">
                     </div>
 
@@ -2443,6 +2469,10 @@
                     <div class="col-md-6 mb-2">
                         <label for="sc_fecha_trombosis_stent" class="form-label mb-0">Fecha de trombosis de stent</label>
                         <input type="date" name="sc_fecha_trombosis_stent" class="form-control" id="sc_fecha_trombosis_stent">
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <label for="sc_otros" class="form-label mb-0">Otros</label>
+                        <input type="text" name="sc_otros" class="form-control" id="sc_otros" maxlength="100">
                     </div>
                 </div>
             </div>
@@ -2663,17 +2693,6 @@
 
         calcularTiempoTotalIsquemia();
     });
-
-    //Activar Dis Dosis check box name'dis_tipofibrinolisis[]'
-    const dis_tipofibrinolisis = document.getElementsByName('dis_tipofibrinolisis[]');
-    dv_dis_tipofibrinolisis_dosis = document.getElementById('dv_dis_tipofibrinolisis_dosis');
-    dis_tipofibrinolisis.forEach(function(checkbox) {
-        checkbox.addEventListener('change', function() {
-            dv_dis_tipofibrinolisis_dosis.classList.toggle('d-none', !this.checked);
-        });
-    });
-
-
 
     //Al hacer change en ea_diagnostico
     const ea_diagnostico = document.getElementById('ea_diagnostico');
@@ -3116,6 +3135,16 @@
             const dv_sc_sangrado_barc_tipo3 = document.getElementById('dv_sc_sangrado_barc_tipo3');
             dv_sc_sangrado_barc_tipo3.classList.toggle('d-none', this.value !== '3');
 
+        });
+    });
+
+    const solo_numpunt = document.querySelectorAll('.solo-numpunt');
+    solo_numpunt.forEach(function(input) {
+        input.addEventListener('keypress', function(e) {
+            const charCode = (e.which) ? e.which : e.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode !== 46) {
+                e.preventDefault();
+            }
         });
     });
 

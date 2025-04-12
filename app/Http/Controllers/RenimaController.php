@@ -156,6 +156,7 @@ class RenimaController extends Controller
             $renima->ea_diagnostico_st = $request->ea_diagnostico_st;
             $renima->ea_evaluacion_riesgo = $request->ea_evaluacion_riesgo;
             $renima->ea_heart_score = $request->ea_heart_score;
+            $renima->ea_otros = $request->ea_otros;
 
         //Electrocardiograma (ecg_)
             $renima->ecg_ritmo = $request->ecg_ritmo;
@@ -201,7 +202,6 @@ class RenimaController extends Controller
             }
 
             $renima->dis_tipofibrinolisis_otro = $request->dis_tipofibrinolisis_otro;
-            $renima->dis_tipofibrinolisis_dosis = $request->dis_tipofibrinolisis_dosis;
             $renima->dis_fibrinolisis_exitosa = $request->dis_fibrinolisis_exitosa;
             $renima->dis_angioplastia_rescate = $request->dis_angioplastia_rescate;
             $renima->dis_fibrinolisis_suspendida = $request->dis_fibrinolisis_suspendida;
@@ -308,6 +308,11 @@ class RenimaController extends Controller
             $renima->aai_creatinina = $request->aai_creatinina;
             $renima->aai_urea = $request->aai_urea;
             $renima->aai_glucosa = $request->aai_glucosa;
+            $renima->aai_trigliceridos = $request->aai_trigliceridos;
+            $renima->aai_colesterol_total = $request->aai_colesterol_total;
+            $renima->aai_colesterol_hdl = $request->aai_colesterol_hdl;
+            $renima->aai_colesterol_ldl = $request->aai_colesterol_ldl;
+            $renima->aai_tipo_troponina = $request->aai_tipo_troponina;
             $renima->aai_troponina_iot_primer = $request->aai_troponina_iot_primer;
             $renima->aai_troponina_iot_segundo = $request->aai_troponina_iot_segundo;
             $renima->aai_horas_troponina = $request->aai_horas_troponina;
@@ -317,8 +322,9 @@ class RenimaController extends Controller
             $renima->aai_fevi = $request->aai_fevi;
             $renima->aai_fecha_pm_fevi = $request->aai_fecha_pm_fevi;
             $renima->aai_hemoglobina_glicosilada = $request->aai_hemoglobina_glicosilada;
+            $renima->aai_detalle = $request->aai_detalle;
 
-        //Datos Clinicos intrahospitalarios (dci_)
+        //Datos Clinicos Intrahospitalarios (dci_)
             $renima->dci_muerte_cardiovascular = $request->dci_muerte_cardiovascular;
             $renima->dci_fecha_muerte_cardiovascular_alta = $request->dci_fecha_muerte_cardiovascular_alta;
             $renima->dci_muerte_no_cardiovascular = $request->dci_muerte_no_cardiovascular;
@@ -358,7 +364,6 @@ class RenimaController extends Controller
             $renima->ma_diureticos_asa = $request->ma_diureticos_asa;
             $renima->ma_antagonistas_mineralocorticoide = $request->ma_antagonistas_mineralocorticoide;
             $renima->ma_ieca_ara = $request->ma_ieca_ara;
-            $renima->ma_inhibidores_p2y12 = $request->ma_inhibidores_p2y12;
             $renima->ma_nitratos = $request->ma_nitratos;
             $renima->ma_anticoagulacion = $request->ma_anticoagulacion;
             $renima->ma_otros = $request->ma_otros;
@@ -387,6 +392,7 @@ class RenimaController extends Controller
             $renima->sc_fecha_reestenosis_stent = $request->sc_fecha_reestenosis_stent;
             $renima->sc_trombosis_stent = $request->sc_trombosis_stent;
             $renima->sc_fecha_trombosis_stent = $request->sc_fecha_trombosis_stent;
+            $renima->sc_otros = $request->sc_otros;
 
         $renima->status = 'Activo';
         $renima->save();
@@ -528,6 +534,7 @@ class RenimaController extends Controller
         $renima->ea_diagnostico_st = $request->ea_diagnostico_st;
         $renima->ea_evaluacion_riesgo = $request->ea_evaluacion_riesgo;
         $renima->ea_heart_score = $request->ea_heart_score;
+        $renima->ea_otros = $request->ea_otros;
 
     //Electrocardiograma (ecg_)
         $renima->ecg_ritmo = $request->ecg_ritmo;
@@ -573,7 +580,6 @@ class RenimaController extends Controller
         }
 
         $renima->dis_tipofibrinolisis_otro = $request->dis_tipofibrinolisis_otro;
-        $renima->dis_tipofibrinolisis_dosis = $request->dis_tipofibrinolisis_dosis;
         $renima->dis_fibrinolisis_exitosa = $request->dis_fibrinolisis_exitosa;
         $renima->dis_angioplastia_rescate = $request->dis_angioplastia_rescate;
         $renima->dis_fibrinolisis_suspendida = $request->dis_fibrinolisis_suspendida;
@@ -680,6 +686,11 @@ class RenimaController extends Controller
         $renima->aai_creatinina = $request->aai_creatinina;
         $renima->aai_urea = $request->aai_urea;
         $renima->aai_glucosa = $request->aai_glucosa;
+        $renima->aai_trigliceridos = $request->aai_trigliceridos;
+        $renima->aai_colesterol_total = $request->aai_colesterol_total;
+        $renima->aai_colesterol_hdl = $request->aai_colesterol_hdl;
+        $renima->aai_colesterol_ldl = $request->aai_colesterol_ldl;
+        $renima->aai_tipo_troponina = $request->aai_tipo_troponina;
         $renima->aai_troponina_iot_primer = $request->aai_troponina_iot_primer;
         $renima->aai_troponina_iot_segundo = $request->aai_troponina_iot_segundo;
         $renima->aai_horas_troponina = $request->aai_horas_troponina;
@@ -689,8 +700,9 @@ class RenimaController extends Controller
         $renima->aai_fevi = $request->aai_fevi;
         $renima->aai_fecha_pm_fevi = $request->aai_fecha_pm_fevi;
         $renima->aai_hemoglobina_glicosilada = $request->aai_hemoglobina_glicosilada;
+        $renima->aai_detalle = $request->aai_detalle;
 
-    //Datos Clinicos intrahospitalarios (dci_)
+    //Datos Clinicos Intrahospitalarios (dci_)
         $renima->dci_muerte_cardiovascular = $request->dci_muerte_cardiovascular;
         $renima->dci_fecha_muerte_cardiovascular_alta = $request->dci_fecha_muerte_cardiovascular_alta;
         $renima->dci_muerte_no_cardiovascular = $request->dci_muerte_no_cardiovascular;
@@ -730,7 +742,6 @@ class RenimaController extends Controller
         $renima->ma_diureticos_asa = $request->ma_diureticos_asa;
         $renima->ma_antagonistas_mineralocorticoide = $request->ma_antagonistas_mineralocorticoide;
         $renima->ma_ieca_ara = $request->ma_ieca_ara;
-        $renima->ma_inhibidores_p2y12 = $request->ma_inhibidores_p2y12;
         $renima->ma_nitratos = $request->ma_nitratos;
         $renima->ma_anticoagulacion = $request->ma_anticoagulacion;
         $renima->ma_otros = $request->ma_otros;
@@ -759,6 +770,7 @@ class RenimaController extends Controller
         $renima->sc_fecha_reestenosis_stent = $request->sc_fecha_reestenosis_stent;
         $renima->sc_trombosis_stent = $request->sc_trombosis_stent;
         $renima->sc_fecha_trombosis_stent = $request->sc_fecha_trombosis_stent;
+        $renima->sc_otros = $request->sc_otros;
 
         //actualizar 
         $renima->status = 'Activo';
