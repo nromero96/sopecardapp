@@ -10,12 +10,12 @@
         <h1 class="h3 mb-0 text-gray-800">Registros Renima</h1>
         @if(auth::user()->hasRole('medico'))
         
-            <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm" data-toggle="modal" data-target="#modalBuscadorCompletar">
+            <button type="button" class="d-sm-inline-block btn btn-sm btn-info shadow-sm" data-toggle="modal" data-target="#modalBuscadorCompletar">
                 <i class="fas fa-search fa-sm text-white-50"></i>Buscar para Completar
             </button>
 
         @endif
-        <a href="{{ route('renima.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <a href="{{ route('renima.create') }}" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Nuevo Registro</a>
     </div>
 

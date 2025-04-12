@@ -77,7 +77,7 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_nacimiento" class="form-label mb-0">Fecha de nacimiento </label>
-                        <input type="date" name="de_nacimiento" class="form-control" id="de_nacimiento" >
+                        <input type="date" name="de_nacimiento" class="form-control" id="de_nacimiento" style="appearance: none; -webkit-appearance: none;">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_sexo1" class="form-label mb-0">Sexo </label>
