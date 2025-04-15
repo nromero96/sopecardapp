@@ -269,62 +269,27 @@
                     <div class="col-md-12 mb-2">
                         <label for="at_antecedentes1" class="form-label mb-0 d-block">Antecedentes </label>
                         <div class="form-control radioptions">
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="at_antecedentes[]" id="at_antecedentes1" value="Hipertensión arterial">
-                                <label class="form-check-label" for="at_antecedentes1">Hipertensión arterial</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="at_antecedentes[]" id="at_antecedentes2" value="Diabetes mellitus">
-                                <label class="form-check-label" for="at_antecedentes2">Diabetes mellitus</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="at_antecedentes[]" id="at_antecedentes3" value="Tabaquismo activo">
-                                <label class="form-check-label" for="at_antecedentes3">Tabaquismo activo</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="at_antecedentes[]" id="at_antecedentes4" value="Obesidad">
-                                <label class="form-check-label" for="at_antecedentes4">Obesidad</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="at_antecedentes[]" id="at_antecedentes5" value="Hipotiroidismo">
-                                <label class="form-check-label" for="at_antecedentes5">Hipotiroidismo</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="at_antecedentes[]" id="at_antecedentes6" value="Hipertirioidismo">
-                                <label class="form-check-label" for="at_antecedentes6">Hipertirioidismo</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="at_antecedentes[]" id="at_antecedentes7" value="Enfermedad renal crónica (TFG < 60)">
-                                <label class="form-check-label" for="at_antecedentes7">Enfermedad renal crónica (TFG < 60)</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="at_antecedentes[]" id="at_antecedentes8" value="Enfermedad cerebrovascular">
-                                <label class="form-check-label" for="at_antecedentes8">Enfermedad cerebrovascular</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="at_antecedentes[]" id="at_antecedentes9" value="Enfermedad cardiovascular">
-                                <label class="form-check-label" for="at_antecedentes9">Enfermedad cardiovascular</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="at_antecedentes[]" id="at_antecedentes10" value="Fibrilacción auricular">
-                                <label class="form-check-label" for="at_antecedentes10">Fibrilacción auricular</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="at_antecedentes[]" id="at_antecedentes11" value="Síndrome coronario crónico">
-                                <label class="form-check-label" for="at_antecedentes11">Síndrome coronario crónico</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="at_antecedentes[]" id="at_antecedentes12" value="Síndrome de apnea obstructiva del sueño">
-                                <label class="form-check-label" for="at_antecedentes12">Síndrome de apnea obstructiva del sueño</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="at_antecedentes[]" id="at_antecedentes13" value="COVID-19">
-                                <label class="form-check-label" for="at_antecedentes13">COVID-19</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="at_antecedentes[]" id="at_antecedentes14" value="Otros">
-                                <label class="form-check-label" for="at_antecedentes14">Otros</label>
-                            </div>
+                            @foreach([
+                                "Hipertensión arterial",
+                                "Diabetes mellitus",
+                                "Tabaquismo activo",
+                                "Obesidad",
+                                "Hipotiroidismo",
+                                "Hipertirioidismo",
+                                "Enfermedad renal crónica (TFG < 60)",
+                                "Enfermedad cerebrovascular",
+                                "Enfermedad cardiovascular",
+                                "Fibrilacción auricular",
+                                "Síndrome coronario crónico",
+                                "Síndrome de apnea obstructiva del sueño",
+                                "COVID-19",
+                                "Otros"
+                            ] as $index => $antecedente)
+                                <div class="form-check form-check-inline d-block">
+                                    <input class="form-check-input" type="checkbox" name="at_antecedentes[]" id="at_antecedentes{{ $index+1 }}" value="{{ $antecedente }}">
+                                    <label class="form-check-label" for="at_antecedentes{{ $index+1 }}">{{ $antecedente }}</label>
+                                </div>
+                            @endforeach
                         </div>
                         <input type="text" name="at_otro_antecedentes" class="form-control mt-1 mb-1" id="at_otro_antecedentes" placeholder="Especificar otro antecedente">
                     </div>
@@ -560,7 +525,7 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="ef_iase" class="form-label mb-0">Índice de actividad para esclerosis sistémica</label>
-                        <input type="number" name="ef_iase" class="form-control" id="ef_iase" >
+                        <input type="text" name="ef_iase" class="form-control solo-numpunt" id="ef_iase" maxlength="6" >
                     </div>
                 </div>
             </div>
@@ -1280,98 +1245,38 @@
                     <div class="col-md-12 mb-2">
                         <label for="trmto_farmacologico" class="form-label mb-0">Farmacológico</label>
                         <div class="form-control radioptions">
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico1" value="Calcio antagonistas: Amlodipino" >
-                                <label class="form-check-label" for="trmto_farmacologico1">Calcio antagonistas: Amlodipino</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico2" value="Calcio antagonistas: Diltiazem" >
-                                <label class="form-check-label" for="trmto_farmacologico2">Calcio antagonistas: Diltiazem</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico3" value="Vía óxido nítrico: Sidenafil" >
-                                <label class="form-check-label" for="trmto_farmacologico3">Vía óxido nítrico: Sidenafil</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico4" value="Vía óxido nítrico: Tadalafil" >
-                                <label class="form-check-label" for="trmto_farmacologico4">Vía óxido nítrico: Tadalafil</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico5" value="Riociguat" >
-                                <label class="form-check-label" for="trmto_farmacologico5">Riociguat</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico6" value="Antag endotelinas: Bosentan" >
-                                <label class="form-check-label" for="trmto_farmacologico6">Antag endotelinas: Bosentan</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico7" value="Ambrisentan" >
-                                <label class="form-check-label" for="trmto_farmacologico7">Ambrisentan</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico8" value="Macitentan" >
-                                <label class="form-check-label" for="trmto_farmacologico8">Macitentan</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico9" value="Prostanoides: Iloprost" >
-                                <label class="form-check-label" for="trmto_farmacologico9">Prostanoides: Iloprost</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico10" value="Treprostinil" >
-                                <label class="form-check-label" for="trmto_farmacologico10">Treprostinil</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico11" value="Epoprostenol" >
-                                <label class="form-check-label" for="trmto_farmacologico11">Epoprostenol</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico12" value="Selexipag" >
-                                <label class="form-check-label" for="trmto_farmacologico12">Selexipag</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico13" value="Treprostinil INH" >
-                                <label class="form-check-label" for="trmto_farmacologico13">Treprostinil INH</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico14" value="Otros: furosemida" >
-                                <label class="form-check-label" for="trmto_farmacologico14">Otros: furosemida</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico15" value="Espironolactona" >
-                                <label class="form-check-label" for="trmto_farmacologico15">Espironolactona</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico16" value="Digoxina" >
-                                <label class="form-check-label" for="trmto_farmacologico16">Digoxina</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico17" value="Warfarina" >
-                                <label class="form-check-label" for="trmto_farmacologico17">Warfarina</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico18" value="DOAC" >
-                                <label class="form-check-label" for="trmto_farmacologico18">DOAC</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico19" value="Metrotexate" >
-                                <label class="form-check-label" for="trmto_farmacologico19">Metrotexate</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico20" value="Micofenolato" >
-                                <label class="form-check-label" for="trmto_farmacologico20">Micofenolato</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico21" value="Ciclofosfamida" >
-                                <label class="form-check-label" for="trmto_farmacologico21">Ciclofosfamida</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico22" value="Rituximab" >
-                                <label class="form-check-label" for="trmto_farmacologico22">Rituximab</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico23" value="Otros" >
-                                <label class="form-check-label" for="trmto_farmacologico23">Otros</label>
-                            </div>
+                            
+                            @foreach([
+                                "Calcio antagonistas: Amlodipino",
+                                "Calcio antagonistas: Diltiazem",
+                                "Vía óxido nítrico: Sidenafil",
+                                "Vía óxido nítrico: Tadalafil",
+                                "Riociguat",
+                                "Antag endotelinas: Bosentan",
+                                "Ambrisentan",
+                                "Macitentan",
+                                "Prostanoides: Iloprost",
+                                "Treprostinil",
+                                "Epoprostenol",
+                                "Selexipag",
+                                "Treprostinil INH",
+                                "Otros: furosemida",
+                                "Espironolactona",
+                                "Digoxina",
+                                "Warfarina",
+                                "DOAC",
+                                "Metrotexate",
+                                "Micofenolato",
+                                "Ciclofosfamida",
+                                "Rituximab",
+                                "Otros"
+                            ] as $index => $trmto_farmacologico)
+                                <div class="form-check form-check-inline d-block">
+                                    <input class="form-check-input" type="checkbox" name="trmto_farmacologico[]" id="trmto_farmacologico{{ $index + 1 }}" value="{{ $trmto_farmacologico }}">
+                                    <label class="form-check-label" for="trmto_farmacologico{{ $index + 1 }}">{{ $trmto_farmacologico }}</label>
+                                </div>
+                            @endforeach
+                            
                             <input type="text" name="trmto_farmacologico_otro" class="form-control mt-1 mb-1" id="trmto_farmacologico_otro" placeholder="Especifique otro" >
                         </div>
                     </div>
