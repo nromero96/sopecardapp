@@ -200,7 +200,7 @@ class CreatePulmonaryHypertensionsTable extends Migration
             $table->string('trmto_rehabilitacion',5)->nullable();
             $table->string('trmto_oxigenoterapia', 5)->nullable();
             $table->string('trmto_estrategia_inicial', 20)->nullable();
-            $table->string('trmto_intervencionista', 20)->nullable();
+            $table->string('trmto_intervencionista', 25)->nullable();
             $table->string('trmto_muerte_perioperatoria', 5)->nullable();
             $table->string('trmto_muerte_dias_postrasplante', 5)->nullable();
             $table->string('trmto_muerte_dias_postrasplante_dias', 5)->nullable();

@@ -742,7 +742,7 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lb_saturacion_transferrina" class="form-label mb-0">Saturación de transferrina <small class="text-danger">(%)</small></label>
-                        <input type="text" name="lb_saturacion_transferrina" class="form-control solo-numpunt" id="lb_saturacion_transferrina" >
+                        <input type="text" name="lb_saturacion_transferrina" class="form-control solo-numpunt" id="lb_saturacion_transferrina" maxlength="6" >
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="lb_acido_urico" class="form-label mb-0">Ácido úrico <small class="text-danger">(mg/dl)</small></label>
