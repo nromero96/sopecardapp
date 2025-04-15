@@ -50,13 +50,13 @@ class CreatePulmonaryHypertensionsTable extends Migration
             $table->string('at_anticoncepcion',5)->nullable();
 
             //Examen físico
-            $table->string('ef_pas',10)->nullable();
-            $table->string('ef_pad',10)->nullable();
-            $table->string('ef_fc',10)->nullable();
-            $table->string('ef_peso',10)->nullable();
-            $table->string('ef_talla',10)->nullable();
-            $table->string('ef_imc',10)->nullable();
-            $table->string('ef_sato2',10)->nullable();
+            $table->string('ef_pas',6)->nullable();
+            $table->string('ef_pad',6)->nullable();
+            $table->string('ef_fc',6)->nullable();
+            $table->string('ef_peso',6)->nullable();
+            $table->string('ef_talla',6)->nullable();
+            $table->string('ef_imc',6)->nullable();
+            $table->string('ef_sato2',6)->nullable();
             $table->string('ef_ingurgitacion_yugular',5)->nullable();
             $table->string('ef_reflujo_hepatoyugular',5)->nullable();
             $table->string('ef_edema_miembros_inferiores',5)->nullable();
@@ -72,59 +72,59 @@ class CreatePulmonaryHypertensionsTable extends Migration
             $table->string('ef_iase',10)->nullable();
 
             //Ecocardiograma
-            $table->string('ec_fe',10)->nullable();
-            $table->string('ec_area_ad',10)->nullable();
-            $table->string('ec_diametro_vd',10)->nullable();
-            $table->string('ec_tapse',10)->nullable();
-            $table->string('ec_fa_vd',10)->nullable();
+            $table->string('ec_fe',6)->nullable();
+            $table->string('ec_area_ad',6)->nullable();
+            $table->string('ec_diametro_vd',6)->nullable();
+            $table->string('ec_tapse',6)->nullable();
+            $table->string('ec_fa_vd',6)->nullable();
             $table->string('ec_onda_s',5)->nullable();
-            $table->string('ec_ie',10)->nullable();
-            $table->string('ec_vrt',10)->nullable();
-            $table->string('ec_diametro_vci',10)->nullable();
-            $table->string('ec_colapso_vci',10)->nullable();
+            $table->string('ec_ie',6)->nullable();
+            $table->string('ec_vrt',6)->nullable();
+            $table->string('ec_diametro_vci',6)->nullable();
+            $table->string('ec_colapso_vci',6)->nullable();
             $table->string('ec_diametro_vci_20',5)->nullable();
             $table->string('ec_colapso_vci_50',5)->nullable();
-            $table->string('ec_pad',10)->nullable();
-            $table->string('ec_psap',10)->nullable();
+            $table->string('ec_pad',6)->nullable();
+            $table->string('ec_psap',6)->nullable();
             $table->string('ec_derrame_pericardico',5)->nullable();
 
             //Laboratorio
-            $table->string('lb_pro_bnp',10)->nullable();
-            $table->string('lb_troponinas',10)->nullable();
-            $table->string('lb_hemoglobina',10)->nullable();
-            $table->string('lb_leucocitos',10)->nullable();
-            $table->string('lb_plaquetas',10)->nullable();
-            $table->string('lb_creatinina',10)->nullable();
-            $table->string('lb_urea',10)->nullable();
-            $table->string('lb_albunina',10)->nullable();
-            $table->string('lb_tgo',10)->nullable();
-            $table->string('lb_tgp',10)->nullable();
-            $table->string('lb_bilirrubinas_totales',10)->nullable();
-            $table->string('lb_bilirrubina_directa',10)->nullable();
-            $table->string('lb_fosfatasa_alcalina',10)->nullable();
-            $table->string('lb_tsh',10)->nullable();
-            $table->string('lb_ferritina',10)->nullable();
-            $table->string('lb_saturacion_transferrina',10)->nullable();
-            $table->string('lb_acido_urico',10)->nullable();
-            $table->string('lb_sodio',10)->nullable();
+            $table->string('lb_pro_bnp',6)->nullable();
+            $table->string('lb_troponinas',6)->nullable();
+            $table->string('lb_hemoglobina',6)->nullable();
+            $table->string('lb_leucocitos',6)->nullable();
+            $table->string('lb_plaquetas',6)->nullable();
+            $table->string('lb_creatinina',6)->nullable();
+            $table->string('lb_urea',6)->nullable();
+            $table->string('lb_albunina',6)->nullable();
+            $table->string('lb_tgo',6)->nullable();
+            $table->string('lb_tgp',6)->nullable();
+            $table->string('lb_bilirrubinas_totales',6)->nullable();
+            $table->string('lb_bilirrubina_directa',6)->nullable();
+            $table->string('lb_fosfatasa_alcalina',6)->nullable();
+            $table->string('lb_tsh',6)->nullable();
+            $table->string('lb_ferritina',6)->nullable();
+            $table->string('lb_saturacion_transferrina',6)->nullable();
+            $table->string('lb_acido_urico',6)->nullable();
+            $table->string('lb_sodio',6)->nullable();
 
             //Laboratorio para HAP asociada a Tejido Conectivo
             $table->string('lhtc_ana',5)->nullable();
             $table->string('lhtc_patron_ana',150)->nullable();
-            $table->string('lhtc_anticentromero',10)->nullable();
-            $table->string('lhtc_anti_scl70',10)->nullable();
-            $table->string('lhtc_anti_dna',10)->nullable();
-            $table->string('lhtc_anti_rnp',10)->nullable();
-            $table->string('lhtc_anti_ro',10)->nullable();
-            $table->string('lhtc_anti_la',10)->nullable();
-            $table->string('lhtc_factor_reumatoideo',10)->nullable();
-            $table->string('lhtc_anti_ccp',10)->nullable();
-            $table->string('lhtc_anti_jo',10)->nullable();
-            $table->string('lhtc_anticuerpo_lupico',10)->nullable();
-            $table->string('lhtc_anticardiolipina_igg',10)->nullable();
-            $table->string('lhtc_anticardiolipina_igm',10)->nullable();
-            $table->string('lhtc_anti_beta_2_glicoproteina_igg',10)->nullable();
-            $table->string('lhtc_anti_beta_2_glicoproteina_igm',10)->nullable();
+            $table->string('lhtc_anticentromero',6)->nullable();
+            $table->string('lhtc_anti_scl70',6)->nullable();
+            $table->string('lhtc_anti_dna',6)->nullable();
+            $table->string('lhtc_anti_rnp',6)->nullable();
+            $table->string('lhtc_anti_ro',6)->nullable();
+            $table->string('lhtc_anti_la',6)->nullable();
+            $table->string('lhtc_factor_reumatoideo',6)->nullable();
+            $table->string('lhtc_anti_ccp',6)->nullable();
+            $table->string('lhtc_anti_jo',6)->nullable();
+            $table->string('lhtc_anticuerpo_lupico',6)->nullable();
+            $table->string('lhtc_anticardiolipina_igg',6)->nullable();
+            $table->string('lhtc_anticardiolipina_igm',6)->nullable();
+            $table->string('lhtc_anti_beta_2_glicoproteina_igg',6)->nullable();
+            $table->string('lhtc_anti_beta_2_glicoproteina_igm',6)->nullable();
 
             //Electrocardiograma
             $table->string('ecg_ritmo',5)->nullable();
@@ -132,34 +132,34 @@ class CreatePulmonaryHypertensionsTable extends Migration
             $table->string('ecg_bloqueo_rama_izquierda',5)->nullable();
             $table->string('ecg_bloqueo_rama_derecha',5)->nullable();
             $table->string('ecg_hipertrofia_ventricular_derecha',5)->nullable();
-            $table->string('ecg_frecuencia_cardiaca',10)->nullable();
-            $table->string('ecg_tc6m',10)->nullable();
+            $table->string('ecg_frecuencia_cardiaca',6)->nullable();
+            $table->string('ecg_tc6m',6)->nullable();
             $table->string('ecg_se_detuvo',5)->nullable();
             $table->string('ecg_requirio_oxigeno',5)->nullable();
             $table->string('ecg_distancia_recorrida',5)->nullable();
-            $table->string('ecg_porcentaje_predicho',10)->nullable();
-            $table->string('ecg_escala_borg_disnea',10)->nullable();
-            $table->string('ecg_escala_borg_fatiga',10)->nullable();
-            $table->string('ecg_saturacion_o2_inicial',10)->nullable();
-            $table->string('ecg_saturacion_o2_final',10)->nullable();
-            $table->string('ecg_frecuencia_cardiaca_inicial',10)->nullable();
-            $table->string('ecg_frecuencia_cardiaca_final',10)->nullable();
-            $table->string('ecg_frecuencia_cardiaca_primer_minuto',10)->nullable();
+            $table->string('ecg_porcentaje_predicho',6)->nullable();
+            $table->string('ecg_escala_borg_disnea',6)->nullable();
+            $table->string('ecg_escala_borg_fatiga',6)->nullable();
+            $table->string('ecg_saturacion_o2_inicial',6)->nullable();
+            $table->string('ecg_saturacion_o2_final',6)->nullable();
+            $table->string('ecg_frecuencia_cardiaca_inicial',6)->nullable();
+            $table->string('ecg_frecuencia_cardiaca_final',6)->nullable();
+            $table->string('ecg_frecuencia_cardiaca_primer_minuto',6)->nullable();
 
             //Cateterismo cardiaco derecho
             $table->string('ccd_indice_cardiaco_fick',5)->nullable();
             $table->string('ccd_indice_cardiaco_termodilucion',5)->nullable();
-            $table->string('ccd_frecuencia_cardiaca',10)->nullable();
-            $table->string('ccd_presion_auricula_derecha',10)->nullable();
-            $table->string('ccd_presion_sistolica_arteria_pulmonar',10)->nullable();
-            $table->string('ccd_presion_diastolica_arteria_pulmonar',10)->nullable();
-            $table->string('ccd_presion_media_arterial_pulmonar',10)->nullable();
-            $table->string('ccd_presion_capilar',10)->nullable();
-            $table->string('ccd_gradiente_transpulmonar',10)->nullable();
-            $table->string('ccd_indice_cardiaco',10)->nullable();
-            $table->string('ccd_saturacion_arteria_pulmonar',10)->nullable();
-            $table->string('ccd_resistencia_vascular_pulmonar',10)->nullable();
-            $table->string('ccd_resistencia_vascular_pulmonar_indexada',10)->nullable();
+            $table->string('ccd_frecuencia_cardiaca',6)->nullable();
+            $table->string('ccd_presion_auricula_derecha',6)->nullable();
+            $table->string('ccd_presion_sistolica_arteria_pulmonar',6)->nullable();
+            $table->string('ccd_presion_diastolica_arteria_pulmonar',6)->nullable();
+            $table->string('ccd_presion_media_arterial_pulmonar',6)->nullable();
+            $table->string('ccd_presion_capilar',6)->nullable();
+            $table->string('ccd_gradiente_transpulmonar',6)->nullable();
+            $table->string('ccd_indice_cardiaco',6)->nullable();
+            $table->string('ccd_saturacion_arteria_pulmonar',6)->nullable();
+            $table->string('ccd_resistencia_vascular_pulmonar',6)->nullable();
+            $table->string('ccd_resistencia_vascular_pulmonar_indexada',6)->nullable();
             $table->string('ccd_vasoreactividad',10)->nullable();
             $table->string('ccd_droga_vasoreactividad',150)->nullable();
             $table->string('ccd_complicaciones',5)->nullable();
@@ -167,16 +167,16 @@ class CreatePulmonaryHypertensionsTable extends Migration
             
 
             //Resonancia magnética (opcional) - ventrículo derecho y aurícula derecha
-            $table->string('rm_vd_masa',10)->nullable();
-            $table->string('rm_vd_volumen_diastolico_final',10)->nullable();
-            $table->string('rm_vd_volumen_sistolico_final',10)->nullable();
-            $table->string('rm_vd_fraccion_eyeccion',10)->nullable();
-            $table->string('rm_ad_area',10)->nullable();
-            $table->string('rm_vi_fraccion_eyeccion',10)->nullable();
+            $table->string('rm_vd_masa',6)->nullable();
+            $table->string('rm_vd_volumen_diastolico_final',6)->nullable();
+            $table->string('rm_vd_volumen_sistolico_final',6)->nullable();
+            $table->string('rm_vd_fraccion_eyeccion',6)->nullable();
+            $table->string('rm_ad_area',6)->nullable();
+            $table->string('rm_vi_fraccion_eyeccion',6)->nullable();
 
             //Tomografía axial computarizada de tórax
-            $table->string('tac_diametro_arteria_pulmonar',10)->nullable();
-            $table->string('tac_relacion_diametro',10)->nullable();
+            $table->string('tac_diametro_arteria_pulmonar',6)->nullable();
+            $table->string('tac_relacion_diametro',6)->nullable();
             $table->string('tac_epid',20)->nullable();
             $table->string('tac_epoc',5)->nullable();
             $table->string('tac_capilaroscopia',150)->nullable();
@@ -186,12 +186,12 @@ class CreatePulmonaryHypertensionsTable extends Migration
 
             //Ergoespirometría y otras pruebas (opcional)
             $table->string('ergo_tipo_prueba',20)->nullable();
-            $table->string('ergo_consumo_maximo_o2',10)->nullable();
-            $table->string('ergo_vef1',10)->nullable();
-            $table->string('ergo_cvf',10)->nullable();
-            $table->string('ergo_vef1_cvf',10)->nullable();
-            $table->string('ergo_dlco_corregida',10)->nullable();
-            $table->string('ergo_tlc',10)->nullable();
+            $table->string('ergo_consumo_maximo_o2',6)->nullable();
+            $table->string('ergo_vef1',6)->nullable();
+            $table->string('ergo_cvf',6)->nullable();
+            $table->string('ergo_vef1_cvf',6)->nullable();
+            $table->string('ergo_dlco_corregida',6)->nullable();
+            $table->string('ergo_tlc',6)->nullable();
 
             //Tratamiento
             $table->text('trmto_farmacologico')->nullable();
@@ -212,8 +212,8 @@ class CreatePulmonaryHypertensionsTable extends Migration
             $table->date('trmto_fecha_terapia_intervencionista')->nullable();
             $table->string('trmto_angioplastia_pulmonar', 20)->nullable();
             $table->date('trmto_fecha_angioplastia')->nullable();
-            $table->string('trmto_cantidad_sesiones',10)->nullable();
-            $table->string('trmto_cantidad_vasos',10)->nullable();
+            $table->string('trmto_cantidad_sesiones',6)->nullable();
+            $table->string('trmto_cantidad_vasos',6)->nullable();
             $table->string('trmto_complicaciones', 5)->nullable();
             $table->text('trmto_complicaciones_descripcion')->nullable();
             $table->string('trmto_muerte_periprocedimiento', 5)->nullable();

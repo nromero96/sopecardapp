@@ -74,18 +74,18 @@
 
                             <td>{{ $item->created_at }}</td>
                             <td>
-                                <a href="{{ route('renima.show', $item->id) }}" class="btn btn-info btn-circle btn-sm">
+                                <a href="{{ route('pulmonary-hypertension.show', $item->id) }}" class="btn btn-info btn-circle btn-sm">
                                     <i class="fas fa-info-circle"></i>
                                 </a>
 
                                 @if(Auth::user()->id == $item->user_id)
-                                    <a href="{{ route('renima.edit', $item->id) }}" class="btn btn-warning btn-circle btn-sm">
+                                    <a href="{{ route('pulmonary-hypertension.edit', $item->id) }}" class="btn btn-warning btn-circle btn-sm">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                 @endif
 
                                 @if(Auth::user()->id == $item->user_id)
-                                <form action="{{ route('renima.destroy', $item->id) }}" method="POST" class="d-inline delete-form">
+                                <form action="{{ route('pulmonary-hypertension.destroy', $item->id) }}" method="POST" class="d-inline delete-form">
                                     @csrf
                                     @method('DELETE')
                                     <button type="button" onclick="confirmDelete(this)" class="btn btn-danger btn-circle btn-sm">

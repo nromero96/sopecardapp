@@ -334,7 +334,14 @@ class PulmonaryHypertensionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'category_name' => 'pulmonary_hypertension',
+            'page_name' => 'pulmonary_hypertension_edit',
+        ];
+
+        $ph = PulmonaryHypertension::find($id);
+
+        return view('pages.pulmonary_hypertension.edit')->with($data)->with('ph', $ph);
     }
 
     /**

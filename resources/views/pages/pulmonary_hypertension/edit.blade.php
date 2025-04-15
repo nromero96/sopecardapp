@@ -7,11 +7,12 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Registrar INPER-HP</h1>
+        <h1 class="h3 mb-0 text-gray-800">Editar INPER-HP</h1>
     </div>
 
     <!-- Form -->
-    <form action="{{ route('pulmonary-hypertension.store') }}" method="POST">
+    <form action="{{ route('pulmonary-hypertension.update', $ph->id) }}" method="POST" id="formulario" enctype="multipart/form-data">
+        @method('PUT')
         @csrf
         <!-- Información Responsable -->
         <div class="card shadow mb-4">
@@ -26,7 +27,7 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="centro_atencion" class="form-label mb-0">Centro de atención <small class="requiredata">*</small></label>
-                        <input type="text" name="centro_atencion" class="form-control" id="centro_atencion" required>
+                        <input type="text" name="centro_atencion" class="form-control" id="centro_atencion" required value="{{ $ph->centro_atencion }}">   
                     </div>
                 </div>
             </div>
@@ -41,44 +42,44 @@
                 <div class="row">
                     <div class="col-md-6 mb-2">
                         <label for="de_nombre" class="form-label mb-0">Nombre <small class="requiredata">*</small></label>
-                        <input type="text" name="de_nombre" class="form-control" id="de_nombre" required>
+                        <input type="text" name="de_nombre" class="form-control" id="de_nombre" required value="{{ $ph->de_nombre }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_edad" class="form-label mb-0">Edad <small class="text-danger">(años)</small> <small class="requiredata">*</small></label>
-                        <input type="number" name="de_edad" class="form-control" id="de_edad"  required>
+                        <input type="number" name="de_edad" class="form-control" id="de_edad"  required value="{{ $ph->de_edad }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_procedencia" class="form-label mb-0">Procedencia <small class="text-danger">(Ciudad)</small> <small class="requiredata">*</small></label>
-                        <input type="text" name="de_procedencia" class="form-control" id="de_procedencia">
+                        <input type="text" name="de_procedencia" class="form-control" id="de_procedencia" value="{{ $ph->de_procedencia }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_residencia" class="form-label mb-0">Residencia <small class="text-danger">(Ciudad)</small> <small class="requiredata">*</small></label>
-                        <input type="text" name="de_residencia" class="form-control" id="de_residencia">
+                        <input type="text" name="de_residencia" class="form-control" id="de_residencia" value="{{ $ph->de_residencia }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_altura_ciudad" class="form-label mb-0">Altura de ciudad <small class="text-danger">(metros)</small> <small class="requiredata">*</small></label>
-                        <input type="number" name="de_altura_ciudad" class="form-control" id="de_altura_ciudad">
+                        <input type="number" name="de_altura_ciudad" class="form-control" id="de_altura_ciudad" value="{{ $ph->de_altura_ciudad }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="de_estratificacion_altura" class="form-label mb-0">Estratificación de altura <small class="text-danger">(metros)</small><small class="requiredata">*</small></label>
                         <select name="de_estratificacion_altura" id="de_estratificacion_altura" class="form-control" required>
-                            <option value="">Seleccionar...</option>
-                            <option value="< 2500 msnm"> < 2500 msnm </option>
-                            <option value="2500-3999 msnm">2500-3999 msnm</option>
-                            <option value=">= 4000 msnm"> >= 4000 msnm</option>
+                            <option value="" @if($ph->de_estratificacion_altura == '') selected @endif>Seleccionar...</option>
+                            <option value="< 2500 msnm" @if($ph->de_estratificacion_altura == '< 2500 msnm') selected @endif> < 2500 msnm </option>
+                            <option value="2500-3999 msnm" @if($ph->de_estratificacion_altura == '2500-3999 msnm') selected @endif>2500-3999 msnm</option>
+                            <option value=">= 4000 msnm" @if($ph->de_estratificacion_altura == '>= 4000 msnm') selected @endif> >= 4000 msnm</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_tiempo_residencia" class="form-label mb-0">Tiempo de residencia <small class="text-danger">(años)</small><small class="requiredata">*</small></label>
-                        <input type="number" name="de_tiempo_residencia" class="form-control" id="de_tiempo_residencia">
+                        <input type="number" name="de_tiempo_residencia" class="form-control" id="de_tiempo_residencia" value="{{ $ph->de_tiempo_residencia }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="de_modalidad_ingreso" class="form-label mb-0">Modalidad de ingreso<small class="requiredata">*</small></label>
                         <select name="de_modalidad_ingreso" id="de_modalidad_ingreso" class="form-control" required>
-                            <option value="">Seleccionar...</option>
-                            <option value="Emergencia">Emergencia</option>
-                            <option value="Ambulatorio">Ambulatorio</option>
+                            <option value="" @if($ph->de_modalidad_ingreso == '') selected @endif>Seleccionar...</option>
+                            <option value="Emergencia" @if($ph->de_modalidad_ingreso == 'Emergencia') selected @endif>Emergencia</option>
+                            <option value="Ambulatorio" @if($ph->de_modalidad_ingreso == 'Ambulatorio') selected @endif>Ambulatorio</option>
                         </select>
                     </div>
 
@@ -86,11 +87,11 @@
                         <label for="de_intervencion" class="form-label mb-0">Intervención realizada a >= 2500 msnm <small class="text-danger">(si es que se realizó)</small></label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="de_intervencion" id="de_intervencion1" value="Sí" >
+                                <input class="form-check-input" type="radio" name="de_intervencion" id="de_intervencion1" value="Sí" @if($ph->de_intervencion == 'Sí') checked @endif>
                                 <label class="form-check-label" for="de_intervencion1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="de_intervencion" id="de_intervencion2" value="No" >
+                                <input class="form-check-input" type="radio" name="de_intervencion" id="de_intervencion2" value="No" @if($ph->de_intervencion == 'No') checked @endif>
                                 <label class="form-check-label" for="de_intervencion2">No</label>
                             </div>
                         </div>
@@ -101,11 +102,11 @@
                         <label for="de_gestante" class="form-label mb-0">Gestante</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="de_gestante" id="de_gestante1" value="Sí" >
+                                <input class="form-check-input" type="radio" name="de_gestante" id="de_gestante1" value="Sí" @if($ph->de_gestante == 'Sí') checked @endif>
                                 <label class="form-check-label" for="de_gestante1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="de_gestante" id="de_gestante2" value="No" >
+                                <input class="form-check-input" type="radio" name="de_gestante" id="de_gestante2" value="No" @if($ph->de_gestante == 'No') checked @endif>
                                 <label class="form-check-label" for="de_gestante2">No</label>
                             </div>
                         </div>
@@ -114,29 +115,29 @@
                     <div class="col-md-6 mb-2">
                         <label for="de_estado_civil" class="form-label mb-0">Estado civil </label>
                         <select name="de_estado_civil" id="de_estado_civil" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Soltero">Soltero</option>
-                            <option value="Casado">Casado</option>
-                            <option value="Divorciado">Divorciado</option>
-                            <option value="Viudo">Viudo</option>
+                            <option value="" @if($ph->de_estado_civil == '') selected @endif>Seleccionar...</option>
+                            <option value="Soltero" @if($ph->de_estado_civil == 'Soltero') selected @endif>Soltero</option>
+                            <option value="Casado" @if($ph->de_estado_civil == 'Casado') selected @endif>Casado</option>
+                            <option value="Divorciado" @if($ph->de_estado_civil == 'Divorciado') selected @endif>Divorciado</option>
+                            <option value="Viudo" @if($ph->de_estado_civil == 'Viudo') selected @endif>Viudo</option>
                         </select>
                     </div>
                     
                     <div class="col-md-6 mb-2">
                         <label for="de_grado_instruccion" class="form-label mb-0">Grado de instrucción </label>
                         <select name="de_grado_instruccion" id="de_grado_instruccion" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Sin instrucción">Sin instrucción</option>
-                            <option value="Primaria incompleta">Primaria incompleta</option>
-                            <option value="Primaria completa">Primaria completa</option>
-                            <option value="Secundaria incompleta">Secundaria incompleta</option>
-                            <option value="Secundaria completa">Secundaria completa</option>
-                            <option value="Superior técnico incompleta">Superior técnico incompleta</option>
-                            <option value="Superior técnico completa">Superior técnico completa</option>
-                            <option value="Superior universitario incompleta">Superior universitario incompleta</option>
-                            <option value="Superior universitario completa">Superior universitario completa</option>
-                            <option value="Postgrado incompleta">Postgrado incompleta</option>
-                            <option value="Postgrado completa">Postgrado completa</option>
+                            <option value="" @if($ph->de_grado_instruccion == '') selected @endif>Seleccionar...</option>
+                            <option value="Sin instrucción" @if($ph->de_grado_instruccion == 'Sin instrucción') selected @endif>Sin instrucción</option>
+                            <option value="Primaria incompleta" @if($ph->de_grado_instruccion == 'Primaria incompleta') selected @endif>Primaria incompleta</option>
+                            <option value="Primaria completa" @if($ph->de_grado_instruccion == 'Primaria completa') selected @endif>Primaria completa</option>
+                            <option value="Secundaria incompleta" @if($ph->de_grado_instruccion == 'Secundaria incompleta') selected @endif>Secundaria incompleta</option>
+                            <option value="Secundaria completa" @if($ph->de_grado_instruccion == 'Secundaria completa') selected @endif>Secundaria completa</option>
+                            <option value="Superior técnico incompleta" @if($ph->de_grado_instruccion == 'Superior técnico incompleta') selected @endif>Superior técnico incompleta</option>
+                            <option value="Superior técnico completa" @if($ph->de_grado_instruccion == 'Superior técnico completa') selected @endif>Superior técnico completa</option>
+                            <option value="Superior universitario incompleta" @if($ph->de_grado_instruccion == 'Superior universitario incompleta') selected @endif>Superior universitario incompleta</option>
+                            <option value="Superior universitario completa" @if($ph->de_grado_instruccion == 'Superior universitario completa') selected @endif>Superior universitario completa</option>
+                            <option value="Postgrado incompleta" @if($ph->de_grado_instruccion == 'Postgrado incompleta') selected @endif>Postgrado incompleta</option>
+                            <option value="Postgrado completa" @if($ph->de_grado_instruccion == 'Postgrado completa') selected @endif>Postgrado completa</option>
                         </select>
                     </div>
                 </div>
@@ -154,28 +155,28 @@
                         <label for="at_tipo_paciente_hp" class="form-label mb-0">Tipo de paciente con hipertensión pulmonar</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="at_tipo_paciente_hp" id="at_tipo_paciente_hp1" value="Prevalente" >
+                                <input class="form-check-input" type="radio" name="at_tipo_paciente_hp" id="at_tipo_paciente_hp1" value="Prevalente" @if($ph->at_tipo_paciente_hp == 'Prevalente') checked @endif>
                                 <label class="form-check-label" for="at_tipo_paciente_hp1">Prevalente</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="at_tipo_paciente_hp" id="at_tipo_paciente_hp2" value="Incidente" >
+                                <input class="form-check-input" type="radio" name="at_tipo_paciente_hp" id="at_tipo_paciente_hp2" value="Incidente" @if($ph->at_tipo_paciente_hp == 'Incidente') checked @endif>
                                 <label class="form-check-label" for="at_tipo_paciente_hp2">Incidente</label>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="at_tiempo_sint_diagnostico" class="form-label mb-0">Tiempo de síntomas al diagnóstico <small class="text-danger">(años)</small></label>
-                        <input type="number" name="at_tiempo_sint_diagnostico" class="form-control" id="at_tiempo_sint_diagnostico" >
+                        <input type="number" name="at_tiempo_sint_diagnostico" class="form-control" id="at_tiempo_sint_diagnostico" value="{{ $ph->at_tiempo_sint_diagnostico }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="at_hipertension_ap" class="form-label mb-0">Hipertensión arterial pulmonar</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="at_hipertension_ap" id="at_hipertension_ap1" value="Sí" >
+                                <input class="form-check-input" type="radio" name="at_hipertension_ap" id="at_hipertension_ap1" value="Sí" @if($ph->at_hipertension_ap == 'Sí') checked @endif>
                                 <label class="form-check-label" for="at_hipertension_ap1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="at_hipertension_ap" id="at_hipertension_ap2" value="No" >
+                                <input class="form-check-input" type="radio" name="at_hipertension_ap" id="at_hipertension_ap2" value="No" @if($ph->at_hipertension_ap == 'No') checked @endif>
                                 <label class="form-check-label" for="at_hipertension_ap2">No</label>
                             </div>
                         </div>

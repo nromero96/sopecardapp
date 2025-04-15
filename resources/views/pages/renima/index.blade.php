@@ -6,7 +6,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <div class="d-sm-flex align-items-center justify-content-between mb-2 mb-sm-4">
         <h1 class="h3 mb-0 text-gray-800">Registros Renima</h1>
         @if(auth::user()->hasRole('medico'))
         
@@ -15,7 +15,7 @@
             </button>
 
         @endif
-        <a href="{{ route('renima.create') }}" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <a href="{{ route('renima.create') }}" class="d-sm-inline-block btn btn-sm btn-primary mt-1 mt-sm-0 shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Nuevo Registro</a>
     </div>
 
