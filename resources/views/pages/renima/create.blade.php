@@ -1012,54 +1012,27 @@
                     <div class="col-md-6 mb-2 d-none" id="div_dis_otrastenosis_coronaria_lesiones">
                         <label for="dis_otrastenosis_coronaria_lesiones1" class="form-label mb-0">Señale que otras lesiones severas (> 70%)estan presentes</label>
                         <div class="form-control radioptions">
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones1" value="Tronco coronario izquierdo">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones1">Tronco coronario izquierdo</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones2" value="Descendente anterior">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones2">Descendente anterior</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones3" value="1 Diagonal">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones3">1 Diagonal</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones4" value="2 Diagonal">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones4">2 Diagonal</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones5" value="Circunfleja">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones5">Circunfleja</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones6" value="1 Obtusa Marginal">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones6">1 Obtusa Marginal</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones7" value="2 Obtusa Marginal">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones7">2 Obtusa Marginal</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones8" value="Coronaria Derecha">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones8">Coronaria Derecha</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones9" value="1 Aguda Marginal">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones9">1 Aguda Marginal</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones10" value="Tronco Postero Lateral">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones10">Tronco Postero Lateral</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones11" value="Descendente Posterior">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones11">Descendente Posterior</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones12" value="Ramo Intermedio">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones12">Ramo Intermedio</label>
-                            </div>
+
+                            @foreach([
+                                "Tronco coronario izquierdo",
+                                "Descendente anterior",
+                                "1 Diagonal",
+                                "2 Diagonal",
+                                "Circunfleja",
+                                "1 Obtusa Marginal",
+                                "2 Obtusa Marginal",
+                                "Coronaria Derecha",
+                                "1 Aguda Marginal",
+                                "Tronco Postero Lateral",
+                                "Descendente Posterior",
+                                "Ramo Intermedio", 
+                            ] as $index => $dis_otrastenosis_coronaria_lesiones)
+                                <div class="form-check-inline d-block">
+                                    <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones{{$index+1}}" value="{{$dis_otrastenosis_coronaria_lesiones}}">
+                                    <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones{{$index+1}}">{{$dis_otrastenosis_coronaria_lesiones}}</label>
+                                </div>
+                            @endforeach
+                            
                         </div>
                     </div>
 
@@ -1081,54 +1054,25 @@
                     <div class="col-md-6 mb-2 d-none" id="div_dis_icp_otras_lesiones_lesiones">
                         <label for="dis_icp_otras_lesiones_lesiones1" class="form-label mb-0">Señale que otras lesiones se hizo ICP</label>
                         <div class="form-control radioptions">
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones1" value="Tronco coronario izquierdo">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones1">Tronco coronario izquierdo</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones2" value="Descendente anterior">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones2">Descendente anterior</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones3" value="1 Diagonal">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones3">1 Diagonal</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones4" value="2 Diagonal">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones4">2 Diagonal</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones5" value="Circunfleja">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones5">Circunfleja</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones6" value="1 Obtusa Marginal">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones6">1 Obtusa Marginal</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones7" value="2 Obtusa Marginal">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones7">2 Obtusa Marginal</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones8" value="Coronaria Derecha">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones8">Coronaria Derecha</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones9" value="1 Aguda Marginal">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones9">1 Aguda Marginal</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones10" value="Tronco Postero Lateral">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones10">Tronco Postero Lateral</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones11" value="Descendente Posterior">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones11">Descendente Posterior</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones12" value="Ramo Intermedio">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones12">Ramo Intermedio</label>
-                            </div>
+                            @foreach ([
+                                "Tronco coronario izquierdo",
+                                "Descendente anterior",
+                                "1 Diagonal",
+                                "2 Diagonal",
+                                "Circunfleja",
+                                "1 Obtusa Marginal",
+                                "2 Obtusa Marginal",
+                                "Coronaria Derecha",
+                                "1 Aguda Marginal",
+                                "Tronco Postero Lateral",
+                                "Descendente Posterior",
+                                "Ramo Intermedio", 
+                            ] as $index => $dis_icp_otras_lesiones_lesiones)
+                                <div class="form-check-inline d-block">
+                                    <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones{{$index+1}}" value="{{$dis_icp_otras_lesiones_lesiones}}">
+                                    <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones{{$index+1}}">{{$dis_icp_otras_lesiones_lesiones}}</label>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
 

@@ -553,260 +553,277 @@
                         </select>
                     </div>
 
-                    <div class="col-md-6 mb-2 d-none" id="dv_dis_manejo_icpp_dosis">
+                    @php 
+                    
+                        if($renima->dis_manejo == 'Solo lisis' || $renima->dis_manejo == 'Farmacoinvasiva + ICP sistemática precoz (2 – 24 horas)' || $renima->dis_manejo == 'Farmacoinvasiva + ICP sistemática (> 24 horas)' || $renima->dis_manejo == 'Lisis + ICP de Rescate'){
+                            $iamces_lisisicp = '';
+                        }else{
+                            $iamces_lisisicp = 'd-none';
+                        }
+
+                    @endphp
+
+                    <div class="col-md-6 mb-2 {{ $iamces_lisisicp }}" id="dv_dis_manejo_icpp_dosis">
                         <label for="dis_manejo_icpp_dosis" class="form-label mb-0">Dosis</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_manejo_icpp_dosis" id="dis_manejo_icpp_dosis1" value="Completa" >
+                                <input class="form-check-input" type="radio" name="dis_manejo_icpp_dosis" id="dis_manejo_icpp_dosis1" value="Completa" @if($renima->dis_manejo_icpp_dosis == 'Completa') checked @endif>
                                 <label class="form-check-label" for="dis_manejo_icpp_dosis1">Completa</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_manejo_icpp_dosis" id="dis_manejo_icpp_dosis2" value="Ajustada a Peso" >
+                                <input class="form-check-input" type="radio" name="dis_manejo_icpp_dosis" id="dis_manejo_icpp_dosis2" value="Ajustada a Peso" @if($renima->dis_manejo_icpp_dosis == 'Ajustada a Peso') checked @endif>
                                 <label class="form-check-label" for="dis_manejo_icpp_dosis2">Ajustada a Peso</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_manejo_icpp_dosis" id="dis_manejo_icpp_dosis3" value="Media dosis" >
+                                <input class="form-check-input" type="radio" name="dis_manejo_icpp_dosis" id="dis_manejo_icpp_dosis3" value="Media dosis" @if($renima->dis_manejo_icpp_dosis == 'Media dosis') checked @endif>
                                 <label class="form-check-label" for="dis_manejo_icpp_dosis3">Media dosis</label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2 d-none" id="dv_dis_tf">
+                    <div class="col-md-6 mb-2 {{ $iamces_lisisicp }}" id="dv_dis_tf">
                         <label for="dis_tf1" class="form-label mb-0">¿Tranferido para fibrinólisis?</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_tf" id="dis_tf1" value="Si" >
+                                <input class="form-check-input" type="radio" name="dis_tf" id="dis_tf1" value="Si" @if($renima->dis_tf == 'Si') checked @endif>
                                 <label class="form-check-label" for="dis_tf1">Si</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_tf" id="dis_tf2" value="No" >
+                                <input class="form-check-input" type="radio" name="dis_tf" id="dis_tf2" value="No" @if($renima->dis_tf == 'No') checked @endif>
                                 <label class="form-check-label" for="dis_tf2">No</label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2 d-none" id="dv_dis_lugar_tf">
+                    <div class="col-md-6 mb-2 {{ $iamces_lisisicp }}" id="dv_dis_lugar_tf">
                         <label for="dis_lugar_tf" class="form-label mb-0">Lugar de transferencia para fibrinólisis</label>
                         <select name="dis_lugar_tf" id="dis_lugar_tf" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Mismo centro">Mismo centro</option>
-                            <option value="Otro">Otro</option>
+                            <option value="" @if($renima->dis_lugar_tf == '') selected @endif>Seleccionar...</option>
+                            <option value="Mismo centro" @if($renima->dis_lugar_tf == 'Mismo centro') selected @endif>Mismo centro</option>
+                            <option value="Otro" @if($renima->dis_lugar_tf == 'Otro') selected @endif>Otro</option>
                         </select>
-                        <input type="text" name="dis_lugar_tf_otro" class="form-control mt-1 d-none" id="dis_lugar_tf_otro" placeholder="Especificar">
+                        <input type="text" name="dis_lugar_tf_otro" class="form-control mt-1 @if($renima->dis_lugar_tf != 'Otro') d-none @endif" id="dis_lugar_tf_otro" placeholder="Especificar" value="{{ $renima->dis_lugar_tf_otro }}">
                     </div>
-                    <div class="col-md-6 mb-2 d-none" id="dv_dis_fecha_fibrinolisis">
+                    <div class="col-md-6 mb-2 {{ $iamces_lisisicp }}" id="dv_dis_fecha_fibrinolisis">
                         <label for="dis_fecha_fibrinolisis" class="form-label mb-0">Fecha y hora de fibrinólisis</label>
                         <div class="row">
                             <div class="col-8 col-md-8 pr-0">
-                                <input type="date" name="dis_fecha_fibrinolisis" class="form-control rounded-left" id="dis_fecha_fibrinolisis" style="border-radius: 0px;">
+                                <input type="date" name="dis_fecha_fibrinolisis" class="form-control rounded-left" id="dis_fecha_fibrinolisis" style="border-radius: 0px;" value="{{ $renima->dis_fecha_fibrinolisis }}">
                             </div>
                             <div class="col-4 col-md-4 pl-0">
-                                <input type="time" name="dis_hora_fibrinolisis" class="form-control rounded-right" id="dis_hora_fibrinolisis" style="border-radius: 0px;">
+                                <input type="time" name="dis_hora_fibrinolisis" class="form-control rounded-right" id="dis_hora_fibrinolisis" style="border-radius: 0px;" value="{{ $renima->dis_hora_fibrinolisis }}">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-2 d-none" id="dv_dis_tiempo_ecg_fibrinolisis">
+                    <div class="col-md-6 mb-2 {{ $iamces_lisisicp }}" id="dv_dis_tiempo_ecg_fibrinolisis">
                         <label for="dis_tiempo_ecg_fibrinolisis" class="form-label mb-0">Tiempo desde el ECG hasta fibrinólisis <small class="text-danger">(minutos)</small></label>
-                        <input type="number" name="dis_tiempo_ecg_fibrinolisis" class="form-control" id="dis_tiempo_ecg_fibrinolisis" placeholder="" readonly>
+                        <input type="number" name="dis_tiempo_ecg_fibrinolisis" class="form-control" id="dis_tiempo_ecg_fibrinolisis" placeholder="" readonly value="{{ $renima->dis_tiempo_ecg_fibrinolisis }}">
                         <small class="infotext">Fecha y hora de fibrinolisis - Fecha y hora de ECG</small>
                     </div>
 
-                    <div class="col-md-12 mb-2 d-none" id="dv_dis_tipofibrinolisis">
+                    <div class="col-md-12 mb-2 {{ $iamces_lisisicp }}" id="dv_dis_tipofibrinolisis">
                         <label for="dis_tipofibrinolisis1" class="form-label mb-0 d-block">Tipo de fibrinólisis </label>
                         <div class="form-control radioptions">
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_tipofibrinolisis[]" id="dis_tipofibrinolisis1" value="Alteplasa">
-                                <label class="form-check-label" for="dis_tipofibrinolisis1">Alteplasa</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_tipofibrinolisis[]" id="dis_tipofibrinolisis2" value="Estreptoquinasa">
-                                <label class="form-check-label" for="dis_tipofibrinolisis2">Estreptoquinasa</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_tipofibrinolisis[]" id="dis_tipofibrinolisis3" value="Tenecteplasa">
-                                <label class="form-check-label" for="dis_tipofibrinolisis3">Tenecteplasa</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_tipofibrinolisis[]" id="dis_tipofibrinolisis4" value="Reteplasa">
-                                <label class="form-check-label" for="dis_tipofibrinolisis4">Reteplasa</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_tipofibrinolisis[]" id="dis_tipofibrinolisis5" value="Otro">
-                                <label class="form-check-label" for="dis_tipofibrinolisis5">Otro</label>
-                                <input type="text" name="dis_tipofibrinolisis_otro" class="form-control mb-1 d-none" id="dis_tipofibrinolisis_otro" placeholder="Especificar">
-                            </div>
+
+                            @php 
+                                // Convertir la cadena de la base de datos en un array
+                                $tipofibrinolisisSeleccionados = explode(',', $renima->dis_tipofibrinolisis);
+                            @endphp
+
+                            @foreach([
+                                "Alteplasa",
+                                "Estreptoquinasa",
+                                "Tenecteplasa",
+                                "Reteplasa",
+                                "Otro"
+                            ] as $index => $tipofibrinolisis)
+                                <div class="form-check form-check-inline d-block">
+                                    <input class="form-check-input" type="checkbox" name="dis_tipofibrinolisis[]" id="dis_tipofibrinolisis{{$index+1}}" value="{{$tipofibrinolisis}}" {{ in_array($tipofibrinolisis, $tipofibrinolisisSeleccionados) ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="dis_tipofibrinolisis{{$index+1}}">{{$tipofibrinolisis}}</label>
+                                </div>
+                            @endforeach
+
+                            <input type="text" name="dis_tipofibrinolisis_otro" class="form-control mb-1 {{ in_array('Otro', $tipofibrinolisisSeleccionados) ? '' : 'd-none' }}" id="dis_tipofibrinolisis_otro" placeholder="Especificar" value="{{ $renima->dis_tipofibrinolisis_otro }}">
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2 d-none" id="dv_dis_fibrinolisis_exitosa">
+                    <div class="col-md-6 mb-2 {{ $iamces_lisisicp }}" id="dv_dis_fibrinolisis_exitosa">
                         <label for="dis_fibrinolisis_exitosa1" class="form-label mb-0">Fibrinólisis exitosa <small class="text-danger">(Caida del ST más del 50%)</small></label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_fibrinolisis_exitosa" id="dis_fibrinolisis_exitosa1" value="Sí" >
+                                <input class="form-check-input" type="radio" name="dis_fibrinolisis_exitosa" id="dis_fibrinolisis_exitosa1" value="Sí" @if($renima->dis_fibrinolisis_exitosa == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dis_fibrinolisis_exitosa1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_fibrinolisis_exitosa" id="dis_fibrinolisis_exitosa2" value="No" >
+                                <input class="form-check-input" type="radio" name="dis_fibrinolisis_exitosa" id="dis_fibrinolisis_exitosa2" value="No" @if($renima->dis_fibrinolisis_exitosa == 'No') checked @endif>
                                 <label class="form-check-label" for="dis_fibrinolisis_exitosa2">No</label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2 d-none" id="dv_dis_angioplastia_rescate">
+                    <div class="col-md-6 mb-2 {{ $iamces_lisisicp }}" id="dv_dis_angioplastia_rescate">
                         <label for="dis_angioplastia_rescate1" class="form-label mb-0">Angioplastía de rescate</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_angioplastia_rescate" id="dis_angioplastia_rescate1" value="Sí" >
+                                <input class="form-check-input" type="radio" name="dis_angioplastia_rescate" id="dis_angioplastia_rescate1" value="Sí" @if($renima->dis_angioplastia_rescate == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dis_angioplastia_rescate1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_angioplastia_rescate" id="dis_angioplastia_rescate2" value="No" >
+                                <input class="form-check-input" type="radio" name="dis_angioplastia_rescate" id="dis_angioplastia_rescate2" value="No" @if($renima->dis_angioplastia_rescate == 'No') checked @endif>
                                 <label class="form-check-label" for="dis_angioplastia_rescate2">No</label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2 d-none" id="dv_dis_fibrinolisis_suspendida">
+                    <div class="col-md-6 mb-2 {{ $iamces_lisisicp }}" id="dv_dis_fibrinolisis_suspendida">
                         <label for="dis_fibrinolisis_suspendida1" class="form-label mb-0">Fibrinólisis suspendida</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_fibrinolisis_suspendida" id="dis_fibrinolisis_suspendida1" value="Sí" >
+                                <input class="form-check-input" type="radio" name="dis_fibrinolisis_suspendida" id="dis_fibrinolisis_suspendida1" value="Sí" @if($renima->dis_fibrinolisis_suspendida == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dis_fibrinolisis_suspendida1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_fibrinolisis_suspendida" id="dis_fibrinolisis_suspendida2" value="No" >
+                                <input class="form-check-input" type="radio" name="dis_fibrinolisis_suspendida" id="dis_fibrinolisis_suspendida2" value="No" @if($renima->dis_fibrinolisis_suspendida == 'No') checked @endif>
                                 <label class="form-check-label" for="dis_fibrinolisis_suspendida2">No</label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2 d-none" id="dv_dis_causa_suspension">
+                    <div class="col-md-6 mb-2 {{ $iamces_lisisicp }}" id="dv_dis_causa_suspension">
                         <label for="dis_causa_suspension" class="form-label mb-0">Causa de suspensión</label>
-                        <input type="text" name="dis_causa_suspension" class="form-control" id="dis_causa_suspension">
+                        <input type="text" name="dis_causa_suspension" class="form-control" id="dis_causa_suspension" value="{{ $renima->dis_causa_suspension }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_fuetransferido_icp1" class="form-label mb-0">¿Fue transferido para ICP? </label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_fuetransferido_icp" id="dis_fuetransferido_icp1" value="Sí" >
+                                <input class="form-check-input" type="radio" name="dis_fuetransferido_icp" id="dis_fuetransferido_icp1" value="Sí" @if($renima->dis_fuetransferido_icp == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dis_fuetransferido_icp1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_fuetransferido_icp" id="dis_fuetransferido_icp2" value="No" >
+                                <input class="form-check-input" type="radio" name="dis_fuetransferido_icp" id="dis_fuetransferido_icp2" value="No" @if($renima->dis_fuetransferido_icp == 'No') checked @endif>
                                 <label class="form-check-label" for="dis_fuetransferido_icp2">No</label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2" id="div_dis_lugar_transferencia_icp">
+                    @php 
+                        if($renima->dis_fuetransferido_icp == 'Sí'){
+                            $transferido_icp = '';
+                        }else{
+                            $transferido_icp = 'd-none';
+                        }
+                    @endphp
+
+                    <div class="col-md-6 mb-2 {{$transferido_icp}}" id="div_dis_lugar_transferencia_icp">
                         <label for="dis_lugar_transferencia_icp" class="form-label mb-0">Lugar de transferencia para ICP</label>
                         <select name="dis_lugar_transferencia_icp" class="form-control" id="dis_lugar_transferencia_icp">
-                            <option value="">Seleccionar...</option>
-                            <option value="INCOR - LIMA">INCOR - LIMA</option>
-                            <option value="H. ALMENARA - LIMA">H. ALMENARA - LIMA</option>
-                            <option value="H. REBAGLIATI - LIMA">H. REBAGLIATI - LIMA</option>
-                            <option value="H. ALMANZOR - CHICLAYO">H. ALMANZOR - CHICLAYO</option>
-                            <option value="H. SEGUIN – AREQUIPA">H. SEGUIN – AREQUIPA</option>
-                            <option value="H. VIRGEN DE LA PUERTA - TRUJILLO">H. VIRGEN DE LA PUERTA - TRUJILLO</option>
-                            <option value="H. HIPOLITO UNANUE">H. HIPOLITO UNANUE</option>
-                            <option value="H. DOS DE MAYO">H. DOS DE MAYO</option>
-                            <option value="H. LOAYZA">H. LOAYZA</option>
-                            <option value="H. MARIA AUXILIADORA">H. MARIA AUXILIADORA</option>
-                            <option value="H. CAYETANO HEREDIA">H. CAYETANO HEREDIA</option>
-                            <option value="Otro">Otro</option>
+                            <option value="" @if($renima->dis_lugar_transferencia_icp == '') selected @endif>Seleccionar...</option>
+                            <option value="INCOR - LIMA" @if($renima->dis_lugar_transferencia_icp == 'INCOR - LIMA') selected @endif>INCOR - LIMA</option>
+                            <option value="H. ALMENARA - LIMA" @if($renima->dis_lugar_transferencia_icp == 'H. ALMENARA - LIMA') selected @endif>H. ALMENARA - LIMA</option>
+                            <option value="H. REBAGLIATI - LIMA" @if($renima->dis_lugar_transferencia_icp == 'H. REBAGLIATI - LIMA') selected @endif>H. REBAGLIATI - LIMA</option>
+                            <option value="H. ALMANZOR - CHICLAYO" @if($renima->dis_lugar_transferencia_icp == 'H. ALMANZOR - CHICLAYO') selected @endif>H. ALMANZOR - CHICLAYO</option>
+                            <option value="H. SEGUIN – AREQUIPA" @if($renima->dis_lugar_transferencia_icp == 'H. SEGUIN – AREQUIPA') selected @endif>H. SEGUIN – AREQUIPA</option>
+                            <option value="H. VIRGEN DE LA PUERTA - TRUJILLO" @if($renima->dis_lugar_transferencia_icp == 'H. VIRGEN DE LA PUERTA - TRUJILLO') selected @endif>H. VIRGEN DE LA PUERTA - TRUJILLO</option>
+                            <option value="H. HIPOLITO UNANUE" @if($renima->dis_lugar_transferencia_icp == 'H. HIPOLITO UNANUE') selected @endif>H. HIPOLITO UNANUE</option>
+                            <option value="H. DOS DE MAYO" @if($renima->dis_lugar_transferencia_icp == 'H. DOS DE MAYO') selected @endif>H. DOS DE MAYO</option>
+                            <option value="H. LOAYZA" @if($renima->dis_lugar_transferencia_icp == 'H. LOAYZA') selected @endif>H. LOAYZA</option>
+                            <option value="H. MARIA AUXILIADORA" @if($renima->dis_lugar_transferencia_icp == 'H. MARIA AUXILIADORA') selected @endif>H. MARIA AUXILIADORA</option>
+                            <option value="H. CAYETANO HEREDIA" @if($renima->dis_lugar_transferencia_icp == 'H. CAYETANO HEREDIA') selected @endif>H. CAYETANO HEREDIA</option>
+                            <option value="Otro" @if($renima->dis_lugar_transferencia_icp == 'Otro') selected @endif>Otro</option>
                         </select>
-                        <input type="text" name="dis_lugar_transferencia_icp_otro" class="form-control mt-1 d-none" id="dis_lugar_transferencia_icp_otro" placeholder="Especificar">
+                        <input type="text" name="dis_lugar_transferencia_icp_otro" class="form-control mt-1 @if($renima->dis_lugar_transferencia_icp != 'Otro') d-none @endif" id="dis_lugar_transferencia_icp_otro" placeholder="Especificar">
                     </div>
 
-                    <div class="col-md-6 mb-2" id="div_dis_fecha_salida_antes_icp">
+                    <div class="col-md-6 mb-2 {{$transferido_icp}}" id="div_dis_fecha_salida_antes_icp">
                         <label for="dis_fecha_salida_antes_icp" class="form-label mb-0">Fecha y hora de salida antes de la ICP</label>
                         <div class="row">
                             <div class="col-8 col-md-8 pr-0">
-                                <input type="date" name="dis_fecha_salida_antes_icp" class="form-control rounded-left" id="dis_fecha_salida_antes_icp" style="border-radius: 0px;">
+                                <input type="date" name="dis_fecha_salida_antes_icp" class="form-control rounded-left" id="dis_fecha_salida_antes_icp" style="border-radius: 0px;" value="{{ $renima->dis_fecha_salida_antes_icp }}">
                             </div>
                             <div class="col-4 col-md-4 pl-0">
-                                <input type="time" name="dis_hora_salida_antes_icp" class="form-control rounded-right" id="dis_hora_salida_antes_icp" style="border-radius: 0px;">
+                                <input type="time" name="dis_hora_salida_antes_icp" class="form-control rounded-right" id="dis_hora_salida_antes_icp" style="border-radius: 0px;" value="{{ $renima->dis_hora_salida_antes_icp }}">
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2" id="div_dis_tiempo_doorin_doorout">
+                    <div class="col-md-6 mb-2 {{$transferido_icp}}" id="div_dis_tiempo_doorin_doorout">
                         <label for="dis_tiempo_doorin_doorout" class="form-label mb-0">Tiempo del door-in al door-out <small class="text-danger">(minutos)</small></label>
-                        <input type="number" name="dis_tiempo_doorin_doorout" class="form-control" id="dis_tiempo_doorin_doorout" placeholder="" readonly>
+                        <input type="number" name="dis_tiempo_doorin_doorout" class="form-control" id="dis_tiempo_doorin_doorout" placeholder="" readonly value="{{ $renima->dis_tiempo_doorin_doorout }}">
                         <small class="infotext">Fecha y hora de salida antes de la ICP - Fecha y hora de llegada al centro del primer contacto médico</small>
                     </div>
 
-                    <div class="col-md-6 mb-2" id="div_dis_fecha_llegada_centro_icp">
+                    <div class="col-md-6 mb-2 {{$transferido_icp}}" id="div_dis_fecha_llegada_centro_icp">
                         <label for="dis_fecha_llegada_centro_icp" class="form-label mb-0">Fecha y hora de llegada al centro para ICP</label>
                         <div class="row">
                             <div class="col-8 col-md-8 pr-0">
-                                <input type="date" name="dis_fecha_llegada_centro_icp" class="form-control rounded-left" id="dis_fecha_llegada_centro_icp" style="border-radius: 0px;">
+                                <input type="date" name="dis_fecha_llegada_centro_icp" class="form-control rounded-left" id="dis_fecha_llegada_centro_icp" style="border-radius: 0px;" value="{{ $renima->dis_fecha_llegada_centro_icp }}">
                             </div>
                             <div class="col-4 col-md-4 pl-0">
-                                <input type="time" name="dis_hora_llegada_centro_icp" class="form-control rounded-right" id="dis_hora_llegada_centro_icp" style="border-radius: 0px;">
+                                <input type="time" name="dis_hora_llegada_centro_icp" class="form-control rounded-right" id="dis_hora_llegada_centro_icp" style="border-radius: 0px;" value="{{ $renima->dis_hora_llegada_centro_icp }}">
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2" id="div_dis_tiepo_transporte_icp">
+                    <div class="col-md-6 mb-2 {{$transferido_icp}}" id="div_dis_tiepo_transporte_icp">
                         <label for="dis_tiepo_transporte_icp" class="form-label mb-0">Tiempo promedio de transporte al lugar de la ICP <small class="text-danger">(minutos)</small></label>
-                        <input type="number" name="dis_tiepo_transporte_icp" class="form-control" id="dis_tiepo_transporte_icp" placeholder="" readonly>
+                        <input type="number" name="dis_tiepo_transporte_icp" class="form-control" id="dis_tiepo_transporte_icp" placeholder="" readonly value="{{ $renima->dis_tiepo_transporte_icp }}">
                         <small class="infotext">Fecha y hora de llegada al centro para ICP - Fecha y hora de salida antes de la ICP</small>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="dis_fecha_inicio_icp" class="form-label mb-0">Fecha y hora de inicio de ICP</label>
                         <div class="row">
                             <div class="col-8 col-md-8 pr-0">
-                                <input type="date" name="dis_fecha_inicio_icp" class="form-control rounded-left" id="dis_fecha_inicio_icp" style="border-radius: 0px;">
+                                <input type="date" name="dis_fecha_inicio_icp" class="form-control rounded-left" id="dis_fecha_inicio_icp" style="border-radius: 0px;" value="{{ $renima->dis_fecha_inicio_icp }}">
                             </div>
                             <div class="col-4 col-md-4 pl-0">
-                                <input type="time" name="dis_hora_inicio_icp" class="form-control rounded-right" id="dis_hora_inicio_icp" style="border-radius: 0px;">
+                                <input type="time" name="dis_hora_inicio_icp" class="form-control rounded-right" id="dis_hora_inicio_icp" style="border-radius: 0px;" value="{{ $renima->dis_hora_inicio_icp }}">
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2" id="div_dis_modo_transporte_icp">
+                    <div class="col-md-6 mb-2 {{$transferido_icp}}" id="div_dis_modo_transporte_icp">
                         <label for="dis_modo_transporte_icp" class="form-label mb-0">Modo de Transporte a ICP</label>
                         <select name="dis_modo_transporte_icp" id="dis_modo_transporte_icp" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Terrestre">Terrestre</option>
-                            <option value="Aereo">Aereo</option>
-                            <option value="Fluvial">Fluvial</option>
+                            <option value="" @if($renima->dis_modo_transporte_icp == '') selected @endif>Seleccionar...</option>
+                            <option value="Terrestre" @if($renima->dis_modo_transporte_icp == 'Terrestre') selected @endif>Terrestre</option>
+                            <option value="Aereo" @if($renima->dis_modo_transporte_icp == 'Aereo') selected @endif>Aereo</option>
+                            <option value="Fluvial" @if($renima->dis_modo_transporte_icp == 'Fluvial') selected @endif>Fluvial</option>
                         </select>
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_tipo_acceso" class="form-label mb-0">Tipo de acceso</label>
                         <select name="dis_tipo_acceso" id="dis_tipo_acceso" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Radial distal">Radial distal</option>
-                            <option value="Radial convencional">Radial convencional</option>
-                            <option value="Braquial">Braquial</option>
-                            <option value="Femoral">Femoral</option>
+                            <option value="" @if($renima->dis_tipo_acceso == '') selected @endif>Seleccionar...</option>
+                            <option value="Radial distal" @if($renima->dis_tipo_acceso == 'Radial distal') selected @endif>Radial distal</option>
+                            <option value="Radial convencional" @if($renima->dis_tipo_acceso == 'Radial convencional') selected @endif>Radial convencional</option>
+                            <option value="Braquial" @if($renima->dis_tipo_acceso == 'Braquial') selected @endif>Braquial</option>
+                            <option value="Femoral" @if($renima->dis_tipo_acceso == 'Femoral') selected @endif>Femoral</option>
                         </select>
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_arteria_responsable_ima" class="form-label mb-0">Arteria responsable del IMA</label>
                         <select name="dis_arteria_responsable_ima" id="dis_arteria_responsable_ima" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Tronco coronario izquierdo">Tronco coronario izquierdo</option>
-                            <option value="Descendente anterior">Descendente anterior</option>
-                            <option value="Coronaria derecha">Coronaria derecha</option>
-                            <option value="Circunfleja">Circunfleja</option>
-                            <option value="IMA sin lesiones coronaria obstructivas">IMA sin lesiones coronaria obstructivas</option>
-                            <option value="Dos o más arterias responsables">Dos o más arterias responsables</option>
+                            <option value="" @if($renima->dis_arteria_responsable_ima == '') selected @endif>Seleccionar...</option>
+                            <option value="Tronco coronario izquierdo" @if($renima->dis_arteria_responsable_ima == 'Tronco coronario izquierdo') selected @endif>Tronco coronario izquierdo</option>
+                            <option value="Descendente anterior" @if($renima->dis_arteria_responsable_ima == 'Descendente anterior') selected @endif>Descendente anterior</option>
+                            <option value="Coronaria derecha" @if($renima->dis_arteria_responsable_ima == 'Coronaria derecha') selected @endif>Coronaria derecha</option>
+                            <option value="Circunfleja" @if($renima->dis_arteria_responsable_ima == 'Circunfleja') selected @endif>Circunfleja</option>
+                            <option value="IMA sin lesiones coronaria obstructivas" @if($renima->dis_arteria_responsable_ima == 'IMA sin lesiones coronaria obstructivas') selected @endif>IMA sin lesiones coronaria obstructivas</option>
+                            <option value="Dos o más arterias responsables" @if($renima->dis_arteria_responsable_ima == 'Dos o más arterias responsables') selected @endif>Dos o más arterias responsables</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="dis_fecha_apertura" class="form-label mb-0">Fecha y hora de apertura</label>
                         <div class="row">
                             <div class="col-8 col-md-8 pr-0">
-                                <input type="date" name="dis_fecha_apertura" class="form-control rounded-left" id="dis_fecha_apertura" style="border-radius: 0px;">
+                                <input type="date" name="dis_fecha_apertura" class="form-control rounded-left" id="dis_fecha_apertura" style="border-radius: 0px;" value="{{ $renima->dis_fecha_apertura }}">
                             </div>
                             <div class="col-4 col-md-4 pl-0">
-                                <input type="time" name="dis_hora_apertura" class="form-control rounded-right" id="dis_hora_apertura" style="border-radius: 0px;">
+                                <input type="time" name="dis_hora_apertura" class="form-control rounded-right" id="dis_hora_apertura" style="border-radius: 0px;" value="{{ $renima->dis_hora_apertura }}">
                             </div>
                         </div>
                     </div>
@@ -815,19 +832,19 @@
                         <label for="dis_flujo_inicial_timi1" class="form-label mb-0">Flujo inicial según TIMI</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_flujo_inicial_timi" id="dis_flujo_inicial_timi1" value="0" >
+                                <input class="form-check-input" type="radio" name="dis_flujo_inicial_timi" id="dis_flujo_inicial_timi1" value="0" @if($renima->dis_flujo_inicial_timi == '0') checked @endif>
                                 <label class="form-check-label" for="dis_flujo_inicial_timi1">0</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_flujo_inicial_timi" id="dis_flujo_inicial_timi2" value="1" >
+                                <input class="form-check-input" type="radio" name="dis_flujo_inicial_timi" id="dis_flujo_inicial_timi2" value="1" @if($renima->dis_flujo_inicial_timi == '1') checked @endif>
                                 <label class="form-check-label" for="dis_flujo_inicial_timi2">1</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_flujo_inicial_timi" id="dis_flujo_inicial_timi3" value="2" >
+                                <input class="form-check-input" type="radio" name="dis_flujo_inicial_timi" id="dis_flujo_inicial_timi3" value="2" @if($renima->dis_flujo_inicial_timi == '2') checked @endif>
                                 <label class="form-check-label" for="dis_flujo_inicial_timi3">2</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_flujo_inicial_timi" id="dis_flujo_inicial_timi4" value="3" >
+                                <input class="form-check-input" type="radio" name="dis_flujo_inicial_timi" id="dis_flujo_inicial_timi4" value="3" @if($renima->dis_flujo_inicial_timi == '3') checked @endif>
                                 <label class="form-check-label" for="dis_flujo_inicial_timi4">3</label>
                             </div>
                         </div>
@@ -837,19 +854,19 @@
                         <label for="dis_flujo_final_timi1" class="form-label mb-0">Flujo final según TIMI</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_flujo_final_timi" id="dis_flujo_final_timi1" value="0" >
+                                <input class="form-check-input" type="radio" name="dis_flujo_final_timi" id="dis_flujo_final_timi1" value="0" @if($renima->dis_flujo_final_timi == '0') checked @endif>
                                 <label class="form-check-label" for="dis_flujo_final_timi1">0</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_flujo_final_timi" id="dis_flujo_final_timi2" value="1" >
+                                <input class="form-check-input" type="radio" name="dis_flujo_final_timi" id="dis_flujo_final_timi2" value="1" @if($renima->dis_flujo_final_timi == '1') checked @endif>
                                 <label class="form-check-label" for="dis_flujo_final_timi2">1</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_flujo_final_timi" id="dis_flujo_final_timi3" value="2" >
+                                <input class="form-check-input" type="radio" name="dis_flujo_final_timi" id="dis_flujo_final_timi3" value="2" @if($renima->dis_flujo_final_timi == '2') checked @endif>
                                 <label class="form-check-label" for="dis_flujo_final_timi3">2</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_flujo_final_timi" id="dis_flujo_final_timi4" value="3" >
+                                <input class="form-check-input" type="radio" name="dis_flujo_final_timi" id="dis_flujo_final_timi4" value="3" @if($renima->dis_flujo_final_timi == '3') checked @endif>
                                 <label class="form-check-label" for="dis_flujo_final_timi4">3</label>
                             </div>
                         </div>
@@ -858,37 +875,37 @@
                     <div class="col-md-6 mb-2">
                         <label for="dis_tipo_stent" class="form-label mb-0">Tipo de stent</label>
                         <select name="dis_tipo_stent" id="dis_tipo_stent" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Solo Angioplastia con balón">Solo Angioplastia con balón</option>
-                            <option value="Stent no medicado">Stent no medicado</option>
-                            <option value="Stent medicado">Stent medicado</option>
+                            <option value="" @if($renima->dis_tipo_stent == '') selected @endif>Seleccionar...</option>
+                            <option value="Solo Angioplastia con balón" @if($renima->dis_tipo_stent == 'Solo Angioplastia con balón') selected @endif>Solo Angioplastia con balón</option>
+                            <option value="Stent no medicado" @if($renima->dis_tipo_stent == 'Stent no medicado') selected @endif>Stent no medicado</option>
+                            <option value="Stent medicado" @if($renima->dis_tipo_stent == 'Stent medicado') selected @endif>Stent medicado</option>
                         </select>
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_numero_stent" class="form-label mb-0">Numero de stents</label>
-                        <input type="text" name="dis_numero_stent" class="form-control solo-numpunt" id="dis_numero_stent" maxlength="6">
+                        <input type="text" name="dis_numero_stent" class="form-control solo-numpunt" id="dis_numero_stent" maxlength="6" value="{{ $renima->dis_numero_stent }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_diametro_stent" class="form-label mb-0">Diámetro máximo del stent <small class="text-danger">(mm)</small></label>
-                        <input type="text" name="dis_diametro_stent" class="form-control solo-numpunt" id="dis_diametro_stent" maxlength="6">
+                        <input type="text" name="dis_diametro_stent" class="form-control solo-numpunt" id="dis_diametro_stent" maxlength="6" value="{{ $renima->dis_diametro_stent }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_longitud_stent" class="form-label mb-0">Longitud total del stent <small class="text-danger">(mm)</small></label>
-                        <input type="text" name="dis_longitud_stent" class="form-control solo-numpunt" id="dis_longitud_stent" maxlength="6">
+                        <input type="text" name="dis_longitud_stent" class="form-control solo-numpunt" id="dis_longitud_stent" maxlength="6" value="{{ $renima->dis_longitud_stent }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_predilatacion1" class="form-label mb-0">Predilatación</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_predilatacion" id="dis_predilatacion1" value="Sí" >
+                                <input class="form-check-input" type="radio" name="dis_predilatacion" id="dis_predilatacion1" value="Sí" @if($renima->dis_predilatacion == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dis_predilatacion1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_predilatacion" id="dis_predilatacion2" value="No" >
+                                <input class="form-check-input" type="radio" name="dis_predilatacion" id="dis_predilatacion2" value="No" @if($renima->dis_predilatacion == 'No') checked @endif>
                                 <label class="form-check-label" for="dis_predilatacion2">No</label>
                             </div>
                         </div>
@@ -898,11 +915,11 @@
                         <label for="dis_postdilatacion1" class="form-label mb-0">Postdilatación</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_postdilatacion" id="dis_postdilatacion1" value="Sí" >
+                                <input class="form-check-input" type="radio" name="dis_postdilatacion" id="dis_postdilatacion1" value="Sí" @if($renima->dis_postdilatacion == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dis_postdilatacion1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_postdilatacion" id="dis_postdilatacion2" value="No" >
+                                <input class="form-check-input" type="radio" name="dis_postdilatacion" id="dis_postdilatacion2" value="No" @if($renima->dis_postdilatacion == 'No') checked @endif>
                                 <label class="form-check-label" for="dis_postdilatacion2">No</label>
                             </div>
                         </div>
@@ -911,12 +928,12 @@
                     <div class="col-md-6 mb-2">
                         <label for="dis_otra_intervencion" class="form-label mb-0">Otra intervención</label>
                         <select name="dis_otra_intervencion" id="dis_otra_intervencion" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="No">No</option>
-                            <option value="Aspirador de trombo">Aspirador de trombo</option>
-                            <option value="Microcatéter">Microcatéter</option>
-                            <option value="Lisis intracoronaria">Lisis intracoronaria</option>
-                            <option value="Guideliner">Guideliner</option>
+                            <option value="" @if($renima->dis_otra_intervencion == '') selected @endif>Seleccionar...</option>
+                            <option value="No" @if($renima->dis_otra_intervencion == 'No') selected @endif>No</option>
+                            <option value="Aspirador de trombo" @if($renima->dis_otra_intervencion == 'Aspirador de trombo"') selected @endif>Aspirador de trombo</option>
+                            <option value="Microcatéter" @if($renima->dis_otra_intervencion == 'Microcatéter') selected @endif>Microcatéter</option>
+                            <option value="Lisis intracoronaria" @if($renima->dis_otra_intervencion == 'Lisis intracoronaria') selected @endif>Lisis intracoronaria</option>
+                            <option value="Guideliner" @if($renima->dis_otra_intervencion == 'Guideliner') selected @endif>Guideliner</option>
                         </select>
                     </div>
 
@@ -924,11 +941,11 @@
                         <label for="dis_exito_icp1" class="form-label mb-0">Éxito de ICP</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_exito_icp" id="dis_exito_icp1" value="Sí" >
+                                <input class="form-check-input" type="radio" name="dis_exito_icp" id="dis_exito_icp1" value="Sí" @if($renima->dis_exito_icp == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dis_exito_icp1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_exito_icp" id="dis_exito_icp2" value="No" >
+                                <input class="form-check-input" type="radio" name="dis_exito_icp" id="dis_exito_icp2" value="No" @if($renima->dis_exito_icp == 'No') checked @endif>
                                 <label class="form-check-label" for="dis_exito_icp2">No</label>
                             </div>
                         </div>
@@ -937,82 +954,57 @@
                         <label for="dis_fecha_fin_icp" class="form-label mb-0">Fecha y hora del fin de la ICP</label>
                         <div class="row">
                             <div class="col-8 col-md-8 pr-0">
-                                <input type="date" name="dis_fecha_fin_icp" class="form-control rounded-left" id="dis_fecha_fin_icp" style="border-radius: 0px;">
+                                <input type="date" name="dis_fecha_fin_icp" class="form-control rounded-left" id="dis_fecha_fin_icp" style="border-radius: 0px;" value="{{ $renima->dis_fecha_fin_icp }}">
                             </div>
                             <div class="col-4 col-md-4 pl-0">
-                                <input type="time" name="dis_hora_fin_icp" class="form-control rounded-right" id="dis_hora_fin_icp" style="border-radius: 0px;">
+                                <input type="time" name="dis_hora_fin_icp" class="form-control rounded-right" id="dis_hora_fin_icp" style="border-radius: 0px;" value="{{ $renima->dis_hora_fin_icp }}">
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-6">
                         <label for="dis_duracion_icp" class="form-label mb-0">Duración de la ICP <small class="text-danger">(minutos)</small></label>
-                        <input type="number" name="dis_duracion_icp" class="form-control" id="dis_duracion_icp" readonly>
+                        <input type="number" name="dis_duracion_icp" class="form-control" id="dis_duracion_icp" readonly value="{{ $renima->dis_duracion_icp }}">
                         <small class="infotext">Fecha y hora del fin de la ICP - Fecha y hora de inicio de ICP</small>
                     </div>
 
                     <div class="col-md-12 mb-2">
                         <label for="dis_complicaciones_dela_icp1" class="form-label mb-0 d-block">Complicaciones de la ICP </label>
                         <div class="form-control radioptions">
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_complicaciones_dela_icp[]" id="dis_complicaciones_dela_icp1" value="No">
-                                <label class="form-check-label" for="dis_complicaciones_dela_icp1">No</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_complicaciones_dela_icp[]" id="dis_complicaciones_dela_icp2" value="No reflow">
-                                <label class="form-check-label" for="dis_complicaciones_dela_icp2">No reflow</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_complicaciones_dela_icp[]" id="dis_complicaciones_dela_icp3" value="Disección coronaria">
-                                <label class="form-check-label" for="dis_complicaciones_dela_icp3">Disección coronaria</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_complicaciones_dela_icp[]" id="dis_complicaciones_dela_icp4" value="Trombosis">
-                                <label class="form-check-label" for="dis_complicaciones_dela_icp4">Trombosis</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_complicaciones_dela_icp[]" id="dis_complicaciones_dela_icp5" value="Cierre de otra arteria">
-                                <label class="form-check-label" for="dis_complicaciones_dela_icp5">Cierre de otra arteria</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_complicaciones_dela_icp[]" id="dis_complicaciones_dela_icp6" value="Infarto miocárdico peri-intervención coronaria percutánea">
-                                <label class="form-check-label" for="dis_complicaciones_dela_icp6">Infarto miocárdico peri-intervención coronaria percutánea</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_complicaciones_dela_icp[]" id="dis_complicaciones_dela_icp7" value="PCR">
-                                <label class="form-check-label" for="dis_complicaciones_dela_icp7">PCR</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_complicaciones_dela_icp[]" id="dis_complicaciones_dela_icp8" value="Bradicardia con colocación de marcapasos">
-                                <label class="form-check-label" for="dis_complicaciones_dela_icp8">Bradicardia con colocación de marcapasos</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_complicaciones_dela_icp[]" id="dis_complicaciones_dela_icp9" value="Muerte">
-                                <label class="form-check-label" for="dis_complicaciones_dela_icp9">Muerte</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_complicaciones_dela_icp[]" id="dis_complicaciones_dela_icp10" value="Infraexpansión">
-                                <label class="form-check-label" for="dis_complicaciones_dela_icp10">Infraexpansión</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_complicaciones_dela_icp[]" id="dis_complicaciones_dela_icp11" value="Sobrexpansión">
-                                <label class="form-check-label" for="dis_complicaciones_dela_icp11">Sobrexpansión</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_complicaciones_dela_icp[]" id="dis_complicaciones_dela_icp12" value="ACV">
-                                <label class="form-check-label" for="dis_complicaciones_dela_icp12">ACV</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_complicaciones_dela_icp[]" id="dis_complicaciones_dela_icp13" value="Otro">
-                                <label class="form-check-label" for="dis_complicaciones_dela_icp13">Otro</label>
-                                <input type="text" name="dis_complicaciones_dela_icp_otro" class="form-control mb-1 d-none" id="dis_complicaciones_dela_icp_otro" placeholder="Especificar">
-                            </div>
+
+                            @php 
+                                $complicaciones_icpSeleccionados = explode(',', $renima->dis_complicaciones_dela_icp);
+                            @endphp
+
+                            @foreach([
+                                "No",
+                                "No reflow",
+                                "Disección coronaria",
+                                "Trombosis",
+                                "Cierre de otra arteria",
+                                "Infarto miocárdico peri-intervención coronaria percutánea",
+                                "PCR",
+                                "Bradicardia con colocación de marcapasos",
+                                "Muerte",
+                                "Infraexpansión",
+                                "Sobrexpansión",
+                                "ACV",
+                                "Otro"
+                            ] as $index => $complicaciones_icp)
+                                <div class="form-check form-check-inline d-block">
+                                    <input class="form-check-input" type="checkbox" name="dis_complicaciones_dela_icp[]" id="dis_complicaciones_dela_icp{{$index+1}}" value="{{$complicaciones_icp}}" @if(in_array($complicaciones_icp, $complicaciones_icpSeleccionados)) checked @endif>
+                                    <label class="form-check-label" for="dis_complicaciones_dela_icp{{$index+1}}">{{$complicaciones_icp}}</label>
+                                </div>
+                            @endforeach
+
+                            <input type="text" name="dis_complicaciones_dela_icp_otro" class="form-control mb-1 @if(in_array('Otro', $complicaciones_icpSeleccionados)) @else d-none @endif" id="dis_complicaciones_dela_icp_otro" placeholder="Especificar" value="{{ $renima->dis_complicaciones_dela_icp_otro }}">
+
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_tt_isquemia" class="form-label mb-0">Tiempo total de isquemia <small class="text-danger">(minutos)</small></label>
-                        <input type="number" name="dis_tt_isquemia" class="form-control" id="dis_tt_isquemia" readonly>
+                        <input type="number" name="dis_tt_isquemia" class="form-control" id="dis_tt_isquemia" readonly value="{{ $renima->dis_tt_isquemia }}">
                         <small class="infotext"><span id="txtfecha_rest_tieisquim">Fecha y hora de inicio de ICP</span> - Fecha y hora de inicio de síntomas</small>
                     </div>
 
@@ -1023,67 +1015,44 @@
                         <label for="dis_otrastenosis_coronaria1" class="form-label mb-0">Otra estenosis coronaria</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_otrastenosis_coronaria" id="dis_otrastenosis_coronaria1" value="Sí" >
+                                <input class="form-check-input" type="radio" name="dis_otrastenosis_coronaria" id="dis_otrastenosis_coronaria1" value="Sí" @if($renima->dis_otrastenosis_coronaria == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dis_otrastenosis_coronaria1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_otrastenosis_coronaria" id="dis_otrastenosis_coronaria2" value="No" >
+                                <input class="form-check-input" type="radio" name="dis_otrastenosis_coronaria" id="dis_otrastenosis_coronaria2" value="No" @if($renima->dis_otrastenosis_coronaria == 'No') checked @endif>
                                 <label class="form-check-label" for="dis_otrastenosis_coronaria2">No</label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2 d-none" id="div_dis_otrastenosis_coronaria_lesiones">
+                    <div class="col-md-6 mb-2 @if($renima->dis_otrastenosis_coronaria == 'No') d-none @endif" id="div_dis_otrastenosis_coronaria_lesiones">
                         <label for="dis_otrastenosis_coronaria_lesiones1" class="form-label mb-0">Señale que otras lesiones severas (> 70%)estan presentes</label>
                         <div class="form-control radioptions">
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones1" value="Tronco coronario izquierdo">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones1">Tronco coronario izquierdo</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones2" value="Descendente anterior">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones2">Descendente anterior</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones3" value="1 Diagonal">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones3">1 Diagonal</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones4" value="2 Diagonal">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones4">2 Diagonal</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones5" value="Circunfleja">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones5">Circunfleja</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones6" value="1 Obtusa Marginal">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones6">1 Obtusa Marginal</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones7" value="2 Obtusa Marginal">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones7">2 Obtusa Marginal</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones8" value="Coronaria Derecha">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones8">Coronaria Derecha</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones9" value="1 Aguda Marginal">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones9">1 Aguda Marginal</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones10" value="Tronco Postero Lateral">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones10">Tronco Postero Lateral</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones11" value="Descendente Posterior">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones11">Descendente Posterior</label>
-                            </div>
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones12" value="Ramo Intermedio">
-                                <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones12">Ramo Intermedio</label>
-                            </div>
+                            
+                            @php 
+                                $dis_otrastenosis_coronaria_lesionesSeleccionados = explode(',', $renima->dis_otrastenosis_coronaria_lesiones);
+                            @endphp
+
+                            @foreach([
+                                "Tronco coronario izquierdo",
+                                "Descendente anterior",
+                                "1 Diagonal",
+                                "2 Diagonal",
+                                "Circunfleja",
+                                "1 Obtusa Marginal",
+                                "2 Obtusa Marginal",
+                                "Coronaria Derecha",
+                                "1 Aguda Marginal",
+                                "Tronco Postero Lateral",
+                                "Descendente Posterior",
+                                "Ramo Intermedio", 
+                            ] as $index => $dis_otrastenosis_coronaria_lesiones)
+                                <div class="form-check-inline d-block">
+                                    <input class="form-check-input" type="checkbox" name="dis_otrastenosis_coronaria_lesiones[]" id="dis_otrastenosis_coronaria_lesiones{{$index+1}}" value="{{$dis_otrastenosis_coronaria_lesiones}}" @if(in_array($dis_otrastenosis_coronaria_lesiones, $dis_otrastenosis_coronaria_lesionesSeleccionados)) checked @endif>
+                                    <label class="form-check-label" for="dis_otrastenosis_coronaria_lesiones{{$index+1}}">{{$dis_otrastenosis_coronaria_lesiones}}</label>
+                                </div>
+                            @endforeach
+                            
                         </div>
                     </div>
 
@@ -1092,67 +1061,43 @@
                         <label for="dis_icp_otras_lesiones1" class="form-label mb-0">ICP de otras lesiones</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_icp_otras_lesiones" id="dis_icp_otras_lesiones1" value="Sí" >
+                                <input class="form-check-input" type="radio" name="dis_icp_otras_lesiones" id="dis_icp_otras_lesiones1" value="Sí" @if($renima->dis_icp_otras_lesiones == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dis_icp_otras_lesiones1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_icp_otras_lesiones" id="dis_icp_otras_lesiones2" value="No" >
+                                <input class="form-check-input" type="radio" name="dis_icp_otras_lesiones" id="dis_icp_otras_lesiones2" value="No" @if($renima->dis_icp_otras_lesiones == 'No') checked @endif>
                                 <label class="form-check-label" for="dis_icp_otras_lesiones2">No</label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2 d-none" id="div_dis_icp_otras_lesiones_lesiones">
+                    <div class="col-md-6 mb-2 @if($renima->dis_icp_otras_lesiones == 'No') d-none @endif" id="div_dis_icp_otras_lesiones_lesiones">
                         <label for="dis_icp_otras_lesiones_lesiones1" class="form-label mb-0">Señale que otras lesiones se hizo ICP</label>
                         <div class="form-control radioptions">
-                            <div class="form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones1" value="Tronco coronario izquierdo">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones1">Tronco coronario izquierdo</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones2" value="Descendente anterior">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones2">Descendente anterior</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones3" value="1 Diagonal">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones3">1 Diagonal</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones4" value="2 Diagonal">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones4">2 Diagonal</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones5" value="Circunfleja">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones5">Circunfleja</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones6" value="1 Obtusa Marginal">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones6">1 Obtusa Marginal</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones7" value="2 Obtusa Marginal">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones7">2 Obtusa Marginal</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones8" value="Coronaria Derecha">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones8">Coronaria Derecha</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones9" value="1 Aguda Marginal">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones9">1 Aguda Marginal</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones10" value="Tronco Postero Lateral">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones10">Tronco Postero Lateral</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones11" value="Descendente Posterior">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones11">Descendente Posterior</label>
-                            </div>
-                            <div class="form-check form-check-inline d-block">
-                                <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones12" value="Ramo Intermedio">
-                                <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones12">Ramo Intermedio</label>
-                            </div>
+
+                            @php 
+                                $dis_icp_otras_lesiones_lesionesSeleccionados = explode(',', $renima->dis_icp_otras_lesiones_lesiones);
+                            @endphp
+
+                            @foreach ([
+                                "Tronco coronario izquierdo",
+                                "Descendente anterior",
+                                "1 Diagonal",
+                                "2 Diagonal",
+                                "Circunfleja",
+                                "1 Obtusa Marginal",
+                                "2 Obtusa Marginal",
+                                "Coronaria Derecha",
+                                "1 Aguda Marginal",
+                                "Tronco Postero Lateral",
+                                "Descendente Posterior",
+                                "Ramo Intermedio", 
+                            ] as $index => $dis_icp_otras_lesiones_lesiones)
+                                <div class="form-check-inline d-block">
+                                    <input class="form-check-input" type="checkbox" name="dis_icp_otras_lesiones_lesiones[]" id="dis_icp_otras_lesiones_lesiones{{$index+1}}" value="{{$dis_icp_otras_lesiones_lesiones}}" @if(in_array($dis_icp_otras_lesiones_lesiones, $dis_icp_otras_lesiones_lesionesSeleccionados)) checked @endif>
+                                    <label class="form-check-label" for="dis_icp_otras_lesiones_lesiones{{$index+1}}">{{$dis_icp_otras_lesiones_lesiones}}</label>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
 
@@ -1160,39 +1105,39 @@
                     <div class="col-md-6 mb-2">
                         <label for="dis_decisio_basada" class="form-label mb-0">Decisión basada por</label>
                         <select name="dis_decisio_basada" id="dis_decisio_basada" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Anatomia">Anatomia</option>
-                            <option value="Guía de presión">Guía de presión</option>
-                            <option value="IVUS">IVUS</option>
-                            <option value="Prueba de isquemia">Prueba de isquemia</option>
-                            <option value="PEG">PEG</option>
+                            <option value="" @if($renima->dis_decisio_basada == '') selected @endif>Seleccionar...</option>
+                            <option value="Anatomia" @if($renima->dis_decisio_basada == 'Anatomia') selected @endif>Anatomia</option>
+                            <option value="Guía de presión" @if($renima->dis_decisio_basada == 'Guía de presión') selected @endif>Guía de presión</option>
+                            <option value="IVUS" @if($renima->dis_decisio_basada == 'IVUS') selected @endif>IVUS</option>
+                            <option value="Prueba de isquemia" @if($renima->dis_decisio_basada == 'Prueba de isquemia') selected @endif>Prueba de isquemia</option>
+                            <option value="PEG" @if($renima->dis_decisio_basada == 'PEG') selected @endif>PEG</option>
                         </select>
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_momento_icp_otras_lesiones" class="form-label mb-0">Momento del ICP de Otras lesiones</label>
                         <select name="dis_momento_icp_otras_lesiones" id="dis_momento_icp_otras_lesiones" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Durante el procedimiento Indice">Durante el procedimiento Indice</option>
-                            <option value="Antes del Alta">Antes del Alta</option>
-                            <option value="Despues del Alta">Despues del Alta</option>
+                            <option value="" @if($renima->dis_momento_icp_otras_lesiones == '') selected @endif>Seleccionar...</option>
+                            <option value="Durante el procedimiento Indice" @if($renima->dis_momento_icp_otras_lesiones == 'Durante el procedimiento Indice') selected @endif>Durante el procedimiento Indice</option>
+                            <option value="Antes del Alta" @if($renima->dis_momento_icp_otras_lesiones == 'Antes del Alta') selected @endif>Antes del Alta</option>
+                            <option value="Despues del Alta" @if($renima->dis_momento_icp_otras_lesiones == 'Despues del Alta') selected @endif>Despues del Alta</option>
                         </select>
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_cuan_dias_antes_despues_alta_icp" class="form-label mb-0">A los Cuantos dias antes o despues del Alta se realizo la ICP de las otras arterias</label>
-                        <input type="number" name="dis_cuan_dias_antes_despues_alta_icp" class="form-control" id="dis_cuan_dias_antes_despues_alta_icp">
+                        <input type="number" name="dis_cuan_dias_antes_despues_alta_icp" class="form-control" id="dis_cuan_dias_antes_despues_alta_icp" value="{{ $renima->dis_cuan_dias_antes_despues_alta_icp }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_revascularizacion_completa1" class="form-label mb-0">Revascularización Completa</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_revascularizacion_completa" id="dis_revascularizacion_completa1" value="Sí" >
+                                <input class="form-check-input" type="radio" name="dis_revascularizacion_completa" id="dis_revascularizacion_completa1" value="Sí" @if($renima->dis_revascularizacion_completa == 'Sí') checked @endif>
                                 <label class="form-check-label" for="dis_revascularizacion_completa1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_revascularizacion_completa" id="dis_revascularizacion_completa2" value="No" >
+                                <input class="form-check-input" type="radio" name="dis_revascularizacion_completa" id="dis_revascularizacion_completa2" value="No" @if($renima->dis_revascularizacion_completa == 'No') checked @endif>
                                 <label class="form-check-label" for="dis_revascularizacion_completa2">No</label>
                             </div>
                         </div>
@@ -1202,11 +1147,11 @@
                         <label for="dis_reperfusion1" class="form-label mb-0">Reperfusion</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_reperfusion" id="dis_reperfusion1" value="Sí" >
+                                <input class="form-check-input" type="radio" name="dis_reperfusion" id="dis_reperfusion1" value="Sí" @php if($renima->dis_reperfusion == 'Sí') echo 'checked'; @endphp>
                                 <label class="form-check-label" for="dis_reperfusion1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_reperfusion" id="dis_reperfusion2" value="No" >
+                                <input class="form-check-input" type="radio" name="dis_reperfusion" id="dis_reperfusion2" value="No" @php if($renima->dis_reperfusion == 'No') echo 'checked'; @endphp>
                                 <label class="form-check-label" for="dis_reperfusion2">No</label>
                             </div>
                         </div>
@@ -1215,67 +1160,67 @@
                     <div class="col-md-6 mb-2">
                         <label for="dis_motivo_deno_reperfusion" class="form-label mb-0">Motivo de no reperfusión</label>
                         <select name="dis_motivo_deno_reperfusion" id="dis_motivo_deno_reperfusion" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Contraindicacion para Lisis">Contraindicacion para Lisis</option>
-                            <option value="Falta de fibrinolitico">Falta de fibrinolitico</option>
-                            <option value="Rechazo del paciente">Rechazo del paciente</option>
-                            <option value="No tiene Electrocardiograma">No tiene Electrocardiograma</option>
-                            <option value="Problemas de ambulancia y/o transporte">Problemas de ambulancia y/o transporte</option>
-                            <option value="Problemas de retraso en el Diagnostico">Problemas de retraso en el Diagnostico</option>
-                            <option value="Presentacion Tardia 12 – 24 horas">Presentacion Tardia 12 – 24 horas</option>
-                            <option value="Presentacion Tardia 24– 72 horas">Presentacion Tardia 24– 72 horas</option>
-                            <option value="Presentacion Tardia > 72 horas">Presentacion Tardia > 72 horas</option>
-                            <option value="Otro">Otro</option>
+                            <option value="" @if($renima->dis_motivo_deno_reperfusion == '') selected @endif>Seleccionar...</option>
+                            <option value="Contraindicacion para Lisis" @if($renima->dis_motivo_deno_reperfusion == 'Contraindicacion para Lisis') selected @endif>Contraindicacion para Lisis</option>
+                            <option value="Falta de fibrinolitico" @if($renima->dis_motivo_deno_reperfusion == 'Falta de fibrinolitico') selected @endif>Falta de fibrinolitico</option>
+                            <option value="Rechazo del paciente" @if($renima->dis_motivo_deno_reperfusion == 'Rechazo del paciente') selected @endif>Rechazo del paciente</option>
+                            <option value="No tiene Electrocardiograma" @if($renima->dis_motivo_deno_reperfusion == 'No tiene Electrocardiograma') selected @endif>No tiene Electrocardiograma</option>
+                            <option value="Problemas de ambulancia y/o transporte" @if($renima->dis_motivo_deno_reperfusion == 'Problemas de ambulancia y/o transporte') selected @endif>Problemas de ambulancia y/o transporte</option>
+                            <option value="Problemas de retraso en el Diagnostico" @if($renima->dis_motivo_deno_reperfusion == 'Problemas de retraso en el Diagnostico') selected @endif>Problemas de retraso en el Diagnostico</option>
+                            <option value="Presentacion Tardia 12 – 24 horas" @if($renima->dis_motivo_deno_reperfusion == 'Presentacion Tardia 12 – 24 horas') selected @endif>Presentacion Tardia 12 – 24 horas</option>
+                            <option value="Presentacion Tardia 24– 72 horas" @if($renima->dis_motivo_deno_reperfusion == 'Presentacion Tardia 24– 72 horas') selected @endif>Presentacion Tardia 24– 72 horas</option>
+                            <option value="Presentacion Tardia > 72 horas" @if($renima->dis_motivo_deno_reperfusion == 'Presentacion Tardia > 72 horas') selected @endif>Presentacion Tardia > 72 horas</option>
+                            <option value="Otro" @if($renima->dis_motivo_deno_reperfusion == 'Otro') selected @endif>Otro</option>
                         </select>
-                        <input type="text" name="dis_motivo_deno_reperfusion_otro" class="form-control mt-1 d-none" id="dis_motivo_deno_reperfusion_otro" placeholder="Especificar">
+                        <input type="text" name="dis_motivo_deno_reperfusion_otro" class="form-control mt-1 @if($renima->dis_motivo_deno_reperfusion != 'Otro') d-none @endif" id="dis_motivo_deno_reperfusion_otro" placeholder="Especificar" value="{{ $renima->dis_motivo_deno_reperfusion_otro }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_cabg1" class="form-label mb-0">CABG</label>
                         <div class="form-control radioptions">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_cabg" id="dis_cabg1" value="Sí" >
+                                <input class="form-check-input" type="radio" name="dis_cabg" id="dis_cabg1" value="Sí" @if($renima->dis_cabg == 'Sí') checked @endif>   
                                 <label class="form-check-label" for="dis_cabg1">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dis_cabg" id="dis_cabg2" value="No" >
+                                <input class="form-check-input" type="radio" name="dis_cabg" id="dis_cabg2" value="No" @if($renima->dis_cabg == 'No') checked @endif>
                                 <label class="form-check-label" for="dis_cabg2">No</label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2 d-none" id="div_dis_motivo_cabg">
+                    <div class="col-md-6 mb-2 @if($renima->dis_cabg != 'Sí') d-none @endif" id="div_dis_motivo_cabg">
                         <label for="dis_motivo_cabg" class="form-label mb-0">Motivo de CABG</label>
                         <select name="dis_motivo_cabg" id="dis_motivo_cabg" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="ICP frustra">ICP frustra</option>
-                            <option value="Complicacion de una ICP">Complicacion de una ICP</option>
-                            <option value="Contraindicaciones tecnicas de una ICP por Anatomia">Contraindicaciones tecnicas de una ICP por Anatomia</option>
-                            <option value="Complicacion Mecanica asociada">Complicacion Mecanica asociada</option>
-                            <option value="Shock Cardiogenico refractario">Shock Cardiogenico refractario</option>
-                            <option value="Otras">Otras</option>
+                            <option value="" @if($renima->dis_motivo_cabg == '') selected @endif>Seleccionar...</option>
+                            <option value="ICP frustra" @if($renima->dis_motivo_cabg == 'ICP frustra') selected @endif>ICP frustra</option>
+                            <option value="Complicacion de una ICP" @if($renima->dis_motivo_cabg == 'Complicacion de una ICP') selected @endif>Complicacion de una ICP</option>
+                            <option value="Contraindicaciones tecnicas de una ICP por Anatomia" @if($renima->dis_motivo_cabg == 'Contraindicaciones tecnicas de una ICP por Anatomia') selected @endif>Contraindicaciones tecnicas de una ICP por Anatomia</option>
+                            <option value="Complicacion Mecanica asociada" @if($renima->dis_motivo_cabg == 'Complicacion Mecanica asociada') selected @endif>Complicacion Mecanica asociada</option>
+                            <option value="Shock Cardiogenico refractario" @if($renima->dis_motivo_cabg == 'Shock Cardiogenico refractario') selected @endif>Shock Cardiogenico refractario</option>
+                            <option value="Otras" @if($renima->dis_motivo_cabg == 'Otras') selected @endif>Otras</option>
                         </select>
-                        <input type="text" name="dis_motivo_cabg_otro" class="form-control mt-1 d-none" id="dis_motivo_cabg_otro" placeholder="Especificar">
+                        <input type="text" name="dis_motivo_cabg_otro" class="form-control mt-1 @if($renima->dis_motivo_cabg != 'Otras') d-none @endif" id="dis_motivo_cabg_otro" placeholder="Especificar" value="{{ $renima->dis_motivo_cabg_otro }}">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="dis_puntaje_grace" class="form-label mb-0">Puntaje GRACE</label>
                         <select name="dis_puntaje_grace" id="dis_puntaje_grace" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Bajo">Bajo</option>
-                            <option value="Intermedio">Intermedio</option>
-                            <option value="Alto">Alto</option>
+                            <option value="" @if($renima->dis_puntaje_grace == '') selected @endif>Seleccionar...</option>
+                            <option value="Bajo" @if($renima->dis_puntaje_grace == 'Bajo') selected @endif>Bajo</option>
+                            <option value="Intermedio" @if($renima->dis_puntaje_grace == 'Intermedio') selected @endif>Intermedio</option>
+                            <option value="Alto" @if($renima->dis_puntaje_grace == 'Alto') selected @endif>Alto</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="dis_puntaje_crussade" class="form-label mb-0">Puntaje Crussade</label>
                         <select name="dis_puntaje_crussade" id="dis_puntaje_crussade" class="form-control" >
-                            <option value="">Seleccionar...</option>
-                            <option value="Muy Bajo">Muy Bajo</option>
-                            <option value="Bajo">Bajo</option>
-                            <option value="Moderado">Moderado</option>
-                            <option value="Alto">Alto</option>
-                            <option value="Muy Alto">Muy Alto</option>
+                            <option value="" @if($renima->dis_puntaje_crussade == '') selected @endif>Seleccionar...</option>
+                            <option value="Muy Bajo" @if($renima->dis_puntaje_crussade == 'Muy Bajo') selected @endif>Muy Bajo</option>
+                            <option value="Bajo" @if($renima->dis_puntaje_crussade == 'Bajo') selected @endif>Bajo</option>
+                            <option value="Moderado" @if($renima->dis_puntaje_crussade == 'Moderado') selected @endif>Moderado</option>
+                            <option value="Alto" @if($renima->dis_puntaje_crussade == 'Alto') selected @endif>Alto</option>
+                            <option value="Muy Alto" @if($renima->dis_puntaje_crussade == 'Muy Alto') selected @endif>Muy Alto</option>
                         </select>
                     </div>
 
