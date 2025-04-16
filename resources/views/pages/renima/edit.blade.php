@@ -1224,6 +1224,11 @@
                         </select>
                     </div>
 
+                    <div class="col-md-12 mb-2">
+                        <label for="dis_detalle" class="form-label mb-0">Detalles/Nota</label>
+                        <input type="text" name="dis_detalle" class="form-control" id="dis_detalle" value="{{ $renima->dis_detalle }}">
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -2043,6 +2048,11 @@
                         <label for="dci_dias_hospitalizacion" class="form-label mb-0">Dias de Hospitalización </label>
                         <input type="number" name="dci_dias_hospitalizacion" class="form-control" id="dci_dias_hospitalizacion" readonly value="{{ $renima->dci_dias_hospitalizacion }}">
                         <small class="infotext">Fecha de Alta - Fecha y hora de llegada al centro del primer contacto médico</small>
+                    </div>
+
+                    <div class="col-md-12 mb-2">
+                        <label for="dci_detalle" class="form-label mb-0">Detalle/Nota</label>
+                        <input type="text" name="dci_detalle" class="form-control" id="dci_detalle" maxlength="200" value="{{ $renima->dci_detalle }}">
                     </div>
 
                 </div>

@@ -275,6 +275,7 @@ class RenimaController extends Controller
             $renima->dis_motivo_cabg_otro = $request->dis_motivo_cabg_otro;
             $renima->dis_puntaje_grace = $request->dis_puntaje_grace;
             $renima->dis_puntaje_crussade = $request->dis_puntaje_crussade;
+            $renima->dis_detalle = $request->dis_detalle;
 
         //Terapia Intrahospitalaria (ti_)
             $renima->ti_aspirina = $request->ti_aspirina;
@@ -355,6 +356,7 @@ class RenimaController extends Controller
             $renima->dci_fecha_trombosis_stent = $request->dci_fecha_trombosis_stent;
             $renima->dci_fecha_de_alta = $request->dci_fecha_de_alta;
             $renima->dci_dias_hospitalizacion = $request->dci_dias_hospitalizacion;
+            $renima->dci_detalle = $request->dci_detalle;
 
         //Medicación al Alta (ma_)
             $renima->ma_aspirina = $request->ma_aspirina;
@@ -423,7 +425,30 @@ class RenimaController extends Controller
      */
     public function show($id)
     {
-        //
+        //Solo puede ingresar los que estan asociados al registro
+        if (!RenimaUser::where('renima_id', $id)->where('user_id', auth()->user()->id)->exists()) {
+            return redirect()->route('renima.index')->with('error', 'No tienes permiso para ver este registro');
+        }
+
+        $data = [
+            'category_name' => 'renima',
+            'page_name' => 'renima_show',
+        ];
+
+        //Obterner usuario que estan asociados al renima
+        $user_asociados = RenimaUser::join('users', 'renima_users.user_id', '=', 'users.id')
+            ->leftJoin('sedes', 'users.sede', '=', 'sedes.id')
+            ->select('users.*', 'renima_users.is_completed', 'renima_users.completed_at', 'sedes.name as sede_name', 'sedes.address as sede_address')
+            ->where('renima_users.renima_id', $id)
+            ->get();
+
+        $renima = RenimaUser::join('renimas', 'renima_users.renima_id', '=', 'renimas.id')
+            ->select('renimas.*', 'renima_users.is_completed as ru_is_completed', 'renima_users.completed_at as ru_completed_at')
+            ->where('renima_users.renima_id', $id)
+            ->where('renima_users.user_id', auth()->user()->id)
+            ->first();
+
+        return view('pages.renima.show')->with($data)->with('renima', $renima)->with('user_asociados', $user_asociados);
     }
 
     /**
@@ -653,6 +678,7 @@ class RenimaController extends Controller
         $renima->dis_motivo_cabg_otro = $request->dis_motivo_cabg_otro;
         $renima->dis_puntaje_grace = $request->dis_puntaje_grace;
         $renima->dis_puntaje_crussade = $request->dis_puntaje_crussade;
+        $renima->dis_detalle = $request->dis_detalle;
 
     //Terapia Intrahospitalaria (ti_)
         $renima->ti_aspirina = $request->ti_aspirina;
@@ -733,6 +759,7 @@ class RenimaController extends Controller
         $renima->dci_fecha_trombosis_stent = $request->dci_fecha_trombosis_stent;
         $renima->dci_fecha_de_alta = $request->dci_fecha_de_alta;
         $renima->dci_dias_hospitalizacion = $request->dci_dias_hospitalizacion;
+        $renima->dci_detalle = $request->dci_detalle;
 
     //Medicación al Alta (ma_)
         $renima->ma_aspirina = $request->ma_aspirina;
