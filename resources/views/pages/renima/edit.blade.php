@@ -2472,10 +2472,10 @@
                         <div class="col-md-8 mb-2 mb-sm-0">
                             <div class="form-check">
                                 <input type="hidden" name="is_completed" value="0">
-                                <input class="form-check-input" type="checkbox" value="1" id="is_completed" name="is_completed" @if($renima->ru_is_completed) checked @endif>
+                                {{-- <input class="form-check-input" type="checkbox" value="1" id="is_completed" name="is_completed" @if($renima->ru_is_completed) checked @endif>
                                 <label class="form-check-label" for="is_completed" style="margin-top: 2px;">
                                     He completado los datos de mi paciente. <small class="text-danger">(Recuerde que no podrá editar el formulario) {{$renima->ru_is_completed}}</small>
-                                </label>
+                                </label> --}}
                             </div>
                         </div>
                         <div class="col-md-4 mb-2 mb-sm-0 text-right">

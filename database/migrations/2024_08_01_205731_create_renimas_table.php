@@ -132,7 +132,7 @@ class CreateRenimasTable extends Migration
                 $table->string('dis_revascularizacion_completa',5)->nullable();
                 $table->string('dis_reperfusion',5)->nullable();
                 $table->string('dis_motivo_deno_reperfusion',100)->nullable();
-                $table->integer('dis_motivo_deno_reperfusion_otro')->nullable();
+                $table->string('dis_motivo_deno_reperfusion_otro')->nullable();
                 $table->string('dis_cabg',10)->nullable();
                 $table->string('dis_motivo_cabg',100)->nullable();
                 $table->string('dis_motivo_cabg_otro',150)->nullable();
