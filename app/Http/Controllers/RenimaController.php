@@ -850,14 +850,15 @@ class RenimaController extends Controller
             ->leftJoin('users', 'renima_users.user_id', '=', 'users.id')
             ->select('renimas.*', 'users.trato as reponsable_trato' , 'users.name as reponsable_name')
             ->where('renimas.de_documento_identidad', $search)
-            ->where('renima_users.is_completed', 1)
+            // ->where('renima_users.is_completed', 1)
             ->get();
         return response()->json($renima);
     }
 
     public function assignme($id){
         //verificar si el renima esta completado
-        $is_completed = RenimaUser::where('renima_id', $id)->where('is_completed', 1)->exists();
+        //$is_completed = RenimaUser::where('renima_id', $id)->where('is_completed', 1)->exists();
+        $is_completed = RenimaUser::where('renima_id', $id)->exists();
         if ($is_completed) {
             //verificar si ya tengo el renima asignado
             $renima_user = RenimaUser::where('renima_id', $id)->where('user_id', auth()->user()->id)->first();
