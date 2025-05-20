@@ -27,36 +27,37 @@ class RenimaController extends Controller
             'page_name' => 'renima_index',
         ];
 
-        //if auth user is admin, show all renimas
-        if (\Auth::user()->hasRole('admin')) {
-            
-            $renimas = RenimaUser::join('renimas', 'renima_users.renima_id', '=', 'renimas.id')
-                ->join('users', 'renima_users.user_id', '=', 'users.id')
-                ->select(
-                    'renimas.*', 
-                    'users.trato', 
-                    'users.name', 
-                    'users.lastname', 
-                    'renima_users.user_id as renimauser_userid'
-                    )
-                ->where('renimas.status', 'Activo')
-                ->get();
+        $renimas = [];
 
+    if (auth()->user()->hasRole('admin')) {
+        // ADMIN: Ver todos los renimas activos
+        $renimas = Renima::where('status', 'Activo')->get();
+    } else {
+        // USUARIO: Ver solo renimas asignados a él
+        $renimaIds = RenimaUser::where('user_id', auth()->id())->pluck('renima_id');
+        $renimas = Renima::whereIn('id', $renimaIds)
+            ->where('status', 'Activo')
+            ->get();
+    }
 
-        } else {
-            
-            $renimas = RenimaUser::join('renimas', 'renima_users.renima_id', '=', 'renimas.id')
-                ->join('users', 'renima_users.user_id', '=', 'users.id')
-                ->select('renimas.*', 'users.trato', 'users.name', 'users.lastname', 'renima_users.user_id as renimauser_userid')
-                ->where('renima_users.user_id', auth()->user()->id)
-                ->where('renimas.status', 'Activo')
-                ->get();
+    // Enriquecer cada renima con sus responsables y user_id
+    foreach ($renimas as $renima) {
+        // Usuarios responsables
+        $renima->responsables = RenimaUser::where('renima_id', $renima->id)
+            ->join('users', 'renima_users.user_id', '=', 'users.id')
+            ->select('users.trato', 'users.name', 'users.lastname', 'users.id')
+            ->get();
 
-            
+        // Un user_id asociado (ej. el primero)
+        $renimaUser = RenimaUser::where('renima_id', $renima->id)
+            ->orderBy('created_at', 'asc')
+            ->first();
 
-        }
+        $renima->renimauser_userid = $renimaUser->user_id ?? null;
+    }
 
-        return view('pages.renima.index')->with($data)->with('renimas', $renimas);
+    // Enviar a la vista
+    return view('pages.renima.index')->with($data)->with('renimas', $renimas);
 
 
 

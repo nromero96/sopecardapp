@@ -72,35 +72,47 @@
                     <tbody>
 
                         @foreach ($renimas as $item)
-                        <tr></tr>
+                        <tr>
                             <td>{{ $item->id }}</td>
-                            <td>@if($item->trato != ''){{ $item->trato.' ' }}@endif{{ $item->name }} {{ $item->lastname }}</td>
+                            <td>
+                                @foreach ($item->responsables as $user)
+                                    ▪️{{ $user->trato }} {{ $user->name }} {{ $user->lastname }}<br>
+                                @endforeach
+                            </td>
                             <td>{{ $item->de_documento_identidad }}</td>
                             <td>{{ $item->de_sexo }}</td>
                             <td>{{ $item->de_edad }}</td>
 
                             <td>{{ $item->created_at }}</td>
+                            
                             <td>
+                                {{-- Siempre mostrar botón Ver --}}
                                 <a href="{{ route('renima.show', $item->id) }}" class="btn btn-info btn-circle btn-sm">
                                     <i class="fas fa-info-circle"></i>
                                 </a>
 
-                                @if(Auth::user()->id == $item->renimauser_userid)
+                                {{-- Mostrar Editar y Eliminar solo si no es admin y es uno de los responsables --}}
+                                @php
+                                    $esResponsable = $item->responsables->pluck('id')->contains(auth()->id());
+                                @endphp
+
+                                @if($esResponsable)
                                     <a href="{{ route('renima.edit', $item->id) }}" class="btn btn-warning btn-circle btn-sm">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                @endif
 
-                                @if(Auth::user()->id == $item->renimauser_userid)
-                                <form action="{{ route('renima.destroy', $item->id) }}" method="POST" class="d-inline delete-form">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="button" onclick="confirmDelete(this)" class="btn btn-danger btn-circle btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </form>
+                                    <form action="{{ route('renima.destroy', $item->id) }}" method="POST" class="d-inline delete-form">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button" onclick="confirmDelete(this)" class="btn btn-danger btn-circle btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
                                 @endif
                             </td>
+
+
+                        </tr>
                         @endforeach
 
                     </tbody>
