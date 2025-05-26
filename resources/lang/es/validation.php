@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 return [
+    'unique'                   => 'Ya existe un registro con ese :attribute.',
     'attributes' => [
         'address'                  => 'dirección',
         'affiliate_url'            => 'URL de afiliado',
