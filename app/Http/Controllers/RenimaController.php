@@ -425,32 +425,42 @@ class RenimaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //Solo puede ingresar los que estan asociados al registro
-        if (!RenimaUser::where('renima_id', $id)->where('user_id', auth()->user()->id)->exists()) {
-            return redirect()->route('renima.index')->with('error', 'No tienes permiso para ver este registro');
-        }
-
-        $data = [
-            'category_name' => 'renima',
-            'page_name' => 'renima_show',
-        ];
-
-        //Obterner usuario que estan asociados al renima
-        $user_asociados = RenimaUser::join('users', 'renima_users.user_id', '=', 'users.id')
-            ->leftJoin('sedes', 'users.sede', '=', 'sedes.id')
-            ->select('users.*', 'renima_users.is_completed', 'renima_users.completed_at', 'sedes.name as sede_name', 'sedes.address as sede_address')
-            ->where('renima_users.renima_id', $id)
-            ->get();
-
-        $renima = RenimaUser::join('renimas', 'renima_users.renima_id', '=', 'renimas.id')
-            ->select('renimas.*', 'renima_users.is_completed as ru_is_completed', 'renima_users.completed_at as ru_completed_at')
-            ->where('renima_users.renima_id', $id)
-            ->where('renima_users.user_id', auth()->user()->id)
-            ->first();
-
-        return view('pages.renima.show')->with($data)->with('renima', $renima)->with('user_asociados', $user_asociados);
+{
+    // Solo puede ingresar los que están asociados al registro o son administradores
+    if (!auth()->user()->hasRole('admin') &&
+        !RenimaUser::where('renima_id', $id)->where('user_id', auth()->user()->id)->exists()) {
+        return redirect()->route('renima.index')->with('error', 'No tienes permiso para ver este registro');
     }
+
+    $data = [
+        'category_name' => 'renima',
+        'page_name' => 'renima_show',
+    ];
+
+    // Obtener usuarios que están asociados al renima
+    $user_asociados = RenimaUser::join('users', 'renima_users.user_id', '=', 'users.id')
+        ->leftJoin('sedes', 'users.sede', '=', 'sedes.id')
+        ->select('users.*', 'renima_users.is_completed', 'renima_users.completed_at', 'sedes.name as sede_name', 'sedes.address as sede_address')
+        ->where('renima_users.renima_id', $id)
+        ->get();
+
+    // Obtener el renima (si es admin no se filtra por user_id)
+    $renimaQuery = RenimaUser::join('renimas', 'renima_users.renima_id', '=', 'renimas.id')
+        ->select('renimas.*', 'renima_users.is_completed as ru_is_completed', 'renima_users.completed_at as ru_completed_at')
+        ->where('renima_users.renima_id', $id);
+
+    if (!auth()->user()->hasRole('admin')) {
+        $renimaQuery->where('renima_users.user_id', auth()->user()->id);
+    }
+
+    $renima = $renimaQuery->first();
+
+    return view('pages.renima.show')
+        ->with($data)
+        ->with('renima', $renima)
+        ->with('user_asociados', $user_asociados);
+}
+
 
     /**
      * Show the form for editing the specified resource.
