@@ -78,6 +78,9 @@ Route::group(['middleware' => ['auth', 'ensureStatusActive']], function () {
 
     Route::resource('/pulmonary-hypertension', PulmonaryHypertensionController::class)->names('pulmonary-hypertension');
 
+
+    Route::get('/export-renimas', [App\Http\Controllers\ExportController::class, 'renimas']);
+
 });
 
 Auth::routes();
