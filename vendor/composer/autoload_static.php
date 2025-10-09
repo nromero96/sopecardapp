@@ -642,6 +642,7 @@ class ComposerStaticInit741521ebc94a3f2215eb1f6c0a01d93d
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Dni' => __DIR__ . '/../..' . '/app/Models/Dni.php',
         'App\\Models\\PulmonaryHypertension' => __DIR__ . '/../..' . '/app/Models/PulmonaryHypertension.php',
         'App\\Models\\Renaval' => __DIR__ . '/../..' . '/app/Models/Renaval.php',
         'App\\Models\\Renima' => __DIR__ . '/../..' . '/app/Models/Renima.php',

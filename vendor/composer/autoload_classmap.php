@@ -35,6 +35,7 @@ return array(
     'App\\Http\\Middleware\\TrustHosts' => $baseDir . '/app/Http/Middleware/TrustHosts.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Models\\Dni' => $baseDir . '/app/Models/Dni.php',
     'App\\Models\\PulmonaryHypertension' => $baseDir . '/app/Models/PulmonaryHypertension.php',
     'App\\Models\\Renaval' => $baseDir . '/app/Models/Renaval.php',
     'App\\Models\\Renima' => $baseDir . '/app/Models/Renima.php',
