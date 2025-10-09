@@ -15,6 +15,7 @@ class CreateDnisTable extends Migration
     {
         Schema::create('dnis', function (Blueprint $table) {
             $table->id();
+            $table->string('documento_identidad', 50)->unique();
             $table->timestamps();
         });
     }
