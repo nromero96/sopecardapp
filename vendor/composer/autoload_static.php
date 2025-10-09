@@ -615,6 +615,7 @@ class ComposerStaticInit741521ebc94a3f2215eb1f6c0a01d93d
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Exports\\RenimasExport' => __DIR__ . '/../..' . '/app/Exports/RenimasExport.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -622,6 +623,7 @@ class ComposerStaticInit741521ebc94a3f2215eb1f6c0a01d93d
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\ExportController' => __DIR__ . '/../..' . '/app/Http/Controllers/ExportController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\PulmonaryHypertensionController' => __DIR__ . '/../..' . '/app/Http/Controllers/PulmonaryHypertensionController.php',
         'App\\Http\\Controllers\\RenavalController' => __DIR__ . '/../..' . '/app/Http/Controllers/RenavalController.php',
