@@ -41,9 +41,12 @@ class RenimasExport implements FromCollection, WithHeadings
         if (!$value) return null;
 
         $len = strlen($value);
-        if ($len <= 5) return str_repeat('*', $len); // si es corto, todo oculto
+        if ($len <= 3) {
+            // Si es menor o igual a 3, no enmascaramos
+            return $value;
+        }
 
-        return substr($value, 0, 2) . str_repeat('*', $len - 5) . substr($value, -3);
+        return str_repeat('*', $len - 3) . substr($value, -3);
     }
 
     private function maskEmail($value)
