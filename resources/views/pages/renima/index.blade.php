@@ -179,8 +179,13 @@
                 @csrf
                 <label for="clave">Clave de seguridad:</label>
                 <input type="password" name="clave" class="form-control mb-3" required>
-                <button type="submit" class="btn btn-primary">Descargar</button>
+                <button type="submit" class="btn btn-primary" id="btnDescargar">Descargar</button>
             </form>
+
+            <div id="descargaMensaje" class="mt-2 text-info" style="display:none;">
+                ⏳ Validando y generando archivo...
+            </div>
+
         </div>
       </div>
     </div>
@@ -199,37 +204,63 @@
     }
 
     document.addEventListener('click', function (event) {
-    if (event.target && event.target.id === 'buttonsearchcp') {
-        var searchValue = document.getElementById('searchcp').value;
+        if (event.target && event.target.id === 'buttonsearchcp') {
+            var searchValue = document.getElementById('searchcp').value;
 
-        var url = "{{ route('renima.searchcp') }}"; // Ruta en Laravel
+            var url = "{{ route('renima.searchcp') }}"; // Ruta en Laravel
 
-        fetch(url + '?search=' + encodeURIComponent(searchValue))
-            .then(response => response.json())
-            .then(data => {
-                var resultsDiv = document.getElementById('searchResults');
-                resultsDiv.innerHTML = ''; // Limpiar resultados anteriores
+            fetch(url + '?search=' + encodeURIComponent(searchValue))
+                .then(response => response.json())
+                .then(data => {
+                    var resultsDiv = document.getElementById('searchResults');
+                    resultsDiv.innerHTML = ''; // Limpiar resultados anteriores
 
-                if (data.length > 0) {
-                    data.forEach(item => {
-                        var resultItem = document.createElement('div');
-                        resultItem.className = 'alert alert-success';
-                        var editUrl = `{{ url('/renima-assignme') }}/${item.id}`;
-                        resultItem.innerHTML = `<b>Registro encontrado:</b> ${item.de_documento_identidad} <br> <b>Responsable</b>: ${item.reponsable_trato} ${item.reponsable_name} <br> 
-                            <small class="text-danger" style="line-height: 1;"><b>Nota:</b> Al hacer clic en "Completar", se te está asignando el registro para completar.</small> <br>
-                            <a href="${editUrl}" class="btn btn-primary mt-2">Completar</a>`;
-                        resultsDiv.appendChild(resultItem);
-                    });
-                } else {
-                    var noResultItem = document.createElement('div');
-                    noResultItem.className = 'alert alert-danger';
-                    noResultItem.innerHTML = 'No se encontraron registros.';
-                    resultsDiv.appendChild(noResultItem);
-                }
-            })
-            .catch(error => console.error('Error:', error));
-    }
-});
+                    if (data.length > 0) {
+                        data.forEach(item => {
+                            var resultItem = document.createElement('div');
+                            resultItem.className = 'alert alert-success';
+                            var editUrl = `{{ url('/renima-assignme') }}/${item.id}`;
+                            resultItem.innerHTML = `<b>Registro encontrado:</b> ${item.de_documento_identidad} <br> <b>Responsable</b>: ${item.reponsable_trato} ${item.reponsable_name} <br> 
+                                <small class="text-danger" style="line-height: 1;"><b>Nota:</b> Al hacer clic en "Completar", se te está asignando el registro para completar.</small> <br>
+                                <a href="${editUrl}" class="btn btn-primary mt-2">Completar</a>`;
+                            resultsDiv.appendChild(resultItem);
+                        });
+                    } else {
+                        var noResultItem = document.createElement('div');
+                        noResultItem.className = 'alert alert-danger';
+                        noResultItem.innerHTML = 'No se encontraron registros.';
+                        resultsDiv.appendChild(noResultItem);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    });
+
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('formDescargarRenima');
+        const btn = document.getElementById('btnDescargar');
+        const mensaje = document.getElementById('descargaMensaje');
+
+        form.addEventListener('submit', function () {
+            // Mostrar mensaje
+            mensaje.style.display = 'block';
+            btn.disabled = true;
+            btn.innerText = 'Descargando...';
+
+            // Restaurar botón después de unos segundos (por si algo falla)
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerText = 'Descargar';
+                mensaje.style.display = 'none';
+                //cerrar modal
+                $('#modalDescargar').modal('hide');
+                //limpiar formulario
+                form.reset();
+            }, 10000); // 10 segundos — ajusta según tu necesidad
+        });
+    });
 
 
 </script>
