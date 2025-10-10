@@ -30,4 +30,6 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'export_security_key' => env('EXPORT_SECURITY_KEY'),
+
 ];

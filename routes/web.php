@@ -60,6 +60,12 @@ Route::group(['middleware' => ['auth', 'ensureStatusActive']], function () {
             return 'Error clearing cache: ' . $e->getMessage();
         }
     });
+
+    //Optimize
+    Route::get('/optimize', function () {
+        Artisan::call('optimize');
+        return 'Optimizado.';
+    });
     
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -79,7 +85,7 @@ Route::group(['middleware' => ['auth', 'ensureStatusActive']], function () {
     Route::resource('/pulmonary-hypertension', PulmonaryHypertensionController::class)->names('pulmonary-hypertension');
 
 
-    Route::get('/export-renimas', [App\Http\Controllers\ExportController::class, 'renimas']);
+    Route::post('/export-renimas', [App\Http\Controllers\ExportController::class, 'renimas'])->name('export-renimas');
 
 });
 

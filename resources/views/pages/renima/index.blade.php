@@ -8,13 +8,19 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-2 mb-sm-4">
         <h1 class="h3 mb-0 text-gray-800">Registros Renima</h1>
-        @if(auth::user()->hasRole('medico'))
-        
+
+        @if(auth()->user() && auth()->user()->hasRole('medico'))
             <button type="button" class="d-sm-inline-block btn btn-sm btn-info shadow-sm" data-toggle="modal" data-target="#modalBuscadorCompletar">
                 <i class="fas fa-search fa-sm text-white-50"></i>Buscar para Completar
             </button>
-
         @endif
+
+        @if(auth()->user() && auth()->user()->hasRole('admin'))
+            <a href="javascript:void(0);" class="d-sm-inline-block btn btn-sm btn-success mt-1 mt-sm-0 shadow-sm" data-toggle="modal" data-target="#modalDescargar" ><i
+                class="fas fa-file-export fa-sm text-white-50"></i> Exportar Registro</a>
+        @endif
+
+
         <a href="{{ route('renima.create') }}" class="d-sm-inline-block btn btn-sm btn-primary mt-1 mt-sm-0 shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Nuevo Registro</a>
     </div>
@@ -153,6 +159,28 @@
                     <strong>Nota:</strong> Si el registro ya existe, selecciones el registro y haga clic en "Completar".
                 </div>
             </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalDescargar" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalDescargarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalDescargarLabel">Descargar registros Renima</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="{{ route('export-renimas') }}" method="POST" id="formDescargarRenima">
+                @csrf
+                <label for="clave">Clave de seguridad:</label>
+                <input type="password" name="clave" class="form-control mb-3" required>
+                <button type="submit" class="btn btn-primary">Descargar</button>
+            </form>
         </div>
       </div>
     </div>
