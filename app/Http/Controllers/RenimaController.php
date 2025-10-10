@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Renima;
 use App\Models\RenimaUser;
+use App\Models\Dni;
 
 use Illuminate\Support\Facades\Log;
 
@@ -94,9 +95,25 @@ class RenimaController extends Controller
     {
 
         $renima = new Renima();
+
+            //id_dnis verificar si existe si no crearlo y obtener el id
+            $dni = Dni::where('documento_identidad', $request->de_documento_identidad)->first();
+            if (!$dni && $request->de_documento_identidad != null) {
+                $dni = new Dni();
+                $dni->documento_identidad = $request->de_documento_identidad;
+                $dni->save();
+
+                $renima->id_dnis = $dni->id;
+                $renima->de_documento_identidad = $request->de_documento_identidad;
+
+            } else {
+                $renima->id_dnis = NULL;
+                $renima->de_documento_identidad = $request->de_documento_identidad;
+            }
+    
         
         // Datos Epidemiológicos (de_)
-            $renima->de_documento_identidad = $request->de_documento_identidad;
+            
             $renima->de_telefono = $request->de_telefono;
             $renima->de_celular = $request->de_celular;
             $renima->de_celular_2 = $request->de_celular_2;
@@ -508,8 +525,31 @@ class RenimaController extends Controller
     {
         $renima = Renima::find($id);
 
+        // Buscar si el DNI existe en la tabla dnis
+        $dni = Dni::where('documento_identidad', $request->de_documento_identidad)->first();
+
+        // Si el campo DNI no está vacío
+        if ($request->de_documento_identidad != null) {
+
+            if (!$dni) {
+                // Si no existe, lo creamos
+                $dni = new Dni();
+                $dni->documento_identidad = $request->de_documento_identidad;
+                $dni->save();
+            }
+
+            // Asignamos el id del dni encontrado o recién creado
+            $renima->id_dnis = $dni->id;
+            $renima->de_documento_identidad = $request->de_documento_identidad;
+
+        } else {
+            // Si el campo DNI está vacío, dejamos null
+            $renima->id_dnis = null;
+            $renima->de_documento_identidad = null;
+        }
+
+
         // Datos Epidemiológicos (de_)
-        $renima->de_documento_identidad = $request->de_documento_identidad;
         $renima->de_telefono = $request->de_telefono;
         $renima->de_celular = $request->de_celular;
         $renima->de_celular_2 = $request->de_celular_2;

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Dni extends Model
 {
     use HasFactory;
+
+    protected $table = 'dnis';
 }
