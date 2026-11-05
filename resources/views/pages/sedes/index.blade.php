@@ -36,6 +36,17 @@
             <h6 class="m-0 font-weight-bold text-primary">Lista de sedes.</h6>
         </div>
         <div class="card-body">
+            <form action="{{ route('sedes.index') }}" method="GET" class="mb-3">
+                <label for="sede-search">Buscar sedes</label>
+                <div class="d-flex flex-wrap align-items-center">
+                    <input id="sede-search" name="search" type="search" value="{{ $search }}"
+                        class="form-control w-auto mw-100 mr-2 mb-2" placeholder="Nombre o dirección">
+                    <button type="submit" class="btn btn-primary mr-2 mb-2">Buscar</button>
+                    @if($search !== '')
+                        <a href="{{ route('sedes.index') }}" class="btn btn-outline-secondary mb-2">Limpiar</a>
+                    @endif
+                </div>
+            </form>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -58,7 +69,7 @@
                     </tfoot>
                     <tbody>
 
-                        @foreach ($sedes as $sede)
+                        @forelse ($sedes as $sede)
                         <tr>
                             <td>{{ $sede->id }}</td>
                             <td>{{ $sede->name }}</td>
@@ -72,7 +83,7 @@
                             </td>
                             <td>
                                 
-                                <form action="{{ route('sedes.destroy', $sede->id) }}" method="POST">
+                                <form action="{{ route('sedes.destroy', $sede->id) }}" method="POST" data-delete-sede>
                                     @csrf
                                     @method('DELETE')
                                     <a href="{{ route('sedes.edit', $sede->id) }}" class="btn btn-primary btn-circle btn-sm">
@@ -83,10 +94,19 @@
                                     </button>
                                 </form>
                             </td>
-                        @endforeach
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="5" class="text-center text-muted">No se encontraron sedes.</td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
+            @if($sedes->count())
+                <p class="text-muted mb-2">Mostrando {{ $sedes->firstItem() }} a {{ $sedes->lastItem() }} de {{ $sedes->total() }} sedes.</p>
+            @endif
+            {{ $sedes->links('pagination::bootstrap-4') }}
         </div>
     </div>
 
@@ -98,17 +118,10 @@
 @section('scripts')
     <script>
 
-        //Cofirmar eliminación de sedes
-        $('form').on('submit', function(e) {
-            e.preventDefault(); // Evitar el envío del formulario por defecto
-            
-            confirmation = confirm('¿Está seguro de que desea eliminar esta sede?');
-            if (confirmation) {
-                this.submit(); // Enviar el formulario si el usuario confirma
-            } else {
-                return false; // Cancelar el envío del formulario si el usuario cancela
+        $('form[data-delete-sede]').on('submit', function(e) {
+            if (!confirm('¿Está seguro de que desea eliminar esta sede?')) {
+                e.preventDefault();
             }
-
         });
 
     </script>

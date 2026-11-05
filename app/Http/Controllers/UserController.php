@@ -14,19 +14,37 @@ use App\Models\Sede;
 class UserController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->query('search');
+        $search = is_string($search) ? trim($search) : '';
         $data = [
             'category_name' => 'users',
             'page_name' => 'users_index',
+            'search' => $search,
         ];
 
         //join sedes table to get name of sede
-        $users = User::leftjoin('sedes', 'users.sede', '=', 'sedes.id')
+        $query = User::with('roles.permissions', 'permissions')
+            ->leftjoin('sedes', 'users.sede', '=', 'sedes.id')
             ->select('users.*', 'sedes.name as sede_name', 'sedes.address as sede_address')
-            ->where('users.status', '!=', 'eliminado')
+            ->where('users.status', '!=', 'eliminado');
+
+        foreach (preg_split('/\s+/', $search, -1, PREG_SPLIT_NO_EMPTY) as $term) {
+            $pattern = '%'.$term.'%';
+            $query->where(function ($query) use ($pattern) {
+                $query->where('users.name', 'like', $pattern)
+                    ->orWhere('users.lastname', 'like', $pattern)
+                    ->orWhere('users.email', 'like', $pattern)
+                    ->orWhere('users.phone', 'like', $pattern)
+                    ->orWhere('sedes.name', 'like', $pattern);
+            });
+        }
+
+        $users = $query
             ->orderBy('users.id', 'desc')
-            ->get();
+            ->paginate(15)
+            ->appends($search === '' ? [] : ['search' => $search]);
 
 
         return view('pages.users.index')->with($data)->with('users', $users);

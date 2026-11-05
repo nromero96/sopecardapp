@@ -12,15 +12,28 @@ class SedeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-
+        $search = $request->query('search');
+        $search = is_string($search) ? trim($search) : '';
         $data = [
             'category_name' => 'sedes',
             'page_name' => 'sedes_index',
+            'search' => $search,
         ];
 
-        $sedes = Sede::where('status', '!=', 'deleted')->get();
+        $query = Sede::where('status', '!=', 'deleted');
+
+        foreach (preg_split('/\s+/', $search, -1, PREG_SPLIT_NO_EMPTY) as $term) {
+            $pattern = '%'.$term.'%';
+            $query->where(function ($query) use ($pattern) {
+                $query->where('name', 'like', $pattern)
+                    ->orWhere('address', 'like', $pattern);
+            });
+        }
+
+        $sedes = $query->orderBy('id')->paginate(15)
+            ->appends($search === '' ? [] : ['search' => $search]);
 
         return view('pages.sedes.index')->with($data)->with('sedes', $sedes);
     }
